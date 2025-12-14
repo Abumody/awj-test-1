@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing 01 - Grade 11</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            padding: 25px 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .student-info {
+            background: #f8f9fa;
+            padding: 15px 40px;
+            border-bottom: 2px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .main-content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .prompt-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+        }
+        
+        .chart-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            margin: 20px 0;
+        }
+        
+        .chart-title {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .chart-bar {
+            margin-bottom: 15px;
+        }
+        
+        .bar-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .bar-container {
+            height: 25px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            float: left;
+        }
+        
+        .bar-boys {
+            background-color: #3498db;
+        }
+        
+        .bar-girls {
+            background-color: #e74c3c;
+            float: right;
+        }
+        
+        .bar-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .requirements {
+            background: #fff8e1;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .writing-section {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .word-count {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .word-counter {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .word-counter.warning {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .writing-area {
+            min-height: 300px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            line-height: 1.6;
+            resize: vertical;
+            font-family: inherit;
+        }
+        
+        .writing-area:focus {
+            outline: none;
+            border-color: #9b59b6;
+        }
+        
+        .ai-options {
+            background: #e8f6f3;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            border-left: 4px solid #1abc9c;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+        
+        .btn-back {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .btn-back:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-reset {
+            background-color: #95a5a6;
+            color: white;
+        }
+        
+        .btn-reset:hover {
+            background-color: #7f8c8d;
+            transform: translateY(-2px);
+        }
+        
+        .btn-submit {
+            background-color: #27ae60;
+            color: white;
+        }
+        
+        .btn-submit:hover {
+            background-color: #219653;
+            transform: translateY(-2px);
+        }
+        
+        .feedback-section {
+            display: none;
+            margin-top: 30px;
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            border: 2px solid #9b59b6;
+        }
+        
+        .feedback-section.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .ai-thinking {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        .ai-thinking.show {
+            display: block;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #9b59b6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .score-display {
+            background: linear-gradient(135deg, #27ae60, #219653);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .score-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .feedback-content {
+            margin: 20px 0;
+        }
+        
+        .feedback-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .api-status {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 6px;
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .api-status.warning {
+            background: #fff3cd;
+            border-color: #ffeaa7;
+            color: #856404;
+        }
+        
+        .criteria-display {
+            background: #e3f2fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .criteria-display h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+        
+        .criteria-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .criteria-marks {
+            font-weight: bold;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WRITING 01 - Informative Text</h1>
+            <p class="subtitle">Grade 11, Semester 1 - 2024/2025</p>
+            <p class="subtitle" style="font-size: 0.9rem; margin-top: 10px;">✨ AI Feedback with Criteria-Based Evaluation</p>
+        </header>
+        
+        <div class="student-info">
+            <div class="student-details">
+                Student: <strong id="studentName">Loading...</strong>
+            </div>
+            <div class="student-details">
+                Time: <strong id="currentTime">Loading...</strong>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <!-- Left: Prompt and Chart -->
+            <div class="prompt-section">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">Writing Task</h3>
+                <p style="margin-bottom: 20px; font-size: 1.1rem;">
+                    <strong>Write an informative text of at least 100 words.</strong> Use ALL the information in the bar chart below.
+                </p>
+                
+                <div class="chart-container">
+                    <div class="chart-title">Reasons for Learning an Additional Language in Kuwait 2020</div>
+                    
+                    <!-- Chart bars -->
+                    <div class="chart-bar">
+                        <div class="bar-label">
+                            <span>to study abroad</span>
+                            <span>Boys: 42% | Girls: 38%</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar-fill bar-boys" style="width: 42%"></div>
+                            <div class="bar-fill bar-girls" style="width: 38%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-bar">
+                        <div class="bar-label">
+                            <span>to find a part-time job</span>
+                            <span>Boys: 35% | Girls: 32%</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar-fill bar-boys" style="width: 35%"></div>
+                            <div class="bar-fill bar-girls" style="width: 32%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-bar">
+                        <div class="bar-label">
+                            <span>to use social media</span>
+                            <span>Boys: 28% | Girls: 40%</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar-fill bar-boys" style="width: 28%"></div>
+                            <div class="bar-fill bar-girls" style="width: 40%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-bar">
+                        <div class="bar-label">
+                            <span>to travel</span>
+                            <span>Boys: 20% | Girls: 25%</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar-fill bar-boys" style="width: 20%"></div>
+                            <div class="bar-fill bar-girls" style="width: 25%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bar-legend">
+                        <div class="legend-item">
+                            <div style="width: 15px; height: 15px; background-color: #3498db; border-radius: 3px;"></div>
+                            <span>Boys</span>
+                        </div>
+                        <div class="legend-item">
+                            <div style="width: 15px; height: 15px; background-color: #e74c3c; border-radius: 3px;"></div>
+                            <span>Girls</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="requirements">
+                    <h4>✅ Task Requirements:</h4>
+                    <ul>
+                        <li>Write at least <strong>100 words</strong></li>
+                        <li>Include <strong>ALL 4 data points</strong> from the chart</li>
+                        <li>Write an <strong>informative</strong> text (not opinion)</li>
+                        <li>Compare <strong>boys' and girls'</strong> percentages</li>
+                        <li>Use proper <strong>paragraph structure</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="criteria-display">
+                    <h4>📋 Grading Criteria (10 marks total):</h4>
+                    <div class="criteria-item">
+                        <span>A. Task Achievement</span>
+                        <span class="criteria-marks">2.5 marks</span>
+                    </div>
+                    <div class="criteria-item">
+                        <span>B. Content Development</span>
+                        <span class="criteria-marks">2.5 marks</span>
+                    </div>
+                    <div class="criteria-item">
+                        <span>C. Organization & Structure</span>
+                        <span class="criteria-marks">2.5 marks</span>
+                    </div>
+                    <div class="criteria-item">
+                        <span>D. Language Use</span>
+                        <span class="criteria-marks">2.5 marks</span>
+                    </div>
+                </div>
+                
+                <div class="ai-options">
+                    <h4>🤖 AI Writing Feedback</h4>
+                    <p style="margin-bottom: 10px;">Your writing will be evaluated according to the above criteria.</p>
+                    
+                    <div class="api-status" id="apiStatus">
+                        ✅ AI Feedback: <strong>Criteria-Based Evaluation</strong>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right: Writing Area -->
+            <div class="writing-section">
+                <div class="word-count">
+                    <span>Write your informative text below:</span>
+                    <span class="word-counter" id="wordCounter">Words: 0</span>
+                </div>
+                
+                <textarea 
+                    class="writing-area" 
+                    id="writingArea" 
+                    placeholder="Start writing your informative text here...
+
+Example structure:
+• Introduction: Explain what the chart shows about language learning in Kuwait
+• Body Paragraph 1: Discuss study abroad data (Boys 42%, Girls 38%)
+• Body Paragraph 2: Discuss part-time job data (Boys 35%, Girls 32%)
+• Body Paragraph 3: Discuss social media data (Boys 28%, Girls 40%)
+• Body Paragraph 4: Discuss travel data (Boys 20%, Girls 25%)
+• Conclusion: Summarize key findings and comparisons
+
+Remember: 
+- Write at least 100 words
+- Include ALL 4 data points
+- Compare boys and girls
+- Use informative style (not opinion)"
+                    oninput="updateWordCount()"
+                ></textarea>
+                
+                <div class="actions">
+                    <button class="btn btn-back" onclick="goBack()">Back to Dashboard</button>
+                    <button class="btn btn-reset" onclick="resetWriting()">Clear Text</button>
+                    <button class="btn btn-submit" onclick="submitWriting()">Get AI Feedback</button>
+                </div>
+                
+                <!-- AI Thinking Indicator -->
+                <div class="ai-thinking" id="aiThinking">
+                    <div class="spinner"></div>
+                    <p>AI is evaluating your writing against criteria... Please wait 10-20 seconds.</p>
+                    <p style="font-size: 0.9rem; color: #666;" id="aiStatus">Analyzing against criteria...</p>
+                </div>
+                
+                <!-- Feedback Section -->
+                <div class="feedback-section" id="feedbackSection">
+                    <div class="score-display">
+                        <div class="score-value" id="aiScore">0/10</div>
+                        <div>Criteria-Based Score</div>
+                    </div>
+                    
+                    <div class="feedback-content" id="feedbackContent">
+                        <!-- AI feedback will appear here -->
+                    </div>
+                    
+                    <div class="actions">
+                        <button class="btn btn-reset" onclick="resetWriting()">Try Again</button>
+                        <button class="btn btn-submit" onclick="submitWriting()">Get New Feedback</button>
+                        <button class="btn btn-back" onclick="saveAndExit()">Save & Exit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // SCHOOL API CONFIGURATION
+        // ============================================
+        
+        // Choose which AI service to use:
+        const AI_SERVICE = 'deepseek';  // Options: 'deepseek', 'gemini', 'together', 'simulated'
+        
+        // Enter your API keys below:
+        const API_KEYS = {
+            deepseek: 'sk-f81919a649cc4762959da3927f5bbcf6',  // ← REPLACE WITH YOUR KEY
+            gemini: 'AIza-your-gemini-api-key-here',
+            together: 'tg-your-together-api-key-here'
+        };
+        
+        // ============================================
+        // END OF CONFIGURATION
+        // ============================================
+        
+        // Get student name from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const studentName = urlParams.get('student') || 'Student';
+        
+        // Check API configuration
+        const apiKey = API_KEYS[AI_SERVICE];
+        const serviceNames = {
+            deepseek: 'DeepSeek',
+            gemini: 'Google Gemini',
+            together: 'Together AI',
+            simulated: 'Simulated Feedback'
+        };
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStudentName();
+            updateTime();
+            setInterval(updateTime, 60000);
+            updateApiStatus();
+        });
+        
+        function loadStudentName() {
+            document.getElementById('studentName').textContent = studentName;
+        }
+        
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('currentTime').textContent = timeString;
+        }
+        
+        function updateApiStatus() {
+            const statusElement = document.getElementById('apiStatus');
+            if (AI_SERVICE === 'simulated' || !apiKey || apiKey.includes('your-')) {
+                statusElement.innerHTML = `✅ <strong>Simulated Criteria-Based Evaluation</strong>`;
+            } else {
+                statusElement.innerHTML = `✅ AI Feedback: <strong>${serviceNames[AI_SERVICE]} with Criteria</strong>`;
+            }
+        }
+        
+        function updateWordCount() {
+            const text = document.getElementById('writingArea').value;
+            const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+            const wordCount = words.length;
+            
+            const counter = document.getElementById('wordCounter');
+            counter.textContent = `Words: ${wordCount}`;
+            
+            if (wordCount < 100) {
+                counter.classList.add('warning');
+            } else {
+                counter.classList.remove('warning');
+            }
+        }
+        
+        function goBack() {
+            window.location.href = `..//dashboard.html?student=${encodeURIComponent(studentName)}`;
+        }
+        
+        function resetWriting() {
+            if (confirm('Clear your writing?')) {
+                document.getElementById('writingArea').value = '';
+                updateWordCount();
+                hideFeedback();
+            }
+        }
+        
+        function hideFeedback() {
+            document.getElementById('feedbackSection').classList.remove('show');
+        }
+        
+        // Main submission function
+        async function submitWriting() {
+            const writingText = document.getElementById('writingArea').value.trim();
+            const wordCount = writingText.split(/\s+/).filter(word => word.length > 0).length;
+            
+            if (writingText.length === 0) {
+                alert('Please write something before submitting.');
+                return;
+            }
+            
+            if (wordCount < 50 && !confirm(`Only ${wordCount} words (need 100+). Continue?`)) {
+                return;
+            }
+            
+            // Show thinking indicator
+            document.getElementById('aiThinking').classList.add('show');
+            const aiStatus = document.getElementById('aiStatus');
+            
+            try {
+                aiStatus.textContent = `Evaluating against criteria...`;
+                
+                let feedback;
+                
+                // Check if we should use real AI or simulated
+                const useRealAI = AI_SERVICE !== 'simulated' && 
+                                 apiKey && 
+                                 apiKey.length > 20 && 
+                                 !apiKey.includes('your-');
+                
+                if (useRealAI) {
+                    feedback = await getAIFeedback(writingText, wordCount);
+                    aiStatus.textContent = 'Processing criteria-based evaluation...';
+                } else {
+                    feedback = getSimulatedFeedback(writingText, wordCount);
+                    aiStatus.textContent = 'Using criteria-based evaluation...';
+                }
+                
+                // Display feedback
+                displayFeedback(feedback);
+                
+                // Save result
+                saveWritingResult(feedback.score, wordCount);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                aiStatus.textContent = `Error: ${error.message}. Using simulated evaluation.`;
+                
+                // Fallback to simulated
+                const feedback = getSimulatedFeedback(writingText, wordCount);
+                displayFeedback(feedback);
+                saveWritingResult(feedback.score, wordCount);
+                
+            } finally {
+                setTimeout(() => {
+                    document.getElementById('aiThinking').classList.remove('show');
+                }, 500);
+            }
+        }
+        
+        // Get AI feedback using configured service
+        async function getAIFeedback(writingText, wordCount) {
+            if (!apiKey || apiKey.includes('your-')) {
+                throw new Error('API key not configured');
+            }
+            
+            // CRITERIA-BASED PROMPT
+            const systemPrompt = `You are an English teacher grading a Grade 11 writing task. The student wrote an informative text based on a bar chart about reasons for learning additional languages in Kuwait.
+
+CHART DATA (MUST BE INCLUDED):
+1. To study abroad: Boys 42%, Girls 38%
+2. To find part-time job: Boys 35%, Girls 32%
+3. To use social media: Boys 28%, Girls 40%
+4. To travel: Boys 20%, Girls 25%
+
+GRADING CRITERIA (10 MARKS TOTAL):
+
+A. TASK ACHIEVEMENT (2.5 marks):
+- All 4 data points included: 1 mark (0.25 each)
+- At least 100 words: 0.5 marks
+- Informative style (not opinion): 0.5 marks
+- Compares boys vs girls percentages: 0.5 marks
+
+B. CONTENT DEVELOPMENT (2.5 marks):
+- Accurate data representation: 1 mark
+- Clear introduction & conclusion: 0.5 marks
+- Logical progression of ideas: 0.5 marks
+- Sufficient detail and elaboration: 0.5 marks
+
+C. ORGANIZATION & STRUCTURE (2.5 marks):
+- Clear paragraph structure: 1 mark
+- Logical flow between paragraphs: 0.5 marks
+- Appropriate use of linking words: 0.5 marks
+- Effective topic sentences: 0.5 marks
+
+D. LANGUAGE USE (2.5 marks):
+- Grammatical accuracy: 1 mark
+- Vocabulary range and appropriateness: 0.5 marks
+- Spelling and punctuation: 0.5 marks
+- Sentence variety and complexity: 0.5 marks
+
+SCORING INSTRUCTIONS:
+1. Check if all 4 data points are included (mark each 0.25)
+2. Check word count (0.5 if ≥100, 0 if <100)
+3. Check if informative style (0.5 if yes, 0 if opinion-based)
+4. Check if boys vs girls comparison exists (0.5 if yes, 0 if no)
+5. Evaluate content development based on indicators
+6. Evaluate organization based on indicators
+7. Evaluate language use based on indicators
+8. Total marks out of 10, convert to percentage
+9. Assign grade: A(90-100%), B(80-89%), C(70-79%), D(60-69%), F(<60%)
+
+Provide feedback in this EXACT JSON format:
+{
+    "score": "X/10",
+    "percentage": "XX%",
+    "grade": "A/B/C/D/F",
+    "taskFeedback": "Specific feedback on task requirements...",
+    "contentFeedback": "Feedback on content development...",
+    "organizationFeedback": "Feedback on organization...",
+    "languageFeedback": "Feedback on language use...",
+    "strengths": ["Specific strength 1", "Specific strength 2"],
+    "improvements": ["Specific improvement 1", "Specific improvement 2"],
+    "missingData": ["List any missing data points"],
+    "wordCountCheck": "XX words (✓ meets/✗ below 100 words)",
+    "criteriaScores": {
+        "taskAchievement": "X/2.5",
+        "contentDevelopment": "X/2.5",
+        "organization": "X/2.5",
+        "languageUse": "X/2.5"
+    }
+}`;
+
+            const userPrompt = `Student's writing (${wordCount} words):\n\n${writingText}`;
+            
+            try {
+                let response;
+                
+                if (AI_SERVICE === 'deepseek') {
+                    // DeepSeek API
+                    response = await fetch('https://api.deepseek.com/chat/completions', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${apiKey}`
+                        },
+                        body: JSON.stringify({
+                            model: 'deepseek-chat',
+                            messages: [
+                                { role: 'system', content: systemPrompt },
+                                { role: 'user', content: userPrompt }
+                            ],
+                            temperature: 0.3, // Lower temperature for consistent grading
+                            max_tokens: 1000
+                        })
+                    });
+                } else if (AI_SERVICE === 'gemini') {
+                    // Google Gemini API
+                    response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            contents: [{
+                                parts: [{
+                                    text: `${systemPrompt}\n\n${userPrompt}`
+                                }]
+                            }],
+                            generationConfig: {
+                                temperature: 0.3,
+                                maxOutputTokens: 1000
+                            }
+                        })
+                    });
+                }
+                
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                // Parse response based on service
+                let aiResponse;
+                if (AI_SERVICE === 'deepseek' || AI_SERVICE === 'together') {
+                    aiResponse = data.choices[0].message.content;
+                } else if (AI_SERVICE === 'gemini') {
+                    aiResponse = data.candidates[0].content.parts[0].text;
+                }
+                
+                // Try to parse JSON from response
+                try {
+                    const jsonMatch = aiResponse.match(/\{[\s\S]*\}/);
+                    const jsonText = jsonMatch ? jsonMatch[0] : aiResponse;
+                    return JSON.parse(jsonText);
+                } catch (parseError) {
+                    return getSimulatedFeedback(writingText, wordCount);
+                }
+                
+            } catch (error) {
+                console.error(`${AI_SERVICE} API error:`, error);
+                throw error;
+            }
+        }
+        
+        // Simulated feedback with criteria
+        function getSimulatedFeedback(writingText, wordCount) {
+            const lowerText = writingText.toLowerCase();
+            
+            // Check data points
+            const dataChecks = [
+                { point: 'study abroad', check: lowerText.includes('study') && lowerText.includes('abroad') },
+                { point: 'part-time job', check: (lowerText.includes('job') || lowerText.includes('work')) && lowerText.includes('part') },
+                { point: 'social media', check: lowerText.includes('social') || lowerText.includes('media') },
+                { point: 'travel', check: lowerText.includes('travel') }
+            ];
+            
+            const missingData = dataChecks.filter(item => !item.check).map(item => item.point);
+            const dataPointsIncluded = 4 - missingData.length;
+            
+            // Check comparison
+            const hasComparison = lowerText.includes('boys') && lowerText.includes('girls') && 
+                                 (lowerText.includes('compare') || lowerText.includes('difference') || 
+                                  lowerText.includes('higher') || lowerText.includes('lower'));
+            
+            // Check informative style
+            const isInformative = !lowerText.includes('i think') && !lowerText.includes('in my opinion') &&
+                                 !lowerText.includes('i believe') && !lowerText.includes('i feel');
+            
+            // Check structure
+            const paragraphs = writingText.split(/\n\s*\n/).filter(p => p.trim().length > 0);
+            const hasStructure = paragraphs.length >= 3;
+            
+            // Calculate scores based on criteria
+            let taskScore = 0;
+            let contentScore = 0;
+            let orgScore = 0;
+            let langScore = 0;
+            
+            // A. TASK ACHIEVEMENT (2.5 marks)
+            taskScore += (dataPointsIncluded / 4) * 1.0; // 1 mark for data
+            taskScore += wordCount >= 100 ? 0.5 : 0; // 0.5 for word count
+            taskScore += isInformative ? 0.5 : 0; // 0.5 for informative style
+            taskScore += hasComparison ? 0.5 : 0; // 0.5 for comparison
+            
+            // B. CONTENT DEVELOPMENT (2.5 marks)
+            contentScore += dataPointsIncluded >= 3 ? 1.0 : 0.5; // Accuracy
+            contentScore += paragraphs.length >= 2 ? 0.5 : 0.25; // Intro/Conclusion
+            contentScore += 0.5; // Logical progression (assumed)
+            contentScore += wordCount > 120 ? 0.5 : 0.25; // Detail based on length
+            
+            // C. ORGANIZATION (2.5 marks)
+            orgScore += hasStructure ? 1.0 : 0.5;
+            orgScore += paragraphs.length >= 4 ? 0.5 : 0.25; // Flow
+            orgScore += (lowerText.includes('however') || lowerText.includes('furthermore') || 
+                        lowerText.includes('additionally')) ? 0.5 : 0.25; // Linking words
+            orgScore += 0.5; // Topic sentences (assumed)
+            
+            // D. LANGUAGE USE (2.5 marks)
+            const grammarScore = estimateGrammarScore(writingText);
+            langScore += grammarScore * 1.0; // Grammar
+            langScore += wordCount > 150 ? 0.5 : 0.25; // Vocabulary range
+            langScore += 0.5; // Spelling (assumed)
+            langScore += (writingText.split(/[.!?]+/).length > 8) ? 0.5 : 0.25; // Sentence variety
+            
+            // Calculate total
+            const totalScore = taskScore + contentScore + orgScore + langScore;
+            const roundedScore = Math.min(Math.round(totalScore * 2) / 2, 10); // Round to nearest 0.5
+            const percentage = Math.round((roundedScore / 10) * 100);
+            const grade = percentage >= 90 ? 'A' : 
+                         percentage >= 80 ? 'B' : 
+                         percentage >= 70 ? 'C' : 
+                         percentage >= 60 ? 'D' : 'F';
+            
+            return {
+                score: `${roundedScore}/10`,
+                percentage: `${percentage}%`,
+                grade: grade,
+                taskFeedback: `Task Achievement: ${dataPointsIncluded}/4 data points included. ${wordCount >= 100 ? '✓ Meets word count' : '✗ Below 100 words'}. ${isInformative ? '✓ Informative style' : '✗ Contains opinion'}. ${hasComparison ? '✓ Includes comparison' : '✗ Missing comparison'}.`,
+                contentFeedback: `Content Development: ${dataPointsIncluded >= 3 ? 'Good data coverage' : 'Limited data coverage'}. ${paragraphs.length >= 2 ? 'Clear structure' : 'Weak structure'}. Logical flow present. ${wordCount > 120 ? 'Sufficient detail' : 'Could use more detail'}.`,
+                organizationFeedback: `Organization: ${hasStructure ? 'Good paragraph structure' : 'Needs better structure'}. ${paragraphs.length >= 4 ? 'Good flow between paragraphs' : 'Limited paragraph development'}. ${lowerText.includes('however') ? 'Uses linking words' : 'Could use more linking words'}. Topic sentences present.`,
+                languageFeedback: `Language Use: ${grammarScore > 0.7 ? 'Good grammar' : 'Needs grammar review'}. ${wordCount > 150 ? 'Varied vocabulary' : 'Basic vocabulary'}. Spelling generally accurate. ${writingText.split(/[.!?]+/).length > 8 ? 'Good sentence variety' : 'Limited sentence variety'}.`,
+                strengths: [
+                    dataPointsIncluded > 0 ? `Included ${dataPointsIncluded}/4 data points` : 'Attempted the task',
+                    wordCount > 80 ? `Wrote ${wordCount} words` : 'Started writing',
+                    hasStructure ? 'Paragraph structure attempted' : 'Basic writing attempt'
+                ].filter(Boolean),
+                improvements: [
+                    missingData.length > 0 ? `Include missing data: ${missingData.join(', ')}` : null,
+                    wordCount < 100 ? `Increase to at least 100 words (currently ${wordCount})` : null,
+                    !hasComparison ? 'Add explicit boys vs girls comparison' : null,
+                    !hasStructure ? 'Use clear paragraph structure' : null
+                ].filter(Boolean),
+                missingData: missingData,
+                wordCountCheck: `${wordCount} words ${wordCount >= 100 ? '✓ meets' : '✗ below'} 100 words`,
+                criteriaScores: {
+                    taskAchievement: `${taskScore.toFixed(1)}/2.5`,
+                    contentDevelopment: `${contentScore.toFixed(1)}/2.5`,
+                    organization: `${orgScore.toFixed(1)}/2.5`,
+                    languageUse: `${langScore.toFixed(1)}/2.5`
+                }
+            };
+        }
+        
+        // Helper functions
+        function estimateGrammarScore(text) {
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+            if (sentences.length === 0) return 0.5;
+            
+            // Check capitalization
+            const firstChars = sentences.map(s => s.trim()[0]);
+            const properCaps = firstChars.filter(c => c === c.toUpperCase()).length;
+            
+            // Check sentence length (not too long/short)
+            const avgWords = sentences.reduce((sum, s) => sum + s.split(/\s+/).length, 0) / sentences.length;
+            const lengthScore = avgWords > 5 && avgWords < 25 ? 1 : 0.7;
+            
+            return (properCaps / sentences.length * 0.7) + (lengthScore * 0.3);
+        }
+        
+        // Display feedback
+        function displayFeedback(feedback) {
+            const feedbackContent = document.getElementById('feedbackContent');
+            const aiScore = document.getElementById('aiScore');
+            
+            aiScore.textContent = feedback.score;
+            
+            feedbackContent.innerHTML = `
+                <div class="feedback-item">
+                    <h4>📋 Task Achievement (2.5 marks) ${feedback.criteriaScores?.taskAchievement || ''}</h4>
+                    <p>${feedback.taskFeedback || 'No task feedback provided'}</p>
+                    ${feedback.missingData && feedback.missingData.length > 0 ? 
+                        `<p><strong>Missing data points:</strong> ${feedback.missingData.join(', ')}</p>` : ''}
+                    ${feedback.wordCountCheck ? `<p><strong>Word count:</strong> ${feedback.wordCountCheck}</p>` : ''}
+                </div>
+                <div class="feedback-item">
+                    <h4>📊 Content Development (2.5 marks) ${feedback.criteriaScores?.contentDevelopment || ''}</h4>
+                    <p>${feedback.contentFeedback || 'No content feedback provided'}</p>
+                </div>
+                <div class="feedback-item">
+                    <h4>📝 Organization & Structure (2.5 marks) ${feedback.criteriaScores?.organization || ''}</h4>
+                    <p>${feedback.organizationFeedback || 'No organization feedback provided'}</p>
+                </div>
+                <div class="feedback-item">
+                    <h4>🔤 Language Use (2.5 marks) ${feedback.criteriaScores?.languageUse || ''}</h4>
+                    <p>${feedback.languageFeedback || 'No language feedback provided'}</p>
+                </div>
+                <div class="feedback-item">
+                    <h4>🌟 Strengths</h4>
+                    <ul>
+                        ${(feedback.strengths || ['Good effort']).map(s => `<li>${s}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="feedback-item">
+                    <h4>💡 Areas for Improvement</h4>
+                    <ul>
+                        ${(feedback.improvements || ['Review the criteria']).map(i => `<li>${i}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="feedback-item">
+                    <h4>📈 Final Assessment</h4>
+                    <p><strong>Score:</strong> ${feedback.score}</p>
+                    <p><strong>Percentage:</strong> ${feedback.percentage || Math.round(parseInt(feedback.score.split('/')[0]) * 10)}%</p>
+                    <p><strong>Grade:</strong> ${feedback.grade || calculateGrade(parseInt(feedback.score.split('/')[0]), 10)}</p>
+                </div>
+            `;
+            
+            document.getElementById('feedbackSection').classList.add('show');
+            document.getElementById('feedbackSection').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Save result
+        function saveWritingResult(scoreString, wordCount) {
+            const score = parseFloat(scoreString.split('/')[0]);
+            const total = 10;
+            const percentage = Math.round((score / total) * 100);
+            const grade = calculateGrade(score, total);
+            
+            const result = {
+                activity: "Writing 1 - Informative Text",
+                score: score,
+                total: total,
+                percentage: percentage,
+                date: new Date().toLocaleString(),
+                grade: grade,
+                wordCount: wordCount
+            };
+            
+            const allResults = JSON.parse(localStorage.getItem('examResults') || '[]');
+            allResults.push(result);
+            localStorage.setItem('examResults', JSON.stringify(allResults));
+            localStorage.setItem('writing1Result', JSON.stringify(result));
+            localStorage.setItem('justCompletedModule', 'writing1');
+            
+            return result;
+        }
+        
+        function calculateGrade(score, total) {
+            const percentage = (score / total) * 100;
+            if (percentage >= 90) return "A";
+            if (percentage >= 80) return "B";
+            if (percentage >= 70) return "C";
+            if (percentage >= 60) return "D";
+            return "F";
+        }
+        
+        function saveAndExit() {
+            alert('Your writing has been saved. Returning to dashboard.');
+            goBack();
+        }
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.code === 'Enter') {
+                e.preventDefault();
+                submitWriting();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Exam Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #4a6bff;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #4a6bff;
+        }
+        
+        .login-btn {
+            background-color: #4a6bff;
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+        .login-btn:hover {
+            background-color: #3a5be0;
+        }
+        
+        .welcome-message {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .exam-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 25px;
+            text-align: left;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .exam-info h4 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">EXAM PORTAL</div>
+        <h2>Student Exam Login</h2>
+        <p class="subtitle">Enter your full name to start the exam</p>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="studentName">Full Name</label>
+                <input type="text" id="studentName" placeholder="Enter your full name" required>
+            </div>
+            
+            <button type="submit" class="login-btn">Start Exam</button>
+        </form>
+        
+        <div id="welcomeMessage" class="welcome-message">
+            Welcome, <span id="displayName"></span>! Redirecting to exam...
+        </div>
+        
+        <div class="exam-info">
+            <h4>Exam Instructions:</h4>
+            <p>• Duration: 2 hours</p>
+            <p>• Total Questions: 50</p>
+            <p>• No password required</p>
+        </div>
+    </div>
+
+   <script>
+    const loginForm = document.getElementById('loginForm');
+    const welcomeMessage = document.getElementById('welcomeMessage');
+    const displayName = document.getElementById('displayName');
+    
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const studentName = document.getElementById('studentName').value.trim();
+        
+        if (studentName) {
+            // Show welcome message
+            displayName.textContent = studentName;
+            welcomeMessage.style.display = 'block';
+            
+            // ==== FIX: Clear previous student data ====
+            // Option 1: Clear ALL localStorage data (simplest)
+            localStorage.clear();
+            
+            // Option 2: Clear only exam-related data (more selective)
+            // localStorage.removeItem('examResults');
+            // localStorage.removeItem('completedModules');
+            // localStorage.removeItem('reading1Result');
+            // localStorage.removeItem('reading2Result');
+            // localStorage.removeItem('listeningResult');
+            
+            // Store current student name for reference
+            localStorage.setItem('currentStudent', studentName);
+            localStorage.setItem('loginTime', new Date().toISOString());
+            
+            // Simulate redirect to exam page (3 seconds delay)
+            setTimeout(function() {
+                alert(`Welcome ${studentName}! Starting fresh exam session.`);
+                window.location.href = "dashboard.html?student=" + encodeURIComponent(studentName);
+            }, 2000);
+        }
+    });
+</script>
+</body>
+</html>
