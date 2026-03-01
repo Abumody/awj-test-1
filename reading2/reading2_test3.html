@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading 2 – Test 3</title>
+
+<link rel="stylesheet" href="reading2-test.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <h1><i class="fas fa-book-open"></i> Reading 2 – Test 3</h1>
+    <p>Buenos Aires Tango Festival</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge"><i class="fas fa-question-circle"></i> 7 Questions</div>
+    <div class="badge"><i class="fas fa-redo"></i> 2 Attempts</div>
+  </div>
+</header>
+
+<section class="instructions">
+  <h3><i class="fas fa-info-circle"></i> Instructions</h3>
+  <ul>
+    <li>Read the email carefully on the right.</li>
+    <li>Choose ONE correct answer for each question.</li>
+  </ul>
+</section>
+
+<div class="layout">
+
+<!-- ================= LEFT: QUESTIONS ================= -->
+<div class="questions-panel">
+
+<div class="reading-item" data-q="1">
+<p>1. The name of the festival is ______.</p>
+<button class="tf-btn" data-value="A">the Buenos Aires Tango Festival</button>
+<button class="tf-btn" data-value="B">the Tango World Festival</button>
+<button class="tf-btn" data-value="C">the Luna Park Festival</button>
+</div>
+
+<div class="reading-item" data-q="2">
+<p>2. The purpose of this festival is to celebrate Argentinian ______.</p>
+<button class="tf-btn" data-value="A">culture</button>
+<button class="tf-btn" data-value="B">music</button>
+<button class="tf-btn" data-value="C">music and culture</button>
+</div>
+
+<div class="reading-item" data-q="3">
+<p>3. The festival takes place ______ every year.</p>
+<button class="tf-btn" data-value="A">one time</button>
+<button class="tf-btn" data-value="B">two times</button>
+<button class="tf-btn" data-value="C">three times</button>
+</div>
+
+<div class="reading-item" data-q="4">
+<p>4. You can attend ______ during the festival.</p>
+<button class="tf-btn" data-value="A">food celebrations</button>
+<button class="tf-btn" data-value="B">tango concerts</button>
+<button class="tf-btn" data-value="C">football matches</button>
+</div>
+
+<div class="reading-item" data-q="5">
+<p>5. The dancers compete for the Tango World Championship in the historic ______.</p>
+<button class="tf-btn" data-value="A">Luna Park stadium</button>
+<button class="tf-btn" data-value="B">fort</button>
+<button class="tf-btn" data-value="C">theater</button>
+</div>
+
+<div class="reading-item" data-q="6">
+<p>6. You can buy traditional Argentinian clothes from ______.</p>
+<button class="tf-btn" data-value="A">tango concerts</button>
+<button class="tf-btn" data-value="B">tango workshops</button>
+<button class="tf-btn" data-value="C">tango markets</button>
+</div>
+
+<div class="reading-item" data-q="7">
+<p>7. Nasser should contact Agustin by ______.</p>
+<button class="tf-btn" data-value="A">texting</button>
+<button class="tf-btn" data-value="B">calling</button>
+<button class="tf-btn" data-value="C">sending an email</button>
+</div>
+
+<div class="action-bar">
+  <button class="btn back" onclick="goBack()">
+    <i class="fas fa-arrow-left"></i> Back
+  </button>
+  <button id="submitBtn" class="btn submit">
+    <i class="fas fa-check-circle"></i> Submit
+  </button>
+</div>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+<!-- ================= RIGHT: PASSAGE ================= -->
+<div class="passage-panel">
+
+<h2>Buenos Aires Tango Festival</h2>
+
+<p><strong>Dear Nasser,</strong></p>
+
+<p>
+I hope this email finds you well. I am writing to invite you to attend the Buenos Aires Tango Festival, which is one of the most popular cultural festivals in Argentina. I believe that this festival would be a great experience for you, as it offers a unique chance to engage yourself in Argentine culture and music.
+</p>
+
+<p>
+The Buenos Aires Tango Festival takes place every August and is a celebration of the tango, a traditional Argentinian dance that has become an iconic symbol of the country. During the festival, you will have the opportunity to attend tango concerts, dance performances, and workshops to learn the dance from professionals.
+</p>
+
+<p>
+One of the main attractions of the festival is the Tango World Championship, which brings together the best tango dancers from all over the world to compete for the title of world champion. The championship takes place in the historic Luna Park stadium in Buenos Aires, where you can watch the dancers perform their incredible routines.
+</p>
+
+<p>
+In addition to the championship, there are many other activities to enjoy during the festival. You can visit the tango markets to buy traditional Argentinian clothes and accessories, attend tango concerts by famous musicians, and participate in tango workshops to improve your dance skills.
+</p>
+
+<p>
+As your friend, I would be happy to show you around Buenos Aires during the festival and introduce you to some of the local tango dancers and musicians. I think it would be an amazing opportunity for you to experience the culture of Argentina and learn more about the tango, which has become an important part of our national identity.
+</p>
+
+<p>
+Please let me know if you are interested in attending the Buenos Aires Tango Festival, and I will be happy to provide you with more information and assist you with any arrangements needed. If you decide to come, send me an email a week before your flight to prepare.
+</p>
+
+<p><strong>Warm regards,</strong><br>
+Agustin</p>
+
+</div>
+
+</div>
+</div>
+
+<script>
+window.ANSWERS = {
+  1: "A",
+  2: "C",
+  3: "A",
+  4: "B",
+  5: "A",
+  6: "C",
+  7: "C"
+};
+
+function goBack(){
+  window.location.href = "reading2-dashboard.html";
+}
+</script>
+
+<script src="reading2-test.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+/* ===============================
+   GLOBAL
+================================ */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins','Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#43e97b 0%, #38f9d7 100%);
+  min-height:100vh;
+  padding:30px;
+  color:#333;
+}
+
+/* ===============================
+   CONTAINER
+================================ */
+
+.container{
+  max-width:900px;
+  margin:auto;
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+header{
+  text-align:center;
+  padding:30px;
+  background:rgba(255,255,255,0.95);
+  border-radius:20px;
+  margin-bottom:30px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  position:relative;
+  overflow:hidden;
+}
+
+header::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:6px;
+  background:linear-gradient(90deg,#43e97b,#38f9d7);
+}
+
+header h1{
+  font-size:2.3rem;
+  background:linear-gradient(90deg,#43e97b,#38f9d7);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  font-size:1.1rem;
+  color:#6c757d;
+  font-weight:500;
+}
+
+/* ===============================
+   PASSAGE BOX
+================================ */
+
+.passage-container{
+  background:rgba(255,255,255,0.95);
+  border-radius:18px;
+  padding:35px;
+  margin-bottom:25px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.1);
+  transition:.3s;
+}
+
+.passage-container:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+.section-title{
+  font-size:1.4rem;
+  font-weight:600;
+  text-align:center;
+  margin-bottom:25px;
+  padding-bottom:12px;
+  border-bottom:2px solid #e9ecef;
+  color:#495057;
+}
+
+/* ===============================
+   PASSAGE TEXT
+================================ */
+
+.passage-text{
+  font-size:1.15rem;
+  line-height:1.9;
+  background:#f8f9fa;
+  padding:25px;
+  border-radius:12px;
+  border-left:6px solid #43e97b;
+  box-shadow:0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* ===============================
+   BLANK STYLE
+================================ */
+
+.blank{
+  display:inline-block;
+  position:relative;
+  margin:0 6px;
+}
+
+.blank-number{
+  position:absolute;
+  top:-22px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:.8rem;
+  color:#e74c3c;
+  font-weight:bold;
+  background:#fff;
+  padding:3px 8px;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  border:1px solid #ffebee;
+}
+
+/* ===============================
+   DROPDOWN
+================================ */
+
+.blank-select{
+  min-width:130px;
+  padding:10px 14px;
+  border:2px solid #dee2e6;
+  border-radius:10px;
+  background:linear-gradient(to bottom,#ffffff,#f8f9fa);
+  font-size:1rem;
+  cursor:pointer;
+  transition:.3s;
+  box-shadow:0 3px 8px rgba(0,0,0,0.08);
+  font-weight:500;
+}
+
+.blank-select:hover{
+  transform:translateY(-2px);
+  box-shadow:0 5px 12px rgba(0,0,0,0.12);
+}
+
+.blank-select:focus{
+  outline:none;
+  border-color:#43e97b;
+  box-shadow:0 0 0 3px rgba(67,233,123,0.25);
+}
+
+/* ===============================
+   RESULT COLORS (متوافق مع JS)
+================================ */
+
+.correct-answer{
+  background:linear-gradient(to bottom,#d4edda,#c3e6cb) !important;
+  border-color:#28a745 !important;
+  color:#155724 !important;
+}
+
+.wrong-answer{
+  background:linear-gradient(to bottom,#f8d7da,#f1b0b7) !important;
+  border-color:#dc3545 !important;
+  color:#721c24 !important;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+
+.actions{
+  display:flex;
+  gap:15px;
+  margin-top:30px;
+}
+
+.btn{
+  flex:1;
+  padding:15px;
+  border:none;
+  border-radius:12px;
+  font-size:1.05rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  text-align:center;
+  text-decoration:none;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.btn-dashboard{
+  background:linear-gradient(135deg,#2196f3,#0d47a1);
+  color:white;
+}
+
+.btn-check{
+  background:linear-gradient(135deg,#4caf50,#2e7d32);
+  color:white;
+}
+
+/* ===============================
+   RESULT BOX
+================================ */
+
+#result{
+  margin-top:25px;
+  padding:25px;
+  border-radius:15px;
+  font-size:1.3rem;
+  font-weight:bold;
+  text-align:center;
+  background:rgba(255,255,255,0.95);
+  box-shadow:0 8px 25px rgba(0,0,0,0.1);
+}

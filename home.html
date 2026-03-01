@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AWJ – Exam Practice</title>
+  <link rel="stylesheet" href="css/home-light.css">
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="brand">AWJ</div>
+  <div class="student-area">
+    <span id="studentName"></span>
+    <button onclick="logout()">Logout</button>
+  </div>
+</header>
+
+<main class="container">
+
+  <h1>Exam Practice Portal</h1>
+  <p class="subtitle">Practice under real exam-style conditions</p>
+
+  <!-- Listening -->
+  <section>
+    <h2>Listening</h2>
+    <div class="cards">
+      <div class="card listening">
+        <h3>Listening 1</h3>
+        <p>Basic listening comprehension</p>
+        <button data-link="listening\listening1\index.html">
+          Start Listening 1
+        </button>
+      </div>
+
+      <div class="card listening">
+        <h3>Listening 2</h3>
+        <p>Advanced listening tasks</p>
+        <button data-link="listening/listening2/listening2_dashboard.html">
+          Start Listening 2
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Language Use -->
+  <section>
+    <h2>Language Use</h2>
+    <div class="cards">
+      <div class="card vocabulary">
+        <h3>Vocabulary</h3>
+        <p>Word meaning and usage</p>
+        <button data-link="vocabulary/vocabulary_dashboard.html">
+          Start Vocabulary
+        </button>
+      </div>
+
+      <div class="card grammar">
+        <h3>Grammar</h3>
+        <p>Sentence structure and accuracy</p>
+        <button data-link="grammar/grammar_dashboard.html">
+          Start Grammar
+        </button>
+      </div>
+
+      <div class="card mixed">
+        <h3>Grammar & Vocabulary</h3>
+        <p>Mixed language questions</p>
+        <button data-link="grammar-vocabulary/grammar-vocabulary_dashboard.html">
+          Start Mixed Test
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reading -->
+  <section>
+    <h2>Reading</h2>
+    <div class="cards">
+      <div class="card reading">
+        <h3>Reading 1</h3>
+        <button data-link="reading1/reading1-dashboard.html">
+          Start Reading 1
+        </button>
+      </div>
+
+      <div class="card reading">
+        <h3>Reading 2</h3>
+        <button data-link="reading2/reading2-dashboard.html">
+          Start Reading 2
+        </button>
+      </div>
+
+      <div class="card reading">
+        <h3>Reading 3</h3>
+        <button data-link="reading3/reading3-dashboard.html">
+          Start Reading 3
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Writing -->
+  <section>
+    <h2>Writing</h2>
+    <div class="cards">
+      <div class="card writing">
+        <h3>Writing 1</h3>
+        <button data-link="writing/writing1/index.html">
+          Start Writing 1
+        </button>
+      </div>
+
+      <div class="card writing">
+        <h3>Writing 2</h3>
+        <button data-link="writing/writing2/index.html">
+          Start Writing 2
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="results">
+    <button class="results-btn" data-link="results.html">
+      View Results
+    </button>
+  </div>
+
+</main>
+
+<script src="js/home.js"></script>
+</body>
+</html>

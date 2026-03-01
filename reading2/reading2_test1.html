@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading 2 – Test 1</title>
+
+<link rel="stylesheet" href="reading2-test.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- ================= HEADER ================= -->
+<header class="hero">
+  <div>
+    <h1><i class="fas fa-book-open"></i> Reading 2 – Test 1</h1>
+    <p>Grade 11 – Reading Section</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge"><i class="fas fa-question-circle"></i> 7 Questions</div>
+    <div class="badge"><i class="fas fa-redo"></i> 2 Attempts</div>
+  </div>
+</header>
+
+<!-- ================= INSTRUCTIONS ================= -->
+<section class="instructions">
+  <h3><i class="fas fa-info-circle"></i> Instructions</h3>
+  <ul>
+    <li>Read the passage carefully on the right.</li>
+    <li>Choose ONE correct answer for each question.</li>
+    <li>You have only 2 attempts for this test.</li>
+  </ul>
+</section>
+
+<!-- ================= MAIN LAYOUT ================= -->
+<div class="layout">
+
+<!-- ===== LEFT SIDE: QUESTIONS ===== -->
+<div class="questions-panel">
+
+<div class="reading-item" data-q="1">
+<p>1. In 2018, Nicholas visited ______ countries.</p>
+<button class="tf-btn" data-value="A">two</button>
+<button class="tf-btn" data-value="B">three</button>
+<button class="tf-btn" data-value="C">four</button>
+</div>
+
+<div class="reading-item" data-q="2">
+<p>2. He organized his accommodation, food and visa by ______.</p>
+<button class="tf-btn" data-value="A">his own</button>
+<button class="tf-btn" data-value="B">local people</button>
+<button class="tf-btn" data-value="C">tour companies</button>
+</div>
+
+<div class="reading-item" data-q="3">
+<p>3. He received training in climbing and first aid in a ______.</p>
+<button class="tf-btn" data-value="A">high school</button>
+<button class="tf-btn" data-value="B">summer club</button>
+<button class="tf-btn" data-value="C">social club</button>
+</div>
+
+<div class="reading-item" data-q="4">
+<p>4. He completed the Active Youth Challenge in ______.</p>
+<button class="tf-btn" data-value="A">2016</button>
+<button class="tf-btn" data-value="B">2017</button>
+<button class="tf-btn" data-value="C">2018</button>
+</div>
+
+<div class="reading-item" data-q="5">
+<p>5. He learned how to be ______ when working with the elderly.</p>
+<button class="tf-btn" data-value="A">organized</button>
+<button class="tf-btn" data-value="B">independent</button>
+<button class="tf-btn" data-value="C">patient</button>
+</div>
+<div class="reading-item" data-q="6">
+<p>6. What language did Nicholas learn during his trip?</p>
+<button class="tf-btn" data-value="A">French</button>
+<button class="tf-btn" data-value="B">Swahili</button>
+<button class="tf-btn" data-value="C">Spanish</button>
+</div>
+
+<div class="reading-item" data-q="7">
+<p>7. What practical skill did he learn by himself?</p>
+<button class="tf-btn" data-value="A">Cooking</button>
+<button class="tf-btn" data-value="B">Car mechanics</button>
+<button class="tf-btn" data-value="C">Photography</button>
+</div>
+<!-- ===== ACTION BUTTONS ===== -->
+<div class="action-bar">
+  <button class="btn back" onclick="goBack()">
+    <i class="fas fa-arrow-left"></i> Back
+  </button>
+  <button id="submitBtn" class="btn submit">
+    <i class="fas fa-check-circle"></i> Submit
+  </button>
+</div>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+<!-- ===== RIGHT SIDE: PASSAGE ===== -->
+<div class="passage-panel">
+
+<h2>Applying for a Job</h2>
+
+<p><strong>Dear Sir/Madam,</strong></p>
+
+<p>
+I would like to apply for the job of a tour guide for your Overland Africa tours. I have had lots of useful experience for this job.
+</p>
+
+<p>
+I have spent five months backpacking around Africa. In 2018, I visited Ethiopia, Kenya and Tanzania. This trip taught me to be independent and to organise travel arrangements myself such as transports, accommodation, food and visas. I enjoyed meeting local people, learning about local traditions and visiting natural parks. I read and learned a lot about the culture and wildlife, and I even learned some Swahili and Afrikaans.
+</p>
+
+<p>
+I have also worked as a leader at a children's summer camp in the south of England. I worked there in 2017. I led activities for children aged 9–12, including football, climbing and campfire songs and games. For this work, I received training in climbing instructions and First aid. During this time, I developed many useful skills. For example, I had to ensure the children were always safe and happy. I learned how to be helpful and positive, and I learned ways to entertain people and help them to be more social, make friends when they are with strangers.
+</p>
+
+<p>
+In addition, I have completed the Active Youth Challenge. I did this while I was at high school in 2016. To complete this challenge, I firstly had to volunteer with a local organisation. I helped at a social club for the elderly, where I chatted and played games with the members. This experience taught me to be patient and friendly. Secondly, I had to learn something by myself. I learned car mechanics, which taught me some useful, practical skills. Thirdly, I organised a four-day camping and hiking trip in the Scottish mountains with other students from my school. I learned about using camping equipment and dealing with problems like bad weather and getting lost.
+</p>
+
+<p>
+I believe I have lots of useful experience to work as an Overland Tour Guide. I would love the opportunity to tell you more about my skills at an interview.
+</p>
+
+<p><strong>Yours faithfully,</strong><br>
+Nicholas Rigby</p>
+
+</div>
+
+</div>
+</div>
+
+<!-- ================= ANSWERS INSIDE HTML ================= -->
+<script>
+window.ANSWERS = {
+  1: "B",
+  2: "A",
+  3: "B",
+  4: "A",
+  5: "C",
+  6: "B",
+  7: "B"
+};
+
+function goBack(){
+  window.location.href = "reading2-dashboard.html";
+}
+</script>
+
+<script src="reading2-test.js"></script>
+
+</body>
+</html>

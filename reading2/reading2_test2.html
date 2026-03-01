@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading 2 – Test 2</title>
+
+<link rel="stylesheet" href="reading2-test.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <h1><i class="fas fa-book-open"></i> Reading 2 – Test 2</h1>
+    <p>Charity Run Event</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge"><i class="fas fa-question-circle"></i> 7 Questions</div>
+    <div class="badge"><i class="fas fa-redo"></i> 2 Attempts</div>
+  </div>
+</header>
+
+<section class="instructions">
+  <h3><i class="fas fa-info-circle"></i> Instructions</h3>
+  <ul>
+    <li>Read the text carefully on the right.</li>
+    <li>Choose ONE correct answer for each question.</li>
+  </ul>
+</section>
+
+<div class="layout">
+
+<!-- ================= LEFT: QUESTIONS ================= -->
+<div class="questions-panel">
+
+<div class="reading-item" data-q="1">
+<p>1. Charity Run is basically ______ event.</p>
+<button class="tf-btn" data-value="A">a celebrational</button>
+<button class="tf-btn" data-value="B">a voluntary</button>
+<button class="tf-btn" data-value="C">an entertaining</button>
+</div>
+
+<div class="reading-item" data-q="2">
+<p>2. The participants can easily get the location of the event by ______.</p>
+<button class="tf-btn" data-value="A">using smart applications</button>
+<button class="tf-btn" data-value="B">calling for directions</button>
+<button class="tf-btn" data-value="C">following posters</button>
+</div>
+
+<div class="reading-item" data-q="3">
+<p>3. The event will start ______.</p>
+<button class="tf-btn" data-value="A">in the early morning</button>
+<button class="tf-btn" data-value="B">at midnight</button>
+<button class="tf-btn" data-value="C">in the evening</button>
+</div>
+
+<div class="reading-item" data-q="4">
+<p>4. The main purpose of the event is to ______.</p>
+<button class="tf-btn" data-value="A">have fun</button>
+<button class="tf-btn" data-value="B">raise money</button>
+<button class="tf-btn" data-value="C">enjoy local food</button>
+</div>
+
+<div class="reading-item" data-q="5">
+<p>5. The participants are required to ______ before the run event.</p>
+<button class="tf-btn" data-value="A">practice running for long distances</button>
+<button class="tf-btn" data-value="B">take rest with no exercises</button>
+<button class="tf-btn" data-value="C">have balanced diet</button>
+</div>
+
+<div class="reading-item" data-q="6">
+<p>6. For more information, people can contact the organizers by ______.</p>
+<button class="tf-btn" data-value="A">direct call only</button>
+<button class="tf-btn" data-value="B">e-mail only</button>
+<button class="tf-btn" data-value="C">different contact options</button>
+</div>
+
+<div class="reading-item" data-q="7">
+<p>7. Another way to fund the event is ______.</p>
+<button class="tf-btn" data-value="A">paying cash</button>
+<button class="tf-btn" data-value="B">paying online</button>
+<button class="tf-btn" data-value="C">sending supplements</button>
+</div>
+
+<div class="action-bar">
+  <button class="btn back" onclick="goBack()">
+    <i class="fas fa-arrow-left"></i> Back
+  </button>
+  <button id="submitBtn" class="btn submit">
+    <i class="fas fa-check-circle"></i> Submit
+  </button>
+</div>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+<!-- ================= RIGHT: PASSAGE ================= -->
+<div class="passage-panel">
+
+<h2>Charity Run Invitation</h2>
+
+<p><strong>Dear Mr. Nasser,</strong></p>
+
+<p>
+I hope this e-mail finds you well. We're excited to extend a warm invitation to a 5km charity run. It is a special voluntary event that we think could really make a difference in our community. We really need you to join us to make this project successful, and we would be honored if you could be a part of it.
+</p>
+
+<p>
+Our event is named as "Hope for Tomorrow" and will take place on Saturday, April 20th. The location will be the City Park, where participants can easily reach using google map or any other navigational application. The run starts at 7am not after, as it's kindly recommended. The earlier it starts, the better it would be as we're looking for the participants convenience as much as possible.
+</p>
+
+<p>
+The charity run aims to raise funds for local shelters and community outreach programme. In additional to that, it's meant to engage the community to promote physical activity as well as create entertaining atmosphere for families. It will involve family-friendly activities such as face painting and a mini carnival and, most interestingly, local food will be served there.
+</p>
+
+<p>
+To prepare for a charity run, create a training plan with a mix of running, cross-training, and rest days, so run for short mileage if you're new to running. Also, you need to take rest and do simple exercises like stretching or yoga, and ensure proper hydration and a balanced diet. Before race day, run in the clothes and shoes you plan to wear to check for comfort and avoid skin burns.
+</p>
+
+<p>
+Thank you for considering our initiative. If you have any question or require further information, feel free to use any available contact option. Specifically, you contact us by e-mail. Also, a contact number will be at your service at any time by calling or even sending a WhatsApp message. In case you couldn't be present at the day of the event, you can donate online visiting the website given underneath.
+</p>
+
+<p>www.charityrun.com</p>
+
+<p><strong>Best regards,</strong><br>
+Organization team.</p>
+
+</div>
+
+</div>
+</div>
+
+<script>
+window.ANSWERS = {
+  1: "B",
+  2: "A",
+  3: "A",
+  4: "B",
+  5: "C",
+  6: "C",
+  7: "B"
+};
+
+function goBack(){
+  window.location.href = "reading2-dashboard.html";
+}
+</script>
+
+<script src="reading2-test.js"></script>
+
+</body>
+</html>

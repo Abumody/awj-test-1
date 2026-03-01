@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Listening Test – Omani Ship</title>
+
+<link rel="stylesheet" href="listening_test.css">
+</head>
+
+<body>
+
+<div class="exam">
+
+  <header class="header">
+    <h1>LISTENING 01</h1>
+    <p>You are going to hear a story about an Omani ship.</p>
+  </header>
+
+  <!-- Audio -->
+  <div class="audio-box">
+    <audio controls>
+      <source src="audio/listening1.mp3" type="audio/mpeg">
+      Your browser does not support audio.
+    </audio>
+  </div>
+
+  <!-- PART ONE -->
+  <div class="part-title">
+    Part One: Write short answers (not more than FOUR words)
+  </div>
+
+  <div class="question">
+    1. What is the name of the ship?
+    <input type="text" class="short-answer" data-q="1">
+  </div>
+
+  <div class="question">
+    2. When did the ship sail?
+    <input type="text" class="short-answer" data-q="2">
+  </div>
+
+  <div class="question">
+    3. What country was the trip going to?
+    <input type="text" class="short-answer" data-q="3">
+  </div>
+
+  <div class="question">
+    4. How many crew members jumped into the water?
+    <input type="text" class="short-answer" data-q="4">
+  </div>
+
+  <!-- PART TWO -->
+  <div class="part-title">
+    Part Two: Choose the correct answer
+  </div>
+
+  <div class="question">
+    5. The crew tried to signal for help using ______.
+    <div class="options">
+      <label><input type="radio" name="q5" value="flames"> flames</label>
+      <label><input type="radio" name="q5" value="clothes"> clothes</label>
+      <label><input type="radio" name="q5" value="flags"> flags</label>
+    </div>
+  </div>
+
+  <div class="question">
+    6. The members who stayed alive floated for ______ days.
+    <div class="options">
+      <label><input type="radio" name="q6" value="two"> two</label>
+      <label><input type="radio" name="q6" value="three"> three</label>
+      <label><input type="radio" name="q6" value="four"> four</label>
+    </div>
+  </div>
+
+  <div class="question">
+    7. They were rescued by ______ ship.
+    <div class="options">
+      <label><input type="radio" name="q7" value="omani"> an Omani</label>
+      <label><input type="radio" name="q7" value="british"> a British</label>
+      <label><input type="radio" name="q7" value="pakistani"> a Pakistani</label>
+    </div>
+  </div>
+
+  <div class="question">
+    8. They stayed in Iran for ______ days.
+    <div class="options">
+      <label><input type="radio" name="q8" value="three"> three</label>
+      <label><input type="radio" name="q8" value="four"> four</label>
+      <label><input type="radio" name="q8" value="five"> five</label>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="actions">
+    <button onclick="history.back()">Back</button>
+    <button onclick="submitTest()">Submit</button>
+  </div>
+
+  <div id="result"></div>
+
+</div>
+
+<!-- ===============================
+     ANSWERS + LOGIC (INLINE)
+================================ -->
+<script>
+const ANSWERS = {
+  1: ["al rahma"],
+  2: ["1924"],
+  3: ["india"],
+  4: ["31"],
+  5: "flames",
+  6: "two",
+  7: "british",
+  8: "five"
+};
+
+function submitTest() {
+  let score = 0;
+
+  document.querySelectorAll(".short-answer").forEach(input => {
+    const q = input.dataset.q;
+    const user = input.value.trim().toLowerCase();
+    if (ANSWERS[q].includes(user)) score++;
+  });
+
+  [5,6,7,8].forEach(q => {
+    const selected = document.querySelector(`input[name="q${q}"]:checked`);
+    if (selected && selected.value === ANSWERS[q]) score++;
+  });
+
+  document.getElementById("result").innerHTML =
+    `Your Score: ${score} / 8`;
+}
+</script>
+
+</body>
+</html>

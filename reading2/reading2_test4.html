@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading 2 – Test 4</title>
+
+<link rel="stylesheet" href="reading2-test.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <h1><i class="fas fa-book-open"></i> Reading 2 – Test 4</h1>
+    <p>Together We Build Project</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge"><i class="fas fa-question-circle"></i> 7 Questions</div>
+    <div class="badge"><i class="fas fa-redo"></i> 2 Attempts</div>
+  </div>
+</header>
+
+<section class="instructions">
+  <h3><i class="fas fa-info-circle"></i> Instructions</h3>
+  <ul>
+    <li>Read the letter carefully on the right.</li>
+    <li>Choose ONE correct answer for each question.</li>
+  </ul>
+</section>
+
+<div class="layout">
+
+<!-- ================= LEFT: QUESTIONS ================= -->
+<div class="questions-panel">
+
+<div class="reading-item" data-q="1">
+<p>1. The organization "Together We Build" was interested in ______.</p>
+<button class="tf-btn" data-value="A">protecting the animals</button>
+<button class="tf-btn" data-value="B">improving people's lives</button>
+<button class="tf-btn" data-value="C">cleaning the beaches</button>
+</div>
+
+<div class="reading-item" data-q="2">
+<p>2. It was working on a project to ______ community center.</p>
+<button class="tf-btn" data-value="A">build a new</button>
+<button class="tf-btn" data-value="B">restore the old</button>
+<button class="tf-btn" data-value="C">change the place of the</button>
+</div>
+
+<div class="reading-item" data-q="3">
+<p>3. At first the writer was ______ about participating in the project.</p>
+<button class="tf-btn" data-value="A">worried</button>
+<button class="tf-btn" data-value="B">excited</button>
+<button class="tf-btn" data-value="C">disappointed</button>
+</div>
+
+<div class="reading-item" data-q="4">
+<p>4. During the project, he learned new skills very ______.</p>
+<button class="tf-btn" data-value="A">fast</button>
+<button class="tf-btn" data-value="B">slowly</button>
+<button class="tf-btn" data-value="C">gradually</button>
+</div>
+
+<div class="reading-item" data-q="5">
+<p>5. His wife was ______ in the project.</p>
+<button class="tf-btn" data-value="A">an organizer</button>
+<button class="tf-btn" data-value="B">a team leader</button>
+<button class="tf-btn" data-value="C">a participant</button>
+</div>
+
+<div class="reading-item" data-q="6">
+<p>6. The experience was ______ for the writer.</p>
+<button class="tf-btn" data-value="A">annoying</button>
+<button class="tf-btn" data-value="B">tiring</button>
+<button class="tf-btn" data-value="C">satisfying</button>
+</div>
+
+<div class="reading-item" data-q="7">
+<p>7. At the end he ______ others to do voluntary work.</p>
+<button class="tf-btn" data-value="A">encourages</button>
+<button class="tf-btn" data-value="B">discourages</button>
+<button class="tf-btn" data-value="C">doesn't advise</button>
+</div>
+
+<div class="action-bar">
+  <button class="btn back" onclick="goBack()">
+    <i class="fas fa-arrow-left"></i> Back
+  </button>
+  <button id="submitBtn" class="btn submit">
+    <i class="fas fa-check-circle"></i> Submit
+  </button>
+</div>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+<!-- ================= RIGHT: PASSAGE ================= -->
+<div class="passage-panel">
+
+<h2>Community Project Experience</h2>
+
+<p><strong>Dear Ali,</strong></p>
+
+<p>
+I hope this letter finds you in good health and high spirits. I wanted to share with you my recent experience of participating in a community project. It was an incredible opportunity to give back to the community while also learning new skills and meeting new people.
+</p>
+
+<p>
+The project was organized by a local non-profit organization called (Together We Build) that aims to improve the lives of people in our community. The project involved renovating a community center that was in dire need of repairs. The center provided a safe space for children to do some extra activities after school, and it was important to ensure that it remained functional and safe for the children.
+</p>
+
+<p>
+I was initially nervous about participating in the project as I had no experience with renovation work. However, the team leaders were very supportive and provided us with all the necessary tools and guidance to complete the work. I was surprised at how quickly I learned new skills such as painting, installing drywall, and basic carpentry.
+</p>
+
+<p>
+What made the experience even more special was the sense of community and friendship amongst the team members. We worked together tirelessly to complete the renovations within the allotted time frame. We shared meals together and had the opportunity to learn about each other's lives and backgrounds. I actually in this project met my wife Laila, she was one of the participants in the project.
+</p>
+
+<p>
+Overall, the community project was a very rewarding experience that taught me the value of hard work, community involvement, and the impact of small gestures of kindness. I hope to continue volunteering in such projects and give back to my community in any way I can. I highly recommend you and anyone who loves community service to go ahead and take some time of your day to volunteer.
+</p>
+
+<p>
+Looking forward to hearing about your latest adventures.
+</p>
+
+<p><strong>Best regards,</strong><br>
+Ahmed</p>
+
+</div>
+
+</div>
+</div>
+
+<script>
+window.ANSWERS = {
+  1: "B",
+  2: "B",
+  3: "A",
+  4: "A",
+  5: "C",
+  6: "C",
+  7: "A"
+};
+
+function goBack(){
+  window.location.href = "reading2-dashboard.html";
+}
+</script>
+
+<script src="reading2-test.js"></script>
+
+</body>
+</html>

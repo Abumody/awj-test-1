@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading 2 – Test 5</title>
+
+<link rel="stylesheet" href="reading2-test.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <h1><i class="fas fa-book-open"></i> Reading 2 – Test 5</h1>
+    <p>Scholarship Application Letter</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge"><i class="fas fa-question-circle"></i> 7 Questions</div>
+    <div class="badge"><i class="fas fa-redo"></i> 2 Attempts</div>
+  </div>
+</header>
+
+<section class="instructions">
+  <h3><i class="fas fa-info-circle"></i> Instructions</h3>
+  <ul>
+    <li>Read the letter carefully on the right.</li>
+    <li>Choose ONE correct answer for each question.</li>
+  </ul>
+</section>
+
+<div class="layout">
+
+<!-- ================= LEFT: QUESTIONS ================= -->
+<div class="questions-panel">
+
+<div class="reading-item" data-q="1">
+<p>1. Nancy knows about the scholarship from a/an ______.</p>
+<button class="tf-btn" data-value="A">friend</button>
+<button class="tf-btn" data-value="B">magazine</button>
+<button class="tf-btn" data-value="C">agency</button>
+</div>
+
+<div class="reading-item" data-q="2">
+<p>2. She was in Australia for ______.</p>
+<button class="tf-btn" data-value="A">a year</button>
+<button class="tf-btn" data-value="B">two years</button>
+<button class="tf-btn" data-value="C">four years</button>
+</div>
+
+<div class="reading-item" data-q="3">
+<p>3. She is proud of her work on the design of a ______ there.</p>
+<button class="tf-btn" data-value="A">university</button>
+<button class="tf-btn" data-value="B">health centre</button>
+<button class="tf-btn" data-value="C">sports stadium</button>
+</div>
+
+<div class="reading-item" data-q="4">
+<p>4. The project won the ______ prize in a major competition.</p>
+<button class="tf-btn" data-value="A">first</button>
+<button class="tf-btn" data-value="B">second</button>
+<button class="tf-btn" data-value="C">third</button>
+</div>
+
+<div class="reading-item" data-q="5">
+<p>5. Since returning to Namibia, she was involved in ______ projects.</p>
+<button class="tf-btn" data-value="A">educational</button>
+<button class="tf-btn" data-value="B">medical</button>
+<button class="tf-btn" data-value="C">industrial</button>
+</div>
+
+<div class="reading-item" data-q="6">
+<p>6. She feels that she needs to learn about new ______.</p>
+<button class="tf-btn" data-value="A">materials</button>
+<button class="tf-btn" data-value="B">countries</button>
+<button class="tf-btn" data-value="C">designs</button>
+</div>
+
+<div class="reading-item" data-q="7">
+<p>7. She is hoping for funding from ______.</p>
+<button class="tf-btn" data-value="A">the United Nation</button>
+<button class="tf-btn" data-value="B">her country government</button>
+<button class="tf-btn" data-value="C">the company</button>
+</div>
+
+<div class="action-bar">
+  <button class="btn back" onclick="goBack()">
+    <i class="fas fa-arrow-left"></i> Back
+  </button>
+  <button id="submitBtn" class="btn submit">
+    <i class="fas fa-check-circle"></i> Submit
+  </button>
+</div>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+<!-- ================= RIGHT: PASSAGE ================= -->
+<div class="passage-panel">
+
+<h2>Scholarship Application Letter</h2>
+
+<p><strong>Dear Sir,</strong></p>
+
+<p>
+In response to the advertisement, I saw in yesterday Environment magazine, I would like to apply for the scholarship offered by the United Nations Environmental Agency. My name is Nancy Edward, and I am from Namibia. After leaving school, I studied overseas, and in 2017 I graduated from Melbourne University in Australia in Interior Design. During my four years there, my main interest was hospitals design, using materials causing little damage to the environment.
+</p>
+
+<p>
+I worked on several projects, but the biggest one was the design of a special health center for athletes, which was coordinated by the Research Centre at the university so I made a wonderful design that was elegant and eco-friendly.
+</p>
+
+<p>
+The project was chosen by the university to compete for the Gower Prize - an annual competition between designers in Australia. It was ranked third, from over 100 entries. Meanwhile, work on construction started in 2019 and the center has been operational since November of last year.
+</p>
+
+<p>
+After graduation, I returned to Africa, and was lucky to be recruited by Modern Design, a small-scale, but innovative company. I have spent my time working on projects involving schools and colleges. The most challenging of these was a request from a private university to build a new library. The design was fascinating, but I felt that the quality of my work was affected by my lack of knowledge of modern materials.
+</p>
+
+<p>
+Expertise of this kind is not easy in my country, so I have to go overseas once more. I have applied for a one-year course on Materials Technology at the University of Toronto in Canada. I am pleased that I have just received from them a provisional letter of acceptance. The only obstacle is funding. I cannot afford it, as I have to look after my elderly parents. As I mentioned above, it is a small company. Therefore, I wish to apply for the advertised scholarship.
+</p>
+
+<p>
+Please let me know if you require any information documents. Thank you for considering my request.
+</p>
+
+<p><strong>Yours faithfully,</strong><br>
+Nancy Edward</p>
+
+</div>
+
+</div>
+</div>
+
+<script>
+window.ANSWERS = {
+  1: "B",
+  2: "C",
+  3: "B",
+  4: "C",
+  5: "A",
+  6: "A",
+  7: "A"
+};
+
+function goBack(){
+  window.location.href = "reading2-dashboard.html";
+}
+</script>
+
+<script src="reading2-test.js"></script>
+
+</body>
+</html>

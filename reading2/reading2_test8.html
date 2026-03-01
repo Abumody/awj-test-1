@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading 2 – Test 8</title>
+
+<link rel="stylesheet" href="reading2-test.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <h1><i class="fas fa-book-open"></i> Reading 2 – Test 8</h1>
+    <p>Emma’s Study Leave Request</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge"><i class="fas fa-question-circle"></i> 7 Questions</div>
+    <div class="badge"><i class="fas fa-redo"></i> 2 Attempts</div>
+  </div>
+</header>
+
+<section class="instructions">
+  <h3><i class="fas fa-info-circle"></i> Instructions</h3>
+  <ul>
+    <li>Read the letter carefully on the right.</li>
+    <li>Choose ONE correct answer for each question.</li>
+  </ul>
+</section>
+
+<div class="layout">
+
+<!-- ================= LEFT ================= -->
+<div class="questions-panel">
+
+<div class="reading-item" data-q="1">
+<p>1. Mr. Lewis is ______.</p>
+<button class="tf-btn" data-value="A">Emma’s university tutor</button>
+<button class="tf-btn" data-value="B">a friend of Emma’s father</button>
+<button class="tf-btn" data-value="C">Emma’s current employer</button>
+</div>
+
+<div class="reading-item" data-q="2">
+<p>2. Emma is hoping to get ______ extra to finish her degree.</p>
+<button class="tf-btn" data-value="A">three months</button>
+<button class="tf-btn" data-value="B">six months</button>
+<button class="tf-btn" data-value="C">a year</button>
+</div>
+
+<div class="reading-item" data-q="3">
+<p>3. She had to repeat ______ of her coursework subjects.</p>
+<button class="tf-btn" data-value="A">two</button>
+<button class="tf-btn" data-value="B">three</button>
+<button class="tf-btn" data-value="C">four</button>
+</div>
+
+<div class="reading-item" data-q="4">
+<p>4. Because of these problems, she spent a lot of time ______.</p>
+<button class="tf-btn" data-value="A">paying medical bills</button>
+<button class="tf-btn" data-value="B">visiting the hospital</button>
+<button class="tf-btn" data-value="C">travelling</button>
+</div>
+
+<div class="reading-item" data-q="5">
+<p>5. She will do this research with ______ different companies.</p>
+<button class="tf-btn" data-value="A">20</button>
+<button class="tf-btn" data-value="B">35</button>
+<button class="tf-btn" data-value="C">60</button>
+</div>
+
+<div class="reading-item" data-q="6">
+<p>6. After finishing her degree, she will ______.</p>
+<button class="tf-btn" data-value="A">start a new project</button>
+<button class="tf-btn" data-value="B">get a new job</button>
+<button class="tf-btn" data-value="C">share her research</button>
+</div>
+
+<div class="reading-item" data-q="7">
+<p>7. From the evidence of this letter, Emma is an ______ person.</p>
+<button class="tf-btn" data-value="A">emotional</button>
+<button class="tf-btn" data-value="B">irresponsible</button>
+<button class="tf-btn" data-value="C">unselfish</button>
+</div>
+
+<div class="action-bar">
+<button class="btn back" onclick="goBack()">
+<i class="fas fa-arrow-left"></i> Back
+</button>
+
+<button id="submitBtn" class="btn submit">
+<i class="fas fa-check-circle"></i> Submit
+</button>
+</div>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+<!-- ================= RIGHT ================= -->
+<div class="passage-panel">
+
+<h2>Study Leave Request</h2>
+
+<p><strong>9th June, 2012</strong></p>
+
+<p><strong>Dear Mr Lewis,</strong></p>
+
+<p>
+As you know, I took a year's leave from the company starting in September 2011 in order to get my Master's Degree at the University of Information Technology (UIT) in Melbourne. I am now writing to you to request an extension of this study leave until the end of February 2013. I have already spoken to the Head of Research at the university, and she is in agreement with my proposal.
+</p>
+
+<p>
+The Master's Degree programme at UIT consists of two main components: coursework and research. I have, with some difficulty, completed the coursework component, but unfortunately my research project is still not finished. I have no wish to make excuses for this failure, but I would like to explain the circumstances.
+</p>
+
+<p>
+Since the death of my mother three years ago, my father has had to look after my younger sister by himself. Then, in October of last year, he suffered from heart problems, which made him very weak. As a result, I had to drive home every night to help out with household duties, and to care for both him and my sister. Needless to say, the hour-long drive each way, almost every day, cut into my study time. Even when I was at the university, I was often worried about my home situation and found it difficult to focus on my studies.
+</p>
+
+<p>
+Not surprisingly, my coursework and my marks suffered, and I had to repeat three out of the four subjects. However, I am glad to say that, in the second semester, I have done much better, partly because since March my father's health has improved greatly. As a result, I have been able to complete all of my coursework successfully, including the repeated subjects.
+</p>
+
+<p>
+The only problem has been my research project. This project involves a new software programme, which I have designed myself and which I call 'HRMS' (Human Resources Management System). This will enable companies to organize employees' files electronically, reducing the need for paperwork and making the information accessible at any time. I have made some progress with the project. For example, I managed to complete the design of the software. I also prepared a detailed questionnaire and sent it to sixty local companies. Thirty-five of them completed the questionnaire and returned it to me. However, I still need time to analyse the results, and also to visit these companies and conduct interviews with managers and staff. This is the only way for me to be sure that my software programme will meet the actual needs of companies operating in the real world.
+</p>
+
+<p>
+I hope, therefore, that you will kindly agree to my request. If I am given the opportunity to complete my project, I shall, of course, on my return, make the software available to the company.
+</p>
+
+<p><strong>Sincerely,</strong><br>
+Emma Thomas<br>
+Human Resources Section</p>
+
+</div>
+
+</div>
+</div>
+
+<script>
+window.ANSWERS = {
+1: "C",
+2: "B",
+3: "B",
+4: "C",
+5: "B",
+6: "C",
+7: "C"
+};
+
+function goBack(){
+window.location.href = "reading2-dashboard.html";
+}
+</script>
+
+<script src="reading2-test.js"></script>
+
+</body>
+</html>

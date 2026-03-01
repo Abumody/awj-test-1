@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reading Test 6</title>
+<link rel="stylesheet" href="reading1-test.css">
+</head>
+<body>
+
+<div class="container">
+<header>
+<h1>READING 06 (Items 1 - 5)</h1>
+<p class="subtitle">Read the texts. Are the statements True or False?</p>
+</header>
+
+<div class="reading-item" data-q="1">
+<div class="item-number">1.</div>
+<div class="passage-text">
+I am interested in applying for the position of project manager in a well-known construction company. This post requires the candidate to have a minimum of 8 years’ experience in a field relevant to its business. Unfortunately, my experience is less than what they require although I have worked as a project manager on two occasions.
+</div>
+<div class="statement">
+The applicant has enough experience to apply for this job.
+</div>
+<div class="tf-buttons">
+<button type="button" class="tf-btn" data-value="true">True</button>
+<button type="button" class="tf-btn" data-value="false">False</button>
+</div>
+</div>
+
+<div class="reading-item" data-q="2">
+<div class="item-number">2.</div>
+<div class="passage-text">
+Last month, I was given the title of ‘Employee of the Month’ for my outstanding performance in the company I work for. Despite receiving the award, I was unhappy. My colleague Ali had worked alongside me on a difficult assignment, but his hard work and effort was not rewarded.
+</div>
+<div class="statement">
+The writer believes that Ali should be awarded.
+</div>
+<div class="tf-buttons">
+<button type="button" class="tf-btn" data-value="true">True</button>
+<button type="button" class="tf-btn" data-value="false">False</button>
+</div>
+</div>
+
+<div class="reading-item" data-q="3">
+<div class="item-number">3.</div>
+<div class="passage-text">
+During Nasser's study at Sultan Qaboos University, he was taught by teachers from many different countries. However, he will always remember an Australian teacher who motivated him to work hard and achieve his best. The teacher believed that Nasser would become a successful civil engineer in the future.
+</div>
+<div class="statement">
+Nasser was inspired by all his teachers at Sultan Qaboos University.
+</div>
+<div class="tf-buttons">
+<button type="button" class="tf-btn" data-value="true">True</button>
+<button type="button" class="tf-btn" data-value="false">False</button>
+</div>
+</div>
+
+<div class="reading-item" data-q="4">
+<div class="item-number">4.</div>
+<div class="passage-text">
+Nowadays, it is common to see teenagers riding around the city streets on motorbikes. However, most of these young people are breaking the law because they do not have a driving license. Parents should encourage their children to have a driving license when using public transport.
+</div>
+<div class="statement">
+Teenagers do not need a driving license to ride a motorbike.
+</div>
+<div class="tf-buttons">
+<button type="button" class="tf-btn" data-value="true">True</button>
+<button type="button" class="tf-btn" data-value="false">False</button>
+</div>
+</div>
+
+<div class="reading-item" data-q="5">
+<div class="item-number">5.</div>
+<div class="passage-text">
+In Ireland, the ‘Tidy Towns’ programme was set up over fifty years ago to encourage citizens to take good care of area in which they live. A competition “Make your Town Better” was initiated, with the objective of promoting a positive change. This project has had positive impact on local people and the environment.
+</div>
+<div class="statement">
+The ‘Tidy Towns’ programme has been successful.
+</div>
+<div class="tf-buttons">
+<button type="button" class="tf-btn" data-value="true">True</button>
+<button type="button" class="tf-btn" data-value="false">False</button>
+</div>
+</div>
+
+<div class="actions">
+<a href="reading1-dashboard.html" class="btn btn-dashboard">Dashboard</a>
+<button id="submitBtn" class="btn btn-check">Submit</button>
+</div>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+window.ANSWERS = {
+1:"false",
+2:"true",
+3:"false",
+4:"false",
+5:"true"
+};
+</script>
+
+<script src="reading1-test.js"></script>
+
+</body>
+</html>

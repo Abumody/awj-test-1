@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading 2 – Test 11</title>
+
+<link rel="stylesheet" href="reading2-test.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <h1><i class="fas fa-book-open"></i> Reading 2 – Test 11</h1>
+    <p>Business Loan Application</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge"><i class="fas fa-question-circle"></i> 7 Questions</div>
+    <div class="badge"><i class="fas fa-redo"></i> 2 Attempts</div>
+  </div>
+</header>
+
+<section class="instructions">
+  <h3><i class="fas fa-info-circle"></i> Instructions</h3>
+  <ul>
+    <li>Read the letter carefully.</li>
+    <li>Choose ONE correct answer only.</li>
+  </ul>
+</section>
+
+<div class="layout">
+
+<!-- ================= QUESTIONS ================= -->
+<div class="questions-panel">
+
+<div class="reading-item" data-q="1">
+<p>1. The restaurant will provide special facilities for ______.</p>
+<button class="tf-btn" data-value="A">smokers</button>
+<button class="tf-btn" data-value="B">children</button>
+<button class="tf-btn" data-value="C">handicapped people</button>
+</div>
+
+<div class="reading-item" data-q="2">
+<p>2. The waiters will be trained in ______.</p>
+<button class="tf-btn" data-value="A">Dubai</button>
+<button class="tf-btn" data-value="B">Italy</button>
+<button class="tf-btn" data-value="C">Oman</button>
+</div>
+
+<div class="reading-item" data-q="3">
+<p>3. This training will last for ______.</p>
+<button class="tf-btn" data-value="A">a week</button>
+<button class="tf-btn" data-value="B">two weeks</button>
+<button class="tf-btn" data-value="C">three weeks</button>
+</div>
+
+<div class="reading-item" data-q="4">
+<p>4. Most of Abdullah's practical experience comes from working with ______.</p>
+<button class="tf-btn" data-value="A">a relative</button>
+<button class="tf-btn" data-value="B">an Italian chef</button>
+<button class="tf-btn" data-value="C">a friend</button>
+</div>
+
+<div class="reading-item" data-q="5">
+<p>5. At the moment, he works in a ______.</p>
+<button class="tf-btn" data-value="A">restaurant</button>
+<button class="tf-btn" data-value="B">bank</button>
+<button class="tf-btn" data-value="C">hotel</button>
+</div>
+
+<div class="reading-item" data-q="6">
+<p>6. His past record of paying back loans is ______.</p>
+<button class="tf-btn" data-value="A">poor</button>
+<button class="tf-btn" data-value="B">quite good</button>
+<button class="tf-btn" data-value="C">excellent</button>
+</div>
+
+<div class="reading-item" data-q="7">
+<p>7. He will not be available next week because he will be ______.</p>
+<button class="tf-btn" data-value="A">travelling abroad</button>
+<button class="tf-btn" data-value="B">attending a course</button>
+<button class="tf-btn" data-value="C">having surgery</button>
+</div>
+
+<div class="action-bar">
+<button class="btn back" onclick="goBack()">
+<i class="fas fa-arrow-left"></i> Back
+</button>
+
+<button id="submitBtn" class="btn submit">
+<i class="fas fa-check-circle"></i> Submit
+</button>
+</div>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+<!-- ================= PASSAGE ================= -->
+<div class="passage-panel">
+
+<h2>Business Loan Application</h2>
+
+<p><strong>Dear Sir / Madam,</strong></p>
+
+<p>
+After considering many options, I am writing to your bank to apply for a business loan of 15,000 rials. I need this loan to set up a new business, which is an Italian restaurant. Almost 70% of the loan will be spent on the building itself and on facilities, and the remaining amount will be used for training purposes.
+</p>
+
+<p>
+Our restaurant will be located at Shatti Al-Qurum on the ground floor of the new shopping mall. Food will be served both indoors and outdoors. The indoor part of the restaurant will consist of two rooms: a larger room accommodating at least 80 guests and a smaller one as a playroom for their children. The aim is to provide a relaxed, comfortable atmosphere in which people can enjoy their food quietly. The playroom will be specially equipped with safe, child-friendly furniture. We will also provide a female member of staff to take care of the children.
+</p>
+
+<p>
+We shall also be recruiting nine other full-time staff, including seven waiters (all hired locally) and two chefs (both Italian). Our waiters will be trained in Muscat. The training will consist of two parts, theoretical and practical, with seven days allocated to each. In addition, we have contacted Chef Fabrizio Maldini, who regularly visits Dubai to inspect Italian restaurants there, asking him to conduct a workshop for us.
+</p>
+
+<p>
+I should also inform you that I myself am a very capable cook and have attended a course in Italy. As part of my training there, I worked for three weeks in a well-known restaurant in Venice. After that, I spent several years working with my uncle, who owns and manages three successful restaurants here in Oman.
+</p>
+
+<p>
+I am currently employed at the Al-Safaa Hotel as Head of Section in the Human Resources Department. This has given me very useful experience of working with people. Please feel free to contact the hotel if you have any questions regarding my work there.
+</p>
+
+<p>
+I have enclosed copies of my bank statements for the last three months, as well as a breakdown of my income and expenditure for each month. I plan to use some of this money to make the monthly loan repayments. If you check my previous records, you will see that I have always paid any instalments regularly and without any delay at all.
+</p>
+
+<p>
+I would really appreciate it if you could consider my application for a loan. I am prepared to call at any of your branches to discuss the details. However, I should point out that I will not be available this coming week as I have to travel to the United Kingdom. I can be contacted after 21st August on GSM 924197 to arrange an interview if required.
+</p>
+
+<p>
+I look forward to hearing from you soon.
+</p>
+
+<p><strong>Yours faithfully,</strong><br>
+Abdullah Al-Riyami</p>
+
+</div>
+
+</div>
+</div>
+
+<script>
+window.ANSWERS = {
+1: "B",
+2: "C",
+3: "B",
+4: "A",
+5: "C",
+6: "C",
+7: "A"
+};
+
+function goBack(){
+window.location.href = "reading2-dashboard.html";
+}
+</script>
+
+<script src="reading2-test.js"></script>
+
+</body>
+</html>

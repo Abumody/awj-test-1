@@ -1,0 +1,244 @@
+/* ===============================
+   GLOBAL
+================================ */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins','Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#1e3c72 0%, #2a5298 100%);
+  min-height:100vh;
+  padding:40px 20px;
+  color:#333;
+}
+
+/* ===============================
+   CONTAINER
+================================ */
+
+.container{
+  max-width:900px;
+  margin:auto;
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+header{
+  text-align:center;
+  padding:35px;
+  background:rgba(255,255,255,0.95);
+  border-radius:20px;
+  margin-bottom:30px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+header h1{
+  font-size:2.4rem;
+  font-weight:700;
+  background:linear-gradient(90deg,#1e3c72,#2a5298);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  font-size:1.1rem;
+  color:#6c757d;
+}
+
+/* ===============================
+   READING CARD
+================================ */
+
+.reading-item{
+  background:rgba(255,255,255,0.97);
+  border-radius:18px;
+  padding:30px;
+  margin-bottom:25px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+  transition:.3s;
+}
+
+.reading-item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.18);
+}
+
+.item-number{
+  font-size:1.2rem;
+  font-weight:700;
+  color:#1e3c72;
+  margin-bottom:15px;
+}
+
+/* ===============================
+   PASSAGE TEXT
+================================ */
+
+.passage-text{
+  background:#f8f9fa;
+  padding:20px;
+  border-radius:12px;
+  border-left:6px solid #1e3c72;
+  font-size:1.1rem;
+  line-height:1.8;
+  margin-bottom:18px;
+}
+
+/* ===============================
+   STATEMENT
+================================ */
+
+.statement{
+  background:#e9ecef;
+  padding:15px;
+  border-radius:10px;
+  font-size:1.05rem;
+  font-weight:600;
+  margin-bottom:18px;
+}
+
+/* ===============================
+   TRUE / FALSE BUTTONS
+================================ */
+
+.tf-buttons{
+  display:flex;
+  gap:15px;
+}
+
+.tf-btn{
+  flex:1;
+  padding:14px 0;
+  font-size:1.05rem;
+  font-weight:600;
+  border-radius:12px;
+  border:2px solid #dee2e6;
+  background:#ffffff;
+  cursor:pointer;
+  transition:all .25s ease;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.tf-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Hover effects */
+.tf-btn[data-value="true"]:hover{
+  border-color:#28a745;
+  background:#e8f5e9;
+  color:#2e7d32;
+}
+
+.tf-btn[data-value="false"]:hover{
+  border-color:#dc3545;
+  background:#ffebee;
+  color:#c62828;
+}
+
+/* Selected state */
+.tf-btn.selected[data-value="true"]{
+  background:#d4edda;
+  border-color:#28a745;
+  color:#155724;
+}
+
+.tf-btn.selected[data-value="false"]{
+  background:#f8d7da;
+  border-color:#dc3545;
+  color:#721c24;
+}
+
+/* ===============================
+   RESULT COLOR (JS Compatible)
+================================ */
+
+.correct-answer{
+  background:#d4edda !important;
+  border-color:#28a745 !important;
+  color:#155724 !important;
+}
+
+.wrong-answer{
+  background:#f8d7da !important;
+  border-color:#dc3545 !important;
+  color:#721c24 !important;
+}
+
+/* ===============================
+   ACTION BUTTONS (Bottom)
+================================ */
+
+.actions{
+  display:flex;
+  gap:15px;
+  margin-top:30px;
+}
+
+.btn{
+  flex:1;
+  padding:15px;
+  border:none;
+  border-radius:12px;
+  font-size:1.05rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+  text-align:center;
+  text-decoration:none;
+  box-shadow:0 5px 15px rgba(0,0,0,0.12);
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.18);
+}
+
+.btn-dashboard{
+  background:linear-gradient(135deg,#2196f3,#0d47a1);
+  color:white;
+}
+
+.btn-check{
+  background:linear-gradient(135deg,#4caf50,#2e7d32);
+  color:white;
+}
+
+/* ===============================
+   RESULT BOX
+================================ */
+
+#result{
+  margin-top:25px;
+  padding:25px;
+  border-radius:15px;
+  font-size:1.2rem;
+  font-weight:bold;
+  text-align:center;
+  background:rgba(255,255,255,0.97);
+  box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width:768px){
+
+  .tf-buttons{
+    flex-direction:column;
+  }
+
+  .actions{
+    flex-direction:column;
+  }
+
+}

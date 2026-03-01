@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading 2 – Test 6</title>
+
+<link rel="stylesheet" href="reading2-test.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <h1><i class="fas fa-book-open"></i> Reading 2 – Test 6</h1>
+    <p>Visit to Bridgetown</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge"><i class="fas fa-question-circle"></i> 7 Questions</div>
+    <div class="badge"><i class="fas fa-redo"></i> 2 Attempts</div>
+  </div>
+</header>
+
+<section class="instructions">
+  <h3><i class="fas fa-info-circle"></i> Instructions</h3>
+  <ul>
+    <li>Read the letter carefully on the right.</li>
+    <li>Choose ONE correct answer for each question.</li>
+  </ul>
+</section>
+
+<div class="layout">
+
+<!-- ================= LEFT: QUESTIONS ================= -->
+<div class="questions-panel">
+
+<div class="reading-item" data-q="1">
+<p>1. Jack is visiting Bridgetown on a ______.</p>
+<button class="tf-btn" data-value="A">family holiday</button>
+<button class="tf-btn" data-value="B">business trip</button>
+<button class="tf-btn" data-value="C">studying program</button>
+</div>
+
+<div class="reading-item" data-q="2">
+<p>2. The Ship Inn Hotel has a ______.</p>
+<button class="tf-btn" data-value="A">old town view</button>
+<button class="tf-btn" data-value="B">railway view</button>
+<button class="tf-btn" data-value="C">sea view</button>
+</div>
+
+<div class="reading-item" data-q="3">
+<p>3. What activity didn’t Steve advise to do?</p>
+<button class="tf-btn" data-value="A">fishing</button>
+<button class="tf-btn" data-value="B">swimming</button>
+<button class="tf-btn" data-value="C">boat trip</button>
+</div>
+
+<div class="reading-item" data-q="4">
+<p>4. The local festival takes place ______.</p>
+<button class="tf-btn" data-value="A">every year</button>
+<button class="tf-btn" data-value="B">all the year</button>
+<button class="tf-btn" data-value="C">in winter</button>
+</div>
+
+<div class="reading-item" data-q="5">
+<p>5. Souvenir shops can be found near the ______.</p>
+<button class="tf-btn" data-value="A">funfair</button>
+<button class="tf-btn" data-value="B">castle</button>
+<button class="tf-btn" data-value="C">festival</button>
+</div>
+
+<div class="reading-item" data-q="6">
+<p>6. Who would like to dine in vegetarian restaurants?</p>
+<button class="tf-btn" data-value="A">Jack</button>
+<button class="tf-btn" data-value="B">Jack’s kids</button>
+<button class="tf-btn" data-value="C">Jack’s wife</button>
+</div>
+
+<div class="reading-item" data-q="7">
+<p>7. Steve advised Jack to do shopping in the outlet ______.</p>
+<button class="tf-btn" data-value="A">at the beginning of the trip</button>
+<button class="tf-btn" data-value="B">at the end of the trip</button>
+<button class="tf-btn" data-value="C">every day during the trip</button>
+</div>
+
+<div class="action-bar">
+  <button class="btn back" onclick="goBack()">
+    <i class="fas fa-arrow-left"></i> Back
+  </button>
+  <button id="submitBtn" class="btn submit">
+    <i class="fas fa-check-circle"></i> Submit
+  </button>
+</div>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+<!-- ================= RIGHT: PASSAGE ================= -->
+<div class="passage-panel">
+
+<h2>Visit to Bridgetown</h2>
+
+<p><strong>Dear Jack,</strong></p>
+
+<p>
+Thanks for your letter. I'm really excited to hear that you and your family are planning to visit my home town while you're in England this summer and of course, I would be happy to give you the advice you asked for.
+</p>
+
+<p>
+The best place to stay in is probably The King's Arms Hotel in the town center, quite close to the railway station. However, if you prefer to stay by the sea, The Ship Inn Hotel is very comfortable and the prices are reasonable, too. It costs around 60 pounds for double room per night. Let me know if you would like me to reserve any rooms for you.
+</p>
+
+<p>
+If I were you, I would certainly go to the beach. Although it isn't a good idea to swim in the sea (it's too cold!), you could have a look around the old harbour and do some fishing or go in a boat trip. Also, you can visit the funfair or have a ride on a horse. Besides that, yearly every summer we have a local festival with outdoor activities for kids, local food and some traditional sports competitions. Furthermore, down the coast is Bridgetown Castle, which is worth visiting. And just outside the castle there are many souvenir shops. There isn't much nightlife, though, I'm afraid! Bridgetown is a quiet place. However, we do have a few good restaurants. My favourite is The Red Herring, which serves delicious fresh fish. And for your vegetarian wife there are many restaurants that offer full vegetarian menus.
+</p>
+
+<p>
+It would be a good idea if you go shopping on your last day. There are no big shopping malls here, but we have an outlet in which you will find everything you need.
+</p>
+
+<p>
+I'm sure you will enjoy a short visit to Bridgetown, and I hope we will be able to meet up so I can show you around myself. I can't wait!
+</p>
+
+<p><strong>Lots of love,</strong><br>
+Steve</p>
+
+</div>
+
+</div>
+</div>
+
+<script>
+window.ANSWERS = {
+  1: "A",
+  2: "C",
+  3: "B",
+  4: "A",
+  5: "B",
+  6: "C",
+  7: "B"
+};
+
+function goBack(){
+  window.location.href = "reading2-dashboard.html";
+}
+</script>
+
+<script src="reading2-test.js"></script>
+
+</body>
+</html>

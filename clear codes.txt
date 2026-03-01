@@ -1,0 +1,37 @@
+نفّذ هذا في الـ Console:
+
+const student = localStorage.getItem("currentStudent");
+localStorage.removeItem(`${student}_vocabulary1_test1_attempts`);
+
+
+🔹 هذا يمسح عدد المحاولات فقط لذلك الاختبار
+🔹 لن يحذف النتيجة من examResults
+
+✅ 🔹 2) حذف نتيجة اختبار معيّن من examResults
+let results = JSON.parse(localStorage.getItem("examResults")) || [];
+
+results = results.filter(r => r.testId !== "vocabulary1_test1");
+
+localStorage.setItem("examResults", JSON.stringify(results));
+
+✅ 🔥 3) تصفير كل اختبارات Vocabulary فقط
+const student = localStorage.getItem("currentStudent");
+
+Object.keys(localStorage).forEach(key => {
+  if (key.includes("vocabulary1_test") && key.includes(student)) {
+    localStorage.removeItem(key);
+  }
+});
+
+
+ثم احذف النتائج:
+
+let results = JSON.parse(localStorage.getItem("examResults")) || [];
+results = results.filter(r => !r.testId.startsWith("vocabulary1"));
+localStorage.setItem("examResults", JSON.stringify(results));
+
+☢️ 4) مسح كل شيء بالكامل (Reset شامل)
+
+⚠ هذا يمسح كل شيء في المشروع
+
+localStorage.clear();

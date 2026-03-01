@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reading 3 – Test 1</title>
+<link rel="stylesheet" href="reading3-test.css">
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <h1>Reading 3 – Test 1</h1>
+    <p>Grade 11 – Reading Section</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge">8 Questions</div>
+    <div class="badge">2 Attempts</div>
+  </div>
+</header>
+
+<section class="instructions">
+  <h3>Instructions</h3>
+  <ul>
+    <li>Answer questions 1–4 in short form.</li>
+    <li>Choose ONE correct answer for 5–8.</li>
+  </ul>
+</section>
+
+<div class="layout">
+
+<div class="questions-panel">
+
+<!-- SHORT ANSWER -->
+<div class="reading-item" data-q="1">
+<p>1. How many records has Ashrita made?</p>
+<input type="text" class="short-answer">
+</div>
+
+<div class="reading-item" data-q="2">
+<p>2. Why did he want to be in the Guinness Book?</p>
+<input type="text" class="short-answer">
+</div>
+
+<div class="reading-item" data-q="3">
+<p>3. Which race did he enter in 1978?</p>
+<input type="text" class="short-answer">
+</div>
+
+<div class="reading-item" data-q="4">
+<p>4. In which year did his achievement appear in the Guinness Book?</p>
+<input type="text" class="short-answer">
+</div>
+
+<!-- MCQ -->
+<div class="reading-item" data-q="5">
+<p>5. His first broken record was for ______.</p>
+<button class="tf-btn" data-value="A">Cycling</button>
+<button class="tf-btn" data-value="B">Jumping jacks</button>
+<button class="tf-btn" data-value="C">Lighting candles</button>
+</div>
+
+<div class="reading-item" data-q="6">
+<p>6. His favourite record was the longest distance on a ______.</p>
+<button class="tf-btn" data-value="A">Bike</button>
+<button class="tf-btn" data-value="B">Bottle</button>
+<button class="tf-btn" data-value="C">Pogo stick</button>
+</div>
+
+<div class="reading-item" data-q="7">
+<p>7. He rolled his body for ______ hours.</p>
+<button class="tf-btn" data-value="A">6.5</button>
+<button class="tf-btn" data-value="B">10.5</button>
+<button class="tf-btn" data-value="C">11.5</button>
+</div>
+
+<div class="reading-item" data-q="8">
+<p>8. Ashrita advises people to choose things they ______.</p>
+<button class="tf-btn" data-value="A">Enjoy</button>
+<button class="tf-btn" data-value="B">Fear</button>
+<button class="tf-btn" data-value="C">Avoid</button>
+</div>
+
+<div class="action-bar">
+  <button class="btn back" onclick="goBack()">Back</button>
+  <button id="submitBtn" class="btn submit">Submit</button>
+</div>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+<div class="passage-panel">
+
+<h2>A World Record Breaker</h2>
+
+<p>Ashrita Furman is a record-breaker. He has set more records than anyone else has in the world. In the last 40 years, he has established more than 600 records. When he was a child, Ashrita loved reading the Guinness Book of World Records. He wanted to be in it too, so he thought people had to be good at sports to be in the book. He was not a good athlete. He felt his dream would never come true. However, later in life, Ashrita learned thinking carefully about his dream. Thus, he believed that nothing is impossible. He tested this idea in 1978 by entering a 24-hour bike race in New York. Without any training, Ashrita came third! After that, he started thinking about breaking records again.</p>
+
+<p>First, he tried to break the record for the most jumping jacks. He failed at first, but, remembering that ‘anything is possible’, he trained, thought well and tried again. This time, he did 27,000 jumping jacks in 6 hours 45 minutes and became the new record holder. His achievement appeared in the 1980 Guinness Book of Records.</p>
+
+<p>Today, Ashrita has a long list of records, including walking the furthest distance with a bike on his chin, cycling the longest distance with a bottle on his head and lighting the most candles on a birthday cake. He says: “I choose ideas which are challenging and childish! I enjoy practising and seeing my progress.” He says his favourite record was “the longest distance on a pogo stick”. While he was on holiday in Japan, he saw Mount Fuji and thought it was beautiful, so he decided to try to break a record there. He climbed it in 11.5 miles. The most difficult record was “the most forward rolls”. In 10 hours and 30 minutes, he rolled his body in 8,341 forward circles for 12 miles.</p>
+
+<p>If you want to break a world record too, Ashrita gives this advice: “Choose something you enjoy because you will need to practise and don't give up. Your mind will tell you that something is impossible, but it is not. If you see someone doing something difficult, try it and don't ignore it!”</p>
+
+</div>
+
+</div>
+</div>
+
+<script>
+window.ANSWERS={
+  1:["600","600 records","more than 600","over 600"],
+  2:["to be in the guinness book"],
+  3:["24-hour bike race","bike race","24 hour bike race"],
+  4:["1980"],
+  5:"B",
+  6:"C",
+  7:"B",
+  8:"A"
+};
+
+function goBack(){
+  window.location.href="reading3-dashboard.html";
+}
+</script>
+
+<script src="reading3-test.js"></script>
+
+</body>
+</html>

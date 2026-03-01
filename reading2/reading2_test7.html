@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading 2 – Test 7</title>
+
+<link rel="stylesheet" href="reading2-test.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <h1><i class="fas fa-book-open"></i> Reading 2 – Test 7</h1>
+    <p>Judy’s Work Email</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge"><i class="fas fa-question-circle"></i> 7 Questions</div>
+    <div class="badge"><i class="fas fa-redo"></i> 2 Attempts</div>
+  </div>
+</header>
+
+<section class="instructions">
+  <h3><i class="fas fa-info-circle"></i> Instructions</h3>
+  <ul>
+    <li>Read the text carefully on the right.</li>
+    <li>Choose ONE correct answer for each question.</li>
+  </ul>
+</section>
+
+<div class="layout">
+
+<!-- ================= LEFT: QUESTIONS ================= -->
+<div class="questions-panel">
+
+<div class="reading-item" data-q="1">
+<p>1. Jo is writing to Karl to tell about Judy’s ______.</p>
+<button class="tf-btn" data-value="A">problem</button>
+<button class="tf-btn" data-value="B">interests</button>
+<button class="tf-btn" data-value="C">call</button>
+</div>
+
+<div class="reading-item" data-q="2">
+<p>2. Karl is Judy’s ______.</p>
+<button class="tf-btn" data-value="A">friend</button>
+<button class="tf-btn" data-value="B">employee</button>
+<button class="tf-btn" data-value="C">councilor</button>
+</div>
+
+<div class="reading-item" data-q="3">
+<p>3. Judy is used to work under ______.</p>
+<button class="tf-btn" data-value="A">strict environment</button>
+<button class="tf-btn" data-value="B">comfortable environment</button>
+<button class="tf-btn" data-value="C">fixed directions</button>
+</div>
+
+<div class="reading-item" data-q="4">
+<p>4. Judy is ______ because she couldn’t understand the whole project.</p>
+<button class="tf-btn" data-value="A">lost</button>
+<button class="tf-btn" data-value="B">depressed</button>
+<button class="tf-btn" data-value="C">responsible</button>
+</div>
+
+<div class="reading-item" data-q="5">
+<p>5. Meanwhile, Jo is going to ______.</p>
+<button class="tf-btn" data-value="A">make a call</button>
+<button class="tf-btn" data-value="B">write a letter</button>
+<button class="tf-btn" data-value="C">visit Tokyo office</button>
+</div>
+
+<div class="reading-item" data-q="6">
+<p>6. Jo thinks that Judy is ______.</p>
+<button class="tf-btn" data-value="A">lazy</button>
+<button class="tf-btn" data-value="B">careful</button>
+<button class="tf-btn" data-value="C">dishonest</button>
+</div>
+
+<div class="reading-item" data-q="7">
+<p>7. In the next ______ all members are going to have a holistic view about the project.</p>
+<button class="tf-btn" data-value="A">call</button>
+<button class="tf-btn" data-value="B">show</button>
+<button class="tf-btn" data-value="C">meeting</button>
+</div>
+
+<div class="action-bar">
+  <button class="btn back" onclick="goBack()">
+    <i class="fas fa-arrow-left"></i> Back
+  </button>
+  <button id="submitBtn" class="btn submit">
+    <i class="fas fa-check-circle"></i> Submit
+  </button>
+</div>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+<!-- ================= RIGHT: PASSAGE ================= -->
+<div class="passage-panel">
+
+<h2>Judy’s Work Situation</h2>
+
+<p><strong>Dear Karl,</strong></p>
+
+<p>
+I received a call from Judy a couple of days ago to discuss some of the issues that she was having and I thought I'd give you a heads-up on what was said, seeing that you are Judy's project team leader.
+</p>
+
+<p>
+Judy really enjoys working with you and the team and finds the project very interesting, but I think she's feeling a bit lost and struggling to see the big picture. It seems that she's been given a fair amount of independency to carry out the tasks that you've given her, and of course this level of responsibility is not uncommon in your branch. I believe in her Tokyo office, she is used to follow her manger directions, so she is finding this international project quite difficult.
+</p>
+
+<p>
+Looking ahead, I was wondering if we could make it easier for Judy by offering her more directions when setting her tasks. I think she'd also appreciate giving her a clearer idea about her role in the team. Do you think you could outline the group and individuals at your next meeting so everyone, including Judy, might have a more holistic view of the whole project?
+</p>
+
+<p>
+I was also thinking it might help to contact her regularly to make sure that she is up to date with any changes to the overall plan. Meanwhile, I'll write to her manager in the Tokyo office and see how aware they are of the deadlines you've given her. Moreover, they could in some way review her responsibilities and co-ordinate her tasks so that she doesn't constantly feel stressed.
+</p>
+
+<p>
+Judy extremely cares about her work and she is eager to contribute positively to the team. Personally, I think she is someone with high skills and will be an asset to our international projects. I'm keen to know your opinion and am open to any suggestions on how we could better support Judy so that she has a successful experience on the team.
+</p>
+
+<p><strong>Best regards,</strong><br>
+Jo Backhouse<br>
+Head of Department<br>
+International Projects</p>
+
+</div>
+
+</div>
+</div>
+
+<script>
+window.ANSWERS = {
+  1: "A",
+  2: "B",
+  3: "C",
+  4: "A",
+  5: "B",
+  6: "B",
+  7: "C"
+};
+
+function goBack(){
+  window.location.href = "reading2-dashboard.html";
+}
+</script>
+
+<script src="reading2-test.js"></script>
+
+</body>
+</html>

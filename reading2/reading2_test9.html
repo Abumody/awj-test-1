@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading 2 – Test 9</title>
+
+<link rel="stylesheet" href="reading2-test.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <h1><i class="fas fa-book-open"></i> Reading 2 – Test 9</h1>
+    <p>Mission to Mars Application</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge"><i class="fas fa-question-circle"></i> 7 Questions</div>
+    <div class="badge"><i class="fas fa-redo"></i> 2 Attempts</div>
+  </div>
+</header>
+
+<section class="instructions">
+  <h3><i class="fas fa-info-circle"></i> Instructions</h3>
+  <ul>
+    <li>Read the letter carefully on the right.</li>
+    <li>Choose ONE correct answer for each question.</li>
+  </ul>
+</section>
+
+<div class="layout">
+
+<!-- ================= LEFT ================= -->
+<div class="questions-panel">
+
+<div class="reading-item" data-q="1">
+<p>1. Mark became interested in the mission to Mars after ______.</p>
+<button class="tf-btn" data-value="A">reading the newspaper</button>
+<button class="tf-btn" data-value="B">watching an interview</button>
+<button class="tf-btn" data-value="C">talking to a friend</button>
+</div>
+
+<div class="reading-item" data-q="2">
+<p>2. He has specialized in studying ______.</p>
+<button class="tf-btn" data-value="A">Chemistry</button>
+<button class="tf-btn" data-value="B">Life Sciences</button>
+<button class="tf-btn" data-value="C">Physics</button>
+</div>
+
+<div class="reading-item" data-q="3">
+<p>3. To show that he can handle emergency situations, he mentions ______.</p>
+<button class="tf-btn" data-value="A">a fire</button>
+<button class="tf-btn" data-value="B">an earthquake</button>
+<button class="tf-btn" data-value="C">a snow storm</button>
+</div>
+
+<div class="reading-item" data-q="4">
+<p>4. His ______ died because of an illness.</p>
+<button class="tf-btn" data-value="A">mother</button>
+<button class="tf-btn" data-value="B">daughter</button>
+<button class="tf-btn" data-value="C">wife</button>
+</div>
+
+<div class="reading-item" data-q="5">
+<p>5. He is worried that he will not be accepted because of his ______.</p>
+<button class="tf-btn" data-value="A">nationality</button>
+<button class="tf-btn" data-value="B">health</button>
+<button class="tf-btn" data-value="C">age</button>
+</div>
+
+<div class="reading-item" data-q="6">
+<p>6. They will leave Earth in ______.</p>
+<button class="tf-btn" data-value="A">2016</button>
+<button class="tf-btn" data-value="B">2020</button>
+<button class="tf-btn" data-value="C">2022</button>
+</div>
+
+<div class="reading-item" data-q="7">
+<p>7. They will stay on Mars ______.</p>
+<button class="tf-btn" data-value="A">for a fixed period of time</button>
+<button class="tf-btn" data-value="B">until their mission is complete</button>
+<button class="tf-btn" data-value="C">for the rest of their lives</button>
+</div>
+
+<div class="action-bar">
+<button class="btn back" onclick="goBack()">
+<i class="fas fa-arrow-left"></i> Back
+</button>
+
+<button id="submitBtn" class="btn submit">
+<i class="fas fa-check-circle"></i> Submit
+</button>
+</div>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+<!-- ================= RIGHT ================= -->
+<div class="passage-panel">
+
+<h2>Mission to Mars Application</h2>
+
+<p><strong>11th January 2014</strong></p>
+
+<p><strong>Dear Mr Lansdorp,</strong></p>
+
+<p>
+When a friend told me about your plan to set up a permanent colony on Mars, I thought it was a crazy idea — especially when he told me that the colonists would never be able to return to Earth! But then I saw an interview with you on TV, and your obvious enthusiasm for the project changed my mind completely. And when I heard you talk about the characteristics that you were looking for in potential colonists, I realised that I was a very suitable candidate — so I decided to apply!
+</p>
+
+<p>
+Let me tell you something about myself. I work for the University of Toronto in Canada. I have two qualifications that are essential for anyone who wishes to start life in space — a Master’s degree in Biology and a PhD in Ecology. I have worked on several international projects in places as varied as China, Mexico, Egypt and Algeria. At the moment, I'm in Antarctica working with a research group on an agricultural experiment. Because of the extreme conditions found here — especially the freezing temperatures — there are obvious similarities with Mars. Even though the soil may be different, if we succeed in growing plants here, I'm sure that we can do the same on Mars. This kind of knowledge will, I believe, be crucial for the success of the mission.
+</p>
+
+<p>
+Another important characteristic that was mentioned in your interview is the ability to deal with stressful situations. I think I have proved that I can do this. For example, two months ago, a fire broke out in our lab, caused by an electrical fault. I didn’t panic, and was able to rescue two injured colleagues and also to control the fire before it damaged any important equipment.
+</p>
+
+<p>
+You also mentioned the psychological strength needed for a one-way mission to Mars. Colonists will have to deal with the certainty that they will never see Earth or their loved ones again. However, I believe that I have learned to cope with this kind of isolation. Here in Antarctica, I see the same three faces every day — just as I would do on Mars — and we all get on very well together. In addition, I have no children, and five years ago, I lost both my parents in a car accident and my wife after a long battle with leukemia.
+</p>
+
+<p>
+Finally, I have one question. Since watching your interview, I have looked closely at your website, and I notice that it doesn’t mention any kind of age-limit. What it says is that, after selection, there will be six years of training, starting later this year. I ask because, although I’m in excellent health, I am now thirty-five — which means that I shall be forty-one when the journey to Mars takes place. Will I still be considered?
+</p>
+
+<p><strong>Yours,</strong><br>
+Mark Maxim</p>
+
+</div>
+
+</div>
+</div>
+
+<script>
+window.ANSWERS = {
+1: "B",
+2: "B",
+3: "A",
+4: "C",
+5: "C",
+6: "B",
+7: "C"
+};
+
+function goBack(){
+window.location.href = "reading2-dashboard.html";
+}
+</script>
+
+<script src="reading2-test.js"></script>
+
+</body>
+</html>

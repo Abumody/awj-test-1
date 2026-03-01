@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reading 3 – Test 1</title>
+<link rel="stylesheet" href="reading3-test.css">
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <h1>Reading 3 – Test 1</h1>
+    <p>Grade 11 – Reading Section</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge">8 Questions</div>
+    <div class="badge">2 Attempts</div>
+  </div>
+</header>
+
+<section class="instructions">
+  <h3>Instructions</h3>
+  <ul>
+    <li>Answer questions 1–4 in short form.</li>
+    <li>Choose ONE correct answer for 5–8.</li>
+  </ul>
+</section>
+
+<div class="layout">
+
+<div class="questions-panel">
+
+<!-- SHORT ANSWER -->
+<div class="reading-item" data-q="1">
+<p>1. Where was Yusra Mardini born?</p>
+<input type="text" class="short-answer">
+</div>
+
+<div class="reading-item" data-q="2">
+<p>2. Why did she leave her country?</p>
+<input type="text" class="short-answer">
+</div>
+
+<div class="reading-item" data-q="3">
+<p>3. How did she travel to Greece?</p>
+<input type="text" class="short-answer">
+</div>
+
+<div class="reading-item" data-q="4">
+<p>4. What challenge did she face in Germany?</p>
+<input type="text" class="short-answer">
+</div>
+
+<div class="reading-item" data-q="4">
+<p>5. Which competition did she participate in?</p>
+<input type="text" class="short-answer">
+</div>
+
+<!-- MCQ -->
+<div class="reading-item" data-q="6">
+<p>6. Yusra's life has change  ______ 2015.</p>
+<button class="tf-btn" data-value="A">in</button>
+<button class="tf-btn" data-value="B">on</button>
+<button class="tf-btn" data-value="C">at</button>
+</div>
+
+<div class="reading-item" data-q="7">
+<p>7. Yusra did not win the  ______.</p>
+<button class="tf-btn" data-value="A">competition</button>
+<button class="tf-btn" data-value="B">game</button>
+<button class="tf-btn" data-value="C">concert</button>
+</div>
+
+<div class="reading-item" data-q="8">
+<p>8. The girl         in Damascus.</p>
+<button class="tf-btn" data-value="A">is born</button>
+<button class="tf-btn" data-value="B">born</button>
+<button class="tf-btn" data-value="C">was born</button>
+</div>
+
+<div class="action-bar">
+  <button class="btn back" onclick="goBack()">Back</button>
+  <button id="submitBtn" class="btn submit">Submit</button>
+</div>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+<div class="passage-panel">
+
+<h2>Yusra Mardini</h2>
+
+<p>Yusra Mardini was born in Damascus, Syria, where she trained as a competitive swimmer from a young age. Her life changed in 2015 when war made daily life unsafe for her family. Training became impossible, and Yusra and her sister decided to leave Syria in search of safety.</p>
+
+<p>Their journey was dangerous. While crossing the Sea from Turkey to Greece in a small boat, the engine stopped, and the boat began to fill with water. Yusra, her sister, and two other passengers jumped into the sea and pushed the boat for several hours until they reached the shore of Lesbos. Without their swimming skills, many lives could have been lost.</p>
+
+<p>After arriving in Germany, Yusra faced new challenges. She had to learn a new language, adapt to a different culture, and restart her swimming training from zero. At first, she struggled with loneliness and exhaustion, but she refused to quit.</p>
+
+<p>In 2016, only one year after fleeing Syria, Yusra competed in the Rio Olympic Games as part of the Refugee Olympic Team. She did not win a medal, but her participation became a symbol of strength and resilience.</p>
+
+</div>
+
+</div>
+</div>
+
+<script>
+window.ANSWERS={
+  1:["Damascus","Syria","Damascus, Syria","in Damascus"],
+  2:["War made daliy life unsafe","because War made daliy life unsafe "],
+  3:["In a small boat"],
+  4:["Learning a new language"],
+  5:["Rio Olympic Games"],
+  6:"in",
+  7:"competition",
+  8:"was born"
+};
+
+function goBack(){
+  window.location.href="reading3-dashboard.html";
+}
+</script>
+
+<script src="reading3-test.js"></script>
+
+</body>
+</html>

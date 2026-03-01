@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading 2 – Test 10</title>
+
+<link rel="stylesheet" href="reading2-test.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <h1><i class="fas fa-book-open"></i> Reading 2 – Test 10</h1>
+    <p>Complaint Letter – Faulty Laptop</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge"><i class="fas fa-question-circle"></i> 7 Questions</div>
+    <div class="badge"><i class="fas fa-redo"></i> 2 Attempts</div>
+  </div>
+</header>
+
+<section class="instructions">
+  <h3><i class="fas fa-info-circle"></i> Instructions</h3>
+  <ul>
+    <li>Read the letter carefully.</li>
+    <li>Choose ONE correct answer only.</li>
+  </ul>
+</section>
+
+<div class="layout">
+
+<!-- ================= LEFT ================= -->
+<div class="questions-panel">
+
+<div class="reading-item" data-q="1">
+<p>1. Ahmed bought the laptop on ______.</p>
+<button class="tf-btn" data-value="A">5 December</button>
+<button class="tf-btn" data-value="B">10 December</button>
+<button class="tf-btn" data-value="C">15 December</button>
+</div>
+
+<div class="reading-item" data-q="2">
+<p>2. Before writing this letter, he has already tried to complain ______.</p>
+<button class="tf-btn" data-value="A">once</button>
+<button class="tf-btn" data-value="B">twice</button>
+<button class="tf-btn" data-value="C">three times</button>
+</div>
+
+<div class="reading-item" data-q="3">
+<p>3. The laptop that was sent to him was ______.</p>
+<button class="tf-btn" data-value="A">black</button>
+<button class="tf-btn" data-value="B">grey</button>
+<button class="tf-btn" data-value="C">pink</button>
+</div>
+
+<div class="reading-item" data-q="4">
+<p>4. He complains about the ______ of the screen.</p>
+<button class="tf-btn" data-value="A">size</button>
+<button class="tf-btn" data-value="B">clarity</button>
+<button class="tf-btn" data-value="C">brightness</button>
+</div>
+
+<div class="reading-item" data-q="5">
+<p>5. He had difficulty in understanding the instructions because they were ______.</p>
+<button class="tf-btn" data-value="A">too complicated</button>
+<button class="tf-btn" data-value="B">in a foreign language</button>
+<button class="tf-btn" data-value="C">badly organised</button>
+</div>
+
+<div class="reading-item" data-q="6">
+<p>6. He thinks that the shop should improve the ______ of its staff.</p>
+<button class="tf-btn" data-value="A">selection</button>
+<button class="tf-btn" data-value="B">training</button>
+<button class="tf-btn" data-value="C">payment</button>
+</div>
+
+<div class="reading-item" data-q="7">
+<p>7. At the end, he asks for ______.</p>
+<button class="tf-btn" data-value="A">a new laptop</button>
+<button class="tf-btn" data-value="B">his money back</button>
+<button class="tf-btn" data-value="C">a meeting with the manager</button>
+</div>
+
+<div class="action-bar">
+<button class="btn back" onclick="goBack()">
+<i class="fas fa-arrow-left"></i> Back
+</button>
+
+<button id="submitBtn" class="btn submit">
+<i class="fas fa-check-circle"></i> Submit
+</button>
+</div>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+<!-- ================= RIGHT ================= -->
+<div class="passage-panel">
+
+<h2>Complaint Letter</h2>
+
+<p><strong>15 December 2011</strong></p>
+
+<p><strong>Dear Sir/Madam,</strong></p>
+
+<p>
+I am writing to express my dissatisfaction with a laptop that I purchased from your shop in Ruwi ten days ago. However, before that, there is another matter: i.e. the fact that I actually wrote to you about this laptop five days ago, and I have not yet received any reply at all! And before that, when I tried to phone your salesman about the problems I was having, his mobile was permanently engaged, and he never called back. Is this what is meant by your company's slogan: 'Customer Service: Our First Priority!'
+</p>
+
+<p>
+Regarding the laptop, there are four problems which I would like to point out. The first of these is perhaps not very important, but I should mention it. I had clearly stated when ordering the laptop that black was my preferred colour. So imagine my surprise when it was delivered, later the same day, and I opened the box to find a device that was bright pink! I wouldn't have minded grey or even silver, but pink!
+</p>
+
+<p>
+More seriously, instead of the large-screen (17-inch) format that I had specified to your salesman, I received a laptop with only a 15-inch screen. When you design buildings for a living like I do, a small screen is a major disadvantage!
+</p>
+
+<p>
+The third problem with the laptop is also related to my work. I have noticed that there is no icon for the graphic design application that I asked for. This can only mean that it has not been installed, despite my very specific instructions!
+</p>
+
+<p>
+In addition to these three problems, there is one more thing. Even if everything else was satisfactory, I could not operate the laptop anyway, because the default language is not Arabic, or even English, but Japanese! I am really amazed by this particular mistake: I am not aware that I look in any way like a Japanese gentleman! I have, of course, tried to change the default setting, but this is rather difficult when everything is in a language that you do not understand!
+</p>
+
+<p>
+All in all, I am very disappointed both with your product and with the service that I have received. This is not what you promise in your advertisements. Now, every time I see one of those huge posters that you have put up all over the city, I realize that there is a difference between words and reality. In particular, I would recommend that you find some staff who have a better attitude towards their customers and who understand the idea of earning their salaries.
+</p>
+
+<p>
+I therefore request the immediate replacement of the laptop. I need something that actually meets the requirements that I stated so clearly to your salesman.
+</p>
+
+<p>
+Looking forward to a speedy response.</p>
+
+<p><strong>Yours faithfully,</strong><br>
+Ahmed Al-Zedjali</p>
+
+</div>
+
+</div>
+</div>
+
+<script>
+window.ANSWERS = {
+1: "A",
+2: "B",
+3: "C",
+4: "A",
+5: "B",
+6: "A",
+7: "A"
+};
+
+function goBack(){
+window.location.href = "reading2-dashboard.html";
+}
+</script>
+
+<script src="reading2-test.js"></script>
+
+</body>
+</html>
