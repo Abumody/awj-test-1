@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Listening 1 – Test 4</title>
+  <link rel="stylesheet" href="../css/listening-test.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h2>LISTENING 04 (Items 1 – 7)</h2>
+    <span>G.11 Sem II – Session 2018–2019</span>
+  </div>
+
+  <div class="instructions">
+    <p>
+      You are going to hear a conversation between two friends,
+      Ahmed and Ali. Listen, and shade in the bubble next to the
+      correct option.
+    </p>
+    <strong>Time left:</strong>
+    <span id="timer">10:00</span>
+  </div>
+
+  <div class="audio-player">
+    <audio controls>
+      <source src="../audio/listening1-test4.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="question">
+    1. Ahmed was supposed to travel to ______.
+    <div class="options">
+      <div class="option" data-value="Sur"><div class="bubble"></div>Sur</div>
+      <div class="option" data-value="Sohar"><div class="bubble"></div>Sohar</div>
+      <div class="option" data-value="Salalah"><div class="bubble"></div>Salalah</div>
+    </div>
+  </div>
+
+  <div class="question">
+    2. The ______ informed Ahmed that his trip has been cancelled.
+    <div class="options">
+      <div class="option" data-value="manager"><div class="bubble"></div>manager</div>
+      <div class="option" data-value="secretary"><div class="bubble"></div>secretary</div>
+      <div class="option" data-value="airlines"><div class="bubble"></div>airlines</div>
+    </div>
+  </div>
+
+  <div class="question">
+    3. Ahmed was angry because ______.
+    <div class="options">
+      <div class="option" data-value="his manager prefers Salim"><div class="bubble"></div>his manager prefers Salim</div>
+      <div class="option" data-value="Salim will join him on the trip"><div class="bubble"></div>Salim will join him on the trip</div>
+      <div class="option" data-value="he didn’t plan for the trip"><div class="bubble"></div>he didn’t plan for the trip</div>
+    </div>
+  </div>
+
+  <div class="question">
+    4. The purpose of the trip is to ______.
+    <div class="options">
+      <div class="option" data-value="sell fishing equipment"><div class="bubble"></div>sell fishing equipment</div>
+      <div class="option" data-value="plan Duqm’s new project"><div class="bubble"></div>plan Duqm’s new project</div>
+      <div class="option" data-value="buy new products for the company"><div class="bubble"></div>buy new products for the company</div>
+    </div>
+  </div>
+
+  <div class="question">
+    5. Ahmed thinks that he is the best person for this work trip because he ______.
+    <div class="options">
+      <div class="option" data-value="will increase the company’s sales"><div class="bubble"></div>will increase the company’s sales</div>
+      <div class="option" data-value="had visited the area recently"><div class="bubble"></div>had visited the area recently</div>
+      <div class="option" data-value="knows the people very well"><div class="bubble"></div>knows the people very well</div>
+    </div>
+  </div>
+
+  <div class="question">
+    6. Musandam’s project will be implemented in ______.
+    <div class="options">
+      <div class="option" data-value="2019"><div class="bubble"></div>2019</div>
+      <div class="option" data-value="2020"><div class="bubble"></div>2020</div>
+      <div class="option" data-value="2025"><div class="bubble"></div>2025</div>
+    </div>
+  </div>
+
+  <div class="question">
+    7. At the end, Ahmed was ______.
+    <div class="options">
+      <div class="option" data-value="still angry"><div class="bubble"></div>still angry</div>
+      <div class="option" data-value="calm"><div class="bubble"></div>calm</div>
+      <div class="option" data-value="frustrated"><div class="bubble"></div>frustrated</div>
+    </div>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; margin-top:40px;">
+    <button type="button" onclick="goBack()">⬅ Back</button>
+    <button onclick="submitTest()">Submit</button>
+  </div>
+
+  <div id="result"></div>
+
+</div>
+
+
+<script src="../js/listening4-answers.js"></script>
+<script src="../js/listening-player.js"></script>
+<script src="../js/listening-test.js"></script>
+
+<script>
+  function goBack() {
+    window.location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>

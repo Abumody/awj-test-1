@@ -1,5 +1,5 @@
 function goHome() {
-  window.location.href = "../../home.html";
+  window.location.href = "../home.html";
 }
 
 /* ===============================
@@ -7,7 +7,7 @@ function goHome() {
 ================================ */
 const student = localStorage.getItem("currentStudent");
 if (!student) {
-  window.location.href = "../../index.html";
+  window.location.href = "../../home.html";
 }
 
 /* ===============================

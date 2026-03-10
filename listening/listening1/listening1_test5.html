@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Listening 1 – Test 5</title>
+  <link rel="stylesheet" href="../css/listening-test.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h2>LISTENING 05 (Items 1 – 7)</h2>
+    <span>G.11 Sem II – Session 2017–2018</span>
+  </div>
+
+  <div class="instructions">
+    <p>
+      You are going to hear a conversation between two teachers
+      talking about a talent show.
+      Listen, and shade in the bubble next to the correct option.
+    </p>
+    <strong>Time left:</strong>
+    <span id="timer">10:00</span>
+  </div>
+
+  <div class="audio-player">
+    <audio controls>
+      <source src="../audio/listening1-test5.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="question">
+    1. The talent show will begin at ______ p.m.
+    <div class="options">
+      <div class="option" data-value="three"><div class="bubble"></div>three</div>
+      <div class="option" data-value="four"><div class="bubble"></div>four</div>
+      <div class="option" data-value="five"><div class="bubble"></div>five</div>
+    </div>
+  </div>
+
+  <div class="question">
+    2. Graham will ______ in the talent show.
+    <div class="options">
+      <div class="option" data-value="play music"><div class="bubble"></div>play music</div>
+      <div class="option" data-value="tell jokes"><div class="bubble"></div>tell jokes</div>
+      <div class="option" data-value="act in a play"><div class="bubble"></div>act in a play</div>
+    </div>
+  </div>
+
+  <div class="question">
+    3. Sarah expects her ______ to participate in the talent show.
+    <div class="options">
+      <div class="option" data-value="students"><div class="bubble"></div>students</div>
+      <div class="option" data-value="children"><div class="bubble"></div>children</div>
+      <div class="option" data-value="friends"><div class="bubble"></div>friends</div>
+    </div>
+  </div>
+
+  <div class="question">
+    4. ______ people have agreed to participate in the talent show.
+    <div class="options">
+      <div class="option" data-value="Four"><div class="bubble"></div>Four</div>
+      <div class="option" data-value="Five"><div class="bubble"></div>Five</div>
+      <div class="option" data-value="Six"><div class="bubble"></div>Six</div>
+    </div>
+  </div>
+
+  <div class="question">
+    5. Sarah will arrive late at the show because she is ______.
+    <div class="options">
+      <div class="option" data-value="invited to a birthday party"><div class="bubble"></div>invited to a birthday party</div>
+      <div class="option" data-value="involved in a match"><div class="bubble"></div>involved in a match</div>
+      <div class="option" data-value="organising a cooking competition"><div class="bubble"></div>organising a cooking competition</div>
+    </div>
+  </div>
+
+  <div class="question">
+    6. The last event in the talent show will be a ______.
+    <div class="options">
+      <div class="option" data-value="fashion show"><div class="bubble"></div>fashion show</div>
+      <div class="option" data-value="dance"><div class="bubble"></div>dance</div>
+      <div class="option" data-value="song"><div class="bubble"></div>song</div>
+    </div>
+  </div>
+
+  <div class="question">
+    7. The talent show will take place at a ______.
+    <div class="options">
+      <div class="option" data-value="park"><div class="bubble"></div>park</div>
+      <div class="option" data-value="basketball club"><div class="bubble"></div>basketball club</div>
+      <div class="option" data-value="school"><div class="bubble"></div>school</div>
+    </div>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; margin-top:40px;">
+    <button type="button" onclick="goBack()">⬅ Back</button>
+    <button onclick="submitTest()">Submit</button>
+  </div>
+
+  <div id="result"></div>
+
+</div>
+
+<script src="../js/listening5-answers.js"></script>
+<script src="../js/listening-player.js"></script>
+<script src="../js/listening-test.js"></script>
+
+<script>
+  function goBack() {
+    window.location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>

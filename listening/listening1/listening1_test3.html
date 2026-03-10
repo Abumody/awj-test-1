@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Listening 1 – Test 3</title>
+  <link rel="stylesheet" href="../css/listening-test.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h2>LISTENING 03 (Items 1 – 7)</h2>
+    <span>G.11 Sem II – Session 2018–2019</span>
+  </div>
+
+  <div class="instructions">
+    <p>
+      You are going to hear a conversation between two friends.
+      Their names are Alia and Amal.
+      Listen, and shade in the bubble next to the correct option.
+    </p>
+    <strong>Time left:</strong>
+    <span id="timer">10:00</span>
+  </div>
+
+  <div class="audio-player">
+    <audio controls>
+      <source src="../audio/listening1-test3.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="question">
+    1. This year’s festival will be held over ______.
+    <div class="options">
+      <div class="option" data-value="one day"><div class="bubble"></div>one day</div>
+      <div class="option" data-value="two days"><div class="bubble"></div>two days</div>
+      <div class="option" data-value="three days"><div class="bubble"></div>three days</div>
+    </div>
+  </div>
+
+  <div class="question">
+    2. At the festival, the chefs will ______.
+    <div class="options">
+      <div class="option" data-value="offer cooking classes"><div class="bubble"></div>offer cooking classes</div>
+      <div class="option" data-value="taste food cooked by guests"><div class="bubble"></div>taste food cooked by guests</div>
+      <div class="option" data-value="arrange cooking competitions"><div class="bubble"></div>arrange cooking competitions</div>
+    </div>
+  </div>
+
+  <div class="question">
+    3. The new food section at this year’s festival is for ______ food.
+    <div class="options">
+      <div class="option" data-value="traditional"><div class="bubble"></div>traditional</div>
+      <div class="option" data-value="fast"><div class="bubble"></div>fast</div>
+      <div class="option" data-value="street"><div class="bubble"></div>street</div>
+    </div>
+  </div>
+
+  <div class="question">
+    4. At last year’s festival, visitors recommended new activities to entertain ______.
+    <div class="options">
+      <div class="option" data-value="chefs"><div class="bubble"></div>chefs</div>
+      <div class="option" data-value="parents"><div class="bubble"></div>parents</div>
+      <div class="option" data-value="children"><div class="bubble"></div>children</div>
+    </div>
+  </div>
+
+  <div class="question">
+    5. Parents can pay two Rials to ______.
+    <div class="options">
+      <div class="option" data-value="enter the competitions"><div class="bubble"></div>enter the competitions</div>
+      <div class="option" data-value="have their children looked after"><div class="bubble"></div>have their children looked after</div>
+      <div class="option" data-value="watch a movie"><div class="bubble"></div>watch a movie</div>
+    </div>
+  </div>
+
+  <div class="question">
+    6. Maryam and Muna will be interested in ______.
+    <div class="options">
+      <div class="option" data-value="meeting Marcel Berger"><div class="bubble"></div>meeting Marcel Berger</div>
+      <div class="option" data-value="sharing their experience on the radio"><div class="bubble"></div>sharing their experience on the radio</div>
+      <div class="option" data-value="bringing their children to the festival"><div class="bubble"></div>bringing their children to the festival</div>
+    </div>
+  </div>
+
+  <div class="question">
+    7. Tickets for the festival are available ______.
+    <div class="options">
+      <div class="option" data-value="at Oman National Park"><div class="bubble"></div>at Oman National Park</div>
+      <div class="option" data-value="at City Shopping Centre"><div class="bubble"></div>at City Shopping Centre</div>
+      <div class="option" data-value="online"><div class="bubble"></div>online</div>
+    </div>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; margin-top:40px;">
+    <button type="button" onclick="goBack()">⬅ Back</button>
+    <button onclick="submitTest()">Submit</button>
+  </div>
+
+  <div id="result"></div>
+
+</div>
+
+<script src="../js/listening3-answers.js"></script>
+<script src="../js/listening-player.js"></script>
+<script src="../js/listening-test.js"></script>
+
+<script>
+  function goBack() {
+    window.location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>

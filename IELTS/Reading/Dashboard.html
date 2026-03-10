@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Practice Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .dashboard-container h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .test-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .test-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--accent-color);
+        }
+        
+        .test-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .test-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .btn-start {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: var(--transition);
+        }
+        
+        .btn-start:hover {
+            transform: scale(1.02);
+        }
+        
+        .test-card.completed {
+            border-color: var(--success-color);
+            background: #e8f8f5;
+        }
+        
+        .test-card.completed h3 {
+            color: var(--success-color);
+        }
+    </style>
+</head>
+<body>
+<!-- Update the header section in test-1-bats.html -->
+<header>
+    <div class="header-left">
+        <a href="../ielts-dashboard.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back</span>
+        </a>
+        
+    </header>
+    
+    <div class="dashboard-container">
+        <h1> Reading Practice Tests</h1>
+        
+        <div class="test-grid">
+            <div class="test-card completed">
+                <h3>✓ Test 1: Let's Go Bats</h3>
+                <p>Questions 1-13 | 20 Minutes</p>
+                <p><strong>Score: --/--</strong></p>
+                <button class="btn-start" onclick="window.location.href='test-1-bats.html'">Review / Retake</button>
+            </div>
+            
+            <div class="test-card">
+                <h3>🔒 Test 2: Coming Soon</h3>
+                <p>Questions 1-13 | 20 Minutes</p>
+                <p><strong>Complete Test 1 first</strong></p>
+                <button class="btn-start" disabled style="opacity:0.5;cursor:not-allowed;">Locked</button>
+            </div>
+            
+            <div class="test-card">
+                <h3>🔒 Test 3: Coming Soon</h3>
+                <p>Questions 1-13 | 20 Minutes</p>
+                <p><strong>Complete Test 2 first</strong></p>
+                <button class="btn-start" disabled style="opacity:0.5;cursor:not-allowed;">Locked</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

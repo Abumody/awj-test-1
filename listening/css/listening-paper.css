@@ -1,0 +1,66 @@
+body {
+  background: #f0f0f0;
+  font-family: "Times New Roman", serif;
+}
+
+.paper {
+  width: 800px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 40px;
+  border: 1px solid #000;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header p {
+  font-size: 16px;
+}
+
+.section {
+  margin-top: 25px;
+}
+
+.section h2 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.instruction {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.qa p,
+.mcq p {
+  margin-bottom: 5px;
+}
+
+.qa input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #000;
+  font-size: 15px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.mcq label {
+  display: block;
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+button {
+  padding: 8px 25px;
+  font-size: 15px;
+  cursor: pointer;
+}

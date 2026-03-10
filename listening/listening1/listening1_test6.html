@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Listening 1 – Test 6</title>
+  <link rel="stylesheet" href="../css/listening-test.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h2>LISTENING 06 (Items 1 – 7)</h2>
+    <span>G.11 Sem II – Session 2017–2018</span>
+  </div>
+
+  <div class="instructions">
+    <p>
+      You are going to hear a conversation between Kathy and Roberto
+      who are filling in a survey.
+      Listen, and shade in the bubble next to the correct option.
+    </p>
+    <strong>Time left:</strong>
+    <span id="timer">10:00</span>
+  </div>
+
+  <div class="audio-player">
+    <audio controls>
+      <source src="../audio/listening1-test6.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="question">
+    1. Roberto is a ______.
+    <div class="options">
+      <div class="option" data-value="student"><div class="bubble"></div>student</div>
+      <div class="option" data-value="trainer"><div class="bubble"></div>trainer</div>
+      <div class="option" data-value="lecturer"><div class="bubble"></div>lecturer</div>
+    </div>
+  </div>
+
+  <div class="question">
+    2. Kathy is doing a survey about ______.
+    <div class="options">
+      <div class="option" data-value="sports"><div class="bubble"></div>sports</div>
+      <div class="option" data-value="friendships"><div class="bubble"></div>friendships</div>
+      <div class="option" data-value="college assignments"><div class="bubble"></div>college assignments</div>
+    </div>
+  </div>
+
+  <div class="question">
+    3. The sport Roberto likes best is ______.
+    <div class="options">
+      <div class="option" data-value="tennis"><div class="bubble"></div>tennis</div>
+      <div class="option" data-value="swimming"><div class="bubble"></div>swimming</div>
+      <div class="option" data-value="soccer"><div class="bubble"></div>soccer</div>
+    </div>
+  </div>
+
+  <div class="question">
+    4. Roberto goes running in the ______.
+    <div class="options">
+      <div class="option" data-value="college grounds"><div class="bubble"></div>college grounds</div>
+      <div class="option" data-value="park"><div class="bubble"></div>park</div>
+      <div class="option" data-value="stadium"><div class="bubble"></div>stadium</div>
+    </div>
+  </div>
+
+  <div class="question">
+    5. ______ does not like to run when it is wet.
+    <div class="options">
+      <div class="option" data-value="Roberto"><div class="bubble"></div>Roberto</div>
+      <div class="option" data-value="Kathy"><div class="bubble"></div>Kathy</div>
+      <div class="option" data-value="Mike"><div class="bubble"></div>Mike</div>
+    </div>
+  </div>
+
+  <div class="question">
+    6. Roberto attends karate classes on ______.
+    <div class="options">
+      <div class="option" data-value="Sunday"><div class="bubble"></div>Sunday</div>
+      <div class="option" data-value="Wednesday"><div class="bubble"></div>Wednesday</div>
+      <div class="option" data-value="Thursday"><div class="bubble"></div>Thursday</div>
+    </div>
+  </div>
+
+  <div class="question">
+    7. Kathy thinks that karate is ______ sport.
+    <div class="options">
+      <div class="option" data-value="a dangerous"><div class="bubble"></div>a dangerous</div>
+      <div class="option" data-value="an interesting"><div class="bubble"></div>an interesting</div>
+      <div class="option" data-value="a boring"><div class="bubble"></div>a boring</div>
+    </div>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; margin-top:40px;">
+    <button type="button" onclick="goBack()">⬅ Back</button>
+    <button onclick="submitTest()">Submit</button>
+  </div>
+
+  <div id="result"></div>
+
+</div>
+
+<script src="../js/listening6-answers.js"></script>
+<script src="../js/listening-player.js"></script>
+<script src="../js/listening-test.js"></script>
+
+<script>
+  function goBack() {
+    window.location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>

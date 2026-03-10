@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Listening 1 – Test 1</title>
+  <link rel="stylesheet" href="../css/listening-test.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h2>LISTENING 01 (Items 1 – 7)</h2>
+    <span>G.11 Sem II – Session 2024–2025</span>
+  </div>
+
+  <div class="instructions">
+    <strong>Time left:</strong>
+    <span id="timer">10:00</span>
+  </div>
+
+  <div class="audio-player">
+    <audio controls>
+      <source src="../audio/listening1-test1.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div class="question">
+    1. Nasser and Alia are in ______.
+    <div class="options">
+      <div class="option" data-value="a hotel"><div class="bubble"></div>a hotel</div>
+      <div class="option" data-value="a house"><div class="bubble"></div>a house</div>
+      <div class="option" data-value="an airport"><div class="bubble"></div>an airport</div>
+    </div>
+  </div>
+
+  <div class="question">
+    2. They need to book a third room for their ______.
+    <div class="options">
+      <div class="option" data-value="friend"><div class="bubble"></div>friend</div>
+      <div class="option" data-value="mother"><div class="bubble"></div>mother</div>
+      <div class="option" data-value="father"><div class="bubble"></div>father</div>
+    </div>
+  </div>
+
+  <div class="question">
+    3. You can talk about personal things with your ______.
+    <div class="options">
+      <div class="option" data-value="sisters"><div class="bubble"></div>sisters</div>
+      <div class="option" data-value="friends"><div class="bubble"></div>friends</div>
+      <div class="option" data-value="brothers"><div class="bubble"></div>brothers</div>
+    </div>
+  </div>
+
+  <div class="question">
+    4. Real friends are people you can ______.
+    <div class="options">
+      <div class="option" data-value="trust"><div class="bubble"></div>trust</div>
+      <div class="option" data-value="talk with"><div class="bubble"></div>talk with</div>
+      <div class="option" data-value="study with"><div class="bubble"></div>study with</div>
+    </div>
+  </div>
+
+  <div class="question">
+    5. They will get on the plane at ______ o’clock.
+    <div class="options">
+      <div class="option" data-value="10"><div class="bubble"></div>10</div>
+      <div class="option" data-value="11"><div class="bubble"></div>11</div>
+      <div class="option" data-value="12"><div class="bubble"></div>12</div>
+    </div>
+  </div>
+
+  <div class="question">
+    6. Bad friendship might be ______.
+    <div class="options">
+      <div class="option" data-value="harmful"><div class="bubble"></div>harmful</div>
+      <div class="option" data-value="unreliable"><div class="bubble"></div>unreliable</div>
+      <div class="option" data-value="funny"><div class="bubble"></div>funny</div>
+    </div>
+  </div>
+
+  <div class="question">
+    7. Alia has ______ reliable friends.
+    <div class="options">
+      <div class="option" data-value="two"><div class="bubble"></div>two</div>
+      <div class="option" data-value="three"><div class="bubble"></div>three</div>
+      <div class="option" data-value="four"><div class="bubble"></div>four</div>
+    </div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div style="display:flex; justify-content:space-between; margin-top:40px;">
+    <button onclick="goBack()" type="button">⬅ Back</button>
+    <button id="submitBtn" onclick="submitTest()">Submit</button>
+  </div>
+
+  <div id="result"></div>
+
+</div>
+
+<script src="../js/listening-answers.js"></script>
+<script src="../js/listening-player.js"></script>
+<script src="../js/listening-test.js"></script>
+
+<script>
+  // زر الرجوع مستقل تمامًا عن منطق الاختبار
+  function goBack() {
+    window.location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>

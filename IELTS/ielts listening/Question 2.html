@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Listening Test 1 - Questions 6-10</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <!-- Audio Player Section -->
+        <header class="audio-header">
+            <!-- Hidden Audio Element -->
+            <audio id="actual-audio" src="audio/listening-test-2.mp3"></audio>
+
+            <div class="player-controls">
+                <button id="play-btn" class="play-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
+                    </svg>
+                    <span>Start Listening</span>
+                </button>
+                <div class="track-info">
+                    <span class="track-name">Section 1: Booking Form (Questions 6-10)</span>
+                    <span class="time-display" id="time-display">00:00 / 00:00</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Test Content Section -->
+        <main class="test-paper">
+            <div class="test-header">
+                <h1>Test 1</h1>
+                <div class="section-badge">LISTENING</div>
+            </div>
+
+            <div class="instructions">
+                <h3>SECTION 1 <span class="question-range">Questions 6–10</span></h3>
+                <div class="instruction-box">
+                    <p><strong>Questions 6–10</strong></p>
+                    <p>Complete the booking form below.</p>
+                    <p class="warning">Write <span class="highlight">ONE WORD AND/OR A NUMBER</span> for each answer.</p>
+                </div>
+            </div>
+
+            <!-- The Booking Form -->
+            <form id="quiz-form" class="answer-sheet booking-form">
+                <div class="sheet-header">
+                    <h2>AIRPORT SHUTTLE BOOKING FORM</h2>
+                </div>
+
+                <div class="form-grid">
+                    <!-- Row 1 -->
+                    <div class="form-row">
+                        <div class="form-label">To:</div>
+                        <div class="form-value">Milton</div>
+                        <div class="form-label">No. of passengers:</div>
+                        <div class="form-value">One</div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="form-row">
+                        <div class="form-label">Date:</div>
+                        <div class="form-value">
+                            <input type="text" id="q6" placeholder="6" autocomplete="off">
+                        </div>
+                        <div class="form-label">Type of ticket:</div>
+                        <div class="form-value">Single</div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="form-row">
+                        <div class="form-label">Bus Time:</div>
+                        <div class="form-value">
+                            <input type="text" id="q7" class="inline-input" placeholder="7" autocomplete="off">
+                            <span>pm</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 4 -->
+                    <div class="form-row">
+                        <div class="form-label">Name:</div>
+                        <div class="form-value">
+                            <span>Janet</span>
+                            <input type="text" id="q8" class="inline-input" placeholder="8" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <!-- Row 5 -->
+                    <div class="form-row">
+                        <div class="form-label">Flight No:</div>
+                        <div class="form-value">
+                            <input type="text" id="q9" placeholder="9" autocomplete="off">
+                        </div>
+                        <div class="form-label">From:</div>
+                        <div class="form-value">London Heathrow</div>
+                    </div>
+
+                    <!-- Row 6 -->
+                    <div class="form-row full-width">
+                        <div class="form-label">Address in Milton:</div>
+                        <div class="form-value static">
+                            Vacation Motel,<br>24, Kitchener Street
+                        </div>
+                    </div>
+
+                    <!-- Row 7 -->
+                    <div class="form-row">
+                        <div class="form-label">Fare:</div>
+                        <div class="form-value static">$35</div>
+                    </div>
+
+                    <!-- Row 8 -->
+                    <div class="form-row">
+                        <div class="form-label">Credit Card No:</div>
+                        <div class="form-value">
+                            <span>(Visa)</span>
+                            <input type="text" id="q10" placeholder="10" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" id="back-btn" class="btn btn-secondary">Back</button>
+                    <button type="button" id="submit-btn" class="btn btn-primary">Submit Answers</button>
+                </div>
+            </form>
+
+            <!-- Result Section (Hidden by default) -->
+            <div id="result-area" class="result-area hidden">
+                <h3>Test Results</h3>
+                <p>You scored <span id="score-display">0</span> out of 5</p>
+                <button type="button" id="reset-btn" class="btn btn-outline">Try Again</button>
+            </div>
+            
+            <div class="page-footer">
+                <span>11</span>
+            </div>
+        </main>
+    </div>
+
+    <script src="script2.js"></script>
+</body>
+</html>

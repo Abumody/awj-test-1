@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Listening Test 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <!-- Audio Player Section -->
+        <header class="audio-header">
+            <!-- Hidden Audio Element -->
+            <!-- Make sure your file is in an 'audio' folder, or change src to just "filename.mp3" -->
+            <audio id="actual-audio" src="audio/listening-test-1.mp3"></audio>
+
+            <div class="player-controls">
+                <button id="play-btn" class="play-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
+                    </svg>
+                    <span>Start Listening</span>
+                </button>
+                <div class="track-info">
+                    <span class="track-name">Section 1: Transport Options</span>
+                    <span class="time-display" id="time-display">00:00 / 00:00</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Test Content Section -->
+        <main class="test-paper">
+            <div class="test-header">
+                <h1>Test 1</h1>
+                <div class="section-badge">LISTENING</div>
+            </div>
+
+            <div class="instructions">
+                <h3>SECTION 1 <span class="question-range">Questions 1–10</span></h3>
+                <div class="instruction-box">
+                    <p><strong>Questions 1–5</strong></p>
+                    <p>Complete the notes below.</p>
+                    <p class="warning">Write <span class="highlight">NO MORE THAN THREE WORDS</span> for each answer.</p>
+                </div>
+            </div>
+
+            <!-- The "Notepad" Form -->
+            <form id="quiz-form" class="answer-sheet">
+                <div class="sheet-header">
+                    <h2>Transport from Airport to Milton</h2>
+                </div>
+
+                <div class="example-row">
+                    <div class="label">Example</div>
+                    <div class="answer-field">
+                        <span class="field-label">Distance:</span>
+                        <input type="text" value="147" readonly class="example-input">
+                        <span class="unit">miles</span>
+                    </div>
+                </div>
+
+                <div class="options-list">
+                    <div class="option-group">
+                        <h4>Options:</h4>
+                        <ul>
+                            <li>
+                                <strong>Car hire</strong>
+                                <ul>
+                                    <li>– don't want to drive</li>
+                                </ul>
+                            </li>
+                            
+                            <li>
+                                <div class="input-row">
+                                    <span class="bullet-number">1</span>
+                                    <input type="text" id="q1" placeholder="Answer here..." autocomplete="off">
+                                </div>
+                                <ul>
+                                    <li>– expensive</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <strong>Greyhound bus</strong>
+                                <ul>
+                                    <li>– $15 single, $27.50 return</li>
+                                    <li>
+                                        <span>– direct to the</span>
+                                        <input type="text" id="q2" class="inline-input" placeholder="2" autocomplete="off">
+                                    </li>
+                                    <li>
+                                        <span>– long</span>
+                                        <input type="text" id="q3" class="inline-input" placeholder="3" autocomplete="off">
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <strong>Airport Shuttle</strong>
+                                <ul>
+                                    <li>
+                                        <span>–</span>
+                                        <input type="text" id="q4" class="inline-input" placeholder="4" autocomplete="off">
+                                        <span>service</span>
+                                    </li>
+                                    <li>– every 2 hours</li>
+                                    <li>– $35 single, $65 return</li>
+                                    <li>
+                                        <span>– need to</span>
+                                        <input type="text" id="q5" class="inline-input" placeholder="5" autocomplete="off">
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" id="back-btn" class="btn btn-secondary">Back</button>
+                    <button type="button" id="submit-btn" class="btn btn-primary">Submit Answers</button>
+                </div>
+            </form>
+
+            <!-- Result Section (Hidden by default) -->
+            <div id="result-area" class="result-area hidden">
+                <h3>Test Results</h3>
+                <p>You scored <span id="score-display">0</span> out of 5</p>
+                <button type="button" id="reset-btn" class="btn btn-outline">Try Again</button>
+            </div>
+            
+            <div class="page-footer">
+                <span>10</span>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

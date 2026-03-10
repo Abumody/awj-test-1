@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge IELTS 7 – Test 1 Listening Section 2 (with audio timer)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #dde3ed;
+      font-family: 'Inter', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+    }
+
+    .exam-card {
+      max-width: 960px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 30px 50px -20px rgba(0, 25, 45, 0.4), 0 8px 16px -8px rgba(0,20,40,0.2);
+      padding: 2rem 2.5rem 2.5rem 2.5rem;
+      border: 1px solid rgba(255,255,255,0.7);
+    }
+
+    /* play button + timer strip */
+    .play-strip {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #e2eaf2;
+      flex-wrap: wrap;
+    }
+
+    .play-btn {
+      background: #163a54;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 12px 16px -10px #1b3f5c, 0 3px 0 0 #0e2c40 inset;
+      transition: all 0.1s ease;
+      flex-shrink: 0;
+    }
+
+    .play-btn:hover {
+      background: #1f5174;
+      transform: scale(1.02);
+    }
+
+    .play-btn.playing {
+      background: #2b608a;
+    }
+
+    .play-icon {
+      width: 26px;
+      height: 26px;
+      fill: white;
+      margin-left: 2px;
+    }
+
+    /* timer display */
+    .timer {
+      background: #ecf4fc;
+      border: 1px solid #bdd2e9;
+      padding: 0.4rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #1a4d70;
+      font-size: 1.2rem;
+      letter-spacing: 0.3px;
+      font-variant-numeric: tabular-nums;
+      box-shadow: inset 0 1px 4px white;
+    }
+
+    .section-tag {
+      background: #ecf4fc;
+      border: 1px solid #bdd2e9;
+      padding: 0.4rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #1a4d70;
+      font-size: 1.1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .badge-light {
+      background: #e2eefb;
+      border-radius: 30px;
+      padding: 0.3rem 1.4rem;
+      font-size: 0.95rem;
+      color: #1b5680;
+      border: 1px solid #b5cde4;
+    }
+
+    /* header */
+    .header-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .header-left h1 {
+      font-weight: 600;
+      font-size: 2rem;
+      color: #0a3146;
+      letter-spacing: -0.02em;
+    }
+
+    .header-left p {
+      color: #3f5e7a;
+      font-weight: 400;
+      margin-top: 0.25rem;
+      font-size: 1.1rem;
+    }
+
+    .q-range {
+      background: #e2ebf5;
+      border-radius: 40px;
+      padding: 0.5rem 2rem;
+      font-weight: 600;
+      color: #0d3d5e;
+      border: 1px solid #aac3de;
+      font-size: 1.2rem;
+    }
+
+    /* questions panel */
+    .questions-panel {
+      background: #f8fcff;
+      border-radius: 28px;
+      padding: 2.2rem 2.5rem;
+      border: 1px solid #dbe5f2;
+      box-shadow: inset 0 2px 6px #ffffff, 0 12px 24px -20px #0d304a;
+    }
+
+    .instruction {
+      font-weight: 500;
+      color: #254e73;
+      margin-bottom: 1.8rem;
+      font-size: 1.2rem;
+      border-left: 6px solid #477aa7;
+      padding-left: 1.2rem;
+      background: #ecf4fb;
+      border-radius: 0 40px 40px 0;
+      width: fit-content;
+      padding: 0.6rem 2rem 0.6rem 1.5rem;
+    }
+
+    .question-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .question-item {
+      border-bottom: 1px solid #d3e1f0;
+      padding-bottom: 1rem;
+    }
+
+    .q-num {
+      display: inline-block;
+      font-weight: 700;
+      color: #1b4c72;
+      font-size: 1.2rem;
+      margin-right: 1rem;
+      min-width: 2.5rem;
+    }
+
+    .q-text {
+      font-weight: 550;
+      color: #0b2e43;
+      font-size: 1.08rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem 3rem;
+      margin-left: 1rem;
+      margin-top: 0.5rem;
+      align-items: center;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      font-size: 1.05rem;
+    }
+
+    .option input[type="radio"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 1.2rem;
+      height: 1.2rem;
+      border: 2px solid #5482a7;
+      border-radius: 50%;
+      margin-right: 0.3rem;
+      transition: 0.1s;
+      background: white;
+    }
+    .option input[type="radio"]:checked {
+      border-color: #1d6291;
+      background: #1d6291;
+      box-shadow: inset 0 0 0 4px white;
+    }
+    .option input[type="radio"]:hover {
+      border-color: #2273aa;
+      background: #e1effb;
+    }
+
+    /* answer feedback */
+    .answer-feedback {
+      display: inline-block;
+      background: #dff0e0;
+      color: #1a6e3b;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 40px;
+      padding: 0.25rem 1rem;
+      margin-left: 1rem;
+      border: 1px solid #9ac7a5;
+      white-space: nowrap;
+    }
+
+    .answer-feedback.hidden {
+      display: none;
+    }
+
+    /* action bar with back & submit */
+    .action-bar {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.2rem;
+      border-top: 2px solid #e3ecf5;
+      padding-top: 1.8rem;
+    }
+
+    .nav-btn {
+      background: #ffffff;
+      border: 2px solid #1d4f77;
+      color: #1d4f77;
+      font-weight: 600;
+      padding: 0.7rem 2rem;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.1s;
+      box-shadow: 0 4px 8px -5px #0d3147;
+    }
+
+    .nav-btn:hover {
+      background: #ebf3fc;
+      border-color: #26648b;
+    }
+
+    .submit-btn {
+      background: #1d4f77;
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 0.8rem 2.5rem;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 10px 14px -10px #1b3d59, 0 3px 0 #0a2b41 inset;
+      transition: 0.1s;
+      border: 1px solid #6f9bc0;
+    }
+
+    .submit-btn:hover {
+      background: #25668f;
+      transform: scale(1.02);
+    }
+
+    .spacer {
+      flex: 1;
+    }
+
+    /* small hint */
+    .audio-hint {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      color: #326180;
+      background:#e7f0f9;
+      padding:0.3rem 1.5rem;
+      border-radius: 30px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+<div class="exam-card">
+  <!-- play button strip with timer -->
+  <div class="play-strip">
+    <button class="play-btn" id="playBtn" aria-label="play listening">
+      <svg class="play-icon" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+      </svg>
+    </button>
+    <span class="timer" id="timerDisplay">00:00 / 00:00</span>
+    <span class="section-tag">LISTENING · SECTION 2</span>
+    <span class="badge-light">Questions 11–20</span>
+  </div>
+
+  <!-- main header -->
+  <div class="header-row">
+    <div class="header-left">
+      <h1>Test 1</h1>
+      <p>PS Camping · Holiday information</p>
+    </div>
+    <div class="q-range">11–16</div>
+  </div>
+
+  <!-- questions panel -->
+  <div class="questions-panel">
+    <div class="instruction">Choose the correct letter, A, B or C.</div>
+
+    <div class="question-grid">
+      <!-- 11 -->
+      <div class="question-item">
+        <div class="q-text"><span class="q-num">11</span> PS Camping has been organising holidays for</div>
+        <div class="options">
+          <label class="option"><input type="radio" name="q11" value="A"> A 15 years.</label>
+          <label class="option"><input type="radio" name="q11" value="B"> B 20 years.</label>
+          <label class="option"><input type="radio" name="q11" value="C"> C 25 years.</label>
+        </div>
+        <span class="answer-feedback hidden" id="fb11"></span>
+      </div>
+      <!-- 12 -->
+      <div class="question-item">
+        <div class="q-text"><span class="q-num">12</span> The company has most camping sites in</div>
+        <div class="options">
+          <label class="option"><input type="radio" name="q12" value="A"> A France.</label>
+          <label class="option"><input type="radio" name="q12" value="B"> B Italy.</label>
+          <label class="option"><input type="radio" name="q12" value="C"> C Switzerland.</label>
+        </div>
+        <span class="answer-feedback hidden" id="fb12"></span>
+      </div>
+      <!-- 13 -->
+      <div class="question-item">
+        <div class="q-text"><span class="q-num">13</span> Which organised activity can children do every day of the week?</div>
+        <div class="options">
+          <label class="option"><input type="radio" name="q13" value="A"> A football</label>
+          <label class="option"><input type="radio" name="q13" value="B"> B drama</label>
+          <label class="option"><input type="radio" name="q13" value="C"> C model making</label>
+        </div>
+        <span class="answer-feedback hidden" id="fb13"></span>
+      </div>
+      <!-- 14 -->
+      <div class="question-item">
+        <div class="q-text"><span class="q-num">14</span> Some areas of the sites have a ‘no noise’ rule after</div>
+        <div class="options">
+          <label class="option"><input type="radio" name="q14" value="A"> A 9.30 p.m.</label>
+          <label class="option"><input type="radio" name="q14" value="B"> B 10.00 p.m.</label>
+          <label class="option"><input type="radio" name="q14" value="C"> C 10.30 p.m.</label>
+        </div>
+        <span class="answer-feedback hidden" id="fb14"></span>
+      </div>
+      <!-- 15 -->
+      <div class="question-item">
+        <div class="q-text"><span class="q-num">15</span> The holiday insurance that is offered by PS Camping</div>
+        <div class="options">
+          <label class="option"><input type="radio" name="q15" value="A"> A can be charged on an annual basis.</label>
+          <label class="option"><input type="radio" name="q15" value="B"> B is included in the price of the holiday.</label>
+          <label class="option"><input type="radio" name="q15" value="C"> C must be taken out at the time of booking.</label>
+        </div>
+        <span class="answer-feedback hidden" id="fb15"></span>
+      </div>
+      <!-- 16 -->
+      <div class="question-item">
+        <div class="q-text"><span class="q-num">16</span> Customers who recommend PS Camping to friends will receive</div>
+        <div class="options">
+          <label class="option"><input type="radio" name="q16" value="A"> A a free gift.</label>
+          <label class="option"><input type="radio" name="q16" value="B"> B an upgrade to a luxury tent.</label>
+          <label class="option"><input type="radio" name="q16" value="C"> C a discount.</label>
+        </div>
+        <span class="answer-feedback hidden" id="fb16"></span>
+      </div>
+    </div>
+
+    <!-- action bar with BACK and SUBMIT (no answer bar/website) -->
+    <div class="action-bar">
+      <button class="nav-btn" id="backBtn">← Back</button>
+      <button class="submit-btn" id="submitBtn">✔ Submit answers</button>
+      <span class="spacer"></span>
+    </div>
+
+    <!-- small hint (no footer) -->
+    <div class="audio-hint">🔊 audio: section2.mp3 (demo)</div>
+  </div>
+</div>
+
+<!-- JavaScript: play button connected to audio folder/file + visible timer -->
+<script>
+  (function(){
+    const audio = new Audio();
+
+    audio.src="audio/listening-test-3.mp3"
+
+    const playBtn = document.getElementById('playBtn');
+    const timerDisplay = document.getElementById('timerDisplay');
+    let isPlaying = false;
+
+    // format time as MM:SS
+    function formatTime(seconds) {
+      if (isNaN(seconds) || seconds < 0) return '00:00';
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // update timer display
+    function updateTimer() {
+      const current = audio.currentTime || 0;
+      const duration = audio.duration || 0;
+      timerDisplay.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
+    }
+
+    // when audio metadata is loaded (duration known)
+    audio.addEventListener('loadedmetadata', () => {
+      updateTimer();
+    });
+
+    // while playing, update frequently
+    audio.addEventListener('timeupdate', updateTimer);
+
+    // when audio ends, reset button & timer
+    audio.addEventListener('ended', () => {
+      isPlaying = false;
+      playBtn.classList.remove('playing');
+      playBtn.querySelector('.play-icon').innerHTML = '<path d="M8 5v14l11-7L8 5z" fill="currentColor"/>';
+      // timer shows at end
+      updateTimer();
+    });
+
+    // play/pause on button click
+    playBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (isPlaying) {
+        audio.pause();
+        playBtn.classList.remove('playing');
+        playBtn.querySelector('.play-icon').innerHTML = '<path d="M8 5v14l11-7L8 5z" fill="currentColor"/>';
+      } else {
+        // If audio is not loaded enough, play anyway
+        audio.play().catch(err => {
+          console.warn('Audio play failed:', err);
+          // fallback: still toggle simulation? but we show alert
+          alert('Audio file not found or unsupported. Please check the path.\n(Expected: audio/section2.mp3 or similar)');
+        });
+        playBtn.classList.add('playing');
+        playBtn.querySelector('.play-icon').innerHTML = '<rect x="6" y="5" width="5" height="14" fill="currentColor" /><rect x="13" y="5" width="5" height="14" fill="currentColor" />';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // initial update
+    updateTimer();
+
+    // Back button
+    document.getElementById('backBtn').addEventListener('click', () => {
+        window.location.href = 'dashboard.html';
+    });
+
+    // Submit button – check answers with key 11B,12A,13B,14C,15C,16A
+    const correctMap = {
+      q11: 'B',
+      q12: 'A',
+      q13: 'B',
+      q14: 'C',
+      q15: 'C',
+      q16: 'A'
+    };
+
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      for (let i = 11; i <= 16; i++) {
+        const radios = document.getElementsByName('q' + i);
+        let selected = null;
+        for (let r of radios) if (r.checked) { selected = r.value; break; }
+        const fb = document.getElementById('fb' + i);
+        fb.classList.remove('hidden');
+        if (selected && selected === correctMap['q' + i]) {
+          fb.textContent = '✓ correct';
+          fb.style.background = '#dff0e0'; fb.style.color = '#1a6e3b'; fb.style.border = '1px solid #9ac7a5';
+        } else if (selected) {
+          fb.textContent = '✗ incorrect (correct: ' + correctMap['q' + i] + ')';
+          fb.style.background = '#ffe6e6'; fb.style.color = '#b34141'; fb.style.border = '1px solid #e0b3b3';
+        } else {
+          fb.textContent = '⚠ no answer (correct: ' + correctMap['q' + i] + ')';
+          fb.style.background = '#fff2d6'; fb.style.color = '#b16f2e'; fb.style.border = '1px solid #e6c99c';
+        }
+      }
+    });
+
+    // initially hide feedback
+    for (let i = 11; i <= 16; i++) {
+      document.getElementById('fb' + i).classList.add('hidden');
+    }
+  })();
+</script>
+
+<style>
+  .answer-feedback.hidden { display: none; }
+  .answer-feedback { display: inline-block; margin-top: 0.4rem; margin-left: 2.5rem; padding: 0.25rem 1rem; border-radius: 40px; font-weight: 500; }
+  .option input[type="radio"]:checked { background: #1d6291; border-color: #1d6291; }
+  .option:hover { background: #e9f2fc; border-radius: 40px; }
+  .play-btn.playing { background: #2b608a; }
+  .timer { font-family: 'JetBrains Mono', monospace; background: #e2edf9; }
+</style>
+</body>
+</html>
