@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ===============================
-     AUTO TEST ID (NO HARDCODE)
-     from file name: listening2_test1.html
+     AUTO TEST ID (from file name)
+     listening2_test1.html → listening2_test1
   ================================ */
   const pageName = window.location.pathname.split("/").pop();
   const match = pageName.match(/(listening\d+_test\d+)/);
@@ -12,16 +12,18 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  const TEST_ID = match[1]; // listening2_test1
+  const TEST_ID = match[1];
 
   const TOTAL_QUESTIONS = 8;
   const MAX_ATTEMPTS = 2;
 
   /* ===============================
-     SESSION GUARD
+     STUDENT CHECK
   ================================ */
-  if (!localStorage.getItem("currentStudent")) {
-    localStorage.setItem("currentStudent", "student_temp");
+  const student = localStorage.getItem("currentStudent");
+  if (!student) {
+    window.location.href = "../../index.html";
+    return;
   }
 
   /* ===============================
@@ -34,10 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const ANSWERS = window.ANSWERS;
 
   /* ===============================
-     ATTEMPTS
+     ATTEMPTS (Dashboard compatible)
   ================================ */
-  let attempts =
-    Number(localStorage.getItem(TEST_ID + "_attempts")) || 0;
+  const ATTEMPT_KEY = `${student}_${TEST_ID}_attempts`;
+  let attempts = Number(localStorage.getItem(ATTEMPT_KEY)) || 0;
 
   if (attempts >= MAX_ATTEMPTS) {
     alert("No attempts left for this test");
@@ -45,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ===============================
-     TIMER (10 min)
+     TIMER (10 minutes)
   ================================ */
   let timeLeft = 10 * 60;
   const timerBox = document.createElement("div");
@@ -76,53 +78,66 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.addEventListener("click", () => submitTest(false));
   }
 
-  function submitTest(auto) {
+  function submitTest(autoSubmit) {
     clearInterval(timer);
 
     let score = 0;
 
-    /* Short answers */
+    /* ===== Short Answers ===== */
     document.querySelectorAll(".short-answer").forEach(input => {
       const q = input.dataset.q;
       const user = input.value.trim().toLowerCase();
       if (ANSWERS[q]?.includes(user)) score++;
     });
 
-    /* MCQ */
+    /* ===== MCQ ===== */
     document.querySelectorAll(".options input:checked").forEach(input => {
       const q = input.name.replace("q", "");
       if (ANSWERS[q] === input.value) score++;
     });
 
+    /* ===============================
+       SAVE ATTEMPTS (Dashboard)
+    ================================ */
     attempts++;
-    localStorage.setItem(TEST_ID + "_attempts", attempts);
-
-    const resultData = {
-      score,
-      total: TOTAL_QUESTIONS,
-      attempts,
-      finishedAt: new Date().toISOString()
-    };
+    localStorage.setItem(ATTEMPT_KEY, attempts);
 
     /* ===============================
-       SAVE RESULT
+       SAVE RESULT (Test specific)
     ================================ */
     localStorage.setItem(
-      TEST_ID + "_result",
-      JSON.stringify(resultData)
+      `${TEST_ID}_result`,
+      JSON.stringify({
+        score,
+        total: TOTAL_QUESTIONS,
+        attempts,
+        finishedAt: new Date().toISOString()
+      })
     );
 
     /* ===============================
-       🔥 LINK WITH EXISTING RESULTS PAGE
+       SAVE RESULT (Global – results.js)
     ================================ */
-    localStorage.setItem("currentTest", TEST_ID);
+    const allResults =
+      JSON.parse(localStorage.getItem("examResults")) || [];
 
+    allResults.push({
+      student: student,
+      testId: TEST_ID,
+      score: `${score}/${TOTAL_QUESTIONS}`,
+      date: new Date().toLocaleDateString()
+    });
+
+    localStorage.setItem("examResults", JSON.stringify(allResults));
+
+    /* ===============================
+       SHOW RESULT
+    ================================ */
     const resultBox = document.getElementById("result");
     if (resultBox) {
       resultBox.innerHTML = `
-        Score: ${score}/${TOTAL_QUESTIONS}<br>
-        Attempt: ${attempts}/${MAX_ATTEMPTS}<br><br>
-        <a href="results.html" class="back-link">View Results</a>
+        <strong>Score:</strong> ${score} / ${TOTAL_QUESTIONS}<br>
+        <strong>Attempt:</strong> ${attempts} / ${MAX_ATTEMPTS}
       `;
     }
 

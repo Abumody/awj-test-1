@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Listening Test</title>
+<link rel="stylesheet" href="listening_test.css">
+</head>
+
+<body>
+
+<div class="exam">
+
+<header class="header">
+<h1>Listening Test 05</h1>
+<p>A famous theatre in South America</p>
+</header>
+
+<!-- AUDIO -->
+<div class="audio-box">
+<audio controls>
+<source src="audio/listening5.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- PART ONE -->
+<div class="part-title">Part One</div>
+
+<div class="question">
+1. Where did the theatre get its name from?
+<input type="text" class="short-answer" data-q="1">
+</div>
+
+<div class="question">
+2. Why did it take so long to build it?
+<input type="text" class="short-answer" data-q="2">
+</div>
+
+<div class="question">
+3. When was it finally opened?
+<input type="text" class="short-answer" data-q="3">
+</div>
+
+<div class="question">
+4. What is the roof now made of?
+<input type="text" class="short-answer" data-q="4">
+</div>
+
+<!-- PART TWO -->
+<div class="part-title">Part Two</div>
+
+<div class="question">
+5. The speaker warns us not to ______ the theatre.
+<div class="options">
+<label><input type="radio" name="q5" value="wear jeans"> wear jeans in</label>
+<label><input type="radio" name="q5" value="arrive late"> arrive late at</label>
+<label><input type="radio" name="q5" value="take photos"> take photos of</label>
+</div>
+</div>
+
+<div class="question">
+6. The main language used during tours is ______.
+<div class="options">
+<label><input type="radio" name="q6" value="english"> English</label>
+<label><input type="radio" name="q6" value="portuguese"> Portuguese</label>
+<label><input type="radio" name="q6" value="spanish"> Spanish</label>
+</div>
+</div>
+
+<div class="question">
+7. These tours are not available on ______.
+<div class="options">
+<label><input type="radio" name="q7" value="saturdays"> Saturdays</label>
+<label><input type="radio" name="q7" value="mondays"> Mondays</label>
+<label><input type="radio" name="q7" value="fridays"> Fridays</label>
+</div>
+</div>
+
+<div class="question">
+8. The tours are free for ______.
+<div class="options">
+<label><input type="radio" name="q8" value="disabled people"> disabled people</label>
+<label><input type="radio" name="q8" value="school trips"> school trips</label>
+<label><input type="radio" name="q8" value="elderly people"> elderly people</label>
+</div>
+</div>
+
+<!-- ACTIONS -->
+<div class="actions">
+
+<a href="listening2_dashboard.html" class="back-link">
+⬅ Back to Dashboard
+</a>
+
+<button id="submitBtn">Submit</button>
+
+</div>
+
+<div id="result"></div>
+
+</div>
+
+<!-- ANSWERS -->
+<script>
+
+window.ANSWERS = {
+
+1:[
+"explorer",
+"a famous explorer",
+"famous explorer"
+],
+
+2:[
+"because of war",
+"war"
+],
+
+3:[
+"1856"
+],
+
+4:[
+"metal"
+],
+
+5:"arrive late",
+
+6:"spanish",
+
+7:"saturdays",
+
+8:"school trips"
+
+};
+
+</script>
+
+<script src="listening_test.js"></script>
+
+</body>
+</html>

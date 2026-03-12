@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reading 3 – Test 1</title>
+<link rel="stylesheet" href="reading3-test.css">
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <h1>Reading 3 – Test 1</h1>
+    <p>Grade 11 – Reading Section</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge">8 Questions</div>
+    <div class="badge">2 Attempts</div>
+  </div>
+</header>
+
+<section class="instructions">
+  <h3>Instructions</h3>
+  <ul>
+    <li>Answer questions 1–4 in short form.</li>
+    <li>Choose ONE correct answer for 5–8.</li>
+  </ul>
+</section>
+
+<div class="layout">
+
+<div class="questions-panel">
+
+<!-- SHORT ANSWER -->
+
+<div class="reading-item" data-q="1">
+<p>1. What is the height of Jabal Sawda?</p>
+<input type="text" class="short-answer">
+</div>
+
+<div class="reading-item" data-q="2">
+<p>2. What is the main attraction of Jabal Sawda?</p>
+<input type="text" class="short-answer">
+</div>
+
+<div class="reading-item" data-q="3">
+<p>3. How is the road to the summit?</p>
+<input type="text" class="short-answer">
+</div>
+
+<div class="reading-item" data-q="4">
+<p>4. Why is Jabal Sawda good for birdwatchers?</p>
+<input type="text" class="short-answer">
+</div>
+
+
+<!-- MCQ -->
+
+<div class="reading-item" data-q="5">
+<p>5. You can relax in Jabal Sawda in ______.</p>
+<button class="tf-btn" data-value="A">picnic areas</button>
+<button class="tf-btn" data-value="B">the summit</button>
+<button class="tf-btn" data-value="C">hiking areas</button>
+</div>
+
+<div class="reading-item" data-q="6">
+<p>6. Visitors can spend a night in the mountain in ______.</p>
+<button class="tf-btn" data-value="A">hotels</button>
+<button class="tf-btn" data-value="B">houses</button>
+<button class="tf-btn" data-value="C">camping areas</button>
+</div>
+
+<div class="reading-item" data-q="7">
+<p>7. Visitors can prevent breathing problems by ______.</p>
+<button class="tf-btn" data-value="A">taking it slow</button>
+<button class="tf-btn" data-value="B">drinking water</button>
+<button class="tf-btn" data-value="C">camping</button>
+</div>
+
+<div class="reading-item" data-q="8">
+<p>8. If you do not like driving in the mountain you can ______.</p>
+<button class="tf-btn" data-value="A">use your bike</button>
+<button class="tf-btn" data-value="B">take a guided trip</button>
+<button class="tf-btn" data-value="C">ride camels</button>
+</div>
+
+
+<div class="action-bar">
+<button class="btn back" onclick="goBack()">Back</button>
+<button id="submitBtn" class="btn submit">Submit</button>
+</div>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+
+<div class="passage-panel">
+
+<h2>Jabal Sawda</h2>
+
+<p>Jabal Sawda is the highest mountain in Saudi Arabia, standing at a height of 3,133 meters above sea level. The mountain is located in the southwestern region of the country, in the Asir Mountains. Jabal Sawda is a popular destination for nature lovers and outdoor enthusiasts, offering stunning views of the surrounding landscape and a variety of activities to enjoy.</p>
+
+<p>The main attraction of Jabal Sawda is its summit. Visitors can reach the top by car or by hiking. The road to the summit is steep, so drivers should be very careful. However, the view from the top is worth the effort. For those who enjoy hiking, Jabal Sawda offers a range of trails of varying difficulty. The area is known for its rocky cliffs, and it is home to a wide variety of birds and wildlife. Birdwatchers can see many birds.</p>
+
+<p>If you're looking for a place to relax, Jabal Sawda has picnic areas where you can spend time with your family or friends. Camping areas are also available for those who want to stay overnight. However, the camping facilities are basic and visitors should bring their own supplies.</p>
+
+<p>Visitors should be aware that heights can cause a risk. The air there is thinner and contains less oxygen which can cause breathing problems. To prevent this, visitors should take it slow and give their body time to adjust to the height. Drinking plenty of water is also important to prevent dehydration. Moreover, visitors should be careful and follow all safety instructions when driving on the mountain in bad weather. For those who prefer not to drive, there are many tour companies that offer guided trips to Jabal Sawda.</p>
+
+</div>
+
+</div>
+</div>
+
+
+<script>
+window.ANSWERS = {
+
+1:[
+"3133 meters",
+"3,133 meters",
+"3133 m",
+"3,133 m"
+],
+
+2:[
+"its summit",
+"summit",
+"the summit"
+],
+
+3:[
+"steep",
+"very steep"
+],
+
+4:[
+"they can see many birds",
+"see many birds",
+"because they can see many birds"
+],
+
+5:"A",
+6:"C",
+7:"A",
+8:"B"
+
+};
+
+function goBack(){
+window.location.href="reading3-dashboard.html";
+}
+</script>
+
+<script src="reading3-test.js"></script>
+
+</body>
+</html>

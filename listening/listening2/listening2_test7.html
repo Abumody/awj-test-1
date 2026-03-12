@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Listening Test</title>
+<link rel="stylesheet" href="listening_test.css">
+</head>
+
+<body>
+
+<div class="exam">
+
+<header class="header">
+<h1>Listening Test 07</h1>
+<p>A famous actor from Mexico</p>
+</header>
+
+<!-- AUDIO -->
+<div class="audio-box">
+<audio controls>
+<source src="audio/listening7.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- PART ONE -->
+<div class="part-title">Part One</div>
+
+<div class="question">
+1. Which two languages did Kuno Becker speak as a child?
+<input type="text" class="short-answer" data-q="1">
+</div>
+
+<div class="question">
+2. How old was he when he started playing a musical instrument?
+<input type="text" class="short-answer" data-q="2">
+</div>
+
+<div class="question">
+3. Which musical instrument did he play?
+<input type="text" class="short-answer" data-q="3">
+</div>
+
+<div class="question">
+4. How old was he when he decided to give up music and become an actor?
+<input type="text" class="short-answer" data-q="4">
+</div>
+
+<!-- PART TWO -->
+<div class="part-title">Part Two</div>
+
+<div class="question">
+5. Becker studied drama for ______ years.
+<div class="options">
+<label><input type="radio" name="q5" value="two"> two</label>
+<label><input type="radio" name="q5" value="five"> five</label>
+<label><input type="radio" name="q5" value="seven"> seven</label>
+</div>
+</div>
+
+<div class="question">
+6. He spent most of his early career working ______.
+<div class="options">
+<label><input type="radio" name="q6" value="comedy films"> in comedy films</label>
+<label><input type="radio" name="q6" value="classical theatre"> in classical theatre</label>
+<label><input type="radio" name="q6" value="tv dramas"> in TV dramas</label>
+</div>
+</div>
+
+<div class="question">
+7. His most famous film role is as a ______.
+<div class="options">
+<label><input type="radio" name="q7" value="musician"> musician</label>
+<label><input type="radio" name="q7" value="footballer"> footballer</label>
+<label><input type="radio" name="q7" value="businessman"> businessman</label>
+</div>
+</div>
+
+<div class="question">
+8. At present, he is acting ______.
+<div class="options">
+<label><input type="radio" name="q8" value="films"> in films</label>
+<label><input type="radio" name="q8" value="theatre"> in the theatre</label>
+<label><input type="radio" name="q8" value="tv"> on TV</label>
+</div>
+</div>
+
+<!-- ACTIONS -->
+<div class="actions">
+
+<a href="listening2_dashboard.html" class="back-link">
+⬅ Back to Dashboard
+</a>
+
+<button id="submitBtn">Submit</button>
+
+</div>
+
+<div id="result"></div>
+
+</div>
+
+<!-- ANSWERS -->
+<script>
+
+window.ANSWERS = {
+
+1:[
+"spanish and german",
+"german and spanish",
+"spanish german"
+],
+
+2:[
+"6",
+"six",
+"six years old"
+],
+
+3:[
+"violin"
+],
+
+4:[
+"17",
+"seventeen"
+],
+
+5:"two",
+
+6:"tv dramas",
+
+7:"footballer",
+
+8:"tv"
+
+};
+
+</script>
+
+<script src="listening_test.js"></script>
+
+</body>
+</html>

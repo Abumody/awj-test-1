@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conjunctions + because · interactive quiz</title>
+    <!-- Google Font & modern styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(165deg, #e7eef9 0%, #dde5f2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            margin: 0;
+        }
+
+        .quiz-container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 2.8rem;
+            box-shadow: 0 30px 50px -18px #1d2b42, 0 2px 4px rgba(255,255,255,0.6) inset;
+            padding: 2.5rem 2.2rem;
+            border: 1px solid rgba(255,255,255,0.7);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(145deg, #162b44, #27496d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #3b5780;
+            margin-bottom: 2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px dashed #aac0db;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .badge {
+            background: #274d6e;
+            color: white;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+            box-shadow: 0 4px 10px rgba(22,50,80,0.2);
+        }
+
+        .question-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .question-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 1.5rem 1.8rem;
+            box-shadow: 0 10px 22px -12px #2a3f60;
+            border: 1px solid rgba(220,235,255,0.9);
+            transition: all 0.2s ease;
+        }
+
+        .question-card:hover {
+            border-color: #9fbde2;
+            box-shadow: 0 16px 26px -12px #1f3d60;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #122b41;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .q-num {
+            background: #d9e8ff;
+            color: #1b3857;
+            font-weight: 600;
+            font-size: 0.9rem;
+            width: 2rem;
+            height: 2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 60%;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.5rem;
+            align-items: center;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            background: #f2f8ff;
+            padding: 0.5rem 1.4rem;
+            border-radius: 60px;
+            transition: background 0.15s, border 0.15s;
+            border: 1.5px solid transparent;
+        }
+
+        .option input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 1.2rem;
+            height: 1.2rem;
+            border: 2px solid #8199c0;
+            border-radius: 50%;
+            margin-right: 0.2rem;
+            transition: 0.1s;
+            cursor: pointer;
+        }
+
+        .option input[type="radio"]:checked {
+            border-color: #1f4a81;
+            background-color: #1f4a81;
+            box-shadow: inset 0 0 0 4px white, 0 0 0 1px #1f4a81;
+        }
+
+        .option:has(input:checked) {
+            background: #deecff;
+            border-color: #8fb0dc;
+            font-weight: 500;
+        }
+
+        .option:hover {
+            background: #d3e5fd;
+        }
+
+        .feedback-icon {
+            margin-left: 8px;
+            font-size: 1.3rem;
+            display: inline-block;
+            min-width: 2rem;
+        }
+
+        .action-bar {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .btn {
+            background: white;
+            border: none;
+            padding: 0.9rem 2.3rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.18s;
+            box-shadow: 0 6px 16px rgba(35, 60, 90, 0.15);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.7);
+        }
+
+        .btn-primary {
+            background: #1a3d62;
+            color: white;
+            box-shadow: 0 8px 18px -6px #1a3d62;
+        }
+
+        .btn-primary:hover {
+            background: #224e7a;
+            transform: scale(1.01);
+        }
+
+        .btn-secondary {
+            background: #ebf2fc;
+            color: #1d3f5c;
+        }
+
+        .btn-secondary:hover {
+            background: #ffffff;
+            border-color: #b2cef0;
+        }
+
+        .score-area {
+            background: #deebfc;
+            padding: 0.7rem 1.6rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #153450;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: inset 0 1px 5px rgba(255,255,255,0.9), 0 5px 10px rgba(25,45,70,0.1);
+        }
+
+        .score-area span {
+            background: #1f4970;
+            color: white;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            margin-left: 0.3rem;
+        }
+
+        .footnote {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #547092;
+            text-align: center;
+            border-top: 1px dashed #b7cae2;
+            padding-top: 1.2rem;
+        }
+
+        .result-tick {
+            color: #117f55;
+            font-weight: 700;
+        }
+
+        .result-cross {
+            color: #bc4752;
+            font-weight: 700;
+        }
+
+        @media (max-width: 550px) {
+            .quiz-container { padding: 1.8rem 1rem; }
+            .option { font-size: 1rem; padding: 0.4rem 1rem; }
+            .question-card { padding: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>
+            <span>📎 because · so · and · but</span>
+        </h1>
+        <div class="subhead">
+            <span>choose the right conjunction — 10 new sentences</span>
+            <span class="badge">➕ because added</span>
+        </div>
+
+        <div class="question-list" id="quizQuestions"></div>
+
+        <div class="action-bar">
+            <button class="btn btn-secondary" id="resetBtn" type="button">⟲ reset</button>
+            <button class="btn btn-primary" id="submitBtn" type="button">✓ check answers</button>
+            <div class="score-area" id="scoreDisplay">
+                <span>📋</span> score <span id="scoreValue">0/10</span>
+            </div>
+        </div>
+        <div class="footnote">
+            ✦ <strong>because</strong> = reason  |  <strong>so</strong> = result  |  <strong>and</strong> = addition  |  <strong>but</strong> = contrast
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ----- 10 fresh sentences with 'because', 'so', 'and', 'but' -----
+            const questionsData = [
+                { prefix: "He stayed at home", suffix: "he was feeling sick.", correct: "because" },
+                { prefix: "The weather was cold", suffix: "they went swimming anyway.", correct: "but" },
+                { prefix: "I finished my work early", suffix: "I decided to take a walk.", correct: "so" },
+                { prefix: "She bought a new laptop", suffix: "a wireless mouse.", correct: "and" },
+                { prefix: "We missed the bus", suffix: "we were late for school.", correct: "so" },
+                { prefix: "They cancelled the picnic", suffix: "it was raining heavily.", correct: "because" },
+                { prefix: "He studied all night", suffix: "he still failed the test.", correct: "but" },
+                { prefix: "She loves classical music", suffix: "her brother prefers rock.", correct: "but" },
+                { prefix: "I'll have the steak", suffix: "a glass of water, please.", correct: "and" },
+                { prefix: "She passed the exam", suffix: "she had prepared very well.", correct: "because" }
+            ];
+
+            // render all questions
+            const container = document.getElementById('quizQuestions');
+            function buildQuestions() {
+                let html = '';
+                questionsData.forEach((q, idx) => {
+                    const qNum = idx + 1;
+                    html += `
+                        <div class="question-card" data-qindex="${idx}">
+                            <div class="question-text">
+                                <span class="q-num">${qNum}</span>
+                                <span>${q.prefix} <strong style="min-width:3.5rem; text-decoration: underline wavy #9bb6dd 2px; text-underline-offset:7px;">_____</strong> ${q.suffix}</span>
+                            </div>
+                            <div class="options" data-qid="${idx}">
+                                <label class="option">
+                                    <input type="radio" name="q${idx}" value="because"> because
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q${idx}" value="so"> so
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q${idx}" value="and"> and
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q${idx}" value="but"> but
+                                </label>
+                                <span class="feedback-icon" id="fb${idx}"></span>
+                            </div>
+                        </div>
+                    `;
+                });
+                container.innerHTML = html;
+            }
+            buildQuestions();
+
+            // ----- helpers -----
+            function clearFeedback() {
+                for (let i = 0; i < questionsData.length; i++) {
+                    const fb = document.getElementById(`fb${i}`);
+                    if (fb) fb.innerHTML = '';
+                }
+            }
+
+            function resetSelections() {
+                for (let i = 0; i < questionsData.length; i++) {
+                    const radios = document.getElementsByName(`q${i}`);
+                    if (radios.length) {
+                        radios.forEach(r => r.checked = false);
+                    }
+                }
+                clearFeedback();
+                document.getElementById('scoreValue').innerText = '0/10';
+            }
+
+            function submitQuiz() {
+                let correctCount = 0;
+                for (let i = 0; i < questionsData.length; i++) {
+                    const radios = document.getElementsByName(`q${i}`);
+                    let selected = null;
+                    for (let r of radios) {
+                        if (r.checked) {
+                            selected = r.value;
+                            break;
+                        }
+                    }
+                    const correctAns = questionsData[i].correct;
+                    const fbSpan = document.getElementById(`fb${i}`);
+
+                    if (selected === correctAns) {
+                        fbSpan.innerHTML = '<span class="result-tick"> ✓</span>';
+                        correctCount++;
+                    } else if (selected === null) {
+                        fbSpan.innerHTML = '<span style="color:#a2b8d0;"> ◔</span>';  // not answered
+                    } else {
+                        fbSpan.innerHTML = '<span class="result-cross"> ✗</span>';
+                    }
+                }
+                document.getElementById('scoreValue').innerText = `${correctCount}/${questionsData.length}`;
+            }
+
+            // remove feedback when user changes a radio (optional)
+            for (let i = 0; i < questionsData.length; i++) {
+                const radios = document.getElementsByName(`q${i}`);
+                radios.forEach(radio => {
+                    radio.addEventListener('change', function() {
+                        const fbSpan = document.getElementById(`fb${i}`);
+                        if (fbSpan) fbSpan.innerHTML = '';
+                    });
+                });
+            }
+
+            // attach buttons
+            document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+            document.getElementById('resetBtn').addEventListener('click', resetSelections);
+
+            // initial reset (ensures clean start)
+            resetSelections();
+        })();
+    </script>
+</body>
+</html>

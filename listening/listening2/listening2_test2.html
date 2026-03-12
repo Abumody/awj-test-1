@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Listening Test</title>
+<link rel="stylesheet" href="listening_test.css">
+</head>
+
+<body>
+
+<div class="exam">
+
+  <header class="header">
+    <h1>Listening Test 02</h1>
+    <p>You are going to hear a story about a famous teenager called Maggie.</p>
+  </header>
+
+  <!-- AUDIO -->
+  <div class="audio-box">
+    <audio controls>
+      <source src="audio/listening2_test2.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- PART ONE -->
+  <div class="part-title">Part One</div>
+
+  <div class="question">
+    1. Where is Maggie from?
+    <input type="text" class="short-answer" data-q="1">
+  </div>
+
+  <div class="question">
+    2. Who encouraged her to take care of her talent?
+    <input type="text" class="short-answer" data-q="2">
+  </div>
+
+  <div class="question">
+    3. How old was she when she was selected by the producer?
+    <input type="text" class="short-answer" data-q="3">
+  </div>
+
+  <div class="question">
+    4. How did she feel before the concert?
+    <input type="text" class="short-answer" data-q="4">
+  </div>
+
+  <!-- PART TWO -->
+  <div class="part-title">Part Two</div>
+
+  <div class="question">
+    5. Maggie went to a:
+    <div class="options">
+      <label><input type="radio" name="q5" value="coffee shop"> coffee shop</label>
+      <label><input type="radio" name="q5" value="restaurant"> restaurant</label>
+      <label><input type="radio" name="q5" value="hotel"> hotel</label>
+    </div>
+  </div>
+
+  <div class="question">
+    6. She shared with the crying fan her experience of being:
+    <div class="options">
+      <label><input type="radio" name="q6" value="famous"> famous</label>
+      <label><input type="radio" name="q6" value="fat"> fat</label>
+      <label><input type="radio" name="q6" value="bullied"> bullied</label>
+    </div>
+  </div>
+
+  <div class="question">
+    7. The crying fan thanked Maggie for her:
+    <div class="options">
+      <label><input type="radio" name="q7" value="kindness"> kindness</label>
+      <label><input type="radio" name="q7" value="music"> music</label>
+      <label><input type="radio" name="q7" value="autograph"> autograph</label>
+    </div>
+  </div>
+
+  <div class="question">
+    8. Maggie used her social platform to:
+    <div class="options">
+      <label><input type="radio" name="q8" value="post photos"> post photos</label>
+      <label><input type="radio" name="q8" value="influence others"> influence others</label>
+      <label><input type="radio" name="q8" value="advertise"> advertise</label>
+    </div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="actions">
+
+    <!-- BACK -->
+    <a href="listening2_dashboard.html" class="back-link">
+      ⬅ Back to Dashboard
+    </a>
+
+    <!-- SUBMIT -->
+    <button id="submitBtn">Submit</button>
+  </div>
+
+  <div id="result"></div>
+</div>
+
+<!-- ANSWERS (HTML ONLY – SAME PATTERN) -->
+<script>
+window.ANSWERS = {
+  1: ["france"],
+  2: ["parents", "her parents"],
+  3: ["13", "thirteen"],
+  4: ["nervous"],
+  5: "restaurant",
+  6: "bullied",
+  7: "kindness",
+  8: "influence others"
+};
+</script>
+
+<!-- ENGINE -->
+<script src="listening_test.js"></script>
+
+</body>
+</html>

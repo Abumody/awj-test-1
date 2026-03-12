@@ -3,14 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===============================
      CONFIG
   =============================== */
-  const TEST_ID = "grammar1_test1";
+
+  const pageName = window.location.pathname.split("/").pop();
+  const TEST_ID = pageName.replace(".html", "");
+
   const TOTAL_QUESTIONS = 15;
   const MAX_ATTEMPTS = 2;
 
   /* ===============================
      STUDENT CHECK
   =============================== */
+
   const student = localStorage.getItem("currentStudent");
+
   if (!student) {
     window.location.href = "../../index.html";
     return;
@@ -26,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===============================
      ATTEMPTS
   =============================== */
+
   const ATTEMPT_KEY = `${student}_${TEST_ID}_attempts`;
   let attempts = Number(localStorage.getItem(ATTEMPT_KEY)) || 0;
 
@@ -41,13 +47,13 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===============================
      SUBMIT FUNCTION
   =============================== */
+
   function submitTest() {
 
     let score = 0;
 
     const inputs = document.querySelectorAll("input[type='text']");
 
-    // Remove any existing wrong-answer and correct-answer classes
     inputs.forEach(input => {
       input.classList.remove('wrong-answer', 'correct-answer');
     });
@@ -64,38 +70,51 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         input.classList.add('wrong-answer');
       }
+
     });
+
+    /* ===============================
+       CALCULATE FINAL SCORE
+    =============================== */
+
+    const finalScore = score * 0.5;
+    const maxScore = TOTAL_QUESTIONS * 0.5;
 
     /* Save attempt */
     attempts++;
     localStorage.setItem(ATTEMPT_KEY, attempts);
 
     /* Save detailed result */
+
     localStorage.setItem(
       `${TEST_ID}_result`,
       JSON.stringify({
         student: student,
-        score: score,
-        total: TOTAL_QUESTIONS,
+        score: finalScore,
+        total: maxScore,
         attempt: attempts,
         date: new Date().toISOString()
       })
     );
 
     /* Save global result (dashboard compatible) */
+
     const allResults =
       JSON.parse(localStorage.getItem("examResults")) || [];
 
     allResults.push({
       student: student,
       testId: TEST_ID,
-      score: `${score}/${TOTAL_QUESTIONS}`,
+      score: `${finalScore}/${maxScore}`,
       date: new Date().toLocaleDateString()
     });
 
     localStorage.setItem("examResults", JSON.stringify(allResults));
 
-    /* Show result */
+    /* ===============================
+       SHOW RESULT
+    =============================== */
+
     const resultBox = document.getElementById("result");
 
     let message = "";
@@ -110,16 +129,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     resultBox.innerHTML = `
       ${message} <br><br>
-      🎯 Score: ${score} / ${TOTAL_QUESTIONS} <br>
+      🎯 Score: ${finalScore} / ${maxScore} <br>
+      ✔ Correct Answers: ${score} / ${TOTAL_QUESTIONS} <br>
       🔁 Attempt: ${attempts} / ${MAX_ATTEMPTS}
     `;
 
     disableTest();
+
   }
 
   /* ===============================
      DISABLE TEST
   =============================== */
+
   function disableTest() {
     document.querySelectorAll("input, #submitBtn").forEach(el => {
       el.disabled = true;

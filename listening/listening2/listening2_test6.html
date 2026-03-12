@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Listening Test</title>
+<link rel="stylesheet" href="listening_test.css">
+</head>
+
+<body>
+
+<div class="exam">
+
+<header class="header">
+<h1>Listening Test 06</h1>
+<p>An art exhibition in Tokyo</p>
+</header>
+
+<!-- AUDIO -->
+<div class="audio-box">
+<audio controls>
+<source src="audio/listening6.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- PART ONE -->
+<div class="part-title">Part One</div>
+
+<div class="question">
+1. Apart from painting, what is Francis O'Connor's other job?
+<input type="text" class="short-answer" data-q="1">
+</div>
+
+<div class="question">
+2. When did he go to Japan for the first time?
+<input type="text" class="short-answer" data-q="2">
+</div>
+
+<div class="question">
+3. What did he do on his last visit to Japan?
+<input type="text" class="short-answer" data-q="3">
+</div>
+
+<div class="question">
+4. What is now the main topic of his paintings?
+<input type="text" class="short-answer" data-q="4">
+</div>
+
+<!-- PART TWO -->
+<div class="part-title">Part Two</div>
+
+<div class="question">
+5. The exhibition is being held at ______.
+<div class="options">
+<label><input type="radio" name="q5" value="tokyo arts centre"> the Tokyo Arts Centre</label>
+<label><input type="radio" name="q5" value="national museum"> the National Museum</label>
+<label><input type="radio" name="q5" value="tokyo university"> Tokyo University</label>
+</div>
+</div>
+
+<div class="question">
+6. The ______ day of the exhibition will be reserved for students.
+<div class="options">
+<label><input type="radio" name="q6" value="second"> second</label>
+<label><input type="radio" name="q6" value="fourth"> fourth</label>
+<label><input type="radio" name="q6" value="sixth"> sixth</label>
+</div>
+</div>
+
+<div class="question">
+7. The speaker especially likes how O'Connor uses ______ in his paintings.
+<div class="options">
+<label><input type="radio" name="q7" value="light"> light</label>
+<label><input type="radio" name="q7" value="colour"> colour</label>
+<label><input type="radio" name="q7" value="detail"> detail</label>
+</div>
+</div>
+
+<div class="question">
+8. After leaving Japan, the exhibition will go to ______.
+<div class="options">
+<label><input type="radio" name="q8" value="china"> China</label>
+<label><input type="radio" name="q8" value="singapore"> Singapore</label>
+<label><input type="radio" name="q8" value="korea"> Korea</label>
+</div>
+</div>
+
+<!-- ACTIONS -->
+<div class="actions">
+
+<a href="listening2_dashboard.html" class="back-link">
+⬅ Back to Dashboard
+</a>
+
+<button id="submitBtn">Submit</button>
+
+</div>
+
+<div id="result"></div>
+
+</div>
+
+<!-- ANSWERS -->
+<script>
+
+window.ANSWERS = {
+
+1:[
+"farmer",
+"farming",
+"growing vegetables",
+"raising chickens"
+],
+
+2:[
+"1998"
+],
+
+3:[
+"gave a course",
+"taught students",
+"teaching students"
+],
+
+4:[
+"historic sites",
+"historic buildings",
+"old buildings",
+"ancient buildings"
+],
+
+5:"tokyo arts centre",
+
+6:"fourth",
+
+7:"colour",
+
+8:"korea"
+
+};
+
+</script>
+
+<script src="listening_test.js"></script>
+
+</body>
+</html>

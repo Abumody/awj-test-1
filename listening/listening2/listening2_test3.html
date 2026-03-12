@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Listening Test</title>
+<link rel="stylesheet" href="listening_test.css">
+</head>
+
+<body>
+
+<div class="exam">
+
+<header class="header">
+<h1>Listening Test 03</h1>
+<p>A talk about an artist called Dominic Modlinski</p>
+</header>
+
+<!-- AUDIO -->
+<div class="audio-box">
+<audio controls>
+<source src="audio/listening3.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- PART ONE -->
+<div class="part-title">Part One</div>
+
+<div class="question">
+1. When did Dominic graduate from Ontario College of Arts?
+<input type="text" class="short-answer" data-q="1">
+</div>
+
+<div class="question">
+2. Why did Dominic build a small wooden house in Northern Ontario?
+<input type="text" class="short-answer" data-q="2">
+</div>
+
+<div class="question">
+3. How did Dominic manage to make money during his travels?
+<input type="text" class="short-answer" data-q="3">
+</div>
+
+<div class="question">
+4. What did Dominic like about the Yukon Mountains?
+<input type="text" class="short-answer" data-q="4">
+</div>
+
+<!-- PART TWO -->
+<div class="part-title">Part Two</div>
+
+<div class="question">
+5. 'Changing Landscapes' is the name of a ______.
+<div class="options">
+<label><input type="radio" name="q5" value="gallery"> gallery</label>
+<label><input type="radio" name="q5" value="famous painting"> famous painting</label>
+<label><input type="radio" name="q5" value="tv series"> TV series</label>
+</div>
+</div>
+
+<div class="question">
+6. Dominic travels with his friend to ______.
+<div class="options">
+<label><input type="radio" name="q6" value="search for locations"> search for locations</label>
+<label><input type="radio" name="q6" value="sell paintings"> sell paintings</label>
+<label><input type="radio" name="q6" value="study about art"> study about art</label>
+</div>
+</div>
+
+<div class="question">
+7. Dominic has a fifth degree black belt in ______.
+<div class="options">
+<label><input type="radio" name="q7" value="judo"> judo</label>
+<label><input type="radio" name="q7" value="karate"> karate</label>
+<label><input type="radio" name="q7" value="kendo"> kendo</label>
+</div>
+</div>
+
+<div class="question">
+8. He received the Elizabeth Greenshields in ______.
+<div class="options">
+<label><input type="radio" name="q8" value="1993"> 1993</label>
+<label><input type="radio" name="q8" value="1994"> 1994</label>
+<label><input type="radio" name="q8" value="2015"> 2015</label>
+</div>
+</div>
+
+<!-- ACTIONS -->
+<div class="actions">
+
+<a href="listening2_dashboard.html" class="back-link">
+⬅ Back to Dashboard
+</a>
+
+<button id="submitBtn">Submit</button>
+
+</div>
+
+<div id="result"></div>
+
+</div>
+
+<!-- ANSWERS -->
+<script>
+
+window.ANSWERS = {
+
+1:["1993"],
+
+2:[
+"to paint nature",
+"paint nature"
+],
+
+3:[
+"by selling his paintings",
+"selling his paintings"
+],
+
+4:[
+"the river",
+"river"
+],
+
+5:"tv series",
+
+6:"search for locations",
+
+7:"karate",
+
+8:"1994"
+
+};
+
+</script>
+
+<script src="listening_test.js"></script>
+
+</body>
+</html>

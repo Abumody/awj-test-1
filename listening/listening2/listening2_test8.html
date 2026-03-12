@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Listening Test</title>
+<link rel="stylesheet" href="listening_test.css">
+</head>
+
+<body>
+
+<div class="exam">
+
+<header class="header">
+<h1>Listening Test 08</h1>
+<p>A young celebrity from Korea</p>
+</header>
+
+<!-- AUDIO -->
+<div class="audio-box">
+<audio controls>
+<source src="audio/listening8.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- PART ONE -->
+<div class="part-title">Part One</div>
+
+<div class="question">
+1. In what year was Moon Guen Young born?
+<input type="text" class="short-answer" data-q="1">
+</div>
+
+<div class="question">
+2. How old was she when she first appeared on stage?
+<input type="text" class="short-answer" data-q="2">
+</div>
+
+<div class="question">
+3. What role did she play in the TV drama "Autumn Leaves"?
+<input type="text" class="short-answer" data-q="3">
+</div>
+
+<div class="question">
+4. What kind of film made her famous in the USA and Europe?
+<input type="text" class="short-answer" data-q="4">
+</div>
+
+<!-- PART TWO -->
+<div class="part-title">Part Two</div>
+
+<div class="question">
+5. As a teenager, Moon was famous for playing characters who were ______.
+<div class="options">
+<label><input type="radio" name="q5" value="nasty"> nasty</label>
+<label><input type="radio" name="q5" value="funny"> funny</label>
+<label><input type="radio" name="q5" value="nice"> nice</label>
+</div>
+</div>
+
+<div class="question">
+6. Her next role will be in ______.
+<div class="options">
+<label><input type="radio" name="q6" value="action film"> an action film</label>
+<label><input type="radio" name="q6" value="historical drama"> a historical drama</label>
+<label><input type="radio" name="q6" value="documentary"> a documentary</label>
+</div>
+</div>
+
+<div class="question">
+7. At university, she studied ______.
+<div class="options">
+<label><input type="radio" name="q7" value="drama"> Drama</label>
+<label><input type="radio" name="q7" value="history"> History</label>
+<label><input type="radio" name="q7" value="literature"> Literature</label>
+</div>
+</div>
+
+<div class="question">
+8. She has done a lot of charity work for ______.
+<div class="options">
+<label><input type="radio" name="q8" value="education"> education</label>
+<label><input type="radio" name="q8" value="health"> health</label>
+<label><input type="radio" name="q8" value="environment"> the environment</label>
+</div>
+</div>
+
+<!-- ACTIONS -->
+<div class="actions">
+
+<a href="listening2_dashboard.html" class="back-link">
+⬅ Back to Dashboard
+</a>
+
+<button id="submitBtn">Submit</button>
+
+</div>
+
+<div id="result"></div>
+
+</div>
+
+<!-- ANSWERS -->
+<script>
+
+window.ANSWERS = {
+
+1:[
+"1987"
+],
+
+2:[
+"10",
+"ten",
+"ten years old"
+],
+
+3:[
+"school girl",
+"schoolgirl"
+],
+
+4:[
+"horror",
+"horror film",
+"horror movie"
+],
+
+5:"nice",
+
+6:"historical drama",
+
+7:"literature",
+
+8:"education"
+
+};
+
+</script>
+
+<script src="listening_test.js"></script>
+
+</body>
+</html>

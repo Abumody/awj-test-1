@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reading 3 – Test 2</title>
+<link rel="stylesheet" href="reading3-test.css">
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <h1>Reading 3 – Test 2</h1>
+    <p>Grade 11 – Reading Section</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge">8 Questions</div>
+    <div class="badge">2 Attempts</div>
+  </div>
+</header>
+
+<section class="instructions">
+  <h3>Instructions</h3>
+  <ul>
+    <li>Answer questions 1–4 with a short answer (not more than four words).</li>
+    <li>Choose ONE correct answer for questions 5–8.</li>
+  </ul>
+</section>
+
+<div class="layout">
+
+<div class="questions-panel">
+
+<!-- SHORT ANSWER -->
+
+<div class="reading-item" data-q="1">
+<p>1. What does the color "red" symbolize?</p>
+<input type="text" class="short-answer">
+</div>
+
+<div class="reading-item" data-q="2">
+<p>2. When does the cleaning of the house or "sweeping the dust" happen?</p>
+<input type="text" class="short-answer">
+</div>
+
+<div class="reading-item" data-q="3">
+<p>3. What does the character (fu) mean?</p>
+<input type="text" class="short-answer">
+</div>
+
+<div class="reading-item" data-q="4">
+<p>4. What are the two traditional Chinese dishes served during the festival?</p>
+<input type="text" class="short-answer">
+</div>
+
+
+<!-- MCQ -->
+
+<div class="reading-item" data-q="5">
+<p>5. The Chinese New Year is a celebration for ______.</p>
+<button class="tf-btn" data-value="A">friends</button>
+<button class="tf-btn" data-value="B">families</button>
+<button class="tf-btn" data-value="C">students</button>
+</div>
+
+<div class="reading-item" data-q="6">
+<p>6. The word for "upside down" in Chinese sounds like the word ______.</p>
+<button class="tf-btn" data-value="A">come</button>
+<button class="tf-btn" data-value="B">go</button>
+<button class="tf-btn" data-value="C">arrive</button>
+</div>
+
+<div class="reading-item" data-q="7">
+<p>7. Chinese eat dumplings during the festival as it brings ______.</p>
+<button class="tf-btn" data-value="A">wealth</button>
+<button class="tf-btn" data-value="B">misfortune</button>
+<button class="tf-btn" data-value="C">sadness</button>
+</div>
+
+<div class="reading-item" data-q="8">
+<p>8. The firecrackers make a loud noise that is believed to ______.</p>
+<button class="tf-btn" data-value="A">bring happiness</button>
+<button class="tf-btn" data-value="B">scare evil spirits</button>
+<button class="tf-btn" data-value="C">bring good luck</button>
+</div>
+
+
+<div class="action-bar">
+<button class="btn back" onclick="goBack()">Back</button>
+<button id="submitBtn" class="btn submit">Submit</button>
+</div>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+
+<div class="passage-panel">
+
+<h2>Chinese New Year</h2>
+
+<p>The Chinese New Year dates to old times, when it was believed that evil spirits roamed the earth during the change of the lunar year. To ward off these spirits, people would light firecrackers and decorate their homes with red decorations, as the color red was believed to symbolize happiness.</p>
+
+<p>Today, the Chinese New Year remains an important festival that is celebrated with great enthusiasm and joy. It is a time for families to come together, to share in traditional foods, and to participate in a wide range of activities and customs.</p>
+
+<p>One important custom of the Chinese New Year is the cleaning of the house before the festival. This is known as "sweeping the dust," and is believed to help sweep away any bad luck or negative energy from the previous year, and to make way for good fortune and positive energy in the new year.</p>
+
+<p>During the Chinese New Year, families also decorate their homes with traditional Chinese decorations, such as red lanterns, banners with auspicious sayings, and paper cutouts of various animals and symbols. One popular symbol is the Chinese character "fu," which means good fortune, and is often hung upside down, as the word for "upside down" in Chinese sounds like the word "arrive," symbolizing the arrival of good fortune.</p>
+
+<p>Food is also a major part of the Chinese New Year celebrations. Traditional dishes include dumplings and fish, and each dish has its own significance. For example, fish is often served as it symbolizes abundance and prosperity, while dumplings are a popular food because they resemble gold ingots and are believed to bring wealth and good fortune.</p>
+
+<p>Finally, no Chinese New Year celebration would be complete without fireworks and firecrackers. The loud noise of the firecrackers is believed to scare away evil spirits and bad luck, while the fireworks are a symbol of joy and celebration.</p>
+
+</div>
+
+</div>
+</div>
+
+
+<script>
+window.ANSWERS = {
+
+1: [
+"happiness"
+],
+
+2: [
+"before the festival",
+"before festival"
+],
+
+3: [
+"good fortune"
+],
+
+4: [
+"dumplings and fish",
+"fish and dumplings"
+],
+
+5: "B",
+6: "C",
+7: "A",
+8: "B"
+
+};
+
+function goBack(){
+window.location.href="reading3-dashboard.html";
+}
+</script>
+
+<script src="reading3-test.js"></script>
+
+</body>
+</html>

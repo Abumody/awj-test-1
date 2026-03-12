@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Listening Test</title>
+<link rel="stylesheet" href="listening_test.css">
+</head>
+
+<body>
+
+<div class="exam">
+
+<header class="header">
+<h1>Listening Test 04</h1>
+<p>La Tomatina Festival</p>
+</header>
+
+<!-- AUDIO -->
+<div class="audio-box">
+<audio controls>
+<source src="audio/listening4.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- PART ONE -->
+<div class="part-title">Part One</div>
+
+<div class="question">
+1. What is the main event in the festival?
+<input type="text" class="short-answer" data-q="1">
+</div>
+
+<div class="question">
+2. When did it first start?
+<input type="text" class="short-answer" data-q="2">
+</div>
+
+<div class="question">
+3. Why was the festival held year after year?
+<input type="text" class="short-answer" data-q="3">
+</div>
+
+<div class="question">
+4. How long does the tomato fight take?
+<input type="text" class="short-answer" data-q="4">
+</div>
+
+<!-- PART TWO -->
+<div class="part-title">Part Two</div>
+
+<div class="question">
+5. The number of participants is limited because ______.
+<div class="options">
+<label><input type="radio" name="q5" value="of safety reasons"> of safety reasons</label>
+<label><input type="radio" name="q5" value="limited tomatoes"> of limited amount of tomatoes</label>
+<label><input type="radio" name="q5" value="complaints"> local people complained</label>
+</div>
+</div>
+
+<div class="question">
+6. The participants of the festival can throw ______.
+<div class="options">
+<label><input type="radio" name="q6" value="anything"> anything</label>
+<label><input type="radio" name="q6" value="tomatoes only"> tomatoes only</label>
+<label><input type="radio" name="q6" value="tomatoes and fruit"> tomatoes and other fruit</label>
+</div>
+</div>
+
+<div class="question">
+7. Similar celebrations in other countries are held ______.
+<div class="options">
+<label><input type="radio" name="q7" value="same time"> at the same time</label>
+<label><input type="radio" name="q7" value="after"> just after La Tomatina</label>
+<label><input type="radio" name="q7" value="different times"> at different times</label>
+</div>
+</div>
+
+<div class="question">
+8. The tomato festivals were stopped in ______.
+<div class="options">
+<label><input type="radio" name="q8" value="costa rica"> Costa Rica</label>
+<label><input type="radio" name="q8" value="india"> India</label>
+<label><input type="radio" name="q8" value="colombia"> Colombia</label>
+</div>
+</div>
+
+<!-- ACTIONS -->
+<div class="actions">
+
+<a href="listening2_dashboard.html" class="back-link">
+⬅ Back to Dashboard
+</a>
+
+<button id="submitBtn">Submit</button>
+
+</div>
+
+<div id="result"></div>
+
+</div>
+
+<!-- ANSWERS -->
+<script>
+
+window.ANSWERS = {
+
+1:[
+"tomato battle",
+"tomato fight",
+"tomato throw",
+"tomato throwing",
+"the tomato fight"
+],
+
+2:[
+"1945"
+],
+
+3:[
+"it was enjoyed",
+"people enjoyed it",
+"because people enjoyed it"
+],
+
+4:[
+"one hour",
+"an hour",
+"1 hour"
+],
+
+5:"of safety reasons",
+
+6:"tomatoes only",
+
+7:"different times",
+
+8:"india"
+
+};
+
+</script>
+
+<script src="listening_test.js"></script>
+
+</body>
+</html>
