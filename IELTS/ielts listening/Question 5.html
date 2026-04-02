@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Listening · Section 4</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .test-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .test-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .test-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .test-title h1 {
+            font-size: 1.5rem;
+            color: #2d3436;
+            margin: 0;
+        }
+
+        .test-title span {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .test-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .timer {
+            background: #2d3436;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+        }
+
+        .timer.warning {
+            background: #e17055;
+            animation: pulse 1s infinite;
+        }
+
+        .timer.danger {
+            background: #d63031;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .audio-player {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .audio-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .audio-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .audio-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .audio-progress {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .audio-progress input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.3);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .audio-progress input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+        }
+
+        .audio-time {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            min-width: 100px;
+            text-align: right;
+        }
+
+        .question-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            border-bottom: 2px solid #f093fb;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .section-header h2 {
+            color: #2d3436;
+            font-size: 1.3rem;
+            margin: 0 0 10px 0;
+        }
+
+        .section-header p {
+            color: #636e72;
+            font-size: 0.95rem;
+            margin: 5px 0;
+        }
+
+        .section-header em {
+            color: #d63031;
+            font-weight: 600;
+        }
+
+        .notes-box {
+            background: #f8f9fa;
+            border: 2px solid #dfe6e9;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .notes-title {
+            background: #2d3436;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: -25px -25px 20px -25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .notes-content {
+            line-height: 2.2;
+        }
+
+        .notes-content ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .notes-content li {
+            margin-bottom: 10px;
+            color: #2d3436;
+        }
+
+        .notes-content strong {
+            color: #2d3436;
+            display: block;
+            margin: 15px 0 10px 0;
+        }
+
+        .sub-section {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #b2bec3;
+        }
+
+        .answer-input {
+            width: 180px;
+            padding: 8px 12px;
+            border: 2px solid #f093fb;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: center;
+            font-weight: 600;
+            color: #2d3436;
+            background: white;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .answer-input:focus {
+            outline: none;
+            border-color: #d63031;
+            box-shadow: 0 0 0 3px rgba(240, 147, 251, 0.2);
+        }
+
+        .answer-input:disabled {
+            background: #dfe6e9;
+            cursor: not-allowed;
+        }
+
+        .sentence-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #f093fb;
+            line-height: 2;
+        }
+
+        .sentence-item label {
+            color: #2d3436;
+            font-weight: 500;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        .feedback.visible {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feedback.correct {
+            background: rgba(0, 184, 148, 0.1);
+            color: #00b894;
+            border: 1px solid #00b894;
+        }
+
+        .feedback.incorrect {
+            background: rgba(214, 48, 49, 0.1);
+            color: #d63031;
+            border: 1px solid #d63031;
+        }
+
+        .input-correct {
+            border-color: #00b894 !important;
+            background: rgba(0, 184, 148, 0.1) !important;
+        }
+
+        .input-incorrect {
+            border-color: #d63031 !important;
+            background: rgba(214, 48, 49, 0.1) !important;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back {
+            background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);
+            color: white;
+        }
+
+        .btn-back:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            flex: 1;
+            justify-content: center;
+            min-width: 200px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(240, 147, 251, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .score-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 30px;
+            display: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .score-section.visible {
+            display: block;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .score-section h2 {
+            margin: 0 0 15px 0;
+            font-size: 1.8rem;
+        }
+
+        .score-display {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 20px 0;
+        }
+
+        .score-display span {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .score-details {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .score-stat {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .score-stat .number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .score-stat .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .test-controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .audio-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .audio-time {
+                text-align: center;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .answer-input {
+                width: 140px;
+            }
+
+            .score-display {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="test-container">
+        
+        <!-- Test Header -->
+        <div class="test-header">
+            <div class="header-top">
+                <div class="test-title">
+                    <h1>IELTS Listening · Section 4</h1>
+                    <span>Questions 31-40</span>
+                </div>
+                <div class="test-controls">
+                    <a href="Dashboard.html" class="btn btn-back" style="padding: 10px 20px; font-size: 0.9rem;">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back</span>
+                    </a>
+                    <div class="timer" id="timer">10:00</div>
+                </div>
+            </div>
+
+            <!-- Audio Player -->
+            <div class="audio-player">
+                <div class="audio-title">
+                    <i class="fas fa-headphones"></i>
+                    <span>Audio Recording (Section 4)</span>
+                </div>
+                <div class="audio-controls">
+                    <button class="audio-btn" onclick="togglePlay()" id="playBtn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="audio-btn" onclick="stopAudio()">
+                        <i class="fas fa-stop"></i>
+                    </button>
+                    <div class="audio-progress">
+                        <input type="range" id="audioProgress" min="0" max="100" value="0" oninput="seekAudio()">
+                    </div>
+                    <div class="audio-time">
+                        <span id="currentTime">0:00</span> / <span id="duration">4:00</span>
+                    </div>
+                </div>
+                <audio id="audioElement" preload="metadata">
+                    <source src="audio/04-AudioTrack 04.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+
+        <!-- Questions Form -->
+        <form id="quiz-form">
+            
+            <!-- Questions 31-35: Notes Completion -->
+            <div class="question-section">
+                <div class="section-header">
+                    <h2>Questions 31-35</h2>
+                    <p>Complete the notes below.</p>
+                    <p>Write <em>ONE WORD ONLY</em> for each answer.</p>
+                </div>
+
+                <div class="notes-box">
+                    <div class="notes-title">
+                        Seminar on Rock Art
+                    </div>
+                    <div class="notes-content">
+                        <p>Preparation for fieldwork trip to Namibia in <input type="text" class="answer-input" data-answer="April" id="q31"> (31)</p>
+
+                        <strong>Rock art in Namibia may be</strong>
+                        <ul>
+                            <li>• paintings</li>
+                            <li>• engravings</li>
+                        </ul>
+
+                        <div class="sub-section">
+                            <strong>Earliest explanation of engravings of animal footprints</strong>
+                            <p>They were used to help <input type="text" class="answer-input" data-answer="children" id="q32"> (32) learn about tracking</p>
+                        </div>
+
+                        <div class="sub-section">
+                            <strong>But:</strong>
+                            <ul>
+                                <li>• Why are the tracks usually <input type="text" class="answer-input" data-answer="repeated" id="q33"> (33)?</li>
+                                <li>• Why are some engravings realistic and others unrealistic?</li>
+                                <li>• Why are the unrealistic animals sometimes half <input type="text" class="answer-input" data-answer="human" id="q34"> (34)?</li>
+                            </ul>
+                        </div>
+
+                        <div class="sub-section">
+                            <strong>More recent explanation:</strong>
+                            <p>Wise men may have been trying to control wild animals with <input type="text" class="answer-input" data-answer="magic" id="q35"> (35).</p>
+                        </div>
+
+                        <div class="sub-section">
+                            <strong>Comment:</strong>
+                            <p>Earlier explanation was due to scholars over-generalising from their experience of a different culture.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Questions 36-40: Sentence Completion -->
+            <div class="question-section">
+                <div class="section-header">
+                    <h2>Questions 36-40</h2>
+                    <p>Complete the sentences below.</p>
+                    <p>Write <em>ONE WORD ONLY</em> for each answer.</p>
+                </div>
+
+                <div class="sentence-item">
+                    <label>36. If you look at a site from a </label>
+                    <input type="text" class="answer-input" data-answer="distance" id="q36">
+                    <label>, you reduce visitor pressure.</label>
+                    <div class="feedback" id="feedback-36"></div>
+                </div>
+
+                <div class="sentence-item">
+                    <label>37. To camp on a site may be disrespectful to people from that </label>
+                    <input type="text" class="answer-input" data-answer="culture" id="q37">
+                    <label>.</label>
+                    <div class="feedback" id="feedback-37"></div>
+                </div>
+
+                <div class="sentence-item">
+                    <label>38. Undiscovered material may be damaged by </label>
+                    <input type="text" class="answer-input" data-answer="fire,fires" id="q38">
+                    <label>.</label>
+                    <div class="feedback" id="feedback-38"></div>
+                </div>
+
+                <div class="sentence-item">
+                    <label>39. You should avoid </label>
+                    <input type="text" class="answer-input" data-answer="touching" id="q39">
+                    <label> or tracing rock art as it is so fragile.</label>
+                    <div class="feedback" id="feedback-39"></div>
+                </div>
+
+                <div class="sentence-item">
+                    <label>40. In general, your aim is to leave the site </label>
+                    <input type="text" class="answer-input" data-answer="intact" id="q40">
+                    <label>.</label>
+                    <div class="feedback" id="feedback-40"></div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button type="button" class="btn btn-back" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Dashboard</span>
+                </button>
+                <button type="button" class="btn btn-submit" onclick="submitTest()">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Submit Answers</span>
+                </button>
+            </div>
+
+            <!-- Score Section -->
+            <div class="score-section" id="score-section">
+                <h2>🎉 Test Complete!</h2>
+                <div class="score-display">
+                    <span id="score-number">0</span><span>/10</span>
+                </div>
+                <div class="score-details">
+                    <div class="score-stat">
+                        <span class="number" id="correct-count">0</span>
+                        <span class="label">Correct</span>
+                    </div>
+                    <div class="score-stat">
+                        <span class="number" id="incorrect-count">0</span>
+                        <span class="label">Incorrect</span>
+                    </div>
+                    <div class="score-stat">
+                        <span class="number" id="percentage">0%</span>
+                        <span class="label">Accuracy</span>
+                    </div>
+                </div>
+                <p style="margin-top: 20px; opacity: 0.9;">Scroll up to review your answers with feedback</p>
+            </div>
+
+        </form>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 30px; color: white; opacity: 0.9; font-size: 0.9rem;">
+            <p>www.TAILIEUTIENGANH.NET</p>
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Timer
+        let timeRemaining = 10 * 60;
+        const timerElement = document.getElementById('timer');
+        let timerInterval;
+        let isSubmitted = false;
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                timerElement.classList.remove('warning', 'danger');
+                if (timeRemaining <= 120) timerElement.classList.add('warning');
+                if (timeRemaining <= 30) timerElement.classList.add('danger');
+
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    submitTest();
+                    alert("⏰ Time is up!");
+                }
+                timeRemaining--;
+            }, 1000);
+        }
+
+        // Audio Player
+        const audio = document.getElementById('audioElement');
+        const playBtn = document.getElementById('playBtn');
+        const progress = document.getElementById('audioProgress');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+
+        function togglePlay() {
+            if (audio.paused) {
+                audio.play();
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                audio.pause();
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+
+        function stopAudio() {
+            audio.pause();
+            audio.currentTime = 0;
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            progress.value = 0;
+            currentTimeEl.textContent = '0:00';
+        }
+
+        function seekAudio() {
+            audio.currentTime = (progress.value / 100) * audio.duration;
+        }
+
+        audio.addEventListener('timeupdate', () => {
+            const percent = (audio.currentTime / audio.duration) * 100;
+            progress.value = percent || 0;
+            currentTimeEl.textContent = formatTime(audio.currentTime);
+        });
+
+        audio.addEventListener('loadedmetadata', () => {
+            durationEl.textContent = formatTime(audio.duration);
+        });
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Navigation
+        function goBack() {
+            if (!isSubmitted) {
+                const confirmLeave = confirm("⚠️ You have unsaved answers.\n\nReturn to dashboard?");
+                if (!confirmLeave) return;
+            }
+            window.location.href = 'Dashboard.html';
+        }
+
+        // Grading
+        function submitTest() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+
+            clearInterval(timerInterval);
+            stopAudio();
+
+            let score = 0, correctCount = 0, incorrectCount = 0;
+
+            // Grade all text inputs
+            document.querySelectorAll('input[type="text"]').forEach(input => {
+                const userAnswer = input.value.trim().toLowerCase();
+                const correctAnswers = input.getAttribute('data-answer').toLowerCase().split(',');
+                const feedbackEl = document.getElementById(`feedback-${input.id.replace('q', '')}`) || document.createElement('div');
+                feedbackEl.className = 'feedback';
+
+                input.disabled = true;
+
+                if (correctAnswers.includes(userAnswer)) {
+                    score++;
+                    correctCount++;
+                    input.classList.add('input-correct');
+                    feedbackEl.textContent = "✓ Correct!";
+                    feedbackEl.classList.add('visible', 'correct');
+                } else {
+                    incorrectCount++;
+                    input.classList.add('input-incorrect');
+                    feedbackEl.textContent = `✗ Answer: ${correctAnswers[0]}`;
+                    feedbackEl.classList.add('visible', 'incorrect');
+                }
+
+                if (!document.getElementById(`feedback-${input.id.replace('q', '')}`)) {
+                    input.parentNode.appendChild(feedbackEl);
+                }
+            });
+
+            const percentage = Math.round((score / 10) * 100);
+
+            document.getElementById('score-number').textContent = score;
+            document.getElementById('correct-count').textContent = correctCount;
+            document.getElementById('incorrect-count').textContent = incorrectCount;
+            document.getElementById('percentage').textContent = percentage + '%';
+
+            document.getElementById('score-section').classList.add('visible');
+            document.getElementById('score-section').scrollIntoView({ behavior: 'smooth', block: 'end' });
+
+            document.querySelector('.btn-submit').textContent = "✓ Submitted";
+            document.querySelector('.btn-submit').disabled = true;
+            document.querySelector('.btn-back').disabled = true;
+        }
+
+        // Auto-save
+        setInterval(() => {
+            const data = {};
+            document.querySelectorAll('input[type="text"]').forEach(input => {
+                if (input.value) data[input.id] = input.value;
+            });
+            localStorage.setItem('ielts-section4-progress', JSON.stringify(data));
+        }, 30000);
+
+        window.addEventListener('load', () => {
+            startTimer();
+            const saved = localStorage.getItem('ielts-section4-progress');
+            if (saved) {
+                const data = JSON.parse(saved);
+                Object.keys(data).forEach(key => {
+                    const input = document.getElementById(key);
+                    if (input) input.value = data[key];
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Reading · Passage 3</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .reading-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .reading-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .reading-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reading-title h1 {
+            font-size: 1.5rem;
+            color: #2d3436;
+            margin: 0;
+        }
+
+        .reading-title span {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .reading-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .timer {
+            background: #2d3436;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+        }
+
+        .timer.warning {
+            background: #e17055;
+            animation: pulse 1s infinite;
+        }
+
+        .timer.danger {
+            background: #d63031;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .passage-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .passage-text {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .passage-text h2 {
+            color: #2d3436;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .passage-text .intro {
+            font-style: italic;
+            color: #636e72;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #4facfe;
+        }
+
+        .passage-text .paragraph {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #2d3436;
+            text-align: justify;
+        }
+
+        .questions-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .question-section {
+            margin-bottom: 30px;
+        }
+
+        .section-header {
+            border-bottom: 2px solid #4facfe;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .section-header h3 {
+            color: #2d3436;
+            font-size: 1.2rem;
+            margin: 0 0 10px 0;
+        }
+
+        .section-header p {
+            color: #636e72;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+
+        .section-header em {
+            color: #d63031;
+            font-weight: 600;
+        }
+
+        .mc-question {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4facfe;
+        }
+
+        .mc-question:last-child {
+            margin-bottom: 0;
+        }
+
+        .mc-number {
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 12px;
+        }
+
+        .mc-text {
+            color: #2d3436;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .mc-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mc-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 15px;
+            background: white;
+            border: 2px solid #dfe6e9;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mc-option:hover {
+            border-color: #4facfe;
+            background: rgba(79, 175, 254, 0.05);
+        }
+
+        .mc-option input[type="radio"] {
+            margin-top: 3px;
+            accent-color: #4facfe;
+        }
+
+        .mc-option label {
+            cursor: pointer;
+            flex: 1;
+            color: #2d3436;
+        }
+
+        .tf-question {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #4facfe;
+        }
+
+        .tf-number {
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+
+        .tf-text {
+            color: #2d3436;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .tf-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tf-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background: white;
+            border: 2px solid #dfe6e9;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tf-option:hover {
+            border-color: #4facfe;
+        }
+
+        .tf-option input[type="radio"] {
+            accent-color: #4facfe;
+        }
+
+        .tf-option label {
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .summary-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #dfe6e9;
+            line-height: 2.2;
+        }
+
+        .summary-text {
+            color: #2d3436;
+            line-height: 2;
+        }
+
+        .summary-input {
+            width: 150px;
+            padding: 6px 12px;
+            border: 2px solid #4facfe;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            text-align: center;
+            font-weight: 600;
+            color: #2d3436;
+            background: white;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .summary-input:focus {
+            outline: none;
+            border-color: #00f2fe;
+            box-shadow: 0 0 0 3px rgba(79, 175, 254, 0.2);
+        }
+
+        .summary-input:disabled {
+            background: #dfe6e9;
+            cursor: not-allowed;
+        }
+
+        .word-bank {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 2px solid #dfe6e9;
+        }
+
+        .word-bank-title {
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 15px;
+        }
+
+        .word-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .word-item {
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #2d3436;
+        }
+
+        .word-item strong {
+            color: #4facfe;
+            margin-right: 8px;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        .feedback.visible {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feedback.correct {
+            background: rgba(0, 184, 148, 0.1);
+            color: #00b894;
+            border: 1px solid #00b894;
+        }
+
+        .feedback.incorrect {
+            background: rgba(214, 48, 49, 0.1);
+            color: #d63031;
+            border: 1px solid #d63031;
+        }
+
+        .input-correct {
+            border-color: #00b894 !important;
+            background: rgba(0, 184, 148, 0.1) !important;
+        }
+
+        .input-incorrect {
+            border-color: #d63031 !important;
+            background: rgba(214, 48, 49, 0.1) !important;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back {
+            background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);
+            color: white;
+        }
+
+        .btn-back:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            flex: 1;
+            justify-content: center;
+            min-width: 200px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 175, 254, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .score-section {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 30px;
+            display: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .score-section.visible {
+            display: block;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .score-section h2 {
+            margin: 0 0 15px 0;
+            font-size: 1.8rem;
+        }
+
+        .score-display {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 20px 0;
+        }
+
+        .score-display span {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .score-details {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .score-stat {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .score-stat .number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .score-stat .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 1024px) {
+            .passage-container {
+                grid-template-columns: 1fr;
+            }
+
+            .passage-text,
+            .questions-panel {
+                max-height: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .reading-controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .summary-input {
+                width: 120px;
+            }
+
+            .score-display {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reading-container">
+        
+        <!-- Reading Header -->
+        <div class="reading-header">
+            <div class="header-top">
+                <div class="reading-title">
+                    <h1>IELTS Reading · Passage 3</h1>
+                    <span>Questions 27-40</span>
+                </div>
+                <div class="reading-controls">
+                    <a href="ielts-dashboard.html" class="btn btn-back" style="padding: 10px 20px; font-size: 0.9rem;">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back</span>
+                    </a>
+                    <div class="timer" id="timer">20:00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="passage-container">
+            
+            <!-- Passage Text -->
+            <div class="passage-text">
+                <h2>EDUCATING PSYCHE</h2>
+                
+                <div class="intro">
+                    <em>Educating Psyche</em> by Bernie Neville is a book which looks at radical new approaches to learning, describing the effects of emotion, imagination and the unconscious on learning. One theory discussed in the book is that proposed by George Lozanov, which focuses on the power of suggestion.
+                </div>
+
+                <div class="paragraph">
+                    Lozanov's instructional technique is based on the evidence that the connections made in the brain through unconscious processing (which he calls non-specific mental reactivity) are more durable than those made through conscious processing. Besides the laboratory evidence for this, we know from our experience that we often remember what we have perceived peripherally, long after we have forgotten what we set out to learn. If we think of a book we studied months or years ago, we will find it easier to recall peripheral details – the colour, the binding, the typeface, the table at the library where we sat while studying it – than the content on which we were concentrating. If we think of a lecture we listened to with great concentration, we will recall the lecturer's appearance and mannerisms, our place in the auditorium, the failure of the air-conditioning, much more easily than the ideas we went to learn. Even if these peripheral details are a bit elusive, they come back readily in hypnosis or when we relive the event imaginatively, as in psychodrama. The details of the content of the lecture, on the other hand, seem to have gone forever.
+                </div>
+
+                <div class="paragraph">
+                    This phenomenon can be partly attributed to the common counterproductive approach to study (making extreme efforts to memorise, tensing muscles, inducing fatigue), but it also simply reflects the way the brain functions. Lozanov therefore made indirect instruction (suggestion) central to his teaching system. In suggestopedia, as he called his method, consciousness is shifted away from the curriculum to focus on something peripheral. The curriculum then becomes peripheral and is dealt with by the reserve capacity of the brain.
+                </div>
+
+                <div class="paragraph">
+                    The suggestopedic approach to foreign language learning provides a good illustration. In its most recent variant (1980), it consists of the reading of vocabulary and text while the class is listening to music. The first session is in two parts. In the first part, the music is classical (Mozart, Beethoven, Brahms) and the teacher reads the text slowly and solemnly, with attention to the dynamics of the music. The students follow the text in their books. This is followed by several minutes of silence. In the second part, they listen to baroque music (Bach, Corelli, Handel) while the teacher reads the text in a normal speaking voice. During this time they have their books closed. During the whole of this session, their attention is passive; they listen to the music but make no attempt to learn the material.
+                </div>
+
+                <div class="paragraph">
+                    Beforehand, the students have been carefully prepared for the language learning experience. Through meeting with the staff and satisfied students they develop the expectation that learning will be easy and pleasant and that they will successfully learn several hundred words of the foreign language during the class. In a preliminary session, the teacher introduces them to the material to be covered, but does not 'teach' it. Like the students, they are instructed not to try to learn it during this introduction.
+                </div>
+
+                <div class="paragraph">
+                    Some hours after the two-part session, there is a follow-up class at which the students are stimulated to recall the material presented. Once again the approach is indirect. The students do not focus their attention on trying to remember the vocabulary, but focus on using the language to communicate (e.g. through games or improvised dramatisations). Such methods are not unusual in language teaching. What is distinctive in the suggestopedic method is that they are devoted entirely to assisting recall. The 'learning' of the material is assumed to be automatic and effortless, accomplished while listening to music. The teacher's task is to assist the students to apply what they have learned paraconsciously, and in doing so to make it easily accessible to consciousness. Another difference from conventional teaching is the evidence that students can regularly learn 1000 new words of a foreign language during a suggestopedic session, as well as grammar and idiom.
+                </div>
+
+                <div class="paragraph">
+                    Lozanov experimented with teaching by direct suggestion during sleep, hypnosis and trance states, but found such procedures unnecessary. Hypnosis, yoga, Silva mind-control, religious ceremonies and faith healing are all associated with successful suggestion, but none of their techniques seem to be essential to it. Such rituals may be seen as placebos. Lozanov acknowledges that the ritual surrounding suggestion in his own system is also a placebo, but maintains that without such a placebo people are unable or afraid to tap the reserve capacity of their brains. Like any placebo, it must be dispensed with authority to be effective. Just as a doctor calls on the full power of autocratic suggestion by insisting that the patient take precisely this white capsule precisely three times a day before meals, Lozanov is categoric in insisting that the suggestopedic session be conducted exactly in the manner designated, by trained and accredited suggestopedic teachers.
+                </div>
+
+                <div class="paragraph">
+                    While suggestopedia has gained some notoriety through success in the teaching of modern languages, few teachers are able to emulate the spectacular results of Lozanov and his associates. We can, perhaps, attribute mediocre results to an inadequate placebo effect. The students have not developed the appropriate mind set. They are often not motivated to learn through this method. They do not have enough 'faith'. They do not see it as 'real teaching', especially as it does not seem to involve the 'work' they have learned to believe is essential to learning.
+                </div>
+            </div>
+
+            <!-- Questions Panel -->
+            <div class="questions-panel">
+                <form id="quiz-form">
+                    
+                    <!-- Questions 27-30: Multiple Choice -->
+                    <div class="question-section">
+                        <div class="section-header">
+                            <h3>Questions 27-30</h3>
+                            <p>Choose the correct letter, <strong>A</strong>, <strong>B</strong>, <strong>C</strong> or <strong>D</strong>.</p>
+                        </div>
+
+                        <div class="mc-question">
+                            <div class="mc-number">27</div>
+                            <div class="mc-text">The book <em>Educating Psyche</em> is mainly concerned with</div>
+                            <div class="mc-options">
+                                <div class="mc-option">
+                                    <input type="radio" name="q27" id="q27a" value="A" data-answer="D">
+                                    <label for="q27a">A. the power of suggestion in learning.</label>
+                                </div>
+                                <div class="mc-option">
+                                    <input type="radio" name="q27" id="q27b" value="B" data-answer="D">
+                                    <label for="q27b">B. a particular technique for learning based on emotions.</label>
+                                </div>
+                                <div class="mc-option">
+                                    <input type="radio" name="q27" id="q27c" value="C" data-answer="D">
+                                    <label for="q27c">C. the effects of emotion on the imagination and the unconscious.</label>
+                                </div>
+                                <div class="mc-option">
+                                    <input type="radio" name="q27" id="q27d" value="D" data-answer="D">
+                                    <label for="q27d">D. ways of learning which are not traditional.</label>
+                                </div>
+                            </div>
+                            <div class="feedback" id="feedback-27"></div>
+                        </div>
+
+                        <div class="mc-question">
+                            <div class="mc-number">28</div>
+                            <div class="mc-text">Lozanov's theory claims that, when we try to remember things,</div>
+                            <div class="mc-options">
+                                <div class="mc-option">
+                                    <input type="radio" name="q28" id="q28a" value="A" data-answer="A">
+                                    <label for="q28a">A. unimportant details are the easiest to recall.</label>
+                                </div>
+                                <div class="mc-option">
+                                    <input type="radio" name="q28" id="q28b" value="B" data-answer="A">
+                                    <label for="q28b">B. concentrating hard produces the best results.</label>
+                                </div>
+                                <div class="mc-option">
+                                    <input type="radio" name="q28" id="q28c" value="C" data-answer="A">
+                                    <label for="q28c">C. the most significant facts are most easily recalled.</label>
+                                </div>
+                                <div class="mc-option">
+                                    <input type="radio" name="q28" id="q28d" value="D" data-answer="A">
+                                    <label for="q28d">D. peripheral vision is not important.</label>
+                                </div>
+                            </div>
+                            <div class="feedback" id="feedback-28"></div>
+                        </div>
+
+                        <div class="mc-question">
+                            <div class="mc-number">29</div>
+                            <div class="mc-text">In this passage, the author uses the examples of a book and a lecture to illustrate that</div>
+                            <div class="mc-options">
+                                <div class="mc-option">
+                                    <input type="radio" name="q29" id="q29a" value="A" data-answer="B">
+                                    <label for="q29a">A. both of these are important for developing concentration.</label>
+                                </div>
+                                <div class="mc-option">
+                                    <input type="radio" name="q29" id="q29b" value="B" data-answer="B">
+                                    <label for="q29b">B. his theory about methods of learning is valid.</label>
+                                </div>
+                                <div class="mc-option">
+                                    <input type="radio" name="q29" id="q29c" value="C" data-answer="B">
+                                    <label for="q29c">C. reading is a better technique for learning than listening.</label>
+                                </div>
+                                <div class="mc-option">
+                                    <input type="radio" name="q29" id="q29d" value="D" data-answer="B">
+                                    <label for="q29d">D. we can remember things more easily under hypnosis.</label>
+                                </div>
+                            </div>
+                            <div class="feedback" id="feedback-29"></div>
+                        </div>
+
+                        <div class="mc-question">
+                            <div class="mc-number">30</div>
+                            <div class="mc-text">Lozanov claims that teachers should train students to</div>
+                            <div class="mc-options">
+                                <div class="mc-option">
+                                    <input type="radio" name="q30" id="q30a" value="A" data-answer="C">
+                                    <label for="q30a">A. memorise details of the curriculum.</label>
+                                </div>
+                                <div class="mc-option">
+                                    <input type="radio" name="q30" id="q30b" value="B" data-answer="C">
+                                    <label for="q30b">B. develop their own sets of indirect instructions.</label>
+                                </div>
+                                <div class="mc-option">
+                                    <input type="radio" name="q30" id="q30c" value="C" data-answer="C">
+                                    <label for="q30c">C. think about something other than the curriculum content.</label>
+                                </div>
+                                <div class="mc-option">
+                                    <input type="radio" name="q30" id="q30d" value="D" data-answer="C">
+                                    <label for="q30d">D. avoid overloading the capacity of the brain.</label>
+                                </div>
+                            </div>
+                            <div class="feedback" id="feedback-30"></div>
+                        </div>
+                    </div>
+
+                    <!-- Questions 31-36: True/False/Not Given -->
+                    <div class="question-section">
+                        <div class="section-header">
+                            <h3>Questions 31-36</h3>
+                            <p>Do the following statements agree with the information given in Reading Passage 3?</p>
+                            <p>In boxes 31-36 on your answer sheet, write</p>
+                            <p><strong>TRUE</strong> if the statement agrees with the information</p>
+                            <p><strong>FALSE</strong> if the statement contradicts the information</p>
+                            <p><strong>NOT GIVEN</strong> if there is no information on this</p>
+                        </div>
+
+                        <div class="tf-question">
+                            <div class="tf-number">31</div>
+                            <div class="tf-text">In the example of suggestopedic teaching in the fourth paragraph, the only variable that changes is the music.</div>
+                            <div class="tf-options">
+                                <div class="tf-option">
+                                    <input type="radio" name="q31" id="q31t" value="TRUE" data-answer="FALSE">
+                                    <label for="q31t">TRUE</label>
+                                </div>
+                                <div class="tf-option">
+                                    <input type="radio" name="q31" id="q31f" value="FALSE" data-answer="FALSE">
+                                    <label for="q31f">FALSE</label>
+                                </div>
+                                <div class="tf-option">
+                                    <input type="radio" name="q31" id="q31ng" value="NOT GIVEN" data-answer="FALSE">
+                                    <label for="q31ng">NOT GIVEN</label>
+                                </div>
+                            </div>
+                            <div class="feedback" id="feedback-31"></div>
+                        </div>
+
+                        <div class="tf-question">
+                            <div class="tf-number">32</div>
+                            <div class="tf-text">Prior to the suggestopedia class, students are made aware that the language experience will be demanding.</div>
+                            <div class="tf-options">
+                                <div class="tf-option">
+                                    <input type="radio" name="q32" id="q32t" value="TRUE" data-answer="FALSE">
+                                    <label for="q32t">TRUE</label>
+                                </div>
+                                <div class="tf-option">
+                                    <input type="radio" name="q32" id="q32f" value="FALSE" data-answer="FALSE">
+                                    <label for="q32f">FALSE</label>
+                                </div>
+                                <div class="tf-option">
+                                    <input type="radio" name="q32" id="q32ng" value="NOT GIVEN" data-answer="FALSE">
+                                    <label for="q32ng">NOT GIVEN</label>
+                                </div>
+                            </div>
+                            <div class="feedback" id="feedback-32"></div>
+                        </div>
+
+                        <div class="tf-question">
+                            <div class="tf-number">33</div>
+                            <div class="tf-text">In the follow-up class, the teaching activities are similar to those used in conventional classes.</div>
+                            <div class="tf-options">
+                                <div class="tf-option">
+                                    <input type="radio" name="q33" id="q33t" value="TRUE" data-answer="TRUE">
+                                    <label for="q33t">TRUE</label>
+                                </div>
+                                <div class="tf-option">
+                                    <input type="radio" name="q33" id="q33f" value="FALSE" data-answer="TRUE">
+                                    <label for="q33f">FALSE</label>
+                                </div>
+                                <div class="tf-option">
+                                    <input type="radio" name="q33" id="q33ng" value="NOT GIVEN" data-answer="TRUE">
+                                    <label for="q33ng">NOT GIVEN</label>
+                                </div>
+                            </div>
+                            <div class="feedback" id="feedback-33"></div>
+                        </div>
+
+                        <div class="tf-question">
+                            <div class="tf-number">34</div>
+                            <div class="tf-text">As an indirect benefit, students notice improvements in their memory.</div>
+                            <div class="tf-options">
+                                <div class="tf-option">
+                                    <input type="radio" name="q34" id="q34t" value="TRUE" data-answer="NOT GIVEN">
+                                    <label for="q34t">TRUE</label>
+                                </div>
+                                <div class="tf-option">
+                                    <input type="radio" name="q34" id="q34f" value="FALSE" data-answer="NOT GIVEN">
+                                    <label for="q34f">FALSE</label>
+                                </div>
+                                <div class="tf-option">
+                                    <input type="radio" name="q34" id="q34ng" value="NOT GIVEN" data-answer="NOT GIVEN">
+                                    <label for="q34ng">NOT GIVEN</label>
+                                </div>
+                            </div>
+                            <div class="feedback" id="feedback-34"></div>
+                        </div>
+
+                        <div class="tf-question">
+                            <div class="tf-number">35</div>
+                            <div class="tf-text">Teachers say they prefer suggestopedia to traditional approaches to language teaching.</div>
+                            <div class="tf-options">
+                                <div class="tf-option">
+                                    <input type="radio" name="q35" id="q35t" value="TRUE" data-answer="NOT GIVEN">
+                                    <label for="q35t">TRUE</label>
+                                </div>
+                                <div class="tf-option">
+                                    <input type="radio" name="q35" id="q35f" value="FALSE" data-answer="NOT GIVEN">
+                                    <label for="q35f">FALSE</label>
+                                </div>
+                                <div class="tf-option">
+                                    <input type="radio" name="q35" id="q35ng" value="NOT GIVEN" data-answer="NOT GIVEN">
+                                    <label for="q35ng">NOT GIVEN</label>
+                                </div>
+                            </div>
+                            <div class="feedback" id="feedback-35"></div>
+                        </div>
+
+                        <div class="tf-question">
+                            <div class="tf-number">36</div>
+                            <div class="tf-text">Students in a suggestopedia class retain more new vocabulary than those in ordinary classes.</div>
+                            <div class="tf-options">
+                                <div class="tf-option">
+                                    <input type="radio" name="q36" id="q36t" value="TRUE" data-answer="TRUE">
+                                    <label for="q36t">TRUE</label>
+                                </div>
+                                <div class="tf-option">
+                                    <input type="radio" name="q36" id="q36f" value="FALSE" data-answer="TRUE">
+                                    <label for="q36f">FALSE</label>
+                                </div>
+                                <div class="tf-option">
+                                    <input type="radio" name="q36" id="q36ng" value="NOT GIVEN" data-answer="TRUE">
+                                    <label for="q36ng">NOT GIVEN</label>
+                                </div>
+                            </div>
+                            <div class="feedback" id="feedback-36"></div>
+                        </div>
+                    </div>
+
+                    <!-- Questions 37-40: Summary Completion -->
+                    <div class="question-section">
+                        <div class="section-header">
+                            <h3>Questions 37-40</h3>
+                            <p>Complete the summary using the list of words, <strong>A-K</strong>, below.</p>
+                            <p>Write the correct letter, <strong>A-K</strong>, in boxes 37-40 on your answer sheet.</p>
+                        </div>
+
+                        <div class="summary-box">
+                            <div class="summary-text">
+                                Suggestopedia uses a less direct method of suggestion than other techniques such as hypnosis. However, Lozanov admits that a certain amount of 
+                                <select class="summary-input" data-answer="F" id="q37">
+                                    <option value="">Select...</option>
+                                    <option value="A">A. spectacular</option>
+                                    <option value="B">B. teaching</option>
+                                    <option value="C">C. lesson</option>
+                                    <option value="D">D. authoritarian</option>
+                                    <option value="E">E. unpopular</option>
+                                    <option value="F">F. ritual</option>
+                                    <option value="G">G. unspectacular</option>
+                                    <option value="H">H. placebo</option>
+                                    <option value="I">I. involved</option>
+                                    <option value="J">J. appropriate</option>
+                                    <option value="K">K. well known</option>
+                                </select>
+                                is necessary in order to convince students, even if this is just a 
+                                <select class="summary-input" data-answer="H" id="q38">
+                                    <option value="">Select...</option>
+                                    <option value="A">A. spectacular</option>
+                                    <option value="B">B. teaching</option>
+                                    <option value="C">C. lesson</option>
+                                    <option value="D">D. authoritarian</option>
+                                    <option value="E">E. unpopular</option>
+                                    <option value="F">F. ritual</option>
+                                    <option value="G">G. unspectacular</option>
+                                    <option value="H">H. placebo</option>
+                                    <option value="I">I. involved</option>
+                                    <option value="J">J. appropriate</option>
+                                    <option value="K">K. well known</option>
+                                </select>. Furthermore, if the method is to succeed, teachers must follow a set procedure. Although Lozanov's method has become quite 
+                                <select class="summary-input" data-answer="K" id="q39">
+                                    <option value="">Select...</option>
+                                    <option value="A">A. spectacular</option>
+                                    <option value="B">B. teaching</option>
+                                    <option value="C">C. lesson</option>
+                                    <option value="D">D. authoritarian</option>
+                                    <option value="E">E. unpopular</option>
+                                    <option value="F">F. ritual</option>
+                                    <option value="G">G. unspectacular</option>
+                                    <option value="H">H. placebo</option>
+                                    <option value="I">I. involved</option>
+                                    <option value="J">J. appropriate</option>
+                                    <option value="K">K. well known</option>
+                                </select>, the results of most other teachers using this method have been 
+                                <select class="summary-input" data-answer="G" id="q40">
+                                    <option value="">Select...</option>
+                                    <option value="A">A. spectacular</option>
+                                    <option value="B">B. teaching</option>
+                                    <option value="C">C. lesson</option>
+                                    <option value="D">D. authoritarian</option>
+                                    <option value="E">E. unpopular</option>
+                                    <option value="F">F. ritual</option>
+                                    <option value="G">G. unspectacular</option>
+                                    <option value="H">H. placebo</option>
+                                    <option value="I">I. involved</option>
+                                    <option value="J">J. appropriate</option>
+                                    <option value="K">K. well known</option>
+                                </select>.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button type="button" class="btn btn-back" onclick="goBack()">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Back to Dashboard</span>
+                        </button>
+                        <button type="button" class="btn btn-submit" onclick="submitTest()">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Submit Answers</span>
+                        </button>
+                    </div>
+
+                    <!-- Score Section -->
+                    <div class="score-section" id="score-section">
+                        <h2>🎉 Test Complete!</h2>
+                        <div class="score-display">
+                            <span id="score-number">0</span><span>/14</span>
+                        </div>
+                        <div class="score-details">
+                            <div class="score-stat">
+                                <span class="number" id="correct-count">0</span>
+                                <span class="label">Correct</span>
+                            </div>
+                            <div class="score-stat">
+                                <span class="number" id="incorrect-count">0</span>
+                                <span class="label">Incorrect</span>
+                            </div>
+                            <div class="score-stat">
+                                <span class="number" id="percentage">0%</span>
+                                <span class="label">Accuracy</span>
+                            </div>
+                        </div>
+                        <p style="margin-top: 20px; opacity: 0.9;">Scroll up to review your answers with feedback</p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 30px; color: white; opacity: 0.9; font-size: 0.9rem;">
+            <p>www.TAILIEUTIENGANH.NET</p>
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Timer
+        let timeRemaining = 20 * 60;
+        const timerElement = document.getElementById('timer');
+        let timerInterval;
+        let isSubmitted = false;
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                timerElement.classList.remove('warning', 'danger');
+                if (timeRemaining <= 300) timerElement.classList.add('warning');
+                if (timeRemaining <= 60) timerElement.classList.add('danger');
+
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    submitTest();
+                    alert("⏰ Time is up!");
+                }
+                timeRemaining--;
+            }, 1000);
+        }
+
+        // Navigation
+        function goBack() {
+            if (!isSubmitted) {
+                const confirmLeave = confirm("⚠️ You have unsaved answers.\n\nReturn to dashboard?");
+                if (!confirmLeave) return;
+            }
+            window.location.href = 'ielts-dashboard.html';
+        }
+
+        // Grading
+        function submitTest() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+
+            clearInterval(timerInterval);
+
+            let score = 0, correctCount = 0, incorrectCount = 0;
+
+            // Grade multiple choice (27-30)
+            for (let i = 27; i <= 30; i++) {
+                const radios = document.querySelectorAll(`input[name="q${i}"]`);
+                const feedbackEl = document.getElementById(`feedback-${i}`);
+                let selected = null;
+
+                radios.forEach(radio => {
+                    radio.disabled = true;
+                    if (radio.checked) selected = radio.value;
+                    radio.parentNode.style.cursor = 'default';
+                });
+
+                const correctAnswer = radios[0].getAttribute('data-answer');
+
+                if (selected === correctAnswer) {
+                    score++;
+                    correctCount++;
+                    feedbackEl.textContent = "✓ Correct!";
+                    feedbackEl.className = "feedback visible correct";
+                } else {
+                    incorrectCount++;
+                    feedbackEl.textContent = `✗ Answer: ${correctAnswer}`;
+                    feedbackEl.className = "feedback visible incorrect";
+                }
+            }
+
+            // Grade True/False/Not Given (31-36)
+            for (let i = 31; i <= 36; i++) {
+                const radios = document.querySelectorAll(`input[name="q${i}"]`);
+                const feedbackEl = document.getElementById(`feedback-${i}`);
+                let selected = null;
+
+                radios.forEach(radio => {
+                    radio.disabled = true;
+                    if (radio.checked) selected = radio.value;
+                    radio.parentNode.style.cursor = 'default';
+                });
+
+                const correctAnswer = radios[0].getAttribute('data-answer');
+
+                if (selected === correctAnswer) {
+                    score++;
+                    correctCount++;
+                    feedbackEl.textContent = "✓ Correct!";
+                    feedbackEl.className = "feedback visible correct";
+                } else {
+                    incorrectCount++;
+                    feedbackEl.textContent = `✗ Answer: ${correctAnswer}`;
+                    feedbackEl.className = "feedback visible incorrect";
+                }
+            }
+
+            // Grade summary completion (37-40)
+            for (let i = 37; i <= 40; i++) {
+                const select = document.getElementById(`q${i}`);
+                const userAnswer = select.value;
+                const correctAnswer = select.getAttribute('data-answer');
+
+                select.disabled = true;
+
+                if (userAnswer === correctAnswer) {
+                    score++;
+                    correctCount++;
+                    select.classList.add('input-correct');
+                } else {
+                    incorrectCount++;
+                    select.classList.add('input-incorrect');
+                }
+            }
+
+            const percentage = Math.round((score / 14) * 100);
+
+            document.getElementById('score-number').textContent = score;
+            document.getElementById('correct-count').textContent = correctCount;
+            document.getElementById('incorrect-count').textContent = incorrectCount;
+            document.getElementById('percentage').textContent = percentage + '%';
+
+            document.getElementById('score-section').classList.add('visible');
+            document.getElementById('score-section').scrollIntoView({ behavior: 'smooth', block: 'end' });
+
+            document.querySelector('.btn-submit').textContent = "✓ Submitted";
+            document.querySelector('.btn-submit').disabled = true;
+            document.querySelector('.btn-back').disabled = true;
+        }
+
+        // Auto-save
+        setInterval(() => {
+            const data = {};
+            document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+                data[radio.name] = radio.value;
+            });
+            document.querySelectorAll('select').forEach(select => {
+                if (select.value) data[select.id] = select.value;
+            });
+            localStorage.setItem('ielts-reading-passage3-progress', JSON.stringify(data));
+        }, 30000);
+
+        window.addEventListener('load', () => {
+            startTimer();
+            const saved = localStorage.getItem('ielts-reading-passage3-progress');
+            if (saved) {
+                const data = JSON.parse(saved);
+                Object.keys(data).forEach(key => {
+                    if (key.startsWith('q')) {
+                        const radio = document.querySelector(`input[name="${key}"][value="${data[key]}"]`);
+                        if (radio) radio.checked = true;
+                    } else {
+                        const select = document.getElementById(key);
+                        if (select) select.value = data[key];
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
