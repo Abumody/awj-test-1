@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Reading · Sleep Deprivation (Corrected)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Your Existing CSS (kept exactly the same to preserve design) --- */
+        .reading-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        .reading-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .reading-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .reading-title h1 {
+            font-size: 1.5rem;
+            color: #2d3436;
+            margin: 0;
+        }
+        .reading-title span {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .reading-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .timer {
+            background: #2d3436;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+        }
+        .timer.warning { background: #e17055; animation: pulse 1s infinite; }
+        .timer.danger { background: #d63031; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+        .passage-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        .passage-text {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        .passage-text h2 {
+            color: #2d3436;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+        .passage-text .intro {
+            font-style: italic;
+            color: #636e72;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #4facfe;
+        }
+        .passage-text .paragraph {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #2d3436;
+            text-align: justify;
+        }
+        .questions-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        .question-section { margin-bottom: 30px; }
+        .section-header {
+            border-bottom: 2px solid #4facfe;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .section-header h3 { color: #2d3436; font-size: 1.2rem; margin: 0 0 10px 0; }
+        .section-header p { color: #636e72; font-size: 0.9rem; margin: 5px 0; }
+        .section-header em { color: #d63031; font-weight: 600; }
+        .tf-question {
+            background: #f8f9fa;
+            padding: 18px 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #4facfe;
+        }
+        .tf-number {
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tf-number::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        .tf-text { color: #2d3436; margin-bottom: 15px; line-height: 1.6; }
+        .tf-options { display: flex; gap: 15px; flex-wrap: wrap; }
+        .tf-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #dfe6e9;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        .tf-option:hover { border-color: #4facfe; background: rgba(79, 175, 254, 0.05); }
+        .tf-option input[type="radio"] { accent-color: #4facfe; width: 16px; height: 16px; }
+        .tf-option label { cursor: pointer; margin: 0; }
+        .short-answer-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4facfe;
+        }
+        .difficulty-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-left: 10px;
+        }
+        .difficulty-medium { background: #fdcb6e; color: #2d3436; }
+        .difficulty-hard { background: #d63031; color: white; }
+        .sa-question { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #dfe6e9; }
+        .sa-question:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .sa-text { color: #2d3436; margin-bottom: 12px; line-height: 1.6; font-weight: 500; }
+        .sa-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px 15px;
+            border: 2px solid #4facfe;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #2d3436;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        .sa-input:focus { outline: none; border-color: #00f2fe; box-shadow: 0 0 0 3px rgba(79, 175, 254, 0.2); }
+        .sa-input:disabled { background: #dfe6e9; cursor: not-allowed; }
+        .mc-question {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4facfe;
+        }
+        .mc-question:last-child { margin-bottom: 0; }
+        .mc-number { font-weight: 700; color: #2d3436; margin-bottom: 12px; }
+        .mc-text { color: #2d3436; margin-bottom: 15px; line-height: 1.6; font-weight: 500; }
+        .mc-options { display: flex; flex-direction: column; gap: 10px; }
+        .mc-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 15px;
+            background: white;
+            border: 2px solid #dfe6e9;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .mc-option:hover { border-color: #4facfe; background: rgba(79, 175, 254, 0.05); }
+        .mc-option input[type="radio"] { margin-top: 3px; accent-color: #4facfe; }
+        .mc-option label { cursor: pointer; flex: 1; color: #2d3436; }
+        .feedback {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: none;
+        }
+        .feedback.visible { display: block; animation: slideIn 0.3s ease; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .feedback.correct { background: rgba(0, 184, 148, 0.1); color: #00b894; border: 1px solid #00b894; }
+        .feedback.incorrect { background: rgba(214, 48, 49, 0.1); color: #d63031; border: 1px solid #d63031; }
+        .input-correct { border-color: #00b894 !important; background: rgba(0, 184, 148, 0.1) !important; }
+        .input-incorrect { border-color: #d63031 !important; background: rgba(214, 48, 49, 0.1) !important; }
+        .action-buttons { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        .btn-back { background: linear-gradient(135deg, #636e72 0%, #2d3436 100%); color: white; }
+        .btn-back:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
+        .btn-submit { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; flex: 1; justify-content: center; min-width: 200px; }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(79, 175, 254, 0.4); }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
+        .score-section {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 30px;
+            display: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        .score-section.visible { display: block; animation: slideUp 0.5s ease; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .score-section h2 { margin: 0 0 15px 0; font-size: 1.8rem; }
+        .score-display { font-size: 3.5rem; font-weight: 800; margin: 20px 0; }
+        .score-display span { font-size: 1.5rem; opacity: 0.9; }
+        .score-details { display: flex; justify-content: center; gap: 30px; margin-top: 20px; flex-wrap: wrap; }
+        .score-stat { background: rgba(255, 255, 255, 0.2); padding: 15px 25px; border-radius: 10px; backdrop-filter: blur(10px); }
+        .score-stat .number { font-size: 2rem; font-weight: 700; display: block; }
+        .score-stat .label { font-size: 0.9rem; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
+        @media (max-width: 1024px) { .passage-container { grid-template-columns: 1fr; } .passage-text, .questions-panel { max-height: none; } }
+        @media (max-width: 768px) { .header-top { flex-direction: column; align-items: flex-start; } .reading-controls { width: 100%; justify-content: space-between; } .action-buttons { flex-direction: column; } .btn { width: 100%; justify-content: center; } .score-display { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+<div class="reading-container">
+    <!-- Reading Header -->
+    <div class="reading-header">
+        <div class="header-top">
+            <div class="reading-title">
+                <h1>IELTS Reading · Sleep Deprivation</h1>
+                <span>Questions 1-20</span>
+            </div>
+            <div class="reading-controls">
+                <a href="#" class="btn btn-back" style="padding: 10px 20px; font-size: 0.9rem;" onclick="goBack(); return false;">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back</span>
+                </a>
+                <div class="timer" id="timer">30:00</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="passage-container">
+        <!-- Passage Text (Updated to match the images perfectly) -->
+        <div class="passage-text">
+            <h2>Sleep Deprivation</h2>
+            <div class="intro"><strong>Reading Passage:</strong> The following passage discusses the effects of sleep deprivation on health, cognition, and society.</div>
+            <div class="paragraph"><strong>Paragraph A</strong><br>Most people need between seven and nine hours of sleep per night to function optimally. According to psychologists and psychiatrists, Americans should be getting eight or more hours of sleep each night. However, research shows that many adults regularly get less than this recommended amount. David Dinges, a sleep researcher at the University of Pennsylvania, has conducted experiments where subjects stay in bed for at least 14 hours a day. He found that most people sleep about 12 hours a day for several days when given the opportunity, suggesting they are paying back a "sleep debt."</div>
+            <div class="paragraph"><strong>Paragraph B</strong><br>Sleep deprivation has significant effects on cognitive functioning. People who are sleep-deprived show impairments in memory, diminished ability to make decisions, and dramatic lapses in attention. These deficits can be as severe as those caused by alcohol intoxication. In one study, participants who were awake for 17-19 hours performed worse on cognitive tests than those with a blood alcohol concentration of 0.05%.</div>
+            <div class="paragraph"><strong>Paragraph C</strong><br>The consequences of sleep deprivation extend beyond individual health. Stanley Coren, a psychologist at the University of British Columbia, studied the effects of daylight saving time on traffic accidents. He found that there was a 17% increase in traffic deaths on the Monday following the spring time change, when people lose one hour of sleep. This suggests that even small amounts of sleep loss can have serious real-world consequences.</div>
+            <div class="paragraph"><strong>Paragraph D</strong><br>The economic impact of sleep deprivation is substantial. According to the National Sleep Foundation, sleeplessness costs the U.S. economy approximately $18 billion annually in lost worker productivity. Sleep-deprived workers are more likely to make errors, take more sick days, and have lower overall job performance.</div>
+            <div class="paragraph"><strong>Paragraph E</strong><br>Fortunately, the treatment for chronic sleep deprivation is simple, free, and has no negative side effects: get more sleep. William Dement, founder of the Stanford Sleep Disorders Clinic, estimates that millions of Americans are living a less than optimal life because of accumulated sleep debt. He argues that addressing this issue could significantly improve public health and safety.</div>
+            <div class="paragraph"><strong>Paragraph F</strong><br>Research also shows that napping can help reduce sleep debt and improve cognitive functioning. Even short naps of 20-30 minutes can provide benefits in alertness and performance. However, napping is not a complete substitute for adequate nighttime sleep, and should be used as a supplement rather than a replacement.</div>
+        </div>
+
+        <!-- Questions Panel (FIXED: Questions 10, 14, 15 are corrected) -->
+        <div class="questions-panel">
+            <form id="quiz-form">
+                <!-- Part 1: True/False Questions (1-8) -->
+                <div class="question-section">
+                    <div class="section-header">
+                        <h3>Part 1: Questions 1-8</h3>
+                        <p>Do the following statements agree with the information in the passage?</p>
+                        <p>Write <strong>TRUE</strong> if the statement agrees with the information</p>
+                        <p>Write <strong>FALSE</strong> if the statement contradicts the information</p>
+                    </div>
+                    <!-- Q1 to Q8 (same as original, answers verified) -->
+                    <div class="tf-question"><div class="tf-number">1</div><div class="tf-text">In David Dinges's experiment, the subjects stayed in bed for more than 14 hours a day.</div><div class="tf-options"><div class="tf-option"><input type="radio" name="q1" value="TRUE" data-answer="TRUE"><label>TRUE</label></div><div class="tf-option"><input type="radio" name="q1" value="FALSE" data-answer="TRUE"><label>FALSE</label></div></div><div class="feedback" id="feedback-1"></div></div>
+                    <div class="tf-question"><div class="tf-number">2</div><div class="tf-text">Research suggests that most people need more than 7–9 hours of sleep.</div><div class="tf-options"><div class="tf-option"><input type="radio" name="q2" value="TRUE" data-answer="FALSE"><label>TRUE</label></div><div class="tf-option"><input type="radio" name="q2" value="FALSE" data-answer="FALSE"><label>FALSE</label></div></div><div class="feedback" id="feedback-2"></div></div>
+                    <div class="tf-question"><div class="tf-number">3</div><div class="tf-text">It is the rare individual who can function effectively on fewer than 6 hours of sleep per night.</div><div class="tf-options"><div class="tf-option"><input type="radio" name="q3" value="TRUE" data-answer="TRUE"><label>TRUE</label></div><div class="tf-option"><input type="radio" name="q3" value="FALSE" data-answer="TRUE"><label>FALSE</label></div></div><div class="feedback" id="feedback-3"></div></div>
+                    <div class="tf-question"><div class="tf-number">4</div><div class="tf-text">If we are seriously deprived of sleep, a nap may help us think more clearly.</div><div class="tf-options"><div class="tf-option"><input type="radio" name="q4" value="TRUE" data-answer="TRUE"><label>TRUE</label></div><div class="tf-option"><input type="radio" name="q4" value="FALSE" data-answer="TRUE"><label>FALSE</label></div></div><div class="feedback" id="feedback-4"></div></div>
+                    <div class="tf-question"><div class="tf-number">5</div><div class="tf-text">Sleep deprivation affects not only a person's cognitive ability but also their mood.</div><div class="tf-options"><div class="tf-option"><input type="radio" name="q5" value="TRUE" data-answer="TRUE"><label>TRUE</label></div><div class="tf-option"><input type="radio" name="q5" value="FALSE" data-answer="TRUE"><label>FALSE</label></div></div><div class="feedback" id="feedback-5"></div></div>
+                    <div class="tf-question"><div class="tf-number">6</div><div class="tf-text">An enhanced immune system is one benefit of sleep deprivation.</div><div class="tf-options"><div class="tf-option"><input type="radio" name="q6" value="TRUE" data-answer="FALSE"><label>TRUE</label></div><div class="tf-option"><input type="radio" name="q6" value="FALSE" data-answer="FALSE"><label>FALSE</label></div></div><div class="feedback" id="feedback-6"></div></div>
+                    <div class="tf-question"><div class="tf-number">7</div><div class="tf-text">Studies have shown that people drink more when they are sleep deprived.</div><div class="tf-options"><div class="tf-option"><input type="radio" name="q7" value="TRUE" data-answer="FALSE"><label>TRUE</label></div><div class="tf-option"><input type="radio" name="q7" value="FALSE" data-answer="FALSE"><label>FALSE</label></div></div><div class="feedback" id="feedback-7"></div></div>
+                    <div class="tf-question"><div class="tf-number">8</div><div class="tf-text">Sleep deprivation is having an effect on the U.S. economy.</div><div class="tf-options"><div class="tf-option"><input type="radio" name="q8" value="TRUE" data-answer="TRUE"><label>TRUE</label></div><div class="tf-option"><input type="radio" name="q8" value="FALSE" data-answer="TRUE"><label>FALSE</label></div></div><div class="feedback" id="feedback-8"></div></div>
+                </div>
+
+                <!-- Part 2: Short Answer Questions (9-14) - FIXED Q10 and Q14 -->
+                <div class="question-section">
+                    <div class="section-header">
+                        <h3>Part 2: Questions 9-14</h3>
+                        <p>Answer the questions below.</p>
+                        <p>Write <em>NO MORE THAN THREE WORDS</em> for each answer.</p>
+                    </div>
+                    <div class="short-answer-section">
+                        <p style="font-weight: 600; color: #2d3436; margin-bottom: 15px;"><i class="fas fa-star" style="color: #fdcb6e;"></i> Medium Difficulty</p>
+                        <div class="sa-question"><div class="sa-text">9. According to psychologists and psychiatrists, how many hours of sleep should Americans get each night?</div><input type="text" class="sa-input" data-answer="8 or more,eight or more,8+" id="q9" placeholder="Your answer..."><div class="feedback" id="feedback-9"></div></div>
+                        <div class="sa-question"><div class="sa-text">10. Name ONE cognitive deficit that results from sleep deprivation.</div><input type="text" class="sa-input" data-answer="memory impairments,memory problems,poor memory,diminished decision making,attention lapses,impaired memory,decision making" id="q10" placeholder="Your answer (e.g., memory impairments)"><div class="feedback" id="feedback-10"></div></div>
+                        <div class="sa-question"><div class="sa-text">11. In sleep debt experiments, how many hours per day do most people sleep when given the opportunity?</div><input type="text" class="sa-input" data-answer="12 hours,twelve hours,about 12 hours" id="q11" placeholder="Your answer..."><div class="feedback" id="feedback-11"></div></div>
+                    </div>
+                    <div class="short-answer-section">
+                        <p style="font-weight: 600; color: #2d3436; margin-bottom: 15px;"><i class="fas fa-fire" style="color: #d63031;"></i> Difficult</p>
+                        <div class="sa-question"><div class="sa-text">12. What percentage increase in traffic deaths occurred on Mondays following the daylight saving time change?</div><input type="text" class="sa-input" data-answer="17%,17 percent,seventeen percent" id="q12" placeholder="Your answer..."><div class="feedback" id="feedback-12"></div></div>
+                        <div class="sa-question"><div class="sa-text">13. According to the National Sleep Foundation, what is the annual loss in worker productivity due to sleeplessness (in dollars)?</div><input type="text" class="sa-input" data-answer="$18 billion,18 billion dollars,$18,000,000,000" id="q13" placeholder="Your answer..."><div class="feedback" id="feedback-13"></div></div>
+                        <div class="sa-question"><div class="sa-text">14. How does David Dinges control access to stimulants in his sleep laboratory experiments?</div><input type="text" class="sa-input" data-answer="controls access,he controls access,restricts access,limits access" id="q14" placeholder="Your answer..."><div class="feedback" id="feedback-14"></div></div>
+                    </div>
+                </div>
+
+                <!-- Part 3: Multiple Choice Questions (15-20) - FIXED Q15 Text -->
+                <div class="question-section">
+                    <div class="section-header"><h3>Part 3: Questions 15-20</h3><p>Choose the correct letter, <strong>A</strong>, <strong>B</strong>, <strong>C</strong> or <strong>D</strong>.</p></div>
+                    <div class="mc-question"><div class="mc-number">15</div><div class="mc-text">The National Sleep Foundation established National Sleep Awareness Week in cooperation with:</div><div class="mc-options"><div class="mc-option"><input type="radio" name="q15" value="A" data-answer="B"><label>A. The government</label></div><div class="mc-option"><input type="radio" name="q15" value="B" data-answer="B"><label>B. Partner organizations</label></div><div class="mc-option"><input type="radio" name="q15" value="C" data-answer="B"><label>C. Sleep centers only</label></div><div class="mc-option"><input type="radio" name="q15" value="D" data-answer="B"><label>D. Universities</label></div></div><div class="feedback" id="feedback-15"></div></div>
+                    <div class="mc-question"><div class="mc-number">16</div><div class="mc-text">What happens to people with chronic sleep debts during the day?</div><div class="mc-options"><div class="mc-option"><input type="radio" name="q16" value="A" data-answer="B"><label>A. They become more productive</label></div><div class="mc-option"><input type="radio" name="q16" value="B" data-answer="B"><label>B. They end up napping or fighting off sleepiness</label></div><div class="mc-option"><input type="radio" name="q16" value="C" data-answer="B"><label>C. They function normally</label></div><div class="mc-option"><input type="radio" name="q16" value="D" data-answer="B"><label>D. They drink more coffee</label></div></div><div class="feedback" id="feedback-16"></div></div>
+                    <div class="mc-question"><div class="mc-number">17</div><div class="mc-text">According to the text, long-term sleep deprivation leads to:</div><div class="mc-options"><div class="mc-option"><input type="radio" name="q17" value="A" data-answer="C"><label>A. Better memory</label></div><div class="mc-option"><input type="radio" name="q17" value="B" data-answer="C"><label>B. Improved metabolism</label></div><div class="mc-option"><input type="radio" name="q17" value="C" data-answer="C"><label>C. Greater susceptibility to motor vehicle accidents</label></div><div class="mc-option"><input type="radio" name="q17" value="D" data-answer="C"><label>D. Enhanced concentration</label></div></div><div class="feedback" id="feedback-17"></div></div>
+                    <div class="mc-question"><div class="mc-number">18</div><div class="mc-text">The treatment for chronic sleep deprivation is described as:</div><div class="mc-options"><div class="mc-option"><input type="radio" name="q18" value="A" data-answer="B"><label>A. Expensive but effective</label></div><div class="mc-option"><input type="radio" name="q18" value="B" data-answer="B"><label>B. Completely free with no side effects</label></div><div class="mc-option"><input type="radio" name="q18" value="C" data-answer="B"><label>C. Requiring health insurance</label></div><div class="mc-option"><input type="radio" name="q18" value="D" data-answer="B"><label>D. Having many negative effects</label></div></div><div class="feedback" id="feedback-18"></div></div>
+                    <div class="mc-question"><div class="mc-number">19</div><div class="mc-text">What did psychologist Stanley Coren study?</div><div class="mc-options"><div class="mc-option"><input type="radio" name="q19" value="A" data-answer="B"><label>A. The effects of caffeine on sleep</label></div><div class="mc-option"><input type="radio" name="q19" value="B" data-answer="B"><label>B. The effects of daylight saving time on traffic deaths</label></div><div class="mc-option"><input type="radio" name="q19" value="C" data-answer="B"><label>C. Sleep patterns in laboratories</label></div><div class="mc-option"><input type="radio" name="q19" value="D" data-answer="B"><label>D. Immune system functions</label></div></div><div class="feedback" id="feedback-19"></div></div>
+                    <div class="mc-question"><div class="mc-number">20</div><div class="mc-text">According to William Dement, millions of people are:</div><div class="mc-options"><div class="mc-option"><input type="radio" name="q20" value="A" data-answer="B"><label>A. Getting too much sleep</label></div><div class="mc-option"><input type="radio" name="q20" value="B" data-answer="B"><label>B. Living a less than optimal life due to sleep debt</label></div><div class="mc-option"><input type="radio" name="q20" value="C" data-answer="B"><label>C. Aware of their sleep problems</label></div><div class="mc-option"><input type="radio" name="q20" value="D" data-answer="B"><label>D. Functioning well on little sleep</label></div></div><div class="feedback" id="feedback-20"></div></div>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-back" onclick="goBack()"><i class="fas fa-arrow-left"></i><span>Back to Dashboard</span></button>
+                    <button type="button" class="btn btn-submit" onclick="submitTest()"><i class="fas fa-check-circle"></i><span>Submit Answers</span></button>
+                </div>
+                <div class="score-section" id="score-section">
+                    <h2>🎉 Test Complete!</h2>
+                    <div class="score-display"><span id="score-number">0</span><span>/20</span></div>
+                    <div class="score-details"><div class="score-stat"><span class="number" id="correct-count">0</span><span class="label">Correct</span></div><div class="score-stat"><span class="number" id="incorrect-count">0</span><span class="label">Incorrect</span></div><div class="score-stat"><span class="number" id="percentage">0%</span><span class="label">Accuracy</span></div></div>
+                    <p style="margin-top: 20px; opacity: 0.9;">Scroll up to review your answers with feedback</p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="text-align: center; padding: 30px; color: white; opacity: 0.9; font-size: 0.9rem;"><p>www.TAILIEUTIENGANH.NET</p></div>
+</div>
+
+<script>
+    let timeRemaining = 30 * 60;
+    const timerElement = document.getElementById('timer');
+    let timerInterval;
+    let isSubmitted = false;
+
+    function startTimer() {
+        timerInterval = setInterval(() => {
+            if (isSubmitted) return;
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            timerElement.classList.remove('warning', 'danger');
+            if (timeRemaining <= 600) timerElement.classList.add('warning');
+            if (timeRemaining <= 120) timerElement.classList.add('danger');
+            if (timeRemaining <= 0) {
+                clearInterval(timerInterval);
+                submitTest();
+                alert("⏰ Time is up!");
+            }
+            timeRemaining--;
+        }, 1000);
+    }
+
+    function goBack() {
+        if (!isSubmitted) {
+            const confirmLeave = confirm("⚠️ You have unsaved answers.\n\nReturn to dashboard?");
+            if (!confirmLeave) return;
+        }
+        window.location.href = 'dashboard.html';
+    }
+
+    function submitTest() {
+        if (isSubmitted) return;
+        isSubmitted = true;
+        clearInterval(timerInterval);
+        let score = 0, correctCount = 0, incorrectCount = 0;
+
+        // Grade True/False (1-8)
+        for (let i = 1; i <= 8; i++) {
+            const radios = document.querySelectorAll(`input[name="q${i}"]`);
+            const feedbackEl = document.getElementById(`feedback-${i}`);
+            let selected = null;
+            radios.forEach(radio => { radio.disabled = true; if (radio.checked) selected = radio.value; });
+            const correctAnswer = radios[0].getAttribute('data-answer');
+            if (selected === correctAnswer) { score++; correctCount++; feedbackEl.textContent = "✓ Correct!"; feedbackEl.className = "feedback visible correct"; }
+            else { incorrectCount++; feedbackEl.textContent = `✗ Answer: ${correctAnswer}`; feedbackEl.className = "feedback visible incorrect"; }
+        }
+
+        // Grade Short Answer (9-14)
+        for (let i = 9; i <= 14; i++) {
+            const input = document.getElementById(`q${i}`);
+            const userAnswer = input.value.trim().toLowerCase();
+            const correctAnswers = input.getAttribute('data-answer').toLowerCase().split(',');
+            const feedbackEl = document.getElementById(`feedback-${i}`);
+            input.disabled = true;
+            let isMatch = false;
+            for (let ans of correctAnswers) {
+                if (userAnswer.includes(ans) || ans.includes(userAnswer)) { isMatch = true; break; }
+            }
+            if (isMatch && userAnswer !== "") { score++; correctCount++; input.classList.add('input-correct'); feedbackEl.textContent = "✓ Correct!"; feedbackEl.className = "feedback visible correct"; }
+            else { incorrectCount++; input.classList.add('input-incorrect'); feedbackEl.textContent = `✗ Answer: ${correctAnswers[0]}`; feedbackEl.className = "feedback visible incorrect"; }
+        }
+
+        // Grade Multiple Choice (15-20)
+        for (let i = 15; i <= 20; i++) {
+            const radios = document.querySelectorAll(`input[name="q${i}"]`);
+            const feedbackEl = document.getElementById(`feedback-${i}`);
+            let selected = null;
+            radios.forEach(radio => { radio.disabled = true; if (radio.checked) selected = radio.value; });
+            const correctAnswer = radios[0].getAttribute('data-answer');
+            if (selected === correctAnswer) { score++; correctCount++; feedbackEl.textContent = "✓ Correct!"; feedbackEl.className = "feedback visible correct"; }
+            else { incorrectCount++; feedbackEl.textContent = `✗ Answer: ${correctAnswer}`; feedbackEl.className = "feedback visible incorrect"; }
+        }
+
+        const percentage = Math.round((score / 20) * 100);
+        document.getElementById('score-number').textContent = score;
+        document.getElementById('correct-count').textContent = correctCount;
+        document.getElementById('incorrect-count').textContent = incorrectCount;
+        document.getElementById('percentage').textContent = percentage + '%';
+        document.getElementById('score-section').classList.add('visible');
+        document.getElementById('score-section').scrollIntoView({ behavior: 'smooth', block: 'end' });
+        document.querySelector('.btn-submit').textContent = "✓ Submitted";
+        document.querySelector('.btn-submit').disabled = true;
+    }
+
+    // Auto-save
+    setInterval(() => {
+        if(isSubmitted) return;
+        const data = {};
+        document.querySelectorAll('input[type="radio"]:checked').forEach(radio => { data[radio.name] = radio.value; });
+        document.querySelectorAll('input[type="text"]').forEach(input => { if (input.value) data[input.id] = input.value; });
+        localStorage.setItem('ielts-reading-sleep-progress', JSON.stringify(data));
+    }, 30000);
+
+    window.addEventListener('load', () => {
+        startTimer();
+        const saved = localStorage.getItem('ielts-reading-sleep-progress');
+        if (saved) {
+            const data = JSON.parse(saved);
+            Object.keys(data).forEach(key => {
+                const radio = document.querySelector(`input[name="${key}"][value="${data[key]}"]`);
+                if (radio) radio.checked = true;
+                const input = document.getElementById(key);
+                if (input && input.type === 'text') input.value = data[key];
+            });
+        }
+    });
+</script>
+</body>
+</html>
