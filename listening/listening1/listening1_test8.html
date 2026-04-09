@@ -99,8 +99,25 @@
 
 </div>
 
-<script src="../js/listening-answers.js"></script>
+
 <script src="../js/listening-player.js"></script>
 <script src="../js/listening-test.js"></script>
+
+<script>
+window.ANSWERS = {
+  1: "journalists",
+  2: "twelve",
+  3: "she has moved to a new place",
+  4: "charity work",
+  5: "no children",
+  6: "get information from a neighbour",
+  7: "watch TV"
+};
+
+  // زر الرجوع مستقل تمامًا عن منطق الاختبار
+  function goBack() {
+    window.location.href = "index.html";
+  }
+</script>
 </body>
 </html>
