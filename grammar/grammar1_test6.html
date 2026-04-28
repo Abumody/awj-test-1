@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>grammar1_test6</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg,#d1fae5,#e0f2fe); min-height: 100vh; padding: 40px 20px; }
+.test-wrapper { max-width: 1000px; margin: 0 auto; }
+.test-card { background: white; border-radius: 24px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); overflow: hidden; }
+.test-header { text-align: center; padding: 40px; background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-bottom: 1px solid #bbf7d0; }
+.test-header h1 { font-size: 2.5rem; color: #166534; margin-bottom: 10px; }
+.test-header p { color: #4b5563; font-size: 1.1rem; }
+.progress-area { padding: 20px 40px; background: #f9fafb; border-bottom: 1px solid #e5e7eb; }
+.progress-info { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600; color: #166534; }
+.progress-bar { height: 8px; background: #e5e7eb; border-radius: 10px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, #16a34a, #22c55e); border-radius: 10px; width: 0%; transition: width 0.3s ease; }
+.section-block { padding: 30px 40px; border-bottom: 1px solid #f0fdf4; }
+.section-title-block h3 { font-size: 1.5rem; color: #166534; margin-bottom: 10px; }
+.title-underline { width: 60px; height: 3px; background: linear-gradient(90deg, #16a34a, #22c55e); border-radius: 3px; margin-bottom: 25px; }
+.questions-list { display: flex; flex-direction: column; gap: 20px; }
+.question-item { background: #f9fafb; border-radius: 16px; padding: 20px; border: 1px solid #e5e7eb; transition: all 0.3s ease; }
+.question-item:hover { border-color: #bbf7d0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+.question-number-badge { display: inline-block; background: linear-gradient(135deg, #16a34a, #22c55e); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; margin-bottom: 12px; }
+.question-sentence { font-size: 1.05rem; line-height: 1.7; color: #1f2937; }
+.answer-input { padding: 8px 14px; border-radius: 10px; border: 2px solid #cbd5e1; font-size: 0.95rem; transition: all 0.2s ease; width: 160px; margin: 0 5px; font-family: inherit; background: white; text-align: center; }
+.answer-input:focus { outline: none; border-color: #16a34a; box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15); }
+.answer-input.correct { border-color: #16a34a; background: #f0fdf4; color: #166534; }
+.answer-input.wrong { border-color: #dc2626; background: #fef2f2; color: #991b1b; }
+.actions-area { padding: 30px 40px; background: #f9fafb; display: flex; gap: 15px; flex-wrap: wrap; border-top: 1px solid #e5e7eb; }
+.btn { flex: 1; min-width: 180px; padding: 14px 24px; border: none; border-radius: 40px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: inherit; }
+.btn-primary { background: linear-gradient(135deg, #16a34a, #22c55e); color: white; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(22, 163, 74, 0.3); }
+.btn-secondary { background: #e5e7eb; color: #374151; }
+.btn-secondary:hover { background: #d1d5db; }
+.result-area { margin: 20px 40px 40px; padding: 25px; border-radius: 20px; background: #f0fdf4; text-align: center; border: 2px solid #bbf7d0; }
+.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.8); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+.modal-overlay.show { opacity: 1; visibility: visible; }
+.modal-container { background: white; border-radius: 24px; max-width: 500px; width: 90%; max-height: 80vh; overflow-y: auto; padding: 30px; }
+@media (max-width: 768px) { body { padding: 20px; } .test-header h1 { font-size: 1.8rem; } .section-block { padding: 20px; } .question-sentence { font-size: 0.95rem; } .answer-input { width: 120px; } .actions-area { flex-direction: column; } .btn { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="test-wrapper">
+  <div class="test-card">
+    <div class="test-header">
+      <h1>📝 grammar1_test6</h1>
+      <p>Complete each sentence with ONE word only</p>
+    </div>
+    <div class="progress-area">
+      <div class="progress-info">
+        <span>📊 Progress</span>
+        <span id="progressCount">0/25</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+    <div id="questionsContainerArea">
+      <div class="section-block"><div class="section-title-block"><h3>Part 1</h3><div class="title-underline"></div></div><div class="questions-list"><div class="question-item" data-qid="1"><div class="question-number-badge">1</div><div class="question-sentence">Salma isn't as good <input type="text" name="q1" class="answer-input" placeholder="______" autocomplete="off"> Nadia.</div></div><div class="question-item" data-qid="2"><div class="question-number-badge">2</div><div class="question-sentence">She has studied English <input type="text" name="q2" class="answer-input" placeholder="______" autocomplete="off"> 11 years.</div></div><div class="question-item" data-qid="3"><div class="question-number-badge">3</div><div class="question-sentence">I sent you an email two days ago, but I <input type="text" name="q3" class="answer-input" placeholder="______" autocomplete="off"> haven't received a response.</div></div><div class="question-item" data-qid="4"><div class="question-number-badge">4</div><div class="question-sentence">They didn't really believe that, <input type="text" name="q4" class="answer-input" placeholder="______" autocomplete="off"> they?</div></div><div class="question-item" data-qid="5"><div class="question-number-badge">5</div><div class="question-sentence">We <input type="text" name="q5" class="answer-input" placeholder="______" autocomplete="off"> to renew our passports before travelling.</div></div><div class="question-item" data-qid="6"><div class="question-number-badge">6</div><div class="question-sentence">New York is the <input type="text" name="q6" class="answer-input" placeholder="______" autocomplete="off"> expensive city.</div></div><div class="question-item" data-qid="7"><div class="question-number-badge">7</div><div class="question-sentence">He isn't a doctor, <input type="text" name="q7" class="answer-input" placeholder="______" autocomplete="off"> he?</div></div><div class="question-item" data-qid="8"><div class="question-number-badge">8</div><div class="question-sentence">We have been waiting in line <input type="text" name="q8" class="answer-input" placeholder="______" autocomplete="off"> 3:30.</div></div><div class="question-item" data-qid="9"><div class="question-number-badge">9</div><div class="question-sentence"><input type="text" name="q9" class="answer-input" placeholder="______" autocomplete="off"> I sit here, please? Yes, you can</div></div><div class="question-item" data-qid="10"><div class="question-number-badge">10</div><div class="question-sentence">The employees have <input type="text" name="q10" class="answer-input" placeholder="______" autocomplete="off"> given a raise this year by The manager.</div></div><div class="question-item" data-qid="11"><div class="question-number-badge">11</div><div class="question-sentence">She is more attractive than her sister, <input type="text" name="q11" class="answer-input" placeholder="______" autocomplete="off"> she?</div></div><div class="question-item" data-qid="12"><div class="question-number-badge">12</div><div class="question-sentence">She hasn't finished her homework <input type="text" name="q12" class="answer-input" placeholder="______" autocomplete="off"></div></div><div class="question-item" data-qid="13"><div class="question-number-badge">13</div><div class="question-sentence">You <input type="text" name="q13" class="answer-input" placeholder="______" autocomplete="off"> eat healthy food.</div></div></div></div><div class="section-block"><div class="section-title-block"><h3>Part 2</h3><div class="title-underline"></div></div><div class="questions-list"><div class="question-item" data-qid="14"><div class="question-number-badge">14</div><div class="question-sentence">Nouar speakes English, <input type="text" name="q14" class="answer-input" placeholder="______" autocomplete="off"> she?</div></div><div class="question-item" data-qid="15"><div class="question-number-badge">15</div><div class="question-sentence">They were very tired last night <input type="text" name="q15" class="answer-input" placeholder="______" autocomplete="off"> they slept early</div></div><div class="question-item" data-qid="16"><div class="question-number-badge">16</div><div class="question-sentence">We don't like pizza, <input type="text" name="q16" class="answer-input" placeholder="______" autocomplete="off"> we?</div></div><div class="question-item" data-qid="17"><div class="question-number-badge">17</div><div class="question-sentence">travelling by plane is <input type="text" name="q17" class="answer-input" placeholder="______" autocomplete="off"> than travelling by bus.(good)</div></div><div class="question-item" data-qid="18"><div class="question-number-badge">18</div><div class="question-sentence">I have <input type="text" name="q18" class="answer-input" placeholder="______" autocomplete="off"> spent my salary and it's two weeks before payday.</div></div><div class="question-item" data-qid="19"><div class="question-number-badge">19</div><div class="question-sentence">This is my watch, <input type="text" name="q19" class="answer-input" placeholder="______" autocomplete="off"> it?</div></div><div class="question-item" data-qid="20"><div class="question-number-badge">20</div><div class="question-sentence">We<input type="text" name="q20" class="answer-input" placeholder="______" autocomplete="off"> buy any tomatoes, we have plenty of them</div></div><div class="question-item" data-qid="21"><div class="question-number-badge">21</div><div class="question-sentence">You <input type="text" name="q21" class="answer-input" placeholder="______" autocomplete="off"> have a licence before buying a car.</div></div><div class="question-item" data-qid="22"><div class="question-number-badge">22</div><div class="question-sentence">The painting will <input type="text" name="q22" class="answer-input" placeholder="______" autocomplete="off"> bought by the rich man.</div></div><div class="question-item" data-qid="23"><div class="question-number-badge">23</div><div class="question-sentence">I have sore throat <input type="text" name="q23" class="answer-input" placeholder="______" autocomplete="off"> I drank cold water yesterday</div></div><div class="question-item" data-qid="24"><div class="question-number-badge">24</div><div class="question-sentence">This is a nice hotel,<input type="text" name="q24" class="answer-input" placeholder="______" autocomplete="off"> don't we stay here?</div></div><div class="question-item" data-qid="25"><div class="question-number-badge">25</div><div class="question-sentence">I <input type="text" name="q25" class="answer-input" placeholder="______" autocomplete="off"> born in 1985</div></div></div></div>
+    </div>
+    <div class="actions-area">
+      <button id="submitBtn" class="btn btn-primary">✓ Submit Answers</button>
+      <button id="clearBtn" class="btn btn-secondary">🔄 Clear All Answers</button>
+      <button id="backBtn" class="btn btn-secondary">← Back to Dashboard</button>
+    </div>
+    <div id="resultArea"></div>
+  </div>
+</div>
+
+<div id="resultModal" class="modal-overlay">
+  <div class="modal-container">
+    <div id="modalContent"></div>
+    <button id="closeModalBtn" class="btn btn-secondary" style="width:100%; margin-top:20px;">Close</button>
+  </div>
+</div>
+
+<script>
+var ANSWERS = {
+  "1": "as",
+  "2": "for",
+  "3": "still",
+  "4": "did",
+  "5": "have",
+  "6": "most",
+  "7": "is",
+  "8": "since",
+  "9": "can",
+  "10": "been",
+  "11": "isn't",
+  "12": "yet",
+  "13": "should",
+  "14": "doesn't",
+  "15": "so",
+  "16": "do",
+  "17": "better",
+  "18": "already",
+  "19": "isn't",
+  "20": "needn't",
+  "21": "must",
+  "22": "be",
+  "23": "because",
+  "24": "why",
+  "25": "was"
+};
+var TOTAL_QUESTIONS = 25;
+var MAX_ATTEMPTS = 2;
+var POINTS_PER_QUESTION = 0.5;
+var TEST_ID = window.location.pathname.split("/").pop().replace(".html", "");
+var student = localStorage.getItem("currentStudent");
+if (!student) { window.location.href = "../../index.html"; }
+var ATTEMPT_KEY = student + "_" + TEST_ID + "_attempts";
+var attempts = Number(localStorage.getItem(ATTEMPT_KEY)) || 0;
+if (attempts >= MAX_ATTEMPTS) { alert("No attempts left for this test."); disableTest(); }
+
+function updateProgress() {
+  var inputs = document.querySelectorAll(".answer-input");
+  var answered = 0;
+  for (var i = 0; i < inputs.length; i++) {
+    if (inputs[i].value.trim() !== "") answered++;
+  }
+  var percent = (answered / TOTAL_QUESTIONS) * 100;
+  var fillBar = document.getElementById("progressFill");
+  if (fillBar) fillBar.style.width = percent + "%";
+  var countSpan = document.getElementById("progressCount");
+  if (countSpan) countSpan.innerHTML = answered + "/" + TOTAL_QUESTIONS;
+}
+
+function submitTest() {
+  var score = 0;
+  var results = [];
+  var inputs = document.querySelectorAll(".answer-input");
+  for (var i = 0; i < inputs.length; i++) { inputs[i].classList.remove("correct", "wrong"); }
+  for (var i = 0; i < inputs.length; i++) {
+    var questionNumber = inputs[i].name.replace("q", "");
+    var studentAnswer = inputs[i].value.trim().toLowerCase();
+    var correctAnswer = ANSWERS[questionNumber];
+    if (studentAnswer === correctAnswer) {
+      score++;
+      inputs[i].classList.add("correct");
+      results.push({ num: questionNumber, status: "correct", user: studentAnswer, correct: correctAnswer });
+    } else if (studentAnswer !== "") {
+      inputs[i].classList.add("wrong");
+      results.push({ num: questionNumber, status: "incorrect", user: studentAnswer, correct: correctAnswer });
+    } else {
+      results.push({ num: questionNumber, status: "unanswered", user: "—", correct: correctAnswer });
+    }
+  }
+  var finalScore = (score * POINTS_PER_QUESTION).toFixed(1);
+  var maxScore = (TOTAL_QUESTIONS * POINTS_PER_QUESTION).toFixed(1);
+  attempts++;
+  localStorage.setItem(ATTEMPT_KEY, attempts);
+  localStorage.setItem(TEST_ID + "_result", JSON.stringify({ student: student, score: finalScore, total: maxScore, attempt: attempts, date: new Date().toISOString() }));
+  var allResults = JSON.parse(localStorage.getItem("examResults") || "[]");
+  allResults.push({ student: student, testId: TEST_ID, score: finalScore + "/" + maxScore, date: new Date().toLocaleDateString() });
+  localStorage.setItem("examResults", JSON.stringify(allResults));
+  var percentage = (score / TOTAL_QUESTIONS) * 100;
+  var emoji = "", message = "";
+  if (percentage >= 85) { emoji = "🌟"; message = "Excellent work!"; }
+  else if (percentage >= 60) { emoji = "👏"; message = "Good job!"; }
+  else { emoji = "📘"; message = "Keep practicing!"; }
+  var modalHTML = '<div style="text-align:center">' + '<div style="font-size:3rem">' + emoji + '</div>' + '<h2 style="color:#166534;margin:10px 0">' + message + '</h2>' + '<div style="font-size:2rem;font-weight:bold;color:#16a34a">' + finalScore + ' / ' + maxScore + '</div>' + '<p>✅ Correct: ' + score + ' / ' + TOTAL_QUESTIONS + '</p>' + '<p>🔄 Attempt: ' + attempts + ' / ' + MAX_ATTEMPTS + '</p>' + '<hr style="margin:20px 0">' + '<h3>📋 Answer Details</h3>';
+  for (var r = 0; r < results.length; r++) {
+    var icon = results[r].status === "correct" ? "✅" : (results[r].status === "incorrect" ? "❌" : "⭕");
+    var color = results[r].status === "correct" ? "#16a34a" : (results[r].status === "incorrect" ? "#dc2626" : "#f59e0b");
+    modalHTML += '<div style="text-align:left;padding:10px;margin:8px 0;background:#f9fafb;border-radius:12px">' + '<span style="display:inline-block;width:30px">' + icon + '</span>' + '<strong>Question ' + results[r].num + ':</strong><br>' + '<span style="margin-left:30px">Your answer: <span style="color:' + color + '">' + results[r].user + '</span></span><br>' + '<span style="margin-left:30px;font-size:0.85rem">Correct: ' + results[r].correct + '</span>' + '</div>';
+  }
+  modalHTML += '</div>';
+  document.getElementById("modalContent").innerHTML = modalHTML;
+  document.getElementById("resultModal").classList.add("show");
+  disableTest();
+}
+
+function clearAllAnswers() {
+  var inputs = document.querySelectorAll(".answer-input");
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].value = "";
+    inputs[i].classList.remove("correct", "wrong");
+  }
+  updateProgress();
+}
+
+function goBack() {
+  window.location.href = "grammar_dashboard.html";
+}
+
+function disableTest() {
+  var elements = document.querySelectorAll(".answer-input, #submitBtn, #clearBtn, #backBtn");
+  for (var i = 0; i < elements.length; i++) { elements[i].disabled = true; }
+}
+
+function closeModal() { document.getElementById("resultModal").classList.remove("show"); }
+
+document.getElementById("submitBtn").addEventListener("click", submitTest);
+document.getElementById("clearBtn").addEventListener("click", clearAllAnswers);
+document.getElementById("backBtn").addEventListener("click", goBack);
+document.getElementById("closeModalBtn").addEventListener("click", closeModal);
+
+var allInputs = document.querySelectorAll(".answer-input");
+for (var i = 0; i < allInputs.length; i++) { allInputs[i].addEventListener("input", updateProgress); }
+
+updateProgress();
+</script>
+</body>
+</html>
