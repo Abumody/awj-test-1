@@ -16,16 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // ========== الإجابات النموذجية (من الصور) ==========
-  const ANSWERS = {
-    1: "three",
-    2: "his own",
-    3: "summer club",
-    4: "2016",
-    5: "patient",
-    6: "fixing vehicles",
-    7: "Scotland"
-  };
 
   // ========== إدارة المحاولات ==========
   const ATTEMPT_KEY = `${student}_${TEST_ID}_attempts`;
