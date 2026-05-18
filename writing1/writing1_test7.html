@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="en" dir="ltr">
-<head><meta charset="UTF-8"><title>Writing1_test5</title>
+<head><meta charset="UTF-8"><title>Writing1_test7</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{background:#2efffc;padding:20px}
+body{background:#fef3c7;padding:20px}
 .container{max-width:1300px;margin:0 auto}
 header{background:white;border-radius:20px;padding:20px;text-align:center;margin-bottom:25px}
 h1{color:#344955}
@@ -26,33 +26,18 @@ button{margin:10px 5px 0 0;padding:10px 20px;border-radius:40px;background:#f9aa
 .back-btn{background:#4a6572;color:white}
 </style></head>
 <body><div class="container">
-<header><h1>Writing1_test5</h1><div class="test-info">
+<header><h1>Writing1_test7</h1><div class="test-info">
 <span class="badge">📖 Grade 11</span>
 <span class="badge">📅 Semester 2</span>
-<span class="badge">⏱️ 40 min</span>
+<span class="badge">⏱️ 50 min</span>
 <span class="badge">🎯 out of 100</span>
 <span class="badge" id="attemptsBadge">Attempts: 0 / 3</span>
 </div></header>
 <div class="card">
-<div class="question-box"><h2>Essay Question</h2><div class="question-text">Write a story about " The best gift you have ever received"
-Include in your story:
-*What was it?
-*What happened ?
-*When and Where did it
-happen?
-*How was your feeling at the end of that experience
-</div></div>
-<div class="conditions"><strong>Conditions:</strong> Your writing should be clear and organized<br>
+<div class="question-box"><h2>Essay Question</h2><div class="question-text">Write a Story from The Holy Quran</div></div>
+<div class="conditions"><strong>Conditions:</strong> -<br>
 <strong>Minimum words:</strong> 100</div>
-<div class="model-answer" id="modelAnswerDiv"><strong>Model Answer (shown after submission):</strong><br>Last year, on my sixteenth birthday, I received the best gift I have ever had in my life. It was a brand-new laptop from my father. I had always dreamed of having my own laptop because I wanted to improve my English, watch educational videos, and learn graphic design. However, my family could not afford to buy one easily, so I never expected to receive such an expensive gift.
-
-The surprise happened at our home in the evening during my birthday celebration. My family and a few close friends gathered in the living room to celebrate together. We ate cake, took photos, and laughed a lot. At the end of the party, my father brought a large box wrapped in shiny blue paper. At first, I thought it was just some clothes or books. However, when I opened it and saw the laptop inside, I was completely shocked.
-
-For a few moments, I could not even speak. My hands were shaking because I was so excited. My father smiled and told me that he believed in my future and wanted me to use the laptop for learning and developing my skills. His words touched me deeply because they showed how much he cared about my dreams.
-
-After that day, my life changed in many ways. I started using the laptop to study, improve my writing skills, and learn new things online. It helped me become more confident and motivated to achieve my goals.
-
-At the end of that experience, I felt extremely happy, grateful, and loved. Although the laptop was valuable, the most important thing was the support and encouragement I received from my father. That gift was not just a machine; it was a symbol of hope, trust, and love that I will never forget.</div>
+<div class="model-answer" id="modelAnswerDiv"><strong>Model Answer (shown after submission):</strong><br>-</div>
 <label>Your Answer:</label>
 <div class="answer-container" id="answerContainer" contenteditable="true"></div>
 <div><button id="correctionBtn"><i class="fas fa-edit"></i> 🔧 Correct errors (click on word)</button>
@@ -70,7 +55,7 @@ Student Score: <input type="number" id="scoreInput" min="0" max="100" step="0.5"
 <div class="card"><h3>Previous attempts</h3><div id="attemptsList"></div></div>
 </div>
 <script>
-const testData = {"testName":"Writing1_test5","grade":"Grade 11","semester":"Semester 2","timerMinutes":40,"totalScore":100,"maxAttempts":3,"bgColor":"#2efffc","question":"Write a story about \" The best gift you have ever received\"\nInclude in your story:\n*What was it?\n*What happened ?\n*When and Where did it\nhappen?\n*How was your feeling at the end of that experience\n","minWords":100,"extraConditions":"Your writing should be clear and organized","modelAnswer":"Last year, on my sixteenth birthday, I received the best gift I have ever had in my life. It was a brand-new laptop from my father. I had always dreamed of having my own laptop because I wanted to improve my English, watch educational videos, and learn graphic design. However, my family could not afford to buy one easily, so I never expected to receive such an expensive gift.\n\nThe surprise happened at our home in the evening during my birthday celebration. My family and a few close friends gathered in the living room to celebrate together. We ate cake, took photos, and laughed a lot. At the end of the party, my father brought a large box wrapped in shiny blue paper. At first, I thought it was just some clothes or books. However, when I opened it and saw the laptop inside, I was completely shocked.\n\nFor a few moments, I could not even speak. My hands were shaking because I was so excited. My father smiled and told me that he believed in my future and wanted me to use the laptop for learning and developing my skills. His words touched me deeply because they showed how much he cared about my dreams.\n\nAfter that day, my life changed in many ways. I started using the laptop to study, improve my writing skills, and learn new things online. It helped me become more confident and motivated to achieve my goals.\n\nAt the end of that experience, I felt extremely happy, grateful, and loved. Although the laptop was valuable, the most important thing was the support and encouragement I received from my father. That gift was not just a machine; it was a symbol of hope, trust, and love that I will never forget."};
+const testData = {"testName":"Writing1_test7","grade":"Grade 11","semester":"Semester 2","timerMinutes":50,"totalScore":100,"maxAttempts":3,"bgColor":"#fef3c7","question":"Write a Story from The Holy Quran","minWords":100,"extraConditions":"","modelAnswer":""};
 const lang = 'en';
 const t = {"essay_q":"Essay Question","conditions":"Conditions:","min_words":"Minimum words:","model_title":"Model Answer (shown after submission):","your_answer":"Your Answer:","correction_btn":"🔧 Correct errors (click on word)","save_corr_btn":"💾 Save Correction (Submit Answer)","retry_btn":"🔄 New Attempt","word_count":"Word count:","attempts_title":"Previous attempts","no_attempts":"No attempts yet","correction_mode_on":"Correction mode active","correction_off":"Correction off","saved":"Saved","time_up":"Time is up!","teacher_evaluation":"Teacher's Evaluation","student_score":"Student Score","save_score":"Save Score","out_of":"out of","score_saved":"Score saved","back_dashboard":"Back to Dashboard"};
 const MAX_ATTEMPTS = testData.maxAttempts;
