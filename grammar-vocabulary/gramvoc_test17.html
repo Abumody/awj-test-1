@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Grammar-Vocabulary Test 17 – Chef Maria</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #f5efe6;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    padding: 2rem 1rem;
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 2rem;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+
+  header {
+    background: #bf6f3c;
+    color: white;
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 1.9rem;
+    font-weight: 600;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-top: 0.4rem;
+    opacity: 0.9;
+  }
+
+  .passage-container {
+    padding: 2rem 2rem 1rem 2rem;
+  }
+
+  .section-title {
+    display: inline-block;
+    background: #f3e7db;
+    padding: 0.3rem 1.2rem;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #9b4b22;
+    margin-bottom: 1.2rem;
+    border-left: 4px solid #bf6f3c;
+  }
+
+  .passage-text {
+    background: #fefaf5;
+    padding: 1.6rem 2rem;
+    border-radius: 28px;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #2c2b26;
+    border: 1px solid #ede3d6;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  }
+
+  .blank {
+    display: inline-flex;
+    align-items: baseline;
+    background: #fff8ef;
+    border-radius: 40px;
+    padding: 0.1rem 0.2rem 0.1rem 0.5rem;
+    margin: 0 0.2rem;
+    border: 1px solid #e6d5c0;
+    vertical-align: middle;
+  }
+
+  .blank-number {
+    background: #e2cfb5;
+    color: #5e3a1f;
+    font-size: 0.7rem;
+    font-weight: 700;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    margin-right: 8px;
+  }
+
+  .blank-select {
+    background: white;
+    border: 1px solid #dbcbb4;
+    border-radius: 40px;
+    padding: 0.35rem 0.9rem;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #3a2e22;
+    cursor: pointer;
+    transition: 0.1s;
+  }
+
+  .blank-select:hover {
+    background: #fff3e4;
+    border-color: #c6aa84;
+  }
+
+  .blank-select:focus {
+    outline: none;
+    border-color: #bf6f3c;
+    box-shadow: 0 0 0 2px rgba(191,111,60,0.2);
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem 2rem 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .btn {
+    border: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.7rem 1.6rem;
+    border-radius: 60px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-family: inherit;
+    transition: 0.2s;
+  }
+
+  .btn-dashboard {
+    background: #e9e2d9;
+    color: #8b5a36;
+    border: 1px solid #d4c4b0;
+  }
+
+  .btn-dashboard:hover {
+    background: #dfd3c5;
+    transform: translateY(-2px);
+  }
+
+  .btn-check {
+    background: #bf6f3c;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .btn-check:hover {
+    background: #9e552b;
+    transform: translateY(-2px);
+  }
+
+  #result {
+    margin: 0 2rem 2rem 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 40px;
+    background: #faf7f2;
+    text-align: center;
+    font-weight: 500;
+    border-left: 6px solid #bf6f3c;
+  }
+
+  .correct-feedback {
+    background: #e2f0e0;
+    border-left-color: #3c7a3e;
+    color: #1d5a2a;
+  }
+
+  .wrong-feedback {
+    background: #ffe6e3;
+    border-left-color: #c73f2c;
+    color: #a52a1a;
+  }
+
+  @media (max-width: 650px) {
+    .passage-text {
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+    .blank-select {
+      padding: 0.2rem 0.6rem;
+      font-size: 0.75rem;
+    }
+    .actions {
+      flex-direction: column;
+    }
+    .btn {
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Grammar / Vocabulary 17 (1-10)</h1>
+    <p class="subtitle">Choose the correct answer to complete the passage.</p>
+  </header>
+
+  <div class="passage-container">
+    <div class="section-title">Complete the Passage</div>
+    <div class="passage-text">
+
+      Chef Maria has always been 
+
+      <span class="blank"><span class="blank-number">1</span>
+      <select class="blank-select" name="q1">
+        <option value="">Select</option>
+        <option value="interested">interested</option>
+        <option value="proud">proud</option>
+        <option value="angry">angry</option>
+        <option value="afraid">afraid</option>
+      </select></span>
+
+      in the art of 
+
+      <span class="blank"><span class="blank-number">2</span>
+      <select class="blank-select" name="q2">
+        <option value="">Select</option>
+        <option value="theatre">theatre</option>
+        <option value="cinema">cinema</option>
+        <option value="books">books</option>
+        <option value="singing">singing</option>
+      </select></span>
+
+      cooking and food presentation.  
+
+      She wrote her first 
+
+      <span class="blank"><span class="blank-number">3</span>
+      <select class="blank-select" name="q3">
+        <option value="">Select</option>
+        <option value="film">film</option>
+        <option value="novel">novel</option>
+        <option value="song">song</option>
+        <option value="play">play</option>
+      </select></span>
+
+      cookbook when she was only nineteen years old.  
+
+      She is now almost fifty and she 
+
+      <span class="blank"><span class="blank-number">4</span>
+      <select class="blank-select" name="q4">
+        <option value="">Select</option>
+        <option value="is">is</option>
+        <option value="was">was</option>
+        <option value="has">has</option>
+        <option value="have">have</option>
+      </select></span>
+
+      published more than fifteen cookbooks.  
+
+      Maria loves 
+
+      <span class="blank"><span class="blank-number">5</span>
+      <select class="blank-select" name="q5">
+        <option value="">Select</option>
+        <option value="sleeping">sleeping</option>
+        <option value="eating">eating</option>
+        <option value="dancing">dancing</option>
+        <option value="travelling">travelling</option>
+      </select></span>
+
+      to discover new ingredients.  
+
+      She has 
+
+      <span class="blank"><span class="blank-number">6</span>
+      <select class="blank-select" name="q6">
+        <option value="">Select</option>
+        <option value="is">is</option>
+        <option value="was">was</option>
+        <option value="were">were</option>
+        <option value="been">been</option>
+      </select></span>
+
+      to Italy, Thailand, Mexico, Turkey and Vietnam.  
+
+      Last summer, she 
+
+      <span class="blank"><span class="blank-number">7</span>
+      <select class="blank-select" name="q7">
+        <option value="">Select</option>
+        <option value="visit">visit</option>
+        <option value="visited">visited</option>
+        <option value="visits">visits</option>
+        <option value="has visited">has visited</option>
+      </select></span>
+
+      Japan for the first time to study traditional techniques.  
+
+      Maria and her partner David have been together 
+
+      <span class="blank"><span class="blank-number">8</span>
+      <select class="blank-select" name="q8">
+        <option value="">Select</option>
+        <option value="for">for</option>
+        <option value="since">since</option>
+        <option value="already">already</option>
+        <option value="yet">yet</option>
+      </select></span>
+
+      twelve years.  
+
+      They 
+
+      <span class="blank"><span class="blank-number">9</span>
+      <select class="blank-select" name="q9">
+        <option value="">Select</option>
+        <option value="buy">buy</option>
+        <option value="buying">buying</option>
+        <option value="bought">bought</option>
+        <option value="have bought">have bought</option>
+      </select></span>
+
+      their restaurant in Lisbon 
+
+      <span class="blank"><span class="blank-number">10</span>
+      <select class="blank-select" name="q10">
+        <option value="">Select</option>
+        <option value="in">in</option>
+        <option value="on">on</option>
+        <option value="at">at</option>
+        <option value="when">when</option>
+      </select></span>
+
+      2009.
+
+    </div>
+  </div>
+
+  <div class="actions">
+    <a href="grammar-vocabulary_dashboard.html" class="back-link">⬅ Back to Dashboard</a>
+    <button id="submitBtn" class="btn btn-check">Submit</button>
+  </div>
+
+  <div id="result"></div>
+</div>
+
+<script>
+  // Same answer key as original test 5
+  window.ANSWERS = {
+    1: "interested",
+    2: "cinema",
+    3: "film",
+    4: "has",
+    5: "travelling",
+    6: "been",
+    7: "visited",
+    8: "for",
+    9: "bought",
+    10: "in"
+  };
+
+  function evaluateTest() {
+    let totalCorrect = 0;
+    const total = 10;
+    const details = [];
+
+    for (let i = 1; i <= total; i++) {
+      const selectEl = document.querySelector(`select[name="q${i}"]`);
+      const selectedVal = selectEl ? selectEl.value : "";
+      const isCorrect = (selectedVal === window.ANSWERS[i]);
+      if (isCorrect) totalCorrect++;
+      details.push({
+        num: i,
+        selected: selectedVal || "(not answered)",
+        correct: isCorrect,
+        expected: window.ANSWERS[i]
+      });
+    }
+
+    const percent = Math.round((totalCorrect / total) * 100);
+    const resultDiv = document.getElementById("result");
+    let emoji = "";
+    let feedbackClass = "";
+
+    if (totalCorrect === 10) {
+      emoji = "🎉 Perfect! Excellent understanding!";
+      feedbackClass = "correct-feedback";
+    } else if (totalCorrect >= 7) {
+      emoji = "👍 Very good! Keep it up.";
+      feedbackClass = "correct-feedback";
+    } else if (totalCorrect >= 5) {
+      emoji = "📘 Not bad. Review the answers below.";
+      feedbackClass = "";
+    } else {
+      emoji = "📖 Let's study and try again.";
+      feedbackClass = "wrong-feedback";
+    }
+
+    let detailHtml = `<div style="margin-top: 14px; text-align: left; font-size: 0.9rem; border-top: 1px solid #e0d5c6; padding-top: 12px;">
+                        <strong>🔍 Answer summary:</strong><br>`;
+    for (let d of details) {
+      const mark = d.correct ? "✅" : "❌";
+      const hint = d.correct ? "" : ` (correct: "${d.expected}")`;
+      detailHtml += `<span style="display:inline-block; width: 75px;">Blank ${d.num}:</span> ${mark} "${d.selected}"${hint}<br>`;
+    }
+    detailHtml += `</div>`;
+
+    resultDiv.innerHTML = `
+      <div style="font-size: 1.2rem; font-weight: bold;">📊 Score: ${totalCorrect} / ${total} (${percent}%)</div>
+      <div style="margin: 6px 0;">${emoji}</div>
+      ${detailHtml}
+    `;
+
+    resultDiv.className = "";
+    if (feedbackClass === "correct-feedback") resultDiv.classList.add("correct-feedback");
+    else if (feedbackClass === "wrong-feedback") resultDiv.classList.add("wrong-feedback");
+    else resultDiv.style.background = "#fff5ea";
+
+    resultDiv.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const submitBtn = document.getElementById("submitBtn");
+    if (submitBtn) {
+      submitBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        evaluateTest();
+      });
+    }
+
+    // style placeholder
+    const allSelects = document.querySelectorAll(".blank-select");
+    allSelects.forEach(sel => {
+      if (sel.value === "") sel.style.color = "#a58e72";
+      sel.addEventListener("change", function() {
+        if (this.value) this.style.color = "#3a2e22";
+        else this.style.color = "#a58e72";
+      });
+    });
+  });
+</script>
+</body>
+</html>

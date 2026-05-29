@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading 2 – Test 11 • Fashion: The Story of Jeans</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #f2efe8;
+    font-family: 'Inter', 'Poppins', sans-serif;
+    padding: 2rem 1.5rem;
+    line-height: 1.5;
+  }
+
+  .page {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 2rem;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+  }
+
+  /* Header */
+  .hero {
+    background: #2c5f8a;
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero h1 i {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-top: 0.2rem;
+  }
+
+  .hero-right {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .badge {
+    background: rgba(255,255,255,0.2);
+    padding: 0.4rem 1rem;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Instructions */
+  .instructions {
+    background: #eef2f7;
+    margin: 1.5rem 2rem 0 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    border-left: 5px solid #2c5f8a;
+  }
+
+  .instructions h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c5f8a;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .instructions ul {
+    margin-left: 1.8rem;
+    color: #4a5a6a;
+    font-size: 0.9rem;
+  }
+
+  /* Two-column scrollable layout */
+  .layout {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    padding: 1.5rem 2rem 2rem 2rem;
+    height: 70vh;
+    min-height: 550px;
+  }
+
+  .questions-panel {
+    flex: 1.2;
+    min-width: 280px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+  }
+
+  .passage-panel {
+    flex: 2;
+    background: #fefcf8;
+    padding: 1.5rem 1.8rem;
+    border-radius: 1.5rem;
+    border: 1px solid #e0dcd0;
+    overflow-y: auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+
+  /* Custom scrollbar */
+  .questions-panel::-webkit-scrollbar, .passage-panel::-webkit-scrollbar {
+    width: 6px;
+  }
+  .questions-panel::-webkit-scrollbar-track, .passage-panel::-webkit-scrollbar-track {
+    background: #e6e2d8;
+    border-radius: 10px;
+  }
+  .questions-panel::-webkit-scrollbar-thumb, .passage-panel::-webkit-scrollbar-thumb {
+    background: #b0aa9a;
+    border-radius: 10px;
+  }
+
+  .reading-item {
+    background: #ffffff;
+    border: 1px solid #ddd8cc;
+    border-radius: 1rem;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+    transition: 0.1s;
+  }
+
+  .reading-item p {
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+    color: #2c3e50;
+  }
+
+  .tf-btn {
+    background: #f8f7f3;
+    border: 1px solid #d1cbbc;
+    border-radius: 60px;
+    padding: 0.5rem 1rem;
+    margin: 0.3rem 0.6rem 0.3rem 0;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #3a4a5a;
+    cursor: pointer;
+    transition: 0.15s;
+    display: inline-block;
+  }
+
+  .tf-btn:hover {
+    background: #efede5;
+    border-color: #9e9582;
+    transform: translateY(-1px);
+  }
+
+  .tf-btn.selected {
+    background: #2c5f8a;
+    border-color: #2c5f8a;
+    color: white;
+    box-shadow: 0 2px 6px rgba(44,95,138,0.3);
+  }
+
+  .action-bar {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.8rem;
+    flex-wrap: wrap;
+    position: sticky;
+    bottom: 0;
+    background: white;
+    padding: 1rem 0 0.5rem 0;
+  }
+
+  .btn {
+    padding: 0.7rem 1.6rem;
+    border-radius: 60px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+  }
+
+  .btn.back {
+    background: #e6e2d8;
+    color: #5a6e7a;
+  }
+
+  .btn.back:hover {
+    background: #d8d2c4;
+    transform: translateY(-2px);
+  }
+
+  .btn.submit {
+    background: #2c5f8a;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .btn.submit:hover {
+    background: #1f4a6e;
+    transform: translateY(-2px);
+  }
+
+  .result-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: #faf8f2;
+    text-align: center;
+    font-weight: 500;
+    border-left: 6px solid #2c5f8a;
+  }
+
+  .result-correct {
+    background: #e2f3e2;
+    border-left-color: #3b8b5a;
+  }
+
+  .result-wrong {
+    background: #ffe6e3;
+    border-left-color: #cb6e4e;
+  }
+
+  /* Passage styling */
+  .passage-panel h2 {
+    color: #2c5f8a;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .passage-panel p {
+    margin-bottom: 1rem;
+    font-size: 0.98rem;
+    color: #3a3a3a;
+    line-height: 1.6;
+  }
+
+  .passage-panel strong {
+    color: #1f4a6e;
+  }
+
+  @media (max-width: 850px) {
+    .layout {
+      flex-direction: column;
+      height: auto;
+      max-height: none;
+    }
+    .questions-panel, .passage-panel {
+      max-height: 60vh;
+    }
+    .hero h1 {
+      font-size: 1.4rem;
+    }
+    body {
+      padding: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <div>
+    <h1><i class="fas fa-tshirt"></i> Reading 2 – Test 11</h1>
+    <p>Fashion: The Story of Jeans</p>
+  </div>
+  <div class="hero-right">
+    <div class="badge"><i class="fas fa-question-circle"></i> 7 Questions</div>
+    <div class="badge"><i class="fas fa-redo"></i> 2 Attempts</div>
+  </div>
+</header>
+
+<section class="instructions">
+  <h3><i class="fas fa-info-circle"></i> Instructions</h3>
+  <ul>
+    <li>Read the article carefully on the right.</li>
+    <li>Choose ONE correct answer for each question.</li>
+    <li>Scroll within each column to read all content.</li>
+  </ul>
+</section>
+
+<div class="layout">
+
+<!-- ========= LEFT: QUESTIONS (scrollable) ========= -->
+<div class="questions-panel">
+
+  <div class="reading-item" data-q="1">
+    <p>1. Jeans were first made for ______.</p>
+    <button class="tf-btn" data-value="A">soldiers</button>
+    <button class="tf-btn" data-value="B">farmers and miners</button>
+    <button class="tf-btn" data-value="C">fashion models</button>
+  </div>
+
+  <div class="reading-item" data-q="2">
+    <p>2. The first jeans were made from a material called ______.</p>
+    <button class="tf-btn" data-value="A">cotton</button>
+    <button class="tf-btn" data-value="B">denim</button>
+    <button class="tf-btn" data-value="C">leather</button>
+  </div>
+
+  <div class="reading-item" data-q="3">
+    <p>3. In the 1950s, jeans became popular with ______.</p>
+    <button class="tf-btn" data-value="A">businessmen</button>
+    <button class="tf-btn" data-value="B">young people and movie stars</button>
+    <button class="tf-btn" data-value="C">school teachers</button>
+  </div>
+
+  <div class="reading-item" data-q="4">
+    <p>4. In the 1960s and 1970s, jeans were seen as a symbol of ______.</p>
+    <button class="tf-btn" data-value="A">rebellion and freedom</button>
+    <button class="tf-btn" data-value="B">wealth and power</button>
+    <button class="tf-btn" data-value="C">religious belief</button>
+  </div>
+
+  <div class="reading-item" data-q="5">
+    <p>5. Today, jeans are popular because they are ______.</p>
+    <button class="tf-btn" data-value="A">only for special events</button>
+    <button class="tf-btn" data-value="B">expensive and rare</button>
+    <button class="tf-btn" data-value="C">comfortable and long-lasting</button>
+  </div>
+
+  <div class="reading-item" data-q="6">
+    <p>6. The article says that jeans can be worn by ______.</p>
+    <button class="tf-btn" data-value="A">only men</button>
+    <button class="tf-btn" data-value="B">almost everyone, young and old</button>
+    <button class="tf-btn" data-value="C">only people in Western countries</button>
+  </div>
+
+  <div class="reading-item" data-q="7">
+    <p>7. What is the main idea of this article?</p>
+    <button class="tf-btn" data-value="A">Jeans are the only good type of trousers.</button>
+    <button class="tf-btn" data-value="B">Jeans have a long history and are loved worldwide.</button>
+    <button class="tf-btn" data-value="C">Jeans are bad for the environment.</button>
+  </div>
+
+  <div class="action-bar">
+    <button class="btn back" onclick="goBack()">
+      <i class="fas fa-arrow-left"></i> Back
+    </button>
+    <button id="submitBtn" class="btn submit">
+      <i class="fas fa-check-circle"></i> Submit
+    </button>
+  </div>
+
+  <div id="result" class="result-box"></div>
+
+</div>
+
+<!-- ========= RIGHT: PASSAGE (scrollable) ========= -->
+<div class="passage-panel">
+  <h2><i class="fas fa-history"></i> The Amazing Story of Jeans</h2>
+
+  <p>Jeans are one of the most popular clothing items in the world. You can see people wearing jeans everywhere: at school, at work, at parties, and at home. But where did jeans come from? Let's learn their simple story.</p>
+
+  <p><strong>How jeans started.</strong> In the 1800s, many workers in the United States needed strong trousers. Farmers, miners, and cowboys worked very hard, and their clothes often tore. A man named Levi Strauss and a tailor named Jacob Davis had an idea. They made trousers from a strong cotton material called <strong>denim</strong>. They also added small metal rivets to make the trousers even stronger. These were the first jeans. Workers loved them because they did not break easily.</p>
+
+  <p><strong>Jeans become popular.</strong> For many years, only workers wore jeans. But in the 1950s, things changed. American movie stars like James Dean wore jeans in films. Young people thought this looked cool. Soon, teenagers everywhere wanted to wear jeans. In the 1960s and 1970s, jeans became a symbol of freedom and rebellion. Students and artists wore them to show they were different.</p>
+
+  <p><strong>Jeans today.</strong> Now, jeans are not just for rebels or workers. Everyone wears them: children, parents, grandparents, men, and women. Jeans come in many styles – blue, black, white, tight, loose, torn, or clean. They are comfortable and can last for many years. You can dress them up with a nice shirt or dress them down with a simple t-shirt. That is why jeans have remained fashionable for more than 150 years.</p>
+
+  <p><strong>Why we love jeans.</strong> The article shows that jeans are more than just trousers. They tell a story of hard work, youth culture, and style. From miners to movie stars, jeans have been worn by millions. They are simple, strong, and always in fashion.</p>
+</div>
+
+</div>
+</div>
+
+<script>
+  // Correct answers based on the passage above
+  const CORRECT_ANSWERS = {
+    1: "B",   // farmers and miners
+    2: "B",   // denim
+    3: "B",   // young people and movie stars
+    4: "A",   // rebellion and freedom
+    5: "C",   // comfortable and long-lasting
+    6: "B",   // almost everyone, young and old
+    7: "B"    // Jeans have a long history and are loved worldwide.
+  };
+
+  let selectedAnswers = {};
+
+  function goBack() {
+    // Simulated dashboard link – replace if needed
+    window.location.href = "reading2-dashboard.html";
+  }
+
+  function updateUI() {
+    for (let q = 1; q <= 7; q++) {
+      const container = document.querySelector(`.reading-item[data-q="${q}"]`);
+      if (!container) continue;
+      const btns = container.querySelectorAll('.tf-btn');
+      btns.forEach(btn => {
+        const val = btn.getAttribute('data-value');
+        if (selectedAnswers[q] === val) {
+          btn.classList.add('selected');
+        } else {
+          btn.classList.remove('selected');
+        }
+      });
+    }
+  }
+
+  function attachEvents() {
+    for (let q = 1; q <= 7; q++) {
+      const container = document.querySelector(`.reading-item[data-q="${q}"]`);
+      if (!container) continue;
+      const btns = container.querySelectorAll('.tf-btn');
+      btns.forEach(btn => {
+        btn.removeEventListener('click', btn._listener);
+        const handler = function() {
+          selectedAnswers[q] = this.getAttribute('data-value');
+          updateUI();
+        };
+        btn.addEventListener('click', handler);
+        btn._listener = handler;
+      });
+    }
+  }
+
+  function evaluateTest() {
+    let correctCount = 0;
+    const details = [];
+
+    for (let i = 1; i <= 7; i++) {
+      const userAns = selectedAnswers[i] || null;
+      const isCorrect = (userAns === CORRECT_ANSWERS[i]);
+      if (isCorrect) correctCount++;
+      details.push({
+        num: i,
+        selected: userAns || "(not answered)",
+        correct: isCorrect,
+        expected: CORRECT_ANSWERS[i]
+      });
+    }
+
+    const percent = Math.round((correctCount / 7) * 100);
+    const resultDiv = document.getElementById("result");
+    let emoji = "";
+    let feedbackClass = "";
+
+    if (correctCount === 7) {
+      emoji = "🌟 Perfect! You really understand fashion history.";
+      feedbackClass = "result-correct";
+    } else if (correctCount >= 5) {
+      emoji = "👍 Good job! You got most answers right.";
+      feedbackClass = "result-correct";
+    } else if (correctCount >= 3) {
+      emoji = "📘 Not bad. Read the article again to improve.";
+      feedbackClass = "";
+    } else {
+      emoji = "📖 Try reading more carefully next time.";
+      feedbackClass = "result-wrong";
+    }
+
+    let detailHtml = `<div style="margin-top: 12px; text-align: left; font-size: 0.85rem; border-top: 1px solid #ddd; padding-top: 10px;">
+                        <strong>🔍 Answer summary:</strong><br>`;
+    for (let d of details) {
+      const mark = d.correct ? "✅" : "❌";
+      const hint = d.correct ? "" : ` (correct: ${d.expected})`;
+      detailHtml += `<span style="display:inline-block; width: 70px;">Q${d.num}:</span> ${mark} "${d.selected}"${hint}<br>`;
+    }
+    detailHtml += `</div>`;
+
+    resultDiv.innerHTML = `
+      <div style="font-size: 1.2rem; font-weight: bold;">📊 Score: ${correctCount} / 7 (${percent}%)</div>
+      <div style="margin: 6px 0;">${emoji}</div>
+      ${detailHtml}
+    `;
+
+    resultDiv.className = "result-box";
+    if (feedbackClass) resultDiv.classList.add(feedbackClass);
+    resultDiv.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    attachEvents();
+    const submitBtn = document.getElementById("submitBtn");
+    if (submitBtn) {
+      submitBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        evaluateTest();
+      });
+    }
+    updateUI();
+  });
+</script>
+</body>
+</html>

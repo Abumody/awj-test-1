@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple English Test • Mint Plant</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #d9e6d5;
+      font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 32, 0, 0.25);
+      overflow: hidden;
+    }
+
+    header {
+      background: #2c6e3c;
+      padding: 1.4rem 2rem;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+      opacity: 0.9;
+    }
+
+    .passage-container {
+      padding: 1.8rem 2rem 1rem 2rem;
+    }
+
+    .section-title {
+      background: #eef3e9;
+      display: inline-block;
+      padding: 0.25rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #2a6b3a;
+      margin-bottom: 1.2rem;
+      border-left: 4px solid #3d8f40;
+    }
+
+    .passage-text {
+      background: #fefaf0;
+      padding: 1.5rem 1.8rem;
+      border-radius: 28px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #1f2e1f;
+      border: 1px solid #e0d8c0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .blank {
+      display: inline-flex;
+      align-items: baseline;
+      background: #fff7e8;
+      border-radius: 40px;
+      padding: 0.1rem 0.2rem 0.1rem 0.5rem;
+      margin: 0 0.2rem;
+      border: 1px solid #e2d4b0;
+      vertical-align: middle;
+    }
+
+    .blank-number {
+      background: #b8c9a4;
+      color: #1e3a1e;
+      font-size: 0.7rem;
+      font-weight: 700;
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 30px;
+      margin-right: 8px;
+    }
+
+    .blank-select {
+      background: white;
+      border: 1px solid #cbd8b4;
+      border-radius: 40px;
+      padding: 0.3rem 0.8rem;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #2d422d;
+      cursor: pointer;
+      transition: all 0.1s;
+    }
+
+    .blank-select:hover {
+      background: #f8f2e0;
+      border-color: #9bb87b;
+    }
+
+    .blank-select:focus {
+      outline: none;
+      border-color: #528a3b;
+      box-shadow: 0 0 0 2px rgba(82,138,59,0.2);
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 2rem 2rem 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      border: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.5rem;
+      border-radius: 60px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      font-family: inherit;
+      transition: 0.2s;
+    }
+
+    .btn-dashboard {
+      background: #e2e7df;
+      color: #2a5230;
+      border: 1px solid #c2d3b5;
+    }
+
+    .btn-dashboard:hover {
+      background: #d3e0ca;
+      transform: translateY(-2px);
+    }
+
+    .btn-check {
+      background: #2f6b3c;
+      color: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .btn-check:hover {
+      background: #1e4f2a;
+      transform: translateY(-2px);
+    }
+
+    #result {
+      margin: 0 2rem 2rem 2rem;
+      padding: 1rem 1.5rem;
+      border-radius: 40px;
+      background: #f5f3ea;
+      text-align: center;
+      font-weight: 500;
+      border-left: 6px solid #4c8b4a;
+    }
+
+    .correct-bg {
+      background: #e0f2df;
+      color: #1c4d1c;
+    }
+
+    .wrong-bg {
+      background: #ffe4e3;
+      border-left-color: #c73f2c;
+      color: #a1221a;
+    }
+
+    @media (max-width: 650px) {
+      .passage-text {
+        padding: 1rem;
+        font-size: 0.95rem;
+      }
+      .blank-select {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.75rem;
+      }
+      .actions {
+        flex-direction: column;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>🌱 Grammar & Vocabulary Test</h1>
+    <p class="subtitle">Topic: Mint – A Simple Herb (choose the best answer)</p>
+  </header>
+
+  <div class="passage-container">
+    <div class="section-title">
+      📖 Read & complete the passage
+    </div>
+    <div class="passage-text">
+      Mint is one of 
+
+      <span class="blank">
+        <span class="blank-number">1</span>
+        <select class="blank-select" name="q1">
+          <option value="">Select</option>
+          <option value="a">a</option>
+          <option value="the">the</option>
+          <option value="an">an</option>
+          <option value="some">some</option>
+        </select>
+      </span>
+
+      oldest and most popular herbs in the world.  
+
+      People have known mint 
+
+      <span class="blank">
+        <span class="blank-number">2</span>
+        <select class="blank-select" name="q2">
+          <option value="">Select</option>
+          <option value="since">since</option>
+          <option value="already">already</option>
+          <option value="for">for</option>
+          <option value="still">still</option>
+        </select>
+      </span>
+
+      thousands of years.  
+
+      This 
+
+      <span class="blank">
+        <span class="blank-number">3</span>
+        <select class="blank-select" name="q3">
+          <option value="">Select</option>
+          <option value="reward">reward</option>
+          <option value="symbol">symbol</option>
+          <option value="prodigy">prodigy</option>
+          <option value="herb">herb</option>
+        </select>
+      </span>
+
+      is easy to grow and has been used for many simple 
+
+      <span class="blank">
+        <span class="blank-number">4</span>
+        <select class="blank-select" name="q4">
+          <option value="">Select</option>
+          <option value="illnesses">illnesses</option>
+          <option value="connections">connections</option>
+          <option value="occasions">occasions</option>
+          <option value="customs">customs</option>
+        </select>
+      </span>
+
+      like an upset stomach, cold, and headache.  
+
+      People also use mint leaves 
+
+      <span class="blank">
+        <span class="blank-number">5</span>
+        <select class="blank-select" name="q5">
+          <option value="">Select</option>
+          <option value="of">of</option>
+          <option value="to">to</option>
+          <option value="on">on</option>
+          <option value="at">at</option>
+        </select>
+      </span>
+
+      make fresh tea and drinks.  
+
+      Mint has a clean, cool 
+
+      <span class="blank">
+        <span class="blank-number">6</span>
+        <select class="blank-select" name="q6">
+          <option value="">Select</option>
+          <option value="title">title</option>
+          <option value="feature">feature</option>
+          <option value="scent">scent</option>
+          <option value="feather">feather</option>
+        </select>
+      </span>
+
+      that many people enjoy.  
+
+      A research 
+
+      <span class="blank">
+        <span class="blank-number">7</span>
+        <select class="blank-select" name="q7">
+          <option value="">Select</option>
+          <option value="review">review</option>
+          <option value="documentary">documentary</option>
+          <option value="show">show</option>
+          <option value="drama">drama</option>
+        </select>
+      </span>
+
+      from 2019 showed that mint 
+
+      <span class="blank">
+        <span class="blank-number">8</span>
+        <select class="blank-select" name="q8">
+          <option value="">Select</option>
+          <option value="have">have</option>
+          <option value="has">has</option>
+          <option value="need">need</option>
+          <option value="can">can</option>
+        </select>
+      </span>
+
+      help you feel more awake and improve 
+
+      <span class="blank">
+        <span class="blank-number">9</span>
+        <select class="blank-select" name="q9">
+          <option value="">Select</option>
+          <option value="community">community</option>
+          <option value="obesity">obesity</option>
+          <option value="memory">memory</option>
+          <option value="corpse">corpse</option>
+        </select>
+      </span>
+
+      and focus.  
+
+      Today, some health companies 
+
+      <span class="blank">
+        <span class="blank-number">10</span>
+        <select class="blank-select" name="q10">
+          <option value="">Select</option>
+          <option value="have">have</option>
+          <option value="has">has</option>
+          <option value="is">is</option>
+          <option value="are">are</option>
+        </select>
+      </span>
+
+      produced mint oil in capsules and simple chewing gums.
+    </div>
+  </div>
+
+  <div class="actions">
+    <a href="grammar-vocabulary_dashboard.html" class="back-link">⬅ Back to Dashboard</a>
+    <button id="submitBtn" class="btn btn-check">✅ Submit answers</button>
+  </div>
+
+  <div id="result">
+    ✨ Click "Submit answers" to see your score.
+  </div>
+</div>
+
+<script>
+  // Exact same correct answers as original test (same vocabulary focus)
+  const CORRECT = {
+    1: "the",
+    2: "for",
+    3: "herb",
+    4: "illnesses",
+    5: "to",
+    6: "scent",
+    7: "review",
+    8: "can",
+    9: "memory",
+    10: "have"
+  };
+
+  function getSelected(qNum) {
+    const selectEl = document.querySelector(`select[name="q${qNum}"]`);
+    return selectEl ? selectEl.value : "";
+  }
+
+  function showResults() {
+    let correctCount = 0;
+    const details = [];
+
+    for (let i = 1; i <= 10; i++) {
+      const userVal = getSelected(i);
+      const isOk = (userVal === CORRECT[i]);
+      if (isOk) correctCount++;
+      details.push({
+        num: i,
+        selected: userVal || "(empty)",
+        correct: isOk,
+        expected: CORRECT[i]
+      });
+    }
+
+    const percent = Math.round((correctCount / 10) * 100);
+    const resultDiv = document.getElementById("result");
+
+    let message = "";
+    let emoji = "";
+    if (correctCount === 10) {
+      emoji = "🌟 Perfect! Great work!";
+      resultDiv.classList.add("correct-bg");
+      resultDiv.classList.remove("wrong-bg");
+    } else if (correctCount >= 7) {
+      emoji = "👍 Good! You understand well.";
+      resultDiv.classList.add("correct-bg");
+      resultDiv.classList.remove("wrong-bg");
+    } else if (correctCount >= 5) {
+      emoji = "📘 Not bad. Try reading the passage again.";
+      resultDiv.classList.remove("correct-bg", "wrong-bg");
+      resultDiv.style.background = "#fff2e0";
+    } else {
+      emoji = "📗 Review the answers below and try again.";
+      resultDiv.classList.add("wrong-bg");
+      resultDiv.classList.remove("correct-bg");
+    }
+
+    let detailHtml = `<div style="margin-top: 14px; text-align: left; font-size: 0.9rem; border-top: 1px solid #ccc; padding-top: 12px;">
+                        <strong>📋 Answer check:</strong><br>`;
+    for (let d of details) {
+      const mark = d.correct ? "✅" : "❌";
+      const wrongText = d.correct ? "" : ` (correct: "${d.expected}")`;
+      detailHtml += `<span style="display:inline-block; width: 70px;">Blank ${d.num}:</span> ${mark} "${d.selected}"${wrongText}<br>`;
+    }
+    detailHtml += `</div>`;
+
+    resultDiv.innerHTML = `
+      <div style="font-size: 1.3rem; font-weight: bold;">🎯 Score: ${correctCount} / 10 (${percent}%)</div>
+      <div style="margin: 6px 0;">${emoji}</div>
+      ${detailHtml}
+    `;
+
+    resultDiv.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("submitBtn");
+    if (btn) {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        showResults();
+      });
+    }
+
+    // Optional: improve select placeholder color
+    const allSelects = document.querySelectorAll(".blank-select");
+    allSelects.forEach(sel => {
+      if (sel.value === "") sel.style.color = "#8f7a4a";
+      sel.addEventListener("change", function() {
+        if (this.value) this.style.color = "#1f3b1f";
+        else this.style.color = "#8f7a4a";
+      });
+    });
+  });
+</script>
+</body>
+</html>

@@ -21,7 +21,7 @@ if (nameBox) {
 /* ===============================
    Config
 ================================ */
-const TOTAL_TESTS = 12;
+const TOTAL_TESTS = 17;
 const MAX_ATTEMPTS = 2;
 const grid = document.getElementById("testsGrid");
 
