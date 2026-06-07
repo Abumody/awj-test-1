@@ -1,154 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Reading Test 4</title>
-<link rel="stylesheet" href="reading1-test.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Reading 1 – iPhone 13 Complaint | Grade 11 Exam Practice</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #eef2f5;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      padding: 2rem 1.5rem;
+      line-height: 1.5;
+    }
+
+    .exam-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+
+    .hero {
+      background: #1e4a76;
+      color: white;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .badge-group {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.2);
+      border-radius: 40px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .instructions {
+      background: #fef4e8;
+      margin: 1.5rem 2rem 0 2rem;
+      padding: 1rem 1.8rem;
+      border-radius: 1rem;
+      border-left: 6px solid #1e4a76;
+    }
+
+    .instructions p {
+      font-weight: 600;
+      color: #1e4a76;
+    }
+
+    .instructions ul {
+      margin-left: 1.8rem;
+      color: #2c3e50;
+      font-size: 0.9rem;
+    }
+
+    .reading-layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .passage-area {
+      flex: 1.5;
+      min-width: 300px;
+      background: #fefcf7;
+      border-radius: 1.5rem;
+      border: 1px solid #e2ddd0;
+      padding: 1.5rem;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .questions-area {
+      flex: 1.2;
+      min-width: 340px;
+      background: white;
+      border-radius: 1.5rem;
+      border: 1px solid #dce5ec;
+      padding: 1.2rem 1.5rem;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .passage-area h2 {
+      color: #1e4a76;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #f4b942;
+      padding-left: 12px;
+    }
+
+    .email-meta {
+      background: #f0f6fa;
+      padding: 0.8rem;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: #1e3a5f;
+    }
+
+    .passage-area p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: #2d3e50;
+    }
+
+    .task-header {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1e4a76;
+      margin: 1rem 0 0.8rem 0;
+      border-bottom: 2px solid #dce5ec;
+      padding-bottom: 5px;
+    }
+
+    .question-card {
+      background: #fefefe;
+      border-radius: 1rem;
+      margin-bottom: 1.2rem;
+      padding: 0.8rem 1rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .question-text {
+      font-weight: 600;
+      color: #1f3b45;
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+    }
+
+    .answer-input {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border: 2px solid #cfdfe6;
+      border-radius: 40px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: white;
+    }
+
+    .answer-input:focus {
+      border-color: #1e4a76;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(30,74,118,0.15);
+    }
+
+    .word-hint {
+      font-size: 0.7rem;
+      color: #6c7a89;
+      margin-top: 0.25rem;
+      text-align: right;
+    }
+
+    .footer-note {
+      background: #f0f6fa;
+      border-radius: 1rem;
+      padding: 0.8rem 1.5rem;
+      margin: 1rem 2rem 2rem 2rem;
+      font-size: 0.8rem;
+      color: #2c5a7a;
+      text-align: center;
+    }
+
+    @media (max-width: 850px) {
+      .reading-layout {
+        flex-direction: column;
+      }
+      .passage-area, .questions-area {
+        max-height: none;
+      }
+      body {
+        padding: 1rem;
+      }
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
 </head>
 <body>
+<div class="exam-container">
+  <div class="hero">
+    <div>
+      <h1>📖 READING 1 – Faulty iPhone Complaint</h1>
+      <p>Grade 11 · Semester 2 · Final Exam Practice</p>
+    </div>
+    <div class="badge-group">
+      <div class="badge">Questions 1–10</div>
+      <div class="badge">10 marks</div>
+    </div>
+  </div>
 
-<div class="container">
+  <div class="instructions">
+    <p>📌 Read the email carefully. Then answer Task One (short answers, max 4 words) and Task Two (missing words, max 2 words).</p>
+    <ul>
+      <li>Base your answers only on the text.</li>
+      <li>Spelling does not need to be perfect, but the answer must be clearly recognisable.</li>
+      <li>Write your answers in the spaces provided.</li>
+    </ul>
+  </div>
 
-<header>
-<h1>READING 04 (Items 1 - 5)</h1>
-<p class="subtitle">
-Read the texts. Are the statements which follow each text True or False?
-</p>
-</header>
+  <div class="reading-layout">
+    <!-- PASSAGE SECTION: exact email from the image -->
+    <div class="passage-area">
+      <h2>📩 Complaint Regarding Faulty iPhone 13 Purchased Online</h2>
+      <div class="email-meta">
+        <strong>Subject:</strong> Complaint Regarding Faulty iPhone 13 Purchased Online<br>
+        <strong>Date:</strong> 26th February, 2023
+      </div>
+      <p>Dear Sir/Madam,</p>
+      <p>I am writing to complain about the iPhone 13 that I purchased from your online store 3 weeks ago. The iPhone 13 has been a complete disappointment as it has malfunctioned on multiple occasions within the first two weeks of use.</p>
+      <p>On the second day after receiving the iPhone 13, I encountered a problem where the device became unresponsive and froze. I had to restart the phone multiple times to get it working again. A few days later, on the eighth day, the camera stopped working suddenly, displaying an error message that read "Camera Failed to Load." This malfunction made it impossible for me to take photos or use the camera feature. The third and most severe malfunction occurred on the 14th day, where the phone shut down completely and refused to restart despite all attempts to charge and reboot it. This failure left me without a functioning phone and the possibility of losing all my data, which is the most significant inconvenience.</p>
+      <p>I am highly disappointed with the quality of the product received, considering that the iPhone 13 is a high-end device, and one would expect it to work flawlessly. I have already tried to contact customer support through the phone twice, but I have been unable to get through. The wait times are exceptionally long, and the phone lines disconnect before connecting me with a representative.</p>
+      <p>I have also sent an email to the customer support email address provided on your website, but I am yet to receive a response or even an acknowledgment of my email. I am highly dissatisfied with the poor customer service offered by your company.</p>
+      <p>As a customer, I demand that you either replace the faulty iPhone 13 or refund my money. I cannot continue using a faulty phone that is unreliable and poses a risk of losing all my data without notice. I believe that as a valued customer, I deserve quality products and efficient customer service, which your company has failed to provide.</p>
+      <p>I urge you to resolve this issue promptly, as I am highly dissatisfied with the quality of the product and the customer service received so far. I am willing to return the faulty phone, provided you bear the shipping costs. I hope to receive a response from you within the next five business days with a resolution to this matter; otherwise, I will go through the legal process.</p>
+      <p>Thank you for your prompt attention to this matter.</p>
+      <p>Yours faithfully,<br>Salim</p>
+    </div>
 
-<!-- ===============================
-     QUESTION 1
-================================ -->
-<div class="reading-item" data-q="1">
+    <!-- QUESTIONS SECTION: Task One & Task Two -->
+    <div class="questions-area">
+      <div class="task-header">📝 Task One – Short answers (max 4 words)</div>
 
-<div class="item-number">1.</div>
+      <div class="question-card">
+        <div class="question-text">1. When did the writer buy the faulty phone? (date)</div>
+        <input type="text" class="answer-input" id="q1" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint">max 4 words</div>
+      </div>
 
-<div class="passage-text">
-The Aurora Borealis, also known as the Northern Lights, is a natural wonder that can be seen in the night sky in polar regions. It is caused by electrically charged particles from the sun colliding with the Earth's atmosphere.
+      <div class="question-card">
+        <div class="question-text">2. How many problems did the writer face with his new phone?</div>
+        <input type="text" class="answer-input" id="q2" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-text">3. Which malfunction did the writer consider the most disturbing?</div>
+        <input type="text" class="answer-input" id="q3" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-text">4. How many times has the writer tried to call the company?</div>
+        <input type="text" class="answer-input" id="q4" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-text">5. What is his worst fear after these malfunctions occurred?</div>
+        <input type="text" class="answer-input" id="q5" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-text">6. How long would he wait before taking any legal actions?</div>
+        <input type="text" class="answer-input" id="q6" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
+
+      <div class="task-header" style="margin-top: 0.5rem;">✍️ Task Two – Complete missing words (max 2 words)</div>
+
+      <div class="question-card">
+        <div class="question-text">7. The camera stopped working on the ______________ occasion.</div>
+        <input type="text" class="answer-input" id="q7" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint">max 2 words</div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-text">8. He has attempted contacting the company by phone and ______________.</div>
+        <input type="text" class="answer-input" id="q8" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-text">9. The writer asked the company to give his ______________ back or to replace the faulty phone.</div>
+        <input type="text" class="answer-input" id="q9" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-text">10. He offered to return the phone if the company paid for ______________.</div>
+        <input type="text" class="answer-input" id="q10" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    ⚠️ Write your answers clearly. No answer key is displayed — this is a practice test. Refer to your teacher or the original marking guide for correction.
+  </div>
 </div>
 
-<div class="statement">
-The Aurora Borealis happens in the polar regions' night sky.
-</div>
-
-<div class="tf-buttons">
-<button type="button" class="tf-btn" data-value="true">True</button>
-<button type="button" class="tf-btn" data-value="false">False</button>
-</div>
-
-</div>
-
-<!-- ===============================
-     QUESTION 2
-================================ -->
-<div class="reading-item" data-q="2">
-
-<div class="item-number">2.</div>
-
-<div class="passage-text">
-"The Tale of Despereaux" is a heartwarming story about a brave little mouse who goes on a quest to save a human princess. The story is also filled with beautiful illustrations, making suitable for all ages.
-</div>
-
-<div class="statement">
-"The Tale of Despereaux" is a story for young readers only.
-</div>
-
-<div class="tf-buttons">
-<button type="button" class="tf-btn" data-value="true">True</button>
-<button type="button" class="tf-btn" data-value="false">False</button>
-</div>
-
-</div>
-
-<!-- ===============================
-     QUESTION 3
-================================ -->
-<div class="reading-item" data-q="3">
-
-<div class="item-number">3.</div>
-
-<div class="passage-text">
-Mozart is one of the greatest musical geniuses of all time. Born in Salzburg, Austria in 1756, he began composing at the age of five and went on to create some of the most memorable music in history.
-</div>
-
-<div class="statement">
-Mozart began composing music when he was a teenager.
-</div>
-
-<div class="tf-buttons">
-<button type="button" class="tf-btn" data-value="true">True</button>
-<button type="button" class="tf-btn" data-value="false">False</button>
-</div>
-
-</div>
-
-<!-- ===============================
-     QUESTION 4
-================================ -->
-<div class="reading-item" data-q="4">
-
-<div class="item-number">4.</div>
-
-<div class="passage-text">
-While social media can be a powerful tool for communication and networking, it can also have negative effects, such as cyberbullying, addiction, and the spread of misinformation. It's important for users to be mindful of how they use social media.
-</div>
-
-<div class="statement">
-Social media has positive and negative effects on people.
-</div>
-
-<div class="tf-buttons">
-<button type="button" class="tf-btn" data-value="true">True</button>
-<button type="button" class="tf-btn" data-value="false">False</button>
-</div>
-
-</div>
-
-<!-- ===============================
-     QUESTION 5
-================================ -->
-<div class="reading-item" data-q="5">
-
-<div class="item-number">5.</div>
-
-<div class="passage-text">
-Lena was excited to get her driver's license but knew she had to learn road rules. She studied and practiced defensive driving. During her driving test, Lena followed all the road rules and she was happy that she passed.
-</div>
-
-<div class="statement">
-Lena didn't study and practice before taking her driving test.
-</div>
-
-<div class="tf-buttons">
-<button type="button" class="tf-btn" data-value="true">True</button>
-<button type="button" class="tf-btn" data-value="false">False</button>
-</div>
-
-</div>
-
-<!-- ===============================
-     ACTION BUTTONS
-================================ -->
-<div class="actions">
-<a href="reading1-dashboard.html" class="btn btn-dashboard">Dashboard</a>
-<button id="submitBtn" class="btn btn-check">Submit</button>
-</div>
-
-<div id="result"></div>
-
-</div>
-
-<script>
-window.ANSWERS = {
-1:"true",
-2:"false",
-3:"false",
-4:"true",
-5:"false"
-};
-</script>
-
-<script src="reading1-test.js"></script>
-
+<!-- no JavaScript evaluation or answer reveal – pure test interface -->
 </body>
 </html>

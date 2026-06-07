@@ -1,154 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Reading Test 2</title>
-<link rel="stylesheet" href="reading1-test.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Reading 1 – Car Complaint Letter | Grade 11 Practice Test</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #eef2f5;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      padding: 2rem 1.5rem;
+      line-height: 1.5;
+    }
+
+    .exam-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    .hero {
+      background: #1e4a76;
+      color: white;
+      padding: 1.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+    }
+
+    .badge-group {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.2);
+      border-radius: 40px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .instructions {
+      background: #fef4e8;
+      margin: 1.5rem 2rem 0 2rem;
+      padding: 1rem 1.8rem;
+      border-radius: 1rem;
+      border-left: 6px solid #1e4a76;
+    }
+
+    .instructions p {
+      font-weight: 600;
+      color: #1e4a76;
+    }
+
+    .instructions ul {
+      margin-left: 1.8rem;
+      color: #2c3e50;
+      font-size: 0.9rem;
+    }
+
+    .reading-layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .passage-area {
+      flex: 1.5;
+      min-width: 300px;
+      background: #fefcf7;
+      border-radius: 1.5rem;
+      border: 1px solid #e2ddd0;
+      padding: 1.5rem;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .questions-area {
+      flex: 1.2;
+      min-width: 340px;
+      background: white;
+      border-radius: 1.5rem;
+      border: 1px solid #dce5ec;
+      padding: 1.2rem 1.5rem;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .passage-area h2 {
+      color: #1e4a76;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #f4b942;
+      padding-left: 12px;
+    }
+
+    .email-meta {
+      background: #f0f6fa;
+      padding: 0.8rem;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: #1e3a5f;
+    }
+
+    .passage-area p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: #2d3e50;
+    }
+
+    .task-header {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1e4a76;
+      margin: 1rem 0 0.8rem 0;
+      border-bottom: 2px solid #dce5ec;
+      padding-bottom: 5px;
+    }
+
+    .question-card {
+      background: #fefefe;
+      border-radius: 1rem;
+      margin-bottom: 1.2rem;
+      padding: 0.8rem 1rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .question-text {
+      font-weight: 600;
+      color: #1f3b45;
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+    }
+
+    .answer-input {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border: 2px solid #cfdfe6;
+      border-radius: 40px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: white;
+    }
+
+    .answer-input:focus {
+      border-color: #1e4a76;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(30,74,118,0.15);
+    }
+
+    .word-hint {
+      font-size: 0.7rem;
+      color: #6c7a89;
+      margin-top: 0.25rem;
+      text-align: right;
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      padding: 0.6rem 1.3rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: 0.2s;
+      background: #eef2f5;
+      color: #1f3b45;
+    }
+
+    .btn-primary {
+      background: #1e4a76;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #0f3a5c;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: #e2e8f0;
+    }
+
+    .btn-secondary:hover {
+      background: #cdd9e9;
+    }
+
+    .result-panel {
+      background: #f0f6fa;
+      border-radius: 1.2rem;
+      padding: 1rem;
+      margin-top: 1.2rem;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .result-high {
+      background: #e0f2e0;
+      border-left: 5px solid #2b7a3e;
+    }
+
+    .result-low {
+      background: #ffe6e3;
+      border-left: 5px solid #c73f2c;
+    }
+
+    @media (max-width: 850px) {
+      .reading-layout {
+        flex-direction: column;
+      }
+      .passage-area, .questions-area {
+        max-height: none;
+      }
+      body {
+        padding: 1rem;
+      }
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
+<div class="exam-container">
+  <div class="hero">
+    <div>
+      <h1>📧 READING 1 – Car Complaint Letter</h1>
+      <p>Grade 11 · Semester 2 · Final Exam Practice</p>
+    </div>
+    <div class="badge-group">
+      <div class="badge">Questions 1–10</div>
+      <div class="badge">10 marks</div>
+    </div>
+  </div>
 
-<div class="container">
+  <div class="instructions">
+    <p>📌 Task One (1–6): short answers (max 4 words). Task Two (7–10): complete missing words (max 2 words).</p>
+    <ul>
+      <li>Read Nasser's email to customer support carefully.</li>
+      <li>Answers should be based directly on the text.</li>
+      <li>Write your answers in the spaces provided.</li>
+    </ul>
+  </div>
 
-<header>
-<h1>READING 02 (Items 1 - 5)</h1>
-<p class="subtitle">
-Read the texts. Are the statements which follow each text True or False?
-</p>
-</header>
+  <div class="reading-layout">
+    <!-- PASSAGE SECTION: exact email from the original -->
+    <div class="passage-area">
+      <h2>📩 Customer Complaint: Defective Car Purchase</h2>
+      <div class="email-meta">
+        <strong>To:</strong> Customer Support &nbsp;|&nbsp; <strong>From:</strong> Nasser &nbsp;|&nbsp; <strong>Subject:</strong> Car issues
+      </div>
+      <p>Dear Customer Support,</p>
+      <p>I am writing to express my disappointment and frustration with a car I recently purchased through your online platform. The car which I ordered on 10th November, 2024 and received on 14th January, 2025. After only a few days of driving, I encountered a series of issues that have made the car practically unusable.</p>
+      <p>When I started the car for the first time, I heard strange noises. At the beginning, I thought it was just a simple issue that might resolve itself, but it has increasingly gotten worse. The noise is not only annoying but also concerning. Then I discovered that sound is from the engine. I took the car to a mechanic, and he confirmed that the engine has serious issues that would require expensive repairs. This is completely unacceptable, as I was assured the car was in good condition when I made the purchase.</p>
+      <p>In addition to the engine problem, the air conditioning is not working as it should. On a hot day recently, I tried to use it, but it did not blow any cold air, making the car extremely hot and uncomfortable. I expected the car to be in full working order from the start, but that was not the case. This issue with the AC has happened three times since I bought the car.</p>
+      <p>Moreover, I noticed that the car’s interior did not match the description on your website. The photos you sent through WhatsApp appeared to be edited using photo-editing software, which made them look misleading. They showed a clean interior with premium materials. However, when I received the car, I found that the seats were heavily worn, and the roof was stained in several places. The car also had a strong, unpleasant smell inside, which suggests that it may not have been properly cleaned before being sold.</p>
+      <p>The final issue I faced was with the car's transmission. The gears seem to be slipping when shifting, causing the car to shake, and making the driving experience extremely uncomfortable. This makes the car not only unreliable but also potentially dangerous to drive, as sudden shaking can affect the car's stability.</p>
+      <p>I am extremely dissatisfied with this purchase and would like to request an immediate replacement with a vehicle in proper working condition. Please let me know how to proceed with the exchange process. I have attached photos of the car’s issues for your reference, including the damaged seats, the engine, and the air conditioning unit.</p>
+      <p>I look forward to hearing from you soon and hope that this issue can be fixed soon.</p>
+      <p>Sincerely,<br>Nasser</p>
+    </div>
 
-<!-- ===============================
-     QUESTION 1
-================================ -->
-<div class="reading-item" data-q="1">
+    <!-- QUESTIONS SECTION - no answer key visible -->
+    <div class="questions-area">
+      <div class="task-header">📝 Task One – Short answers (max 4 words)</div>
 
-<div class="item-number">1.</div>
+      <div class="question-card">
+        <div class="question-text">1. When did Nasser buy the car? (year)</div>
+        <input type="text" class="answer-input" id="q1" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint">max 4 words</div>
+      </div>
 
-<div class="passage-text">
-Do you use any of the social media applications, which are so popular these days? If you are younger, you may use My Space. However, adults are more likely to be found on Facebook and busy professionals may prefer something like LinkedIn.
-</div>
+      <div class="question-card">
+        <div class="question-text">2. What was the first problem Nasser noticed in the car?</div>
+        <input type="text" class="answer-input" id="q2" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
 
-<div class="statement">
-My Space is the professionals' favourite application.
-</div>
+      <div class="question-card">
+        <div class="question-text">3. Where was the car taken for inspection?</div>
+        <input type="text" class="answer-input" id="q3" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
 
-<div class="tf-buttons">
-<button type="button" class="tf-btn" data-value="true">True</button>
-<button type="button" class="tf-btn" data-value="false">False</button>
-</div>
+      <div class="question-card">
+        <div class="question-text">4. How many times did the car’s AC system stop working?</div>
+        <input type="text" class="answer-input" id="q4" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
 
-</div>
+      <div class="question-card">
+        <div class="question-text">5. How did Nasser receive the photos of the car?</div>
+        <input type="text" class="answer-input" id="q5" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
 
-<!-- ===============================
-     QUESTION 2
-================================ -->
-<div class="reading-item" data-q="2">
+      <div class="question-card">
+        <div class="question-text">6. What is Nasser requesting from the customer support?</div>
+        <input type="text" class="answer-input" id="q6" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
 
-<div class="item-number">2.</div>
+      <div class="task-header" style="margin-top: 0.5rem;">✍️ Task Two – Missing words (max 2 words)</div>
 
-<div class="passage-text">
-Mr. and Mrs. Smith have one son and one daughter. The son's name is John. The daughter's name is Sarah. The Smiths live in a house. They have a living room. They watch TV in the living room. The father cooks food in the kitchen.
-</div>
+      <div class="question-card">
+        <div class="question-text">7. Nasser was assured the car was in a good ______ before buying it.</div>
+        <input type="text" class="answer-input" id="q7" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint">max 2 words</div>
+      </div>
 
-<div class="statement">
-The Smith's family has two children.
-</div>
+      <div class="question-card">
+        <div class="question-text">8. The air conditioner system failed to ______ cold air.</div>
+        <input type="text" class="answer-input" id="q8" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
 
-<div class="tf-buttons">
-<button type="button" class="tf-btn" data-value="true">True</button>
-<button type="button" class="tf-btn" data-value="false">False</button>
-</div>
+      <div class="question-card">
+        <div class="question-text">9. The ______ was stained in many places.</div>
+        <input type="text" class="answer-input" id="q9" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
 
-</div>
+      <div class="question-card">
+        <div class="question-text">10. Car’s shaking during driving could affect its ______.</div>
+        <input type="text" class="answer-input" id="q10" placeholder="Your answer" autocomplete="off">
+        <div class="word-hint"></div>
+      </div>
 
-<!-- ===============================
-     QUESTION 3
-================================ -->
-<div class="reading-item" data-q="3">
+      <div class="action-buttons">
+        <button class="btn btn-secondary" id="clearBtn">⟳ Clear All Answers</button>
+        <button class="btn btn-primary" id="checkBtn">✅ Check My Answers</button>
+      </div>
 
-<div class="item-number">3.</div>
-
-<div class="passage-text">
-Idioms are short phrases that make language more expressive and interesting. One of the common idioms in English is "A dime a dozen". It means something that is very common and can be found everywhere.
-</div>
-
-<div class="statement">
-Unknown or unusual thing is the meaning of "A dime a dozen".
-</div>
-
-<div class="tf-buttons">
-<button type="button" class="tf-btn" data-value="true">True</button>
-<button type="button" class="tf-btn" data-value="false">False</button>
-</div>
-
-</div>
-
-<!-- ===============================
-     QUESTION 4
-================================ -->
-<div class="reading-item" data-q="4">
-
-<div class="item-number">4.</div>
-
-<div class="passage-text">
-I am so glad that I decided to spend the semester here in Spain. We have an extended weekend coming up, so a group of my friends and I are going to travel to France for four days. It's so easy and cheap to travel internationally in Europe. I love it!
-</div>
-
-<div class="statement">
-The writer is in France now.
-</div>
-
-<div class="tf-buttons">
-<button type="button" class="tf-btn" data-value="true">True</button>
-<button type="button" class="tf-btn" data-value="false">False</button>
-</div>
-
-</div>
-
-<!-- ===============================
-     QUESTION 5
-================================ -->
-<div class="reading-item" data-q="5">
-
-<div class="item-number">5.</div>
-
-<div class="passage-text">
-Madagascar has two seasons, a warm, wet season from November to April, and a cooler, dry season between May and October. However, different parts of the country have very different weather. The east coast is hotter and wetter.
-</div>
-
-<div class="statement">
-Madagascar has cold weather in July and August.
-</div>
-
-<div class="tf-buttons">
-<button type="button" class="tf-btn" data-value="true">True</button>
-<button type="button" class="tf-btn" data-value="false">False</button>
-</div>
-
-</div>
-
-<!-- ===============================
-     ACTION BUTTONS
-================================ -->
-<div class="actions">
-<a href="reading1-dashboard.html" class="btn btn-dashboard">Dashboard</a>
-<button id="submitBtn" class="btn btn-check">Submit</button>
-</div>
-
-<div id="result"></div>
-
+      <div id="resultPanel" class="result-panel">
+        📊 Click "Check Answers" to see your score.
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
-window.ANSWERS = {
-1:"false",
-2:"true",
-3:"false",
-4:"false",
-5:"false"
-};
+  // CORRECT ANSWERS ARE HIDDEN (only used internally for scoring, never displayed to user)
+  const CORRECT_ANSWERS = {
+    1: ["2024", "2024"],
+    2: ["strange noises", "noises", "strange noise", "unusual noises", "noise"],
+    3: ["to a mechanic", "a mechanic", "mechanic", "local mechanic", "to mechanic"],
+    4: ["three times", "3 times", "3", "three", "three times"],
+    5: ["through whatsapp", "via whatsapp", "whatsapp", "through WhatsApp"],
+    6: ["immediate replacement", "replacement", "an immediate replacement", "exchange", "immediate exchange"],
+    7: ["condition", "good condition"],
+    8: ["blow", "blow out"],
+    9: ["roof", "car roof"],
+    10: ["stability", "stability"]
+  };
+
+  function normalize(str) {
+    if (!str) return "";
+    return str.trim().toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
+  }
+
+  function isAnswerCorrect(qId, userAnswer) {
+    if (!userAnswer || userAnswer.trim() === "") return false;
+    const normalizedUser = normalize(userAnswer);
+    const validList = CORRECT_ANSWERS[qId];
+    for (let correct of validList) {
+      let normCorrect = normalize(correct);
+      if (normalizedUser === normCorrect) return true;
+      // lenient matching for specific cases
+      if (qId === 2 && (normalizedUser.includes("strange") || normalizedUser.includes("noise"))) return true;
+      if (qId === 3 && normalizedUser.includes("mechanic")) return true;
+      if (qId === 4 && (normalizedUser === "3" || normalizedUser === "three" || normalizedUser === "3 times" || normalizedUser === "three times")) return true;
+      if (qId === 5 && normalizedUser.includes("whatsapp")) return true;
+      if (qId === 6 && (normalizedUser.includes("replacement") || normalizedUser.includes("exchange"))) return true;
+      if (qId === 7 && normalizedUser.includes("condition")) return true;
+      if (qId === 8 && normalizedUser.includes("blow")) return true;
+      if (qId === 9 && normalizedUser.includes("roof")) return true;
+      if (qId === 10 && normalizedUser.includes("stability")) return true;
+    }
+    return false;
+  }
+
+  const answerFields = {
+    1: document.getElementById('q1'),
+    2: document.getElementById('q2'),
+    3: document.getElementById('q3'),
+    4: document.getElementById('q4'),
+    5: document.getElementById('q5'),
+    6: document.getElementById('q6'),
+    7: document.getElementById('q7'),
+    8: document.getElementById('q8'),
+    9: document.getElementById('q9'),
+    10: document.getElementById('q10')
+  };
+
+  function evaluateTest() {
+    let score = 0;
+    for (let i = 1; i <= 10; i++) {
+      const input = answerFields[i];
+      const userVal = input ? input.value.trim() : "";
+      if (isAnswerCorrect(i, userVal)) {
+        score++;
+      }
+    }
+    const total = 10;
+    const percent = Math.round((score / total) * 100);
+    const panel = document.getElementById('resultPanel');
+    
+    let message = "";
+    if (score === 10) message = "🏆 Perfect! Excellent reading comprehension.";
+    else if (score >= 8) message = "🌟 Great job! You understood the complaint letter very well.";
+    else if (score >= 6) message = "👍 Good effort. Review the text and try again.";
+    else message = "📚 Keep practising. Read the email carefully once more.";
+    
+    panel.innerHTML = `
+      <div style="font-size:1.2rem; font-weight:bold;">📊 Score: ${score} / ${total} (${percent}%)</div>
+      <div style="margin: 6px 0;">${message}</div>
+    `;
+    
+    if (score >= 7) panel.classList.add('result-high');
+    else if (score <= 4) panel.classList.add('result-low');
+    else panel.classList.remove('result-high', 'result-low');
+    
+    panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function clearAll() {
+    for (let i = 1; i <= 10; i++) {
+      if (answerFields[i]) answerFields[i].value = "";
+    }
+    const panel = document.getElementById('resultPanel');
+    panel.innerHTML = `📊 Click "Check Answers" to see your score.`;
+    panel.classList.remove('result-high', 'result-low');
+  }
+
+  document.getElementById('clearBtn').addEventListener('click', clearAll);
+  document.getElementById('checkBtn').addEventListener('click', evaluateTest);
 </script>
-
-<script src="reading1-test.js"></script>
-
 </body>
 </html>

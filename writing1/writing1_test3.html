@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="en" dir="ltr">
-<head><meta charset="UTF-8"><title>writing1_test3</title>
+<head><meta charset="UTF-8"><title>Elective writing 4</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{background:#e84117;padding:20px}
+body{background:#fef3c7;padding:20px}
 .container{max-width:1300px;margin:0 auto}
 header{background:white;border-radius:20px;padding:20px;text-align:center;margin-bottom:25px}
 h1{color:#344955}
@@ -26,22 +26,30 @@ button{margin:10px 5px 0 0;padding:10px 20px;border-radius:40px;background:#f9aa
 .back-btn{background:#4a6572;color:white}
 </style></head>
 <body><div class="container">
-<header><h1>writing1_test3</h1><div class="test-info">
+<header><h1>Elective writing 4</h1><div class="test-info">
 <span class="badge">📖 Grade 11</span>
-<span class="badge">📅 semester 2</span>
+<span class="badge">📅 Semester 2</span>
 <span class="badge">⏱️ 50 min</span>
-<span class="badge">🎯 out of 10</span>
-<span class="badge" id="attemptsBadge">Attempts: 0 / 2</span>
+<span class="badge">🎯 out of 100</span>
+<span class="badge" id="attemptsBadge">Attempts: 0 / 3</span>
 </div></header>
 <div class="card">
-<div class="question-box"><h2>Essay Question</h2><div class="question-text">AI teachers can replace human teacher. Do you agree or disagree. Give your reasons</div></div>
-<div class="conditions"><strong>Conditions:</strong> Your Writing should  be clear and convincing <br>
+<div class="question-box"><h2>Essay Question</h2><div class="question-text">You have read an advertisement in a magazine. A company is looking for a Human Resource Manager with at least 3 years of experience and a BA degree. Write a formal letter or email to the company applying for the job. Include your qualifications, skills, and abilities</div></div>
+<div class="conditions"><strong>Conditions:</strong> -<br>
 <strong>Minimum words:</strong> 100</div>
-<div class="model-answer" id="modelAnswerDiv"><strong>Model Answer (shown after submission):</strong><br>In recent years, artificial intelligence has become an important part of education. Some people believe that AI teachers can replace human teachers completely, while others strongly disagree. Personally, I do not think AI can fully replace human teachers, although it can be a useful tool in the classroom.
+<div class="model-answer" id="modelAnswerDiv"><strong>Model Answer (shown after submission):</strong><br>Dear Sir/Madam,
 
-AI teachers are very good at providing information quickly, correcting mistakes, and giving students instant feedback. For example, an AI program can check grammar, explain difficult concepts, and even create practice exercises. This makes learning faster and more efficient. However, teaching is not only about giving information. Human teachers guide students, motivate them, and understand their emotions. They can encourage shy students, solve conflicts in class, and inspire learners through personal stories.
+I am writing to apply for the position of Human Resource Manager as advertised in your magazine. I hold a Bachelor’s degree in Business Administration and have more than three years of professional experience in human resource management.  
 
-Therefore, while AI can support education by helping with practice and explanations, it cannot replace the human connection that teachers provide. The best solution is to combine both: AI for technical support and human teachers for emotional guidance and inspiration.</div>
+During my career, I have successfully managed recruitment processes, employee training programs, and performance evaluations. I am skilled in communication, problem-solving, and conflict resolution, which I believe are essential qualities for this role. In addition, I am familiar with modern HR software and policies that ensure efficiency and fairness in the workplace.  
+
+I am confident that my qualifications and abilities make me a strong candidate for this position. I would welcome the opportunity to contribute to your company’s success.  
+
+Thank you for considering my application. I look forward to your positive response.  
+
+Yours faithfully,  
+[Your Name]  
+</div>
 <label>Your Answer:</label>
 <div class="answer-container" id="answerContainer" contenteditable="true"></div>
 <div><button id="correctionBtn"><i class="fas fa-edit"></i> 🔧 Correct errors (click on word)</button>
@@ -51,7 +59,7 @@ Therefore, while AI can support education by helping with practice and explanati
 <div>Word count: <span id="wordCount">0</span></div>
 <div class="evaluation-box" id="evalBox">
 <strong>Teacher's Evaluation</strong><br>
-Student Score: <input type="number" id="scoreInput" min="0" max="10" step="0.5" value="0"> out of 10
+Student Score: <input type="number" id="scoreInput" min="0" max="100" step="0.5" value="0"> out of 100
 <button id="saveScoreBtn"><i class="fas fa-check"></i> Save Score</button>
 </div>
 <div id="statusMsg" class="status"></div>
@@ -59,7 +67,7 @@ Student Score: <input type="number" id="scoreInput" min="0" max="10" step="0.5" 
 <div class="card"><h3>Previous attempts</h3><div id="attemptsList"></div></div>
 </div>
 <script>
-const testData = {"testName":"writing1_test3","grade":"Grade 11","semester":"semester 2","timerMinutes":50,"totalScore":10,"maxAttempts":2,"bgColor":"#e84117","question":"AI teachers can replace human teacher. Do you agree or disagree. Give your reasons","minWords":100,"extraConditions":"Your Writing should  be clear and convincing ","modelAnswer":"In recent years, artificial intelligence has become an important part of education. Some people believe that AI teachers can replace human teachers completely, while others strongly disagree. Personally, I do not think AI can fully replace human teachers, although it can be a useful tool in the classroom.\n\nAI teachers are very good at providing information quickly, correcting mistakes, and giving students instant feedback. For example, an AI program can check grammar, explain difficult concepts, and even create practice exercises. This makes learning faster and more efficient. However, teaching is not only about giving information. Human teachers guide students, motivate them, and understand their emotions. They can encourage shy students, solve conflicts in class, and inspire learners through personal stories.\n\nTherefore, while AI can support education by helping with practice and explanations, it cannot replace the human connection that teachers provide. The best solution is to combine both: AI for technical support and human teachers for emotional guidance and inspiration."};
+const testData = {"testName":"Elective writing 4","grade":"Grade 11","semester":"Semester 2","timerMinutes":50,"totalScore":100,"maxAttempts":3,"bgColor":"#fef3c7","question":"You have read an advertisement in a magazine. A company is looking for a Human Resource Manager with at least 3 years of experience and a BA degree. Write a formal letter or email to the company applying for the job. Include your qualifications, skills, and abilities","minWords":100,"extraConditions":"","modelAnswer":"Dear Sir/Madam,\n\nI am writing to apply for the position of Human Resource Manager as advertised in your magazine. I hold a Bachelor’s degree in Business Administration and have more than three years of professional experience in human resource management.  \n\nDuring my career, I have successfully managed recruitment processes, employee training programs, and performance evaluations. I am skilled in communication, problem-solving, and conflict resolution, which I believe are essential qualities for this role. In addition, I am familiar with modern HR software and policies that ensure efficiency and fairness in the workplace.  \n\nI am confident that my qualifications and abilities make me a strong candidate for this position. I would welcome the opportunity to contribute to your company’s success.  \n\nThank you for considering my application. I look forward to your positive response.  \n\nYours faithfully,  \n[Your Name]  \n"};
 const lang = 'en';
 const t = {"essay_q":"Essay Question","conditions":"Conditions:","min_words":"Minimum words:","model_title":"Model Answer (shown after submission):","your_answer":"Your Answer:","correction_btn":"🔧 Correct errors (click on word)","save_corr_btn":"💾 Save Correction (Submit Answer)","retry_btn":"🔄 New Attempt","word_count":"Word count:","attempts_title":"Previous attempts","no_attempts":"No attempts yet","correction_mode_on":"Correction mode active","correction_off":"Correction off","saved":"Saved","time_up":"Time is up!","teacher_evaluation":"Teacher's Evaluation","student_score":"Student Score","save_score":"Save Score","out_of":"out of","score_saved":"Score saved","back_dashboard":"Back to Dashboard"};
 const MAX_ATTEMPTS = testData.maxAttempts;
@@ -182,7 +190,7 @@ function toggleCorrection(){
         updateWordCount();
     }
 }
-function backToDashboard(){ window.location.href = 'dashboard.html'; }
+function backToDashboard(){ window.location.href = 'writing1_dashboard.html'; }
 loadAttempts();
 renderText(attempts[currentIdx].text);
 if(attempts[currentIdx].score) document.getElementById('scoreInput').value = attempts[currentIdx].score;

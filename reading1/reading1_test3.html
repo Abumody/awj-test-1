@@ -1,154 +1,710 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Reading Test 3</title>
-<link rel="stylesheet" href="reading1-test.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Reading 2 – Brighton Trip | Grade 11 Final Exam Practice</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #eef2f5;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      padding: 2rem 1.5rem;
+      line-height: 1.5;
+    }
+
+    .exam-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    .hero {
+      background: #1e6f5c;
+      color: white;
+      padding: 1.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+    }
+
+    .badge-group {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.2);
+      border-radius: 40px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .instructions {
+      background: #e0f2f1;
+      margin: 1.5rem 2rem 0 2rem;
+      padding: 1rem 1.8rem;
+      border-radius: 1rem;
+      border-left: 6px solid #1e6f5c;
+    }
+
+    .instructions p {
+      font-weight: 600;
+      color: #1e6f5c;
+    }
+
+    .instructions ul {
+      margin-left: 1.8rem;
+      color: #2c3e50;
+      font-size: 0.9rem;
+    }
+
+    .reading-layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .passage-area {
+      flex: 1.5;
+      min-width: 300px;
+      background: #fefcf7;
+      border-radius: 1.5rem;
+      border: 1px solid #e2ddd0;
+      padding: 1.5rem;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .questions-area {
+      flex: 1.2;
+      min-width: 340px;
+      background: white;
+      border-radius: 1.5rem;
+      border: 1px solid #dce5ec;
+      padding: 1.2rem 1.5rem;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .passage-area h2 {
+      color: #1e6f5c;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #f4b942;
+      padding-left: 12px;
+    }
+
+    .passage-area p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: #2d3e50;
+    }
+
+    .task-header {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1e6f5c;
+      margin: 1rem 0 0.8rem 0;
+      border-bottom: 2px solid #d4e0e0;
+      padding-bottom: 5px;
+    }
+
+    .question-card {
+      background: #fefefe;
+      border-radius: 1rem;
+      margin-bottom: 1.2rem;
+      padding: 0.8rem 1rem;
+      border: 1px solid #e2e8f0;
+      transition: 0.1s;
+    }
+
+    .question-text {
+      font-weight: 600;
+      color: #1f3b45;
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 0.3rem;
+    }
+
+    .option-radio {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #f8fafc;
+      padding: 5px 12px;
+      border-radius: 40px;
+      border: 1px solid #cbdae2;
+      cursor: pointer;
+      transition: 0.1s;
+    }
+
+    .option-radio:hover {
+      background: #e9edf2;
+    }
+
+    input[type="radio"] {
+      accent-color: #1e6f5c;
+      width: 16px;
+      height: 16px;
+      margin: 0;
+    }
+
+    .match-select {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 40px;
+      border: 2px solid #cfdfe6;
+      background: white;
+      font-family: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .match-select:focus {
+      border-color: #1e6f5c;
+      outline: none;
+    }
+
+    .correct-highlight {
+      background-color: #e0f2e0;
+      border-color: #2b7a3e;
+    }
+
+    .incorrect-highlight {
+      background-color: #ffe6e3;
+      border-color: #c73f2c;
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      padding: 0.6rem 1.3rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: 0.2s;
+      background: #eef2f5;
+      color: #1f3b45;
+    }
+
+    .btn-primary {
+      background: #1e6f5c;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #155a4a;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: #e2e8f0;
+    }
+
+    .btn-secondary:hover {
+      background: #cdd9e9;
+    }
+
+    .btn-warning {
+      background: #fef3e2;
+      color: #b45f1b;
+    }
+
+    .btn-warning:hover {
+      background: #fde6cc;
+    }
+
+    .result-panel {
+      background: #f0f6fa;
+      border-radius: 1.2rem;
+      padding: 1rem;
+      margin-top: 1.2rem;
+      text-align: center;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .result-high {
+      background: #e0f2e0;
+      border-left: 5px solid #2b7a3e;
+    }
+
+    .result-low {
+      background: #ffe6e3;
+      border-left: 5px solid #c73f2c;
+    }
+
+    .detail-feedback {
+      font-size: 0.8rem;
+      text-align: left;
+      margin-top: 0.8rem;
+      border-top: 1px solid #cbdae6;
+      padding-top: 0.7rem;
+    }
+
+    .feedback-line {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e2e6ea;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #9aaebf;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 850px) {
+      .reading-layout {
+        flex-direction: column;
+      }
+      .passage-area, .questions-area {
+        max-height: none;
+      }
+      body {
+        padding: 1rem;
+      }
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
+<div class="exam-container">
+  <div class="hero">
+    <div>
+      <h1>🏖️ READING 2 – A Day in Brighton</h1>
+      <p>Grade 11 · Semester 2 · Final Exam Practice</p>
+    </div>
+    <div class="badge-group">
+      <div class="badge">Questions 11–20</div>
+      <div class="badge">10 marks</div>
+    </div>
+  </div>
 
-<div class="container">
+  <div class="instructions">
+    <p>📌 Task One (11–16): Multiple choice. Task Two (17–20): Match paragraphs with correct headings.</p>
+    <ul>
+      <li>Read the passage carefully. All answers are based directly on the text.</li>
+      <li>Use the dropdowns for matching. Click "Check Answers" to see your score.</li>
+      <li>The "Show Model Answers" button will fill in the correct answers for review.</li>
+    </ul>
+  </div>
 
-<header>
-<h1>READING 03 (Items 1 - 5)</h1>
-<p class="subtitle">
-Read the texts. Are the statements which follow each text True or False?
-</p>
-</header>
+  <div class="reading-layout">
+    <!-- PASSAGE SECTION – exactly as provided in the images -->
+    <div class="passage-area">
+      <h2>📖 A Trip to the Seaside</h2>
+      <p><strong>(1)</strong> As the next Bank holiday was approaching, my friends and I planned a trip to the seaside, with Brighton being our destination of choice. We chose Brighton as you could get there easily from London. I had already been there but the others were keen to go because, as well as going on the beach, there are many other things to do in Brighton such as exploring the place and shopping.</p>
+      <p><strong>(2)</strong> We had agreed to go by bus as it was cheaper than the train, but we had not realised that the bus station is a very long way from the beach. One of our group Anita had hurt her ankle when she fell down a week before. Because of that we had to walk very slowly so it took us a long time to get to the beach. Once we got to the beach, we found a place where we could sit.</p>
+      <p><strong>(3)</strong> I had forgotten how strong the wind can be near the sea. Despite the radiance of the sun, a jacket or a sweater was still a necessity, and regrettably, I had neglected to bring anything warm. Providentially, my friend, Sara, had brought two sweaters and was gracious enough to lend me one of hers. Two of our new colleagues had brought their bathing suits and took a plunge in the sea, but they had to swim at a <em>brisk</em> pace to stay warm. As expected, we had the classic lunch of fish and chips, but subsequently, everyone wanted to pursue their own interests. Due to the comfort of Sara's sweater, I and Anita opted to return to the beach. As the afternoon progressed, the intensity of the wind <em>diminished</em> and the weather became more pleasant with ample sunshine. We enjoyed our time conversing and observing the beachgoers, while our acquaintances indulged in shopping or sightseeing.</p>
+      <p><strong>(4)</strong> We all met again at the bus station, where our new colleagues recounted their visit to the famed Pavilion, once home to a wealthy prince, which still possessed its original decorations and furniture. Sara and Rita checked the stores cautiously, aware of their budget limitations, despite the variety of tempting purchases. Sara purchased a bracelet, while Rita acquired a wooden toy horse for her son. The bus ride home was filled with lively chatter, and though I attempted to return my friend's jacket, her tiredness pushed her into deep sleep all the way back. Therefore, I found myself obliged to pay her another visit later to give it back.</p>
+    </div>
 
-<!-- ===============================
-     QUESTION 1
-================================ -->
-<div class="reading-item" data-q="1">
+    <!-- QUESTIONS SECTION -->
+    <div class="questions-area">
+      <div class="task-header">🔹 Task One (Questions 11–16) – Multiple Choice</div>
 
-<div class="item-number">1.</div>
+      <!-- Q11 -->
+      <div class="question-card" data-qid="11">
+        <div class="question-text">11. Brighton is a/an ...... city.</div>
+        <div class="options" id="mc11">
+          <label class="option-radio"><input type="radio" name="q11" value="mountainous"> mountainous</label>
+          <label class="option-radio"><input type="radio" name="q11" value="coastal"> coastal</label>
+          <label class="option-radio"><input type="radio" name="q11" value="isolated"> isolated</label>
+        </div>
+      </div>
 
-<div class="passage-text">
-Wedding activities in Vietnam often include a tea ceremony, where the bride and groom serve tea to their parents as a sign of respect and gratitude. Other common activities include exchanging gifts, feasting, and playing traditional games.
-</div>
+      <!-- Q12 -->
+      <div class="question-card" data-qid="12">
+        <div class="question-text">12. It took them a long time to get to the beach because of ......</div>
+        <div class="options" id="mc12">
+          <label class="option-radio"><input type="radio" name="q12" value="friend’s injury"> friend’s injury</label>
+          <label class="option-radio"><input type="radio" name="q12" value="long distance"> long distance</label>
+          <label class="option-radio"><input type="radio" name="q12" value="Route’s condition"> Route’s condition</label>
+        </div>
+      </div>
 
-<div class="statement">
-The wedding ceremony in Vietnam often has two activities.
-</div>
+      <!-- Q13 -->
+      <div class="question-card" data-qid="13">
+        <div class="question-text">13. The weather by the beach was ......</div>
+        <div class="options" id="mc13">
+          <label class="option-radio"><input type="radio" name="q13" value="fair"> fair</label>
+          <label class="option-radio"><input type="radio" name="q13" value="warm"> warm</label>
+          <label class="option-radio"><input type="radio" name="q13" value="cold"> cold</label>
+        </div>
+      </div>
 
-<div class="tf-buttons">
-<button type="button" class="tf-btn" data-value="true">True</button>
-<button type="button" class="tf-btn" data-value="false">False</button>
-</div>
+      <!-- Q14 -->
+      <div class="question-card" data-qid="14">
+        <div class="question-text">14. The word <em>“brisk”</em> in paragraph 3 means ......</div>
+        <div class="options" id="mc14">
+          <label class="option-radio"><input type="radio" name="q14" value="slow"> slow</label>
+          <label class="option-radio"><input type="radio" name="q14" value="fast"> fast</label>
+          <label class="option-radio"><input type="radio" name="q14" value="careful"> careful</label>
+        </div>
+      </div>
 
-</div>
+      <!-- Q15 -->
+      <div class="question-card" data-qid="15">
+        <div class="question-text">15. The word <em>“diminished”</em> in paragraph 3 means ......</div>
+        <div class="options" id="mc15">
+          <label class="option-radio"><input type="radio" name="q15" value="stopped"> stopped</label>
+          <label class="option-radio"><input type="radio" name="q15" value="increased"> increased</label>
+          <label class="option-radio"><input type="radio" name="q15" value="decreased"> decreased</label>
+        </div>
+      </div>
 
-<!-- ===============================
-     QUESTION 2
-================================ -->
-<div class="reading-item" data-q="2">
+      <!-- Q16 -->
+      <div class="question-card" data-qid="16">
+        <div class="question-text">16. At the end of the day, ...... was very exhausted.</div>
+        <div class="options" id="mc16">
+          <label class="option-radio"><input type="radio" name="q16" value="Anita"> Anita</label>
+          <label class="option-radio"><input type="radio" name="q16" value="Sara"> Sara</label>
+          <label class="option-radio"><input type="radio" name="q16" value="Rita"> Rita</label>
+        </div>
+      </div>
 
-<div class="item-number">2.</div>
+      <div class="task-header" style="margin-top: 0.5rem;">🔹 Task Two (Questions 17–20) – Match Paragraphs</div>
 
-<div class="passage-text">
-Tennis is a popular sport that was first played in the 12th century in France. At that time, it was played by a few people for exercise and entertainment. However, currently it is very popular and it is enjoyed by millions of people worldwide.
-</div>
+      <!-- Q17 – Paragraph 1 -->
+      <div class="question-card" data-qid="17">
+        <div class="question-text">17. Paragraph 1 is about ______</div>
+        <select class="match-select" id="match17">
+          <option value="">-- Select sub-heading --</option>
+          <option value="A">A. The journey from London to Brighton</option>
+          <option value="B">B. The difficulty of getting an appropriate transportation</option>
+          <option value="C">C. The weather by the beach</option>
+          <option value="D">D. Visiting some friends in Brighton</option>
+          <option value="E">E. Spending a wonderful shopping time</option>
+          <option value="F">F. Going back to work the next day</option>
+          <option value="G">G. The reasons of choosing Brighton as a destination</option>
+        </select>
+      </div>
 
-<div class="statement">
-Tennis was not very famous in France in the 12th century.
-</div>
+      <!-- Q18 – Paragraph 2 -->
+      <div class="question-card" data-qid="18">
+        <div class="question-text">18. Paragraph 2 is about ______</div>
+        <select class="match-select" id="match18">
+          <option value="">-- Select sub-heading --</option>
+          <option value="A">A. The journey from London to Brighton</option>
+          <option value="B">B. The difficulty of getting an appropriate transportation</option>
+          <option value="C">C. The weather by the beach</option>
+          <option value="D">D. Visiting some friends in Brighton</option>
+          <option value="E">E. Spending a wonderful shopping time</option>
+          <option value="F">F. Going back to work the next day</option>
+          <option value="G">G. The reasons of choosing Brighton as a destination</option>
+        </select>
+      </div>
 
-<div class="tf-buttons">
-<button type="button" class="tf-btn" data-value="true">True</button>
-<button type="button" class="tf-btn" data-value="false">False</button>
-</div>
+      <!-- Q19 – Paragraph 3 -->
+      <div class="question-card" data-qid="19">
+        <div class="question-text">19. Paragraph 3 is about ______</div>
+        <select class="match-select" id="match19">
+          <option value="">-- Select sub-heading --</option>
+          <option value="A">A. The journey from London to Brighton</option>
+          <option value="B">B. The difficulty of getting an appropriate transportation</option>
+          <option value="C">C. The weather by the beach</option>
+          <option value="D">D. Visiting some friends in Brighton</option>
+          <option value="E">E. Spending a wonderful shopping time</option>
+          <option value="F">F. Going back to work the next day</option>
+          <option value="G">G. The reasons of choosing Brighton as a destination</option>
+        </select>
+      </div>
 
-</div>
+      <!-- Q20 – Paragraph 4 -->
+      <div class="question-card" data-qid="20">
+        <div class="question-text">20. Paragraph 4 is about ______</div>
+        <select class="match-select" id="match20">
+          <option value="">-- Select sub-heading --</option>
+          <option value="A">A. The journey from London to Brighton</option>
+          <option value="B">B. The difficulty of getting an appropriate transportation</option>
+          <option value="C">C. The weather by the beach</option>
+          <option value="D">D. Visiting some friends in Brighton</option>
+          <option value="E">E. Spending a wonderful shopping time</option>
+          <option value="F">F. Going back to work the next day</option>
+          <option value="G">G. The reasons of choosing Brighton as a destination</option>
+        </select>
+      </div>
 
-<!-- ===============================
-     QUESTION 3
-================================ -->
-<div class="reading-item" data-q="3">
+      <div class="action-buttons">
+        <button class="btn btn-secondary" id="resetBtn">⟳ Clear All Answers</button>
+        <button class="btn btn-warning" id="showAnswersBtn">🔍 Show Model Answers</button>
+        <button class="btn btn-primary" id="checkBtn">✅ Check My Answers</button>
+      </div>
 
-<div class="item-number">3.</div>
-
-<div class="passage-text">
-Life changes for teens can be both exciting and challenging. Moving from childhood to adolescence brings new experiences, relationships, and responsibilities. It's a time of self-discovery, growth, and learning to navigate the world as an independent individual.
-</div>
-
-<div class="statement">
-For teens, life changes are always negative experiences.
-</div>
-
-<div class="tf-buttons">
-<button type="button" class="tf-btn" data-value="true">True</button>
-<button type="button" class="tf-btn" data-value="false">False</button>
-</div>
-
-</div>
-
-<!-- ===============================
-     QUESTION 4
-================================ -->
-<div class="reading-item" data-q="4">
-
-<div class="item-number">4.</div>
-
-<div class="passage-text">
-Samantha set sail on her unique voyage, determined to explore the world on her own terms. She encountered storms, new cultures, and unforgettable moments of beauty. As she navigated through the vast ocean, Samantha realized that her journey was not just about discovering the world, but also about discovering herself.
-</div>
-
-<div class="statement">
-Samantha's unique voyage was boring.
-</div>
-
-<div class="tf-buttons">
-<button type="button" class="tf-btn" data-value="true">True</button>
-<button type="button" class="tf-btn" data-value="false">False</button>
-</div>
-
-</div>
-
-<!-- ===============================
-     QUESTION 5
-================================ -->
-<div class="reading-item" data-q="5">
-
-<div class="item-number">5.</div>
-
-<div class="passage-text">
-William Shakespeare has his own view of life and he once said: "All the world's a stage, and all the men and women are just players. They have their exits and their entrances, and one man in his time plays many parts."
-</div>
-
-<div class="statement">
-William Shakespeare said that people in life are players on a stage.
-</div>
-
-<div class="tf-buttons">
-<button type="button" class="tf-btn" data-value="true">True</button>
-<button type="button" class="tf-btn" data-value="false">False</button>
-</div>
-
-</div>
-
-<!-- ===============================
-     ACTION BUTTONS
-================================ -->
-<div class="actions">
-<a href="reading1-dashboard.html" class="btn btn-dashboard">Dashboard</a>
-<button id="submitBtn" class="btn btn-check">Submit</button>
-</div>
-
-<div id="result"></div>
-
+      <div id="resultPanel" class="result-panel">
+        📊 Click "Check Answers" to see your score.
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
-window.ANSWERS = {
-1:"false",
-2:"true",
-3:"false",
-4:"false",
-5:"true"
-};
+  // ======================== CORRECT ANSWERS (from marking guide) ========================
+  const CORRECT_MC = {
+    11: "coastal",
+    12: "friend’s injury",
+    13: "cold",
+    14: "fast",
+    15: "decreased",
+    16: "Sara"
+  };
+
+  const CORRECT_MATCH = {
+    17: "G",   // Paragraph 1 → reasons for choosing Brighton
+    18: "B",   // Paragraph 2 → difficulty of transportation (bus station far, injury)
+    19: "C",   // Paragraph 3 → weather by the beach (wind, cold, then improved)
+    20: "E"    // Paragraph 4 → shopping time (Sara & Rita shopping, purchases)
+  };
+
+  // Helper functions
+  function getSelectedMC(qNumber) {
+    const selected = document.querySelector(`input[name="q${qNumber}"]:checked`);
+    return selected ? selected.value : null;
+  }
+
+  function getSelectedMatch(qNumber) {
+    const selectElem = document.getElementById(`match${qNumber}`);
+    return selectElem ? selectElem.value : "";
+  }
+
+  function clearHighlights() {
+    for (let i = 11; i <= 16; i++) {
+      const card = document.querySelector(`.question-card[data-qid="${i}"]`);
+      if (card) card.classList.remove('correct-highlight', 'incorrect-highlight');
+    }
+    for (let i = 17; i <= 20; i++) {
+      const card = document.querySelector(`.question-card[data-qid="${i}"]`);
+      if (card) card.classList.remove('correct-highlight', 'incorrect-highlight');
+    }
+  }
+
+  function resetAll() {
+    // reset radios 11-16
+    for (let i = 11; i <= 16; i++) {
+      const radios = document.querySelectorAll(`input[name="q${i}"]`);
+      radios.forEach(radio => radio.checked = false);
+      const card = document.querySelector(`.question-card[data-qid="${i}"]`);
+      if (card) card.classList.remove('correct-highlight', 'incorrect-highlight');
+    }
+    // reset selects 17-20
+    for (let i = 17; i <= 20; i++) {
+      const select = document.getElementById(`match${i}`);
+      if (select) select.value = "";
+      const card = document.querySelector(`.question-card[data-qid="${i}"]`);
+      if (card) card.classList.remove('correct-highlight', 'incorrect-highlight');
+    }
+    const panel = document.getElementById('resultPanel');
+    panel.innerHTML = `📊 Click "Check Answers" to see your score.`;
+    panel.classList.remove('result-high', 'result-low');
+  }
+
+  function fillModelAnswers() {
+    // Fill MC
+    for (let i = 11; i <= 16; i++) {
+      const correctVal = CORRECT_MC[i];
+      const radio = document.querySelector(`input[name="q${i}"][value="${correctVal}"]`);
+      if (radio) radio.checked = true;
+      const card = document.querySelector(`.question-card[data-qid="${i}"]`);
+      if (card) card.classList.remove('correct-highlight', 'incorrect-highlight');
+    }
+    // Fill matching
+    for (let i = 17; i <= 20; i++) {
+      const select = document.getElementById(`match${i}`);
+      if (select) select.value = CORRECT_MATCH[i];
+      const card = document.querySelector(`.question-card[data-qid="${i}"]`);
+      if (card) card.classList.remove('correct-highlight', 'incorrect-highlight');
+    }
+    const panel = document.getElementById('resultPanel');
+    panel.innerHTML = `📝 Model answers filled. Click "Check Answers" to grade.`;
+    panel.classList.remove('result-high', 'result-low');
+  }
+
+  function getSubheadingLabel(letter) {
+    const map = {
+      "A": "The journey from London to Brighton",
+      "B": "The difficulty of getting an appropriate transportation",
+      "C": "The weather by the beach",
+      "D": "Visiting some friends in Brighton",
+      "E": "Spending a wonderful shopping time",
+      "F": "Going back to work the next day",
+      "G": "The reasons of choosing Brighton as a destination"
+    };
+    return map[letter] || letter;
+  }
+
+  function evaluateTest() {
+    let score = 0;
+    const total = 10;
+    const details = [];
+
+    // Evaluate MC 11-16
+    for (let i = 11; i <= 16; i++) {
+      const userVal = getSelectedMC(i);
+      const isCorrect = (userVal === CORRECT_MC[i]);
+      if (isCorrect && userVal !== null) score++;
+      details.push({
+        q: i,
+        type: "MC",
+        user: userVal || "(not selected)",
+        correct: isCorrect,
+        expected: CORRECT_MC[i]
+      });
+      const card = document.querySelector(`.question-card[data-qid="${i}"]`);
+      if (card) {
+        if (userVal) {
+          if (isCorrect) {
+            card.classList.add('correct-highlight');
+            card.classList.remove('incorrect-highlight');
+          } else {
+            card.classList.add('incorrect-highlight');
+            card.classList.remove('correct-highlight');
+          }
+        } else {
+          card.classList.remove('correct-highlight', 'incorrect-highlight');
+        }
+      }
+    }
+
+    // Evaluate Matching 17-20
+    for (let i = 17; i <= 20; i++) {
+      const userVal = getSelectedMatch(i);
+      const isCorrect = (userVal === CORRECT_MATCH[i]);
+      if (isCorrect && userVal !== "") score++;
+      details.push({
+        q: i,
+        type: "Match",
+        user: userVal || "(not selected)",
+        correct: isCorrect,
+        expected: getSubheadingLabel(CORRECT_MATCH[i])
+      });
+      const card = document.querySelector(`.question-card[data-qid="${i}"]`);
+      if (card) {
+        if (userVal !== "") {
+          if (isCorrect) {
+            card.classList.add('correct-highlight');
+            card.classList.remove('incorrect-highlight');
+          } else {
+            card.classList.add('incorrect-highlight');
+            card.classList.remove('correct-highlight');
+          }
+        } else {
+          card.classList.remove('correct-highlight', 'incorrect-highlight');
+        }
+      }
+    }
+
+    const percent = Math.round((score / total) * 100);
+    const panel = document.getElementById('resultPanel');
+    let message = "";
+    if (score === 10) message = "🏆 Perfect! Excellent reading comprehension!";
+    else if (score >= 8) message = "🌟 Great job! You understood the passage very well.";
+    else if (score >= 6) message = "👍 Good effort. Review the text and the answers below.";
+    else message = "📚 Keep practising. Read the passage carefully again.";
+
+    // Build detail HTML (shows correct answers only for wrong ones)
+    let detailHtml = `<div class="detail-feedback"><strong>📋 Answer summary:</strong><br>`;
+    for (let d of details) {
+      const mark = d.correct ? "✅" : "❌";
+      let userDisplay = d.user.length > 28 ? d.user.substring(0,25)+"…" : d.user;
+      detailHtml += `<div class="feedback-line">
+                        <span>Q${d.q}: ${mark} <span style="font-size:0.8rem;">“${userDisplay}”</span></span>
+                        ${!d.correct ? `<span style="color:#1e6f5c;">✔ ${d.expected}</span>` : ''}
+                      </div>`;
+    }
+    detailHtml += `</div><button id="hideDetailsBtn" style="margin-top:8px; background:#e2e8f0; border:none; border-radius:30px; padding:4px 14px; cursor:pointer; font-size:0.7rem;">Hide details</button>`;
+
+    panel.innerHTML = `
+      <div style="font-size:1.2rem; font-weight:bold;">📊 Score: ${score} / ${total} (${percent}%)</div>
+      <div style="margin: 6px 0;">${message}</div>
+      ${detailHtml}
+    `;
+    if (score >= 7) panel.classList.add('result-high');
+    else if (score <= 4) panel.classList.add('result-low');
+    else panel.classList.remove('result-high', 'result-low');
+
+    const hideBtn = document.getElementById('hideDetailsBtn');
+    if (hideBtn) {
+      hideBtn.addEventListener('click', () => {
+        panel.innerHTML = `<div style="font-size:1rem; font-weight:bold;">📊 Score: ${score} / ${total} (${percent}%)</div><div style="margin-top:5px;">${message}</div>`;
+        if (score >= 7) panel.classList.add('result-high');
+        else if (score <= 4) panel.classList.add('result-low');
+        else panel.classList.remove('result-high', 'result-low');
+      });
+    }
+    panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  // Remove highlight when user changes answer
+  function addChangeListeners() {
+    for (let i = 11; i <= 16; i++) {
+      const radios = document.querySelectorAll(`input[name="q${i}"]`);
+      radios.forEach(radio => {
+        radio.addEventListener('change', () => {
+          const card = document.querySelector(`.question-card[data-qid="${i}"]`);
+          if (card) card.classList.remove('correct-highlight', 'incorrect-highlight');
+        });
+      });
+    }
+    for (let i = 17; i <= 20; i++) {
+      const select = document.getElementById(`match${i}`);
+      if (select) {
+        select.addEventListener('change', () => {
+          const card = document.querySelector(`.question-card[data-qid="${i}"]`);
+          if (card) card.classList.remove('correct-highlight', 'incorrect-highlight');
+        });
+      }
+    }
+  }
+
+  document.getElementById('resetBtn').addEventListener('click', resetAll);
+  document.getElementById('showAnswersBtn').addEventListener('click', fillModelAnswers);
+  document.getElementById('checkBtn').addEventListener('click', evaluateTest);
+  addChangeListeners();
 </script>
-
-<script src="reading1-test.js"></script>
-
 </body>
 </html>

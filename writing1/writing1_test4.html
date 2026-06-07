@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="en" dir="ltr">
-<head><meta charset="UTF-8"><title>writing1_test4</title>
+<head><meta charset="UTF-8"><title>Elective writing 5</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{background:#1772e8;padding:20px}
+body{background:#fef3c7;padding:20px}
 .container{max-width:1300px;margin:0 auto}
 header{background:white;border-radius:20px;padding:20px;text-align:center;margin-bottom:25px}
 h1{color:#344955}
@@ -26,37 +26,25 @@ button{margin:10px 5px 0 0;padding:10px 20px;border-radius:40px;background:#f9aa
 .back-btn{background:#4a6572;color:white}
 </style></head>
 <body><div class="container">
-<header><h1>writing1_test4</h1><div class="test-info">
+<header><h1>Elective writing 5</h1><div class="test-info">
 <span class="badge">📖 Grade 11</span>
-<span class="badge">📅 semester 2</span>
-<span class="badge">⏱️ 50 min</span>
-<span class="badge">🎯 out of 10</span>
-<span class="badge" id="attemptsBadge">Attempts: 0 / 2</span>
+<span class="badge">📅 Semester 2</span>
+<span class="badge">⏱️ 30 min</span>
+<span class="badge">🎯 out of 100</span>
+<span class="badge" id="attemptsBadge">Attempts: 0 / 3</span>
 </div></header>
 <div class="card">
-<div class="question-box"><h2>Essay Question</h2><div class="question-text">‘Home-cooked food is better than restaurant food’. Do you agree or disagree. Give your reasons</div></div>
-<div class="conditions"><strong>Conditions:</strong> Your Writing should  be clear and convincing <br>
+<div class="question-box"><h2>Essay Question</h2><div class="question-text">“Parents should control the way their children use their mobile phones.”</div></div>
+<div class="conditions"><strong>Conditions:</strong> Explain your arguments for both sides (for and against) and give your conclusion.
+Your writing should be clear and well organised.<br>
 <strong>Minimum words:</strong> 100</div>
-<div class="model-answer" id="modelAnswerDiv"><strong>Model Answer (shown after submission):</strong><br>It is argued that food that is cooked at home is more beneficial than eating in
-coffee shops. I strongly agree with this statement and I think that meals which are
-prepared at home have many advantages.
- First, the food which is cooked at home is clean because mothers always take
-care of hygiene during cooking.
- On the other hand, we don't know about the situation like the level of
-cleanliness in restaurants such as the kitchen, the cooks and the cooking pots.
-Sometimes the atmosphere in these coffee shops and cafeterias is noisy and it is
-easy to see flies and cockroaches everywhere.
- Second, the ingredients which mothers use in preparing nutritious meals for
-their families are safe and reliable. In other words, mothers keep using green
-vegetables, fresh meat and fish and original trusted additives, compared with
-some restaurants which reuse and apply frozen meat, spoiled vegetables, spicy
-ingredients. Dirty cooking pots are used too. No doubt, all these things cause
-health problems to consumers.
+<div class="model-answer" id="modelAnswerDiv"><strong>Model Answer (shown after submission):</strong><br>Mobile phones have become an important part of young people’s lives, but there is debate about whether parents should control their children’s usage.
 
- To conclude, I think that people must avoid eating in restaurants as possible as
-they can because I have compared between restaurant- food and home-food and
-I believe that there is no healthy food like the food which is prepared by mother
-at home.</div>
+On one hand, parental control is necessary to protect children from harmful content, cyberbullying, and excessive screen time. It also helps them focus on their studies and maintain healthy social relationships. Parents can guide their children to use phones responsibly and safely.
+
+On the other hand, too much control may limit children’s independence and trust. Teenagers need freedom to communicate with friends, explore ideas, and learn to manage technology on their own. Strict rules may cause conflict and reduce confidence.
+
+In conclusion, parents should supervise mobile phone use, but not in an overly strict way. A balanced approach—setting clear rules while allowing some independence—will help children benefit from technology without being harmed by it</div>
 <label>Your Answer:</label>
 <div class="answer-container" id="answerContainer" contenteditable="true"></div>
 <div><button id="correctionBtn"><i class="fas fa-edit"></i> 🔧 Correct errors (click on word)</button>
@@ -66,7 +54,7 @@ at home.</div>
 <div>Word count: <span id="wordCount">0</span></div>
 <div class="evaluation-box" id="evalBox">
 <strong>Teacher's Evaluation</strong><br>
-Student Score: <input type="number" id="scoreInput" min="0" max="10" step="0.5" value="0"> out of 10
+Student Score: <input type="number" id="scoreInput" min="0" max="100" step="0.5" value="0"> out of 100
 <button id="saveScoreBtn"><i class="fas fa-check"></i> Save Score</button>
 </div>
 <div id="statusMsg" class="status"></div>
@@ -74,7 +62,7 @@ Student Score: <input type="number" id="scoreInput" min="0" max="10" step="0.5" 
 <div class="card"><h3>Previous attempts</h3><div id="attemptsList"></div></div>
 </div>
 <script>
-const testData = {"testName":"writing1_test4","grade":"Grade 11","semester":"semester 2","timerMinutes":50,"totalScore":10,"maxAttempts":2,"bgColor":"#1772e8","question":"‘Home-cooked food is better than restaurant food’. Do you agree or disagree. Give your reasons","minWords":100,"extraConditions":"Your Writing should  be clear and convincing ","modelAnswer":"It is argued that food that is cooked at home is more beneficial than eating in\ncoffee shops. I strongly agree with this statement and I think that meals which are\nprepared at home have many advantages.\n First, the food which is cooked at home is clean because mothers always take\ncare of hygiene during cooking.\n On the other hand, we don't know about the situation like the level of\ncleanliness in restaurants such as the kitchen, the cooks and the cooking pots.\nSometimes the atmosphere in these coffee shops and cafeterias is noisy and it is\neasy to see flies and cockroaches everywhere.\n Second, the ingredients which mothers use in preparing nutritious meals for\ntheir families are safe and reliable. In other words, mothers keep using green\nvegetables, fresh meat and fish and original trusted additives, compared with\nsome restaurants which reuse and apply frozen meat, spoiled vegetables, spicy\ningredients. Dirty cooking pots are used too. No doubt, all these things cause\nhealth problems to consumers.\n\n To conclude, I think that people must avoid eating in restaurants as possible as\nthey can because I have compared between restaurant- food and home-food and\nI believe that there is no healthy food like the food which is prepared by mother\nat home."};
+const testData = {"testName":"Elective writing 5","grade":"Grade 11","semester":"Semester 2","timerMinutes":30,"totalScore":100,"maxAttempts":3,"bgColor":"#fef3c7","question":"“Parents should control the way their children use their mobile phones.”","minWords":100,"extraConditions":"Explain your arguments for both sides (for and against) and give your conclusion.\nYour writing should be clear and well organised.","modelAnswer":"Mobile phones have become an important part of young people’s lives, but there is debate about whether parents should control their children’s usage.\n\nOn one hand, parental control is necessary to protect children from harmful content, cyberbullying, and excessive screen time. It also helps them focus on their studies and maintain healthy social relationships. Parents can guide their children to use phones responsibly and safely.\n\nOn the other hand, too much control may limit children’s independence and trust. Teenagers need freedom to communicate with friends, explore ideas, and learn to manage technology on their own. Strict rules may cause conflict and reduce confidence.\n\nIn conclusion, parents should supervise mobile phone use, but not in an overly strict way. A balanced approach—setting clear rules while allowing some independence—will help children benefit from technology without being harmed by it"};
 const lang = 'en';
 const t = {"essay_q":"Essay Question","conditions":"Conditions:","min_words":"Minimum words:","model_title":"Model Answer (shown after submission):","your_answer":"Your Answer:","correction_btn":"🔧 Correct errors (click on word)","save_corr_btn":"💾 Save Correction (Submit Answer)","retry_btn":"🔄 New Attempt","word_count":"Word count:","attempts_title":"Previous attempts","no_attempts":"No attempts yet","correction_mode_on":"Correction mode active","correction_off":"Correction off","saved":"Saved","time_up":"Time is up!","teacher_evaluation":"Teacher's Evaluation","student_score":"Student Score","save_score":"Save Score","out_of":"out of","score_saved":"Score saved","back_dashboard":"Back to Dashboard"};
 const MAX_ATTEMPTS = testData.maxAttempts;
@@ -197,7 +185,7 @@ function toggleCorrection(){
         updateWordCount();
     }
 }
-function backToDashboard(){ window.location.href = 'dashboard.html'; }
+function backToDashboard(){ window.location.href = 'writing1_dashboard.html'; }
 loadAttempts();
 renderText(attempts[currentIdx].text);
 if(attempts[currentIdx].score) document.getElementById('scoreInput').value = attempts[currentIdx].score;
