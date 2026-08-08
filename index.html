@@ -2,37 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AWJ English Assessment Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWJ · Enter the Nexus</title>
   <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="page">
+  <!-- Cosmic Background -->
+  <div class="cosmic-bg" id="cosmicBg"></div>
 
-    <div class="card">
-      <div class="logo">
-        <span>AWJ</span>
+  <div class="portal-page">
+
+    <div class="portal-card">
+      <!-- Dimensional Portal Ring -->
+      <div class="portal-ring">
+        <div class="ring-inner"></div>
+        <div class="ring-outer"></div>
+        <div class="logo-dimension">
+          <span class="dimension-symbol">✦</span>
+          <span class="brand-text">AWJ</span>
+        </div>
       </div>
 
-      <h1>Welcome</h1>
+      <h1 class="glitch-title" data-text="INITIALIZE">INITIALIZE</h1>
 
       <p class="intro">
-        This platform is designed for serious English practice under exam conditions.
-        Please enter your full name to continue.
+        <span class="dimension-accent">⟡</span> enter your identity to cross the threshold 
+        <span class="dimension-accent">⟡</span>
       </p>
 
-      <input 
-        type="text" 
-        id="studentName" 
-        placeholder="Full name"
-        autocomplete="off"
-      >
+      <div class="input-container">
+        <input 
+          type="text" 
+          id="studentName" 
+          placeholder="full name"
+          autocomplete="off"
+        >
+        <div class="input-glow"></div>
+      </div>
 
-      <button onclick="enterPlatform()">Continue</button>
+      <button onclick="enterPlatform()">
+        <span class="btn-icon">◈</span> enter the nexus
+      </button>
 
       <p class="note">
-        Make sure your name is correct.  
-        Your results will be saved under this name.
+        <span class="note-symbol">◆</span> your results are preserved across dimensions
       </p>
     </div>
 
