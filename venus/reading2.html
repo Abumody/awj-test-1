@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vocabulary · Mercury Exam</title>
+  <title>Reading 2 · Venus Exam</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * {
@@ -17,21 +17,21 @@
       color: #ffffff;
       min-height: 100vh;
       padding: 20px 28px 50px;
-      background: #050510;
-      position: relative;
+      background: #12090A;
       transition: all 0.4s ease;
     }
 
+    /* Light Theme */
     body.light-theme {
-      background: #f0f2f5;
-      color: #1a1a2e;
+      background: #F7EFED;
+      color: #2B1B19;
     }
 
     body.light-theme .cosmic-bg {
       background: 
-        radial-gradient(ellipse at 20% 30%, #e8ecf1, transparent 60%),
-        radial-gradient(ellipse at 80% 70%, #d5dce6, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, #f0f2f5, #e4e8ed 100%);
+        radial-gradient(ellipse at 20% 30%, #F0DCD7, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, #E8CEC8, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, #F7EFED, #EEDBD6 100%);
     }
 
     body.light-theme .nebula-1,
@@ -46,15 +46,15 @@
     }
 
     body.light-theme .brand .glow {
-      background: linear-gradient(135deg, #4a7cf7, #7c5cbf);
+      background: linear-gradient(135deg, #B96D60, #9F5A50);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     body.light-theme .brand .logo-icon {
-      border-color: rgba(74, 124, 247, 0.2);
-      color: #4a7cf7;
+      border-color: rgba(185, 109, 96, 0.2);
+      color: #B96D60;
     }
 
     body.light-theme .exam-badge {
@@ -71,6 +71,21 @@
 
     body.light-theme .exam-header .subtitle {
       color: rgba(0, 0, 0, 0.25);
+    }
+
+    body.light-theme .reading-panel {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(30px);
+      border-color: rgba(0, 0, 0, 0.06);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+    }
+
+    body.light-theme .reading-panel .passage-title {
+      color: rgba(0, 0, 0, 0.4);
+    }
+
+    body.light-theme .reading-panel .passage-text {
+      color: rgba(0, 0, 0, 0.75);
     }
 
     body.light-theme .question-card {
@@ -103,12 +118,12 @@
     }
 
     body.light-theme .option input[type="radio"]:checked:not(:disabled) {
-      border-color: #4a7cf7;
-      background: rgba(74, 124, 247, 0.08);
+      border-color: #B96D60;
+      background: rgba(185, 109, 96, 0.08);
     }
 
     body.light-theme .option input[type="radio"]:checked:not(:disabled)::after {
-      background: #4a7cf7;
+      background: #B96D60;
     }
 
     body.light-theme .option .option-label {
@@ -135,8 +150,8 @@
     }
 
     body.light-theme .btn-back:hover {
-      background: rgba(74, 124, 247, 0.05);
-      border-color: rgba(74, 124, 247, 0.1);
+      background: rgba(185, 109, 96, 0.05);
+      border-color: rgba(185, 109, 96, 0.1);
     }
 
     body.light-theme .btn-reset {
@@ -151,14 +166,14 @@
     }
 
     body.light-theme .btn-submit {
-      background: linear-gradient(135deg, rgba(74, 124, 247, 0.08), rgba(124, 92, 191, 0.08));
-      color: #4a7cf7;
-      border-color: rgba(74, 124, 247, 0.1);
+      background: linear-gradient(135deg, rgba(185, 109, 96, 0.08), rgba(159, 90, 80, 0.08));
+      color: #B96D60;
+      border-color: rgba(185, 109, 96, 0.1);
     }
 
     body.light-theme .btn-submit:hover:not(:disabled) {
-      background: linear-gradient(135deg, rgba(74, 124, 247, 0.15), rgba(124, 92, 191, 0.15));
-      border-color: rgba(74, 124, 247, 0.2);
+      background: linear-gradient(135deg, rgba(185, 109, 96, 0.15), rgba(159, 90, 80, 0.15));
+      border-color: rgba(185, 109, 96, 0.2);
     }
 
     body.light-theme .score-display {
@@ -172,24 +187,11 @@
     }
 
     body.light-theme .score-display .score-value {
-      color: #4a7cf7;
+      color: #B96D60;
     }
 
     body.light-theme .score-display .score-value .denominator {
       color: rgba(0, 0, 0, 0.15);
-    }
-
-    body.light-theme .instructions-box {
-      background: rgba(255, 255, 255, 0.7);
-      border-color: rgba(0, 0, 0, 0.06);
-    }
-
-    body.light-theme .instructions-box .instructions-title {
-      color: rgba(0, 0, 0, 0.4);
-    }
-
-    body.light-theme .instructions-box .instructions-text {
-      color: rgba(0, 0, 0, 0.6);
     }
 
     body.light-theme .btn-theme {
@@ -212,9 +214,9 @@
       inset: 0;
       z-index: 0;
       background: 
-        radial-gradient(ellipse at 20% 30%, #0a0a2e, transparent 60%),
-        radial-gradient(ellipse at 80% 70%, #0e0518, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, #050510, #000000 100%);
+        radial-gradient(ellipse at 20% 30%, #2A1215, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, #1E0D10, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, #12090A, #070304 100%);
       overflow: hidden;
       transition: all 0.4s ease;
     }
@@ -230,7 +232,7 @@
     .nebula-1 {
       width: 600px;
       height: 600px;
-      background: rgba(100, 50, 200, 0.06);
+      background: rgba(196, 122, 109, 0.10);
       top: -200px;
       right: -100px;
       animation-duration: 35s;
@@ -239,7 +241,7 @@
     .nebula-2 {
       width: 500px;
       height: 500px;
-      background: rgba(50, 100, 200, 0.05);
+      background: rgba(196, 122, 109, 0.07);
       bottom: -150px;
       left: -100px;
       animation-duration: 40s;
@@ -267,12 +269,13 @@
     }
 
     .container {
-      max-width: 950px;
+      max-width: 1400px;
       margin: 0 auto;
       position: relative;
       z-index: 5;
     }
 
+    /* Top Bar */
     .top-bar {
       display: flex;
       justify-content: space-between;
@@ -302,19 +305,19 @@
     .brand .logo-icon {
       width: 40px;
       height: 40px;
-      border: 2px solid rgba(100, 200, 255, 0.15);
+      border: 2px solid rgba(196, 122, 109, 0.15);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 18px;
-      background: rgba(100, 200, 255, 0.03);
-      color: #64c8ff;
+      background: rgba(196, 122, 109, 0.03);
+      color: #C47A6D;
       transition: all 0.4s ease;
     }
 
     .brand .glow {
-      background: linear-gradient(135deg, #64c8ff, #a78bfa);
+      background: linear-gradient(135deg, #C47A6D, #D49A8D);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -358,8 +361,8 @@
     }
 
     .btn-back:hover {
-      background: rgba(100, 200, 255, 0.05);
-      border-color: rgba(100, 200, 255, 0.1);
+      background: rgba(196, 122, 109, 0.05);
+      border-color: rgba(196, 122, 109, 0.1);
       transform: scale(1.04);
     }
 
@@ -376,14 +379,14 @@
     }
 
     .btn-submit {
-      background: linear-gradient(135deg, rgba(100, 200, 255, 0.08), rgba(167, 139, 250, 0.08));
-      color: #a78bfa;
-      border-color: rgba(167, 139, 250, 0.1);
+      background: linear-gradient(135deg, rgba(196, 122, 109, 0.08), rgba(212, 154, 141, 0.08));
+      color: #D49A8D;
+      border-color: rgba(212, 154, 141, 0.1);
     }
 
     .btn-submit:hover:not(:disabled) {
-      background: linear-gradient(135deg, rgba(100, 200, 255, 0.15), rgba(167, 139, 250, 0.15));
-      border-color: rgba(167, 139, 250, 0.2);
+      background: linear-gradient(135deg, rgba(196, 122, 109, 0.15), rgba(212, 154, 141, 0.15));
+      border-color: rgba(212, 154, 141, 0.2);
       transform: scale(1.04);
     }
 
@@ -393,9 +396,10 @@
       transform: none !important;
     }
 
+    /* Exam Header */
     .exam-header {
       text-align: center;
-      padding: 24px 0 20px;
+      padding: 14px 0 20px;
     }
 
     .exam-badge {
@@ -433,56 +437,111 @@
       transition: all 0.4s ease;
     }
 
-    .instructions-box {
-      background: rgba(5, 5, 20, 0.3);
-      backdrop-filter: blur(20px);
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      padding: 22px 28px;
-      margin: 10px 0 24px;
-      transition: all 0.4s ease;
+    /* Two-column layout */
+    .exam-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin: 16px 0 32px;
+      align-items: start;
     }
 
-    .instructions-box .instructions-title {
+    /* Reading Panel */
+    .reading-panel {
+      background: rgba(5, 5, 20, 0.3);
+      backdrop-filter: blur(30px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 28px 30px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s ease;
+      max-height: 650px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .reading-panel .passage-title {
       font-family: 'Orbitron', monospace;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: rgba(255, 255, 255, 0.2);
       letter-spacing: 2px;
-      margin-bottom: 8px;
+      margin-bottom: 14px;
+      flex-shrink: 0;
     }
 
-    .instructions-box .instructions-text {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.6);
-      line-height: 1.8;
+    .reading-panel .passage-scroll {
+      overflow-y: auto;
+      padding-right: 8px;
+      flex: 1;
     }
 
-    .instructions-box .instructions-text .highlight {
-      color: #64c8ff;
-      font-weight: 800;
+    .reading-panel .passage-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .reading-panel .passage-scroll::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+    }
+    .reading-panel .passage-scroll::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #C47A6D, #D49A8D);
+      border-radius: 12px;
+    }
+    body.light-theme .reading-panel .passage-scroll::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.03);
+    }
+    body.light-theme .reading-panel .passage-scroll::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #B96D60, #9F5A50);
     }
 
-    body.light-theme .instructions-box .instructions-text .highlight {
-      color: #4a7cf7;
+    .reading-panel .passage-text {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 400;
     }
 
-    .questions-container {
+    .reading-panel .passage-text p {
+      margin-bottom: 1.2em;
+    }
+
+    /* Questions Panel — scrollable */
+    .questions-panel {
       display: flex;
       flex-direction: column;
-      gap: 24px;
-      margin: 16px 0 32px;
+      gap: 20px;
+      max-height: 650px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .questions-panel::-webkit-scrollbar {
+      width: 4px;
+    }
+    .questions-panel::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+    }
+    .questions-panel::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #C47A6D, #D49A8D);
+      border-radius: 12px;
+    }
+    body.light-theme .questions-panel::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.03);
+    }
+    body.light-theme .questions-panel::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #B96D60, #9F5A50);
     }
 
     .question-card {
       background: rgba(5, 5, 20, 0.3);
       backdrop-filter: blur(30px);
       border-radius: 20px;
-      padding: 28px 32px;
+      padding: 22px 26px;
       border: 1px solid rgba(255, 255, 255, 0.04);
       box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
       transition: all 0.4s ease;
+      flex-shrink: 0;
     }
 
     .question-card:hover {
@@ -491,34 +550,32 @@
 
     .question-card .q-number {
       font-family: 'Orbitron', monospace;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       font-weight: 700;
       color: rgba(255, 255, 255, 0.15);
       letter-spacing: 2px;
-      margin-bottom: 8px;
-      transition: all 0.4s ease;
+      margin-bottom: 6px;
     }
 
     .question-card .q-text {
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 16px;
-      line-height: 1.6;
-      transition: all 0.4s ease;
+      margin-bottom: 12px;
+      line-height: 1.5;
     }
 
     .options {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
     .option {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 14px 20px;
+      padding: 10px 16px;
       background: rgba(255, 255, 255, 0.02);
       border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.04);
@@ -533,8 +590,8 @@
 
     .option input[type="radio"] {
       appearance: none;
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       border: 2px solid rgba(255, 255, 255, 0.1);
       border-radius: 50%;
       position: relative;
@@ -544,8 +601,8 @@
     }
 
     .option input[type="radio"]:checked:not(:disabled) {
-      border-color: #a78bfa;
-      background: rgba(167, 139, 250, 0.1);
+      border-color: #D49A8D;
+      background: rgba(212, 154, 141, 0.1);
     }
 
     .option input[type="radio"]:checked:not(:disabled)::after {
@@ -554,10 +611,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      background: #a78bfa;
+      background: #D49A8D;
     }
 
     .option input[type="radio"]:disabled {
@@ -565,7 +622,7 @@
     }
 
     .option .option-label {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
       color: rgba(255, 255, 255, 0.5);
       transition: color 0.3s ease;
@@ -623,11 +680,12 @@
       border-color: rgba(255, 255, 255, 0.04);
     }
 
+    /* Bottom Actions */
     .bottom-actions {
       display: flex;
       justify-content: center;
       gap: 20px;
-      margin: 20px 0 30px;
+      margin: 10px 0 30px;
       flex-wrap: wrap;
     }
 
@@ -639,6 +697,7 @@
       font-weight: 700;
     }
 
+    /* Score Display */
     .score-display {
       background: rgba(5, 5, 20, 0.4);
       backdrop-filter: blur(20px);
@@ -665,7 +724,7 @@
       font-family: 'Orbitron', monospace;
       font-size: 2.2rem;
       font-weight: 900;
-      color: #a78bfa;
+      color: #D49A8D;
       transition: color 0.5s ease;
     }
 
@@ -695,37 +754,53 @@
       font-weight: 700;
     }
 
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .exam-grid {
+        grid-template-columns: 1fr;
+      }
+      .reading-panel {
+        max-height: 400px;
+      }
+      .questions-panel {
+        max-height: 500px;
+      }
+    }
+
     @media (max-width: 768px) {
       body { padding: 14px; }
       .top-bar { flex-direction: column; gap: 12px; padding: 14px 20px; border-radius: 40px; }
       .top-actions { flex-wrap: wrap; justify-content: center; }
       .exam-header h1 { font-size: 2rem; }
-      .question-card { padding: 20px 18px; }
-      .question-card .q-text { font-size: 1rem; }
+      .question-card { padding: 18px 16px; }
+      .question-card .q-text { font-size: 0.95rem; }
       .score-display { flex-direction: column; gap: 12px; text-align: center; }
       .score-display .score-detail { justify-content: center; gap: 20px; }
       .bottom-actions { flex-direction: column; align-items: center; }
       .bottom-actions .btn-back,
       .bottom-actions .btn-reset,
       .bottom-actions .btn-submit { width: 100%; max-width: 300px; }
-      .instructions-box .instructions-text { font-size: 1rem; }
-      .option .option-label { font-size: 0.95rem; }
+      .reading-panel { padding: 20px 18px; max-height: 350px; }
+      .reading-panel .passage-text { font-size: 0.95rem; line-height: 1.7; }
+      .option .option-label { font-size: 0.9rem; }
+      .questions-panel { max-height: 400px; }
     }
 
     @media (max-width: 480px) {
       .exam-header h1 { font-size: 1.6rem; letter-spacing: 2px; }
-      .option { padding: 10px 14px; }
+      .option { padding: 8px 12px; }
       .option .option-label { font-size: 0.85rem; }
-      .instructions-box .instructions-text { font-size: 0.9rem; }
+      .reading-panel .passage-text { font-size: 0.9rem; }
       .score-display .score-value { font-size: 1.8rem; }
+      .questions-panel { max-height: 350px; }
     }
 
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #64c8ff, #a78bfa); border-radius: 12px; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #C47A6D, #D49A8D); border-radius: 12px; }
 
     body.light-theme ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05); }
-    body.light-theme ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #4a7cf7, #7c5cbf); }
+    body.light-theme ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #B96D60, #9F5A50); }
   </style>
 </head>
 <body>
@@ -750,24 +825,33 @@
 
     <!-- Exam Header -->
     <div class="exam-header">
-      <div class="exam-badge">✦ Vocabulary · MERCURY</div>
-      <h1>VOCABULARY</h1>
-      <div class="subtitle">☿ G.12 Sem I 1st Session 2023-2024</div>
+      <div class="exam-badge">✦ READING 02 · VENUS</div>
+      <h1>READING COMPREHENSION</h1>
+      <div class="subtitle">♀ G. 12 Sem 1 2nd Session 2023-2024</div>
     </div>
 
-    <!-- Instructions -->
-    <div class="instructions-box">
-      <div class="instructions-title">📋 INSTRUCTIONS</div>
-      <div class="instructions-text">
-        For each item, choose the correct word or phrase to complete the sentence.
-        <br><br>
-        <span style="font-size:0.9rem; font-weight:400; opacity:0.5;">⏱️ 5 questions · 5 marks</span>
+    <!-- Grid: Reading + Questions -->
+    <div class="exam-grid">
+      <!-- Reading Panel (left) -->
+      <div class="reading-panel">
+        <div class="passage-title">📖 PASSAGE</div>
+        <div class="passage-scroll" id="passageScroll">
+          <div class="passage-text">
+            <p>Dear Majid,</p>
+            <p>I hope you’re doing well. How is it at Dhofar University? You haven’t written to me for a while. I expect you must be busy with your studies. Anyway, I wanted to tell you about the summer course I took at Sultan Qaboos University (SQU). It was similar to the programme your brother, Sami, took at Nizwa University last year. It was a fantastic experience, and I know you'll be interested to hear about it.</p>
+            <p>The course was for a total of eight weeks, four of which were spent in face-to-face and online sessions at SQU. It started the last week of June and finished the third week of August. Unfortunately, I joined the course one week later than scheduled in July because I wasn’t well. There were three courses: Accounting, Marketing and Management and we had to select one according to our specialisation and interest. I chose the Marketing Course as I felt it would help me get a good job after graduation.</p>
+            <p>An important part of the course involved being placed in a business environment for three weeks. The reason SQU did this was to equip students with the skills they needed to work with business organisations and experience first-hand real world problems. I was selected to work with a company called Falcon while some of my classmates went to Shell and others to Majan. As a result, we acquired essential skills in key areas such as customer service, cooperation, discipline and report writing. However, the most important thing I learned was how to manage my time more efficiently. As you know I find it difficult to get things done on time!</p>
+            <p>Initially, the most challenging problem we all had was adapting to business working hours especially those of us who lived outside Muscat. We had to work two shifts from 9 am to 1 pm and then work from 4 pm to 7 pm. It was so different to studying at SQU where we finished at 2 pm every day. The last week of the course was very busy as we only had five days to write, edit and submit our projects. I was really happy when I got an ‘A’ in my final report. However, I felt very sorry for those who failed as they won’t be allowed to graduate. I thought it was because they had missed some classes or had not attended their online sessions but it was because they had submitted their work late after the deadline had passed.</p>
+            <p>Please, write soon and tell me all your news.</p>
+            <p>Best regards,<br>Ahmed</p>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Questions -->
-    <div class="questions-container" id="questionsContainer">
-      <!-- injected by JS -->
+      <!-- Questions Panel (right) — scrollable -->
+      <div class="questions-panel" id="questionsContainer">
+        <!-- Questions injected by JS -->
+      </div>
     </div>
 
     <!-- Bottom Actions -->
@@ -786,19 +870,19 @@
       </div>
       <span class="score-value" id="scoreValue">
         <span id="scoreNum">0</span>
-        <span class="denominator"> / 5</span>
+        <span class="denominator"> / 8</span>
       </span>
     </div>
   </div>
 
   <script>
     // ============================================================
-    // STARS
+    // STAR GENERATION
     // ============================================================
     function createStars() {
       const container = document.getElementById('starContainer');
       if (!container) return;
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 120; i++) {
         const star = document.createElement('div');
         star.className = 'star';
         const size = Math.random() * 3 + 1;
@@ -823,53 +907,73 @@
     createStars();
 
     // ============================================================
-    // THEME
+    // THEME TOGGLE
     // ============================================================
     let isLightTheme = false;
+
     function toggleTheme() {
       isLightTheme = !isLightTheme;
       document.body.classList.toggle('light-theme', isLightTheme);
-      localStorage.setItem('grammar1Theme', isLightTheme ? 'light' : 'dark');
+      localStorage.setItem('reading2Theme', isLightTheme ? 'light' : 'dark');
     }
-    const savedTheme = localStorage.getItem('grammar1Theme');
+
+    const savedTheme = localStorage.getItem('reading2Theme');
     if (savedTheme === 'light') {
       isLightTheme = true;
       document.body.classList.add('light-theme');
     }
 
     // ============================================================
-    // QUESTIONS (based on the image)
+    // QUESTIONS DATA (based on the passage)
     // ============================================================
     const questions = [
       {
         id: 1,
-        text: 'He was unable to pay his ______ because he had borrowed so much money.',
-        options: ['degrees', 'drafts', 'directions', 'debts'],
-        correct: 3  // debts
+        text: 'Majid’s brother took a similar course at ______ University last year.',
+        options: ['Dhofar', 'Sultan Qaboos', 'Nizwa'],
+        correct: 2
       },
       {
         id: 2,
-        text: 'I need to ______ more before I take my driving test next week.',
-        options: ['proofread', 'analyse', 'summarise', 'practice'],
-        correct: 3  // practice
+        text: 'Ahmed started his course in ______.',
+        options: ['June', 'July', 'August'],
+        correct: 1
       },
       {
         id: 3,
-        text: 'She is always purchasing new clothes. She is a ______ buyer.',
-        options: ['reasonable', 'compulsive', 'responsible', 'positive'],
-        correct: 1  // compulsive
+        text: 'Ahmed attended the ______ Course.',
+        options: ['Marketing', 'Accounting', 'Management'],
+        correct: 0
       },
       {
         id: 4,
-        text: 'He needs to work on his time ______ skills as he missed the deadline again.',
-        options: ['scoring', 'placement', 'management', 'editing'],
-        correct: 2  // management
+        text: 'The course participants spent ______ weeks working in a company.',
+        options: ['three', 'four', 'eight'],
+        correct: 0
       },
       {
         id: 5,
-        text: 'Advertisers use a lot of different ways to ______ us to buy their goods.',
-        options: ['persuade', 'reduce', 'compare', 'create'],
-        correct: 0  // persuade
+        text: 'Ahmed was assigned to work with ______.',
+        options: ['Majan', 'Shell', 'Falcon'],
+        correct: 2
+      },
+      {
+        id: 6,
+        text: 'The best thing Ahmed learned was how to ______.',
+        options: ['manage his time', 'find a job', 'deal with customers'],
+        correct: 0
+      },
+      {
+        id: 7,
+        text: 'The main issue participants faced in the workplace was ______.',
+        options: ['writing reports', 'working two shifts', 'cooperating with others'],
+        correct: 1
+      },
+      {
+        id: 8,
+        text: 'Participants who ______ failed the course.',
+        options: ['submitted their work late', 'did not attend online sessions', 'missed some classes'],
+        correct: 0
       }
     ];
 
@@ -880,7 +984,7 @@
     let isSubmitted = false;
 
     // ============================================================
-    // RENDER
+    // RENDER QUESTIONS
     // ============================================================
     function renderQuestions() {
       const container = document.getElementById('questionsContainer');
@@ -892,7 +996,7 @@
 
         const letter = String.fromCharCode(65 + index);
         card.innerHTML = `
-          <div class="q-number">${letter}. Question ${index + 1} of 5</div>
+          <div class="q-number">${letter}. Question ${index + 1} of 8</div>
           <div class="q-text">${q.text}</div>
           <div class="options" id="options-${index}">
             ${q.options.map((opt, optIndex) => `
@@ -920,9 +1024,11 @@
       const btn = document.getElementById('submitBtn');
       const answered = Object.keys(userAnswers).length;
       btn.disabled = answered < questions.length;
-      btn.textContent = answered < questions.length 
-        ? `✓ SUBMIT (${answered}/${questions.length})` 
-        : '✓ SUBMIT EXAM';
+      if (answered < questions.length) {
+        btn.textContent = `✓ SUBMIT (${answered}/${questions.length})`;
+      } else {
+        btn.textContent = '✓ SUBMIT EXAM';
+      }
     }
 
     // ============================================================
@@ -973,7 +1079,7 @@
       document.getElementById('wrongCount').textContent = `✗ ${wrongCount}`;
       document.getElementById('scoreValue').style.color = '#4ade80';
 
-      // Save score (exam1)
+            // Save score
       const score = correctCount;
       try {
         const student = localStorage.getItem('currentStudent');
@@ -981,10 +1087,10 @@
           const students = JSON.parse(localStorage.getItem('students')) || {};
           if (!students[student]) students[student] = { createdAt: new Date().toISOString(), tests: {} };
           if (!students[student].tests) students[student].tests = {};
-          if (!students[student].tests['exam1']) students[student].tests['exam1'] = {};
-          students[student].tests['exam1']['vocabulary'] = score;
+          if (!students[student].tests['exam2']) students[student].tests['exam2'] = {};
+          students[student].tests['exam2']['reading2'] = score;
           localStorage.setItem('students', JSON.stringify(students));
-          console.log('Grammar score saved:', score);
+          console.log('Score saved:', score);
         }
       } catch (e) {
         console.log('Score saved locally only');
@@ -1003,11 +1109,11 @@
       document.getElementById('scoreNum').textContent = '0';
       document.getElementById('correctCount').textContent = '✓ 0';
       document.getElementById('wrongCount').textContent = '✗ 0';
-      document.getElementById('scoreValue').style.color = '#a78bfa';
+      document.getElementById('scoreValue').style.color = '#D49A8D';
 
       const submitBtn = document.getElementById('submitBtn');
       submitBtn.disabled = true;
-      submitBtn.textContent = '✓ SUBMIT (0/5)';
+      submitBtn.textContent = '✓ SUBMIT (0/8)';
 
       questions.forEach((q, index) => {
         const optionsContainer = document.getElementById(`options-${index}`);
@@ -1031,7 +1137,7 @@
       document.body.style.transition = 'opacity 0.3s ease';
       document.body.style.opacity = '0';
       setTimeout(() => {
-        window.location.href = 'mercury_Dashboard.html';
+        window.location.href = 'venus_Dashboard.html';
       }, 300);
     }
 

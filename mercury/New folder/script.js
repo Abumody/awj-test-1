@@ -20,14 +20,15 @@
   // SCORE MANAGEMENT
   // ============================================
   const SECTION_KEYS = [
-    'listening1', 'listening2', 'vocabulary', 'grammar', 'reading1', 'reading2', 'reading3', 'writing1', 'writing2'
+    'listening1', 'listening2', 'grammar', 'vocabulary', 'grammarVocab', 'reading1', 'reading2', 'reading3', 'writing1', 'writing2'
   ];
 
   const MAX_SCORES = {
     listening1: 7,
     listening2: 8,
-    vocabulary: 5,
     grammar: 5,
+    vocabulary: 5,
+    grammarVocab: 5,
     reading1: 7,
     reading2: 8,
     reading3: 10,
@@ -95,16 +96,19 @@
     document.getElementById('overallScore').textContent = total;
     document.getElementById('totalScore').textContent = total + ' / ' + totalMax;
 
-    const allCompleted = SECTION_KEYS.every(key => scores[key] !== null && scores[key] !== undefined);
-    if (allCompleted && total > 0) {
-      const students = JSON.parse(localStorage.getItem('students')) || {};
-      if (students[student]) {
-        if (!students[student].tests) students[student].tests = {};
-        students[student].tests['exam1_completed'] = true;
-        localStorage.setItem('students', JSON.stringify(students));
-      }
-    }
+const allCompleted = SECTION_KEYS.every(key => scores[key] !== null && scores[key] !== undefined);
+
+if (allCompleted && total > 0) {
+  const students = JSON.parse(localStorage.getItem('students')) || {};
+
+  if (students[student]) {
+    if (!students[student].tests) students[student].tests = {};
+
+    students[student].tests['exam1_completed'] = true;
+
+    localStorage.setItem('students', JSON.stringify(students));
   }
+}
 
   // ============================================
   // CREATE STARS
@@ -161,24 +165,19 @@
     
     container.appendChild(star);
     
-    // Remove after animation
     setTimeout(() => {
       star.remove();
     }, duration * 1000);
   }
 
-  // Generate shooting stars periodically
   function startShootingStars() {
-    // Initial burst
     for (let i = 0; i < 3; i++) {
       setTimeout(() => createShootingStar(), i * 1000);
     }
     
-    // Continuous
     setInterval(() => {
       if (Math.random() < 0.3) {
         createShootingStar();
-        // Sometimes spawn a second one
         if (Math.random() < 0.3) {
           setTimeout(createShootingStar, 500);
         }
@@ -187,7 +186,7 @@
   }
 
   // ============================================
-  // MOUSE PARALLAX FOR BLACK HOLES
+  // MOUSE PARALLAX
   // ============================================
   document.addEventListener('mousemove', function(e) {
     const holes = document.querySelectorAll('.black-hole');
@@ -216,7 +215,7 @@
   });
 
   // ============================================
-  // BACK TO HOME
+  // NAVIGATION
   // ============================================
   window.goHome = function() {
     document.body.style.transition = 'opacity 0.4s ease';
@@ -226,9 +225,6 @@
     }, 400);
   };
 
-  // ============================================
-  // LOGOUT
-  // ============================================
   window.logout = function() {
     document.body.style.transition = 'opacity 0.4s ease';
     document.body.style.opacity = '0';

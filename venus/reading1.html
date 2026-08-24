@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vocabulary · Mercury Exam</title>
+  <title>Reading 1 · Venus Exam</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * {
@@ -88,6 +88,12 @@
       color: rgba(0, 0, 0, 0.7);
     }
 
+    body.light-theme .question-card .q-context {
+      color: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.02);
+      border-left-color: rgba(74, 124, 247, 0.2);
+    }
+
     body.light-theme .option {
       background: rgba(0, 0, 0, 0.02);
       border-color: rgba(0, 0, 0, 0.04);
@@ -124,9 +130,17 @@
       border-color: rgba(74, 222, 128, 0.25);
     }
 
+    body.light-theme .option.correct .option-label {
+      color: #0b7e3a !important;
+    }
+
     body.light-theme .option.wrong {
       background: rgba(255, 50, 50, 0.12);
       border-color: rgba(255, 50, 50, 0.25);
+    }
+
+    body.light-theme .option.wrong .option-label {
+      color: #b91c1c !important;
     }
 
     body.light-theme .btn-back {
@@ -471,7 +485,7 @@
     .questions-container {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 28px;
       margin: 16px 0 32px;
     }
 
@@ -499,10 +513,23 @@
       transition: all 0.4s ease;
     }
 
+    .question-card .q-context {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 14px 18px;
+      border-radius: 12px;
+      border-left: 3px solid rgba(100, 200, 255, 0.15);
+      margin-bottom: 14px;
+      line-height: 1.7;
+      transition: all 0.4s ease;
+    }
+
     .question-card .q-text {
       font-size: 1.2rem;
       font-weight: 700;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.85);
       margin-bottom: 16px;
       line-height: 1.6;
       transition: all 0.4s ease;
@@ -702,6 +729,7 @@
       .exam-header h1 { font-size: 2rem; }
       .question-card { padding: 20px 18px; }
       .question-card .q-text { font-size: 1rem; }
+      .question-card .q-context { font-size: 0.85rem; padding: 10px 14px; }
       .score-display { flex-direction: column; gap: 12px; text-align: center; }
       .score-display .score-detail { justify-content: center; gap: 20px; }
       .bottom-actions { flex-direction: column; align-items: center; }
@@ -727,6 +755,157 @@
     body.light-theme ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05); }
     body.light-theme ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #4a7cf7, #7c5cbf); }
   </style>
+
+<style id="venus-identity">
+/* ============================================================
+   VENUS IDENTITY — VENUS ROSE GOLD / SOFT COPPER
+   Planet 2 · Fixed visual identity
+   ============================================================ */
+:root{
+  --venus-rose-gold:#C98272;
+  --venus-soft-copper:#D9A094;
+  --venus-light:#E6B6AA;
+  --venus-deep:#8F5148;
+  --venus-bg:#140B0C;
+}
+body{
+  background:#140B0C;
+}
+.cosmic-bg{
+  background:
+    radial-gradient(ellipse at 20% 30%, #2A1518, transparent 60%),
+    radial-gradient(ellipse at 80% 70%, #241011, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, #140B0C, #080405 100%);
+}
+.nebula-1{
+  background:rgba(201,130,114,.10);
+}
+.nebula-2{
+  background:rgba(143,81,72,.09);
+}
+.brand .logo-icon{
+  border-color:rgba(217,160,148,.38);
+  background:rgba(201,130,114,.09);
+  color:var(--venus-soft-copper);
+}
+.brand .glow{
+  background:linear-gradient(135deg,var(--venus-soft-copper),var(--venus-rose-gold));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.btn-back:hover{
+  background:rgba(201,130,114,.08);
+  border-color:rgba(217,160,148,.30);
+}
+.btn-reset{
+  color:#E6B6AA;
+  border-color:rgba(201,130,114,.24);
+  background:rgba(201,130,114,.07);
+}
+.btn-reset:hover{
+  background:rgba(201,130,114,.13);
+  border-color:rgba(217,160,148,.38);
+}
+.btn-submit{
+  color:#E6B6AA;
+  border-color:rgba(201,130,114,.28);
+  background:linear-gradient(135deg,rgba(201,130,114,.16),rgba(217,160,148,.10));
+}
+.btn-submit:hover:not(:disabled){
+  background:linear-gradient(135deg,rgba(201,130,114,.24),rgba(217,160,148,.16));
+  border-color:rgba(230,182,170,.42);
+}
+.exam-badge{
+  color:var(--venus-soft-copper);
+  border-color:rgba(201,130,114,.25);
+}
+.exam-header h1{
+  background:linear-gradient(135deg,#FFF8F5,var(--venus-soft-copper));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.instructions-box{
+  border-color:rgba(201,130,114,.18);
+}
+.instructions-box .instructions-text .highlight{
+  color:var(--venus-soft-copper);
+}
+.question-card{
+  border-color:rgba(201,130,114,.18);
+}
+.question-card:hover{
+  border-color:rgba(217,160,148,.30);
+}
+.question-card .q-context{
+  border-left-color:rgba(201,130,114,.55);
+}
+.option input[type="radio"]:checked:not(:disabled){
+  border-color:var(--venus-soft-copper);
+  background:rgba(201,130,114,.13);
+}
+.option input[type="radio"]:checked:not(:disabled)::after{
+  background:var(--venus-rose-gold);
+}
+.score-display{
+  border-color:rgba(201,130,114,.18);
+}
+.score-display .score-value{
+  color:var(--venus-soft-copper);
+}
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(135deg,var(--venus-rose-gold),var(--venus-soft-copper));
+}
+body.light-theme{
+  background:#F5ECE9;
+  color:#2A1A18;
+}
+body.light-theme .cosmic-bg{
+  background:
+    radial-gradient(ellipse at 20% 30%,#F0DCD6,transparent 60%),
+    radial-gradient(ellipse at 80% 70%,#E9CCC5,transparent 50%),
+    radial-gradient(ellipse at 50% 50%,#F5ECE9,#EBDDD8 100%);
+}
+body.light-theme .brand .glow{
+  background:linear-gradient(135deg,#B86F61,#8F5148);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+body.light-theme .brand .logo-icon{
+  border-color:rgba(184,111,97,.28);
+  color:#B86F61;
+}
+body.light-theme .btn-submit{
+  color:#A65F53;
+  border-color:rgba(184,111,97,.22);
+  background:linear-gradient(135deg,rgba(184,111,97,.10),rgba(217,160,148,.10));
+}
+body.light-theme .btn-reset{
+  color:#9A554A;
+  border-color:rgba(184,111,97,.18);
+  background:rgba(184,111,97,.06);
+}
+body.light-theme .option input[type="radio"]:checked:not(:disabled){
+  border-color:#B86F61;
+  background:rgba(184,111,97,.10);
+}
+body.light-theme .option input[type="radio"]:checked:not(:disabled)::after{
+  background:#B86F61;
+}
+body.light-theme .instructions-box .instructions-text .highlight{
+  color:#B86F61;
+}
+body.light-theme .score-display .score-value{
+  color:#B86F61;
+}
+body.light-theme ::-webkit-scrollbar-thumb{
+  background:linear-gradient(135deg,#B86F61,#D9A094);
+}
+</style>
+
+<!-- VENUS ROSE GOLD / SOFT COPPER · PLANET 2 · EXAM2 -->
 </head>
 <body>
   <div class="cosmic-bg">
@@ -736,10 +915,9 @@
   </div>
 
   <div class="container">
-    <!-- Top Bar -->
     <header class="top-bar">
       <div class="brand">
-        <div class="logo-icon">✦</div>
+        <div class="logo-icon">♀</div>
         <span class="glow">AWJ</span>
       </div>
       <div class="top-actions">
@@ -748,36 +926,29 @@
       </div>
     </header>
 
-    <!-- Exam Header -->
     <div class="exam-header">
-      <div class="exam-badge">✦ Vocabulary · MERCURY</div>
-      <h1>VOCABULARY</h1>
-      <div class="subtitle">☿ G.12 Sem I 1st Session 2023-2024</div>
+      <div class="exam-badge">♀ READING 01 · VENUS</div>
+      <h1>READING COMPREHENSION</h1>
+      <div class="subtitle">♀ G.12 Sem I 2nd Session 2023-2024</div>
     </div>
 
-    <!-- Instructions -->
     <div class="instructions-box">
       <div class="instructions-title">📋 INSTRUCTIONS</div>
       <div class="instructions-text">
-        For each item, choose the correct word or phrase to complete the sentence.
+        Read the texts. Are the statements which follow each text <span class="highlight">True</span> or <span class="highlight">False</span>?
         <br><br>
-        <span style="font-size:0.9rem; font-weight:400; opacity:0.5;">⏱️ 5 questions · 5 marks</span>
+        <span style="font-size:0.9rem; font-weight:400; opacity:0.5;">⏱️ For each item, select the correct option.</span>
       </div>
     </div>
 
-    <!-- Questions -->
-    <div class="questions-container" id="questionsContainer">
-      <!-- injected by JS -->
-    </div>
+    <div class="questions-container" id="questionsContainer"></div>
 
-    <!-- Bottom Actions -->
     <div class="bottom-actions">
       <button class="btn-back" onclick="goBack()">◀ BACK TO DASHBOARD</button>
       <button class="btn-reset" onclick="resetExam()">⟳ RESET ALL</button>
       <button class="btn-submit" id="submitBtn" onclick="submitExam()">✓ SUBMIT EXAM</button>
     </div>
 
-    <!-- Score Display -->
     <div class="score-display">
       <span class="score-label">✦ SCORE</span>
       <div class="score-detail">
@@ -786,7 +957,7 @@
       </div>
       <span class="score-value" id="scoreValue">
         <span id="scoreNum">0</span>
-        <span class="denominator"> / 5</span>
+        <span class="denominator"> / 7</span>
       </span>
     </div>
   </div>
@@ -795,10 +966,10 @@
     // ============================================================
     // STARS
     // ============================================================
-    function createStars() {
+    (function createStars() {
       const container = document.getElementById('starContainer');
       if (!container) return;
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 120; i++) {
         const star = document.createElement('div');
         star.className = 'star';
         const size = Math.random() * 3 + 1;
@@ -819,8 +990,7 @@
         `;
         container.appendChild(star);
       }
-    }
-    createStars();
+    })();
 
     // ============================================================
     // THEME
@@ -829,47 +999,52 @@
     function toggleTheme() {
       isLightTheme = !isLightTheme;
       document.body.classList.toggle('light-theme', isLightTheme);
-      localStorage.setItem('grammar1Theme', isLightTheme ? 'light' : 'dark');
+      localStorage.setItem('reading1Theme', isLightTheme ? 'light' : 'dark');
     }
-    const savedTheme = localStorage.getItem('grammar1Theme');
+    const savedTheme = localStorage.getItem('reading1Theme');
     if (savedTheme === 'light') {
       isLightTheme = true;
       document.body.classList.add('light-theme');
     }
 
     // ============================================================
-    // QUESTIONS (based on the image)
+    // QUESTIONS DATA with context + statement
     // ============================================================
     const questions = [
-      {
-        id: 1,
-        text: 'He was unable to pay his ______ because he had borrowed so much money.',
-        options: ['degrees', 'drafts', 'directions', 'debts'],
-        correct: 3  // debts
+      { 
+        context: "Anne always remembers the time when her jeep ran out of petrol driving from Duqm to Salalah along the coast road. There were no petrol stations open at that time! Luckily, a very nice Omani family stopped and gave her petrol so she could continue her journey.",
+        statement: "Anne bought fuel for her car at the petrol station.",
+        correct: 1
       },
-      {
-        id: 2,
-        text: 'I need to ______ more before I take my driving test next week.',
-        options: ['proofread', 'analyse', 'summarise', 'practice'],
-        correct: 3  // practice
+      { 
+        context: "In the past, companies used to pay newspapers a lot of money to advertise their goods. However, nowadays companies are using social media platforms, like Instagram, to promote their products.",
+        statement: "Companies have changed the way they promote their goods.",
+        correct: 0
       },
-      {
-        id: 3,
-        text: 'She is always purchasing new clothes. She is a ______ buyer.',
-        options: ['reasonable', 'compulsive', 'responsible', 'positive'],
-        correct: 1  // compulsive
+      { 
+        context: "Hi Fahad, I’m so sorry but I won’t be able to play football with you tonight. My father and uncle have asked me to go with them to visit my grandfather in Al Hamra. See you tomorrow, Talal",
+        statement: "Talal will visit his relative tomorrow.",
+        correct: 1
       },
-      {
-        id: 4,
-        text: 'He needs to work on his time ______ skills as he missed the deadline again.',
-        options: ['scoring', 'placement', 'management', 'editing'],
-        correct: 2  // management
+      { 
+        context: "Two weeks ago, when I was going to the airport with my wife, we got stuck in a traffic jam. When we arrived at the airport, the check-in desk was closed and we had to buy new tickets because we had missed our flight. I’ll never forget that journey.",
+        statement: "The writer reached the airport on time.",
+        correct: 1
       },
-      {
-        id: 5,
-        text: 'Advertisers use a lot of different ways to ______ us to buy their goods.',
-        options: ['persuade', 'reduce', 'compare', 'create'],
-        correct: 0  // persuade
+      { 
+        context: "Jumbo Electronics is looking for a talented, dynamic sales manager. Interested candidates should email their CV and application letter, to the manager@jumboelectrics.com. Please note that all candidates should: * have at least 5 years’ sales experience. * be fluent in Arabic and English. * have a driving licence.",
+        statement: "No experience is required for the job.",
+        correct: 1
+      },
+      { 
+        context: "The Ministry of Tourism in Italy has introduced strict guidelines for tourists who wish to visit historical places. Tourists must obtain an official letter or permit and be accompanied by a tour guide at all times.",
+        statement: "Visiting historical sites in Italy requires special permission.",
+        correct: 0
+      },
+      { 
+        context: "When I first started working, I did not value team work. I thought I could do everything by myself. However, I have changed my opinion because I have learned how important team work is, if one wants to succeed in life.",
+        statement: "The writer did not believe in team work when he began his career.",
+        correct: 0
       }
     ];
 
@@ -889,13 +1064,13 @@
         const card = document.createElement('div');
         card.className = 'question-card';
         card.id = `q-${index}`;
-
         const letter = String.fromCharCode(65 + index);
         card.innerHTML = `
-          <div class="q-number">${letter}. Question ${index + 1} of 5</div>
-          <div class="q-text">${q.text}</div>
+          <div class="q-number">${letter}. Question ${index + 1} of 7</div>
+          <div class="q-context">${q.context}</div>
+          <div class="q-text">${q.statement}</div>
           <div class="options" id="options-${index}">
-            ${q.options.map((opt, optIndex) => `
+            ${['True', 'False'].map((opt, optIndex) => `
               <label class="option" id="opt-${index}-${optIndex}">
                 <input type="radio" name="q${index}" value="${optIndex}" onchange="selectOption(${index}, ${optIndex})">
                 <span class="option-label">${String.fromCharCode(65 + optIndex)}. ${opt}</span>
@@ -920,9 +1095,7 @@
       const btn = document.getElementById('submitBtn');
       const answered = Object.keys(userAnswers).length;
       btn.disabled = answered < questions.length;
-      btn.textContent = answered < questions.length 
-        ? `✓ SUBMIT (${answered}/${questions.length})` 
-        : '✓ SUBMIT EXAM';
+      btn.textContent = answered < questions.length ? `✓ SUBMIT (${answered}/${questions.length})` : '✓ SUBMIT EXAM';
     }
 
     // ============================================================
@@ -941,9 +1114,7 @@
       submitBtn.disabled = true;
       submitBtn.textContent = '✓ SUBMITTED';
 
-      let correctCount = 0;
-      let wrongCount = 0;
-
+      let correctCount = 0, wrongCount = 0;
       questions.forEach((q, index) => {
         const userAns = userAnswers[index];
         const isCorrect = userAns === q.correct;
@@ -973,8 +1144,6 @@
       document.getElementById('wrongCount').textContent = `✗ ${wrongCount}`;
       document.getElementById('scoreValue').style.color = '#4ade80';
 
-      // Save score (exam1)
-      const score = correctCount;
       try {
         const student = localStorage.getItem('currentStudent');
         if (student) {
@@ -982,22 +1151,17 @@
           if (!students[student]) students[student] = { createdAt: new Date().toISOString(), tests: {} };
           if (!students[student].tests) students[student].tests = {};
           if (!students[student].tests['exam1']) students[student].tests['exam1'] = {};
-          students[student].tests['exam1']['vocabulary'] = score;
+          students[student].tests['exam2']['reading1'] = correctCount;
           localStorage.setItem('students', JSON.stringify(students));
-          console.log('Grammar score saved:', score);
         }
-      } catch (e) {
-        console.log('Score saved locally only');
-      }
+      } catch (e) {}
     }
 
     // ============================================================
     // RESET
     // ============================================================
     function resetExam() {
-      if (isSubmitted) {
-        if (!confirm('This will reset all your answers. Are you sure?')) return;
-      }
+      if (isSubmitted && !confirm('This will reset all your answers. Are you sure?')) return;
       isSubmitted = false;
       userAnswers = {};
       document.getElementById('scoreNum').textContent = '0';
@@ -1007,9 +1171,9 @@
 
       const submitBtn = document.getElementById('submitBtn');
       submitBtn.disabled = true;
-      submitBtn.textContent = '✓ SUBMIT (0/5)';
+      submitBtn.textContent = '✓ SUBMIT (0/7)';
 
-      questions.forEach((q, index) => {
+      questions.forEach((_, index) => {
         const optionsContainer = document.getElementById(`options-${index}`);
         if (optionsContainer) {
           optionsContainer.querySelectorAll('.option').forEach(opt => {
@@ -1030,9 +1194,7 @@
     function goBack() {
       document.body.style.transition = 'opacity 0.3s ease';
       document.body.style.opacity = '0';
-      setTimeout(() => {
-        window.location.href = 'mercury_Dashboard.html';
-      }, 300);
+      setTimeout(() => { window.location.href = 'venus_Dashboard.html'; }, 300);
     }
 
     // ============================================================

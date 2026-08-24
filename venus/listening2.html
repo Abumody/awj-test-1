@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vocabulary · Mercury Exam</title>
+  <title>Listening 2 · Venus — The History of Jeans</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * {
@@ -46,15 +46,15 @@
     }
 
     body.light-theme .brand .glow {
-      background: linear-gradient(135deg, #4a7cf7, #7c5cbf);
+      background: linear-gradient(135deg, #D95F7A, #D95F7A);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     body.light-theme .brand .logo-icon {
-      border-color: rgba(74, 124, 247, 0.2);
-      color: #4a7cf7;
+      border-color: rgba(217, 95, 122, 0.2);
+      color: #D95F7A;
     }
 
     body.light-theme .exam-badge {
@@ -71,6 +71,33 @@
 
     body.light-theme .exam-header .subtitle {
       color: rgba(0, 0, 0, 0.25);
+    }
+
+    body.light-theme .audio-player {
+      background: rgba(255, 255, 255, 0.7);
+      border-color: rgba(0, 0, 0, 0.06);
+    }
+
+    body.light-theme .audio-player .play-btn {
+      background: rgba(217, 95, 122, 0.08);
+      border-color: rgba(217, 95, 122, 0.15);
+      color: #D95F7A;
+    }
+
+    body.light-theme .audio-player .play-btn:hover {
+      background: rgba(217, 95, 122, 0.15);
+    }
+
+    body.light-theme .audio-player .progress-bar {
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    body.light-theme .audio-player .progress-bar .progress-fill {
+      background: linear-gradient(90deg, #D95F7A, #D95F7A);
+    }
+
+    body.light-theme .audio-player .time-display {
+      color: rgba(0, 0, 0, 0.3);
     }
 
     body.light-theme .question-card {
@@ -103,12 +130,12 @@
     }
 
     body.light-theme .option input[type="radio"]:checked:not(:disabled) {
-      border-color: #4a7cf7;
-      background: rgba(74, 124, 247, 0.08);
+      border-color: #D95F7A;
+      background: rgba(217, 95, 122, 0.08);
     }
 
     body.light-theme .option input[type="radio"]:checked:not(:disabled)::after {
-      background: #4a7cf7;
+      background: #D95F7A;
     }
 
     body.light-theme .option .option-label {
@@ -135,8 +162,8 @@
     }
 
     body.light-theme .btn-back:hover {
-      background: rgba(74, 124, 247, 0.05);
-      border-color: rgba(74, 124, 247, 0.1);
+      background: rgba(217, 95, 122, 0.05);
+      border-color: rgba(217, 95, 122, 0.1);
     }
 
     body.light-theme .btn-reset {
@@ -151,14 +178,14 @@
     }
 
     body.light-theme .btn-submit {
-      background: linear-gradient(135deg, rgba(74, 124, 247, 0.08), rgba(124, 92, 191, 0.08));
-      color: #4a7cf7;
-      border-color: rgba(74, 124, 247, 0.1);
+      background: linear-gradient(135deg, rgba(217, 95, 122, 0.08), rgba(217, 95, 122, 0.08));
+      color: #D95F7A;
+      border-color: rgba(217, 95, 122, 0.1);
     }
 
     body.light-theme .btn-submit:hover:not(:disabled) {
-      background: linear-gradient(135deg, rgba(74, 124, 247, 0.15), rgba(124, 92, 191, 0.15));
-      border-color: rgba(74, 124, 247, 0.2);
+      background: linear-gradient(135deg, rgba(217, 95, 122, 0.15), rgba(217, 95, 122, 0.15));
+      border-color: rgba(217, 95, 122, 0.2);
     }
 
     body.light-theme .score-display {
@@ -172,7 +199,7 @@
     }
 
     body.light-theme .score-display .score-value {
-      color: #4a7cf7;
+      color: #D95F7A;
     }
 
     body.light-theme .score-display .score-value .denominator {
@@ -302,19 +329,19 @@
     .brand .logo-icon {
       width: 40px;
       height: 40px;
-      border: 2px solid rgba(100, 200, 255, 0.15);
+      border: 2px solid rgba(231, 111, 138, 0.15);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 18px;
-      background: rgba(100, 200, 255, 0.03);
-      color: #64c8ff;
+      background: rgba(231, 111, 138, 0.03);
+      color: #E76F8A;
       transition: all 0.4s ease;
     }
 
     .brand .glow {
-      background: linear-gradient(135deg, #64c8ff, #a78bfa);
+      background: linear-gradient(135deg, #E76F8A, #E76F8A);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -358,8 +385,8 @@
     }
 
     .btn-back:hover {
-      background: rgba(100, 200, 255, 0.05);
-      border-color: rgba(100, 200, 255, 0.1);
+      background: rgba(231, 111, 138, 0.05);
+      border-color: rgba(231, 111, 138, 0.1);
       transform: scale(1.04);
     }
 
@@ -376,14 +403,14 @@
     }
 
     .btn-submit {
-      background: linear-gradient(135deg, rgba(100, 200, 255, 0.08), rgba(167, 139, 250, 0.08));
-      color: #a78bfa;
-      border-color: rgba(167, 139, 250, 0.1);
+      background: linear-gradient(135deg, rgba(231, 111, 138, 0.08), rgba(231, 111, 138, 0.08));
+      color: #E76F8A;
+      border-color: rgba(231, 111, 138, 0.1);
     }
 
     .btn-submit:hover:not(:disabled) {
-      background: linear-gradient(135deg, rgba(100, 200, 255, 0.15), rgba(167, 139, 250, 0.15));
-      border-color: rgba(167, 139, 250, 0.2);
+      background: linear-gradient(135deg, rgba(231, 111, 138, 0.15), rgba(231, 111, 138, 0.15));
+      border-color: rgba(231, 111, 138, 0.2);
       transform: scale(1.04);
     }
 
@@ -460,12 +487,82 @@
     }
 
     .instructions-box .instructions-text .highlight {
-      color: #64c8ff;
+      color: #E76F8A;
       font-weight: 800;
     }
 
     body.light-theme .instructions-box .instructions-text .highlight {
-      color: #4a7cf7;
+      color: #D95F7A;
+    }
+
+    .audio-player {
+      background: rgba(5, 5, 20, 0.4);
+      backdrop-filter: blur(20px);
+      border-radius: 60px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 18px 30px;
+      margin: 20px 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: all 0.4s ease;
+    }
+
+    .audio-player .play-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, rgba(231, 111, 138, 0.1), rgba(231, 111, 138, 0.1));
+      border: 1px solid rgba(231, 111, 138, 0.15);
+      color: #E76F8A;
+      font-size: 1.6rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .audio-player .play-btn:hover {
+      transform: scale(1.08);
+      background: linear-gradient(135deg, rgba(231, 111, 138, 0.15), rgba(231, 111, 138, 0.15));
+    }
+
+    .audio-player .progress-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .audio-player .progress-bar {
+      flex: 1;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 6px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.4s ease;
+    }
+
+    .audio-player .progress-bar .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #E76F8A, #E76F8A);
+      border-radius: 6px;
+      transition: width 0.1s linear;
+    }
+
+    .audio-player .time-display {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.2);
+      min-width: 90px;
+      text-align: center;
+      transition: all 0.4s ease;
     }
 
     .questions-container {
@@ -544,8 +641,8 @@
     }
 
     .option input[type="radio"]:checked:not(:disabled) {
-      border-color: #a78bfa;
-      background: rgba(167, 139, 250, 0.1);
+      border-color: #E76F8A;
+      background: rgba(231, 111, 138, 0.1);
     }
 
     .option input[type="radio"]:checked:not(:disabled)::after {
@@ -557,7 +654,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: #a78bfa;
+      background: #E76F8A;
     }
 
     .option input[type="radio"]:disabled {
@@ -665,7 +762,7 @@
       font-family: 'Orbitron', monospace;
       font-size: 2.2rem;
       font-weight: 900;
-      color: #a78bfa;
+      color: #E76F8A;
       transition: color 0.5s ease;
     }
 
@@ -695,11 +792,90 @@
       font-weight: 700;
     }
 
+    .part-divider {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.2);
+      letter-spacing: 4px;
+      padding: 20px 0 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      margin-top: 8px;
+    }
+
+    body.light-theme .part-divider {
+      color: rgba(0, 0, 0, 0.15);
+      border-top-color: rgba(0, 0, 0, 0.06);
+    }
+
+    /* short answer input */
+    .short-answer-input {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 14px 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ffffff;
+      width: 100%;
+      max-width: 400px;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    body.light-theme .short-answer-input {
+      background: rgba(0, 0, 0, 0.02);
+      border-color: rgba(0, 0, 0, 0.08);
+      color: #1a1a2e;
+    }
+
+    .short-answer-input:focus {
+      border-color: #E76F8A;
+      box-shadow: 0 0 0 3px rgba(231, 111, 138, 0.15);
+    }
+
+    .short-answer-input:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .short-answer-input.correct {
+      border-color: #4ade80;
+      background: rgba(74, 222, 128, 0.06);
+    }
+
+    .short-answer-input.wrong {
+      border-color: #ff6b6b;
+      background: rgba(255, 50, 50, 0.06);
+    }
+
+    .short-answer-feedback {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 6px;
+      display: none;
+    }
+
+    .short-answer-feedback.show {
+      display: block;
+    }
+
+    .short-answer-feedback.correct-text {
+      color: #4ade80;
+    }
+
+    .short-answer-feedback.wrong-text {
+      color: #ff6b6b;
+    }
+
     @media (max-width: 768px) {
       body { padding: 14px; }
       .top-bar { flex-direction: column; gap: 12px; padding: 14px 20px; border-radius: 40px; }
       .top-actions { flex-wrap: wrap; justify-content: center; }
       .exam-header h1 { font-size: 2rem; }
+      .audio-player { flex-wrap: wrap; padding: 16px 20px; border-radius: 40px; }
+      .audio-player .progress-container { width: 100%; }
       .question-card { padding: 20px 18px; }
       .question-card .q-text { font-size: 1rem; }
       .score-display { flex-direction: column; gap: 12px; text-align: center; }
@@ -710,6 +886,7 @@
       .bottom-actions .btn-submit { width: 100%; max-width: 300px; }
       .instructions-box .instructions-text { font-size: 1rem; }
       .option .option-label { font-size: 0.95rem; }
+      .short-answer-input { max-width: 100%; font-size: 1rem; }
     }
 
     @media (max-width: 480px) {
@@ -722,10 +899,10 @@
 
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #64c8ff, #a78bfa); border-radius: 12px; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #E76F8A, #E76F8A); border-radius: 12px; }
 
     body.light-theme ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05); }
-    body.light-theme ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #4a7cf7, #7c5cbf); }
+    body.light-theme ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #D95F7A, #D95F7A); }
   </style>
 </head>
 <body>
@@ -736,7 +913,6 @@
   </div>
 
   <div class="container">
-    <!-- Top Bar -->
     <header class="top-bar">
       <div class="brand">
         <div class="logo-icon">✦</div>
@@ -748,36 +924,43 @@
       </div>
     </header>
 
-    <!-- Exam Header -->
     <div class="exam-header">
-      <div class="exam-badge">✦ Vocabulary · MERCURY</div>
-      <h1>VOCABULARY</h1>
-      <div class="subtitle">☿ G.12 Sem I 1st Session 2023-2024</div>
+      <div class="exam-badge">✦ LISTENING 02 · VENUS</div>
+      <h1>THE HISTORY OF JEANS</h1>
+      <div class="subtitle">♀ G.12 Sem I 2nd Session 2023-2024</div>
     </div>
 
-    <!-- Instructions -->
     <div class="instructions-box">
       <div class="instructions-title">📋 INSTRUCTIONS</div>
       <div class="instructions-text">
-        For each item, choose the correct word or phrase to complete the sentence.
+        You are going to hear a talk about <span class="highlight">The History of Jeans</span>.
         <br><br>
-        <span style="font-size:0.9rem; font-weight:400; opacity:0.5;">⏱️ 5 questions · 5 marks</span>
+        <span style="font-size:0.9rem; font-weight:400; opacity:0.5;">⏱️ You can listen to the audio as many times as you need.</span>
+        <br>
+        <span style="font-size:0.9rem; font-weight:400; opacity:0.5;">✏️ Part One: write your answer (max 4 words). Part Two: choose the correct option.</span>
       </div>
     </div>
 
-    <!-- Questions -->
-    <div class="questions-container" id="questionsContainer">
-      <!-- injected by JS -->
+    <div class="audio-player">
+      <button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button>
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar" onclick="seekAudio(event)">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span class="time-display" id="timeDisplay">0:00 / 0:00</span>
+      </div>
     </div>
 
-    <!-- Bottom Actions -->
+    <div class="questions-container" id="questionsContainer">
+      <!-- dynamic -->
+    </div>
+
     <div class="bottom-actions">
       <button class="btn-back" onclick="goBack()">◀ BACK TO DASHBOARD</button>
       <button class="btn-reset" onclick="resetExam()">⟳ RESET ALL</button>
       <button class="btn-submit" id="submitBtn" onclick="submitExam()">✓ SUBMIT EXAM</button>
     </div>
 
-    <!-- Score Display -->
     <div class="score-display">
       <span class="score-label">✦ SCORE</span>
       <div class="score-detail">
@@ -786,19 +969,17 @@
       </div>
       <span class="score-value" id="scoreValue">
         <span id="scoreNum">0</span>
-        <span class="denominator"> / 5</span>
+        <span class="denominator"> / 8</span>
       </span>
     </div>
   </div>
 
   <script>
-    // ============================================================
-    // STARS
-    // ============================================================
-    function createStars() {
+    // ===== STARS =====
+    (function createStars() {
       const container = document.getElementById('starContainer');
       if (!container) return;
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 120; i++) {
         const star = document.createElement('div');
         star.className = 'star';
         const size = Math.random() * 3 + 1;
@@ -808,10 +989,8 @@
         const minOpacity = Math.random() * 0.2 + 0.1;
         const maxOpacity = Math.random() * 0.6 + 0.4;
         star.style.cssText = `
-          width: ${size}px;
-          height: ${size}px;
-          left: ${x}%;
-          top: ${y}%;
+          width: ${size}px; height: ${size}px;
+          left: ${x}%; top: ${y}%;
           --duration: ${duration}s;
           --min-opacity: ${minOpacity};
           --max-opacity: ${maxOpacity};
@@ -819,97 +998,107 @@
         `;
         container.appendChild(star);
       }
-    }
-    createStars();
+    })();
 
-    // ============================================================
-    // THEME
-    // ============================================================
+    // ===== THEME =====
     let isLightTheme = false;
     function toggleTheme() {
       isLightTheme = !isLightTheme;
       document.body.classList.toggle('light-theme', isLightTheme);
-      localStorage.setItem('grammar1Theme', isLightTheme ? 'light' : 'dark');
+      localStorage.setItem('venusListening2Theme', isLightTheme ? 'light' : 'dark');
     }
-    const savedTheme = localStorage.getItem('grammar1Theme');
-    if (savedTheme === 'light') {
+    if (localStorage.getItem('venusListening2Theme') === 'light') {
       isLightTheme = true;
       document.body.classList.add('light-theme');
     }
 
-    // ============================================================
-    // QUESTIONS (based on the image)
-    // ============================================================
+    // ===== QUESTIONS DATA =====
+    // Part One: short answer (we store accepted answers as array)
+    // Part Two: MCQ (correct index)
     const questions = [
-      {
-        id: 1,
-        text: 'He was unable to pay his ______ because he had borrowed so much money.',
-        options: ['degrees', 'drafts', 'directions', 'debts'],
-        correct: 3  // debts
-      },
-      {
-        id: 2,
-        text: 'I need to ______ more before I take my driving test next week.',
-        options: ['proofread', 'analyse', 'summarise', 'practice'],
-        correct: 3  // practice
-      },
-      {
-        id: 3,
-        text: 'She is always purchasing new clothes. She is a ______ buyer.',
-        options: ['reasonable', 'compulsive', 'responsible', 'positive'],
-        correct: 1  // compulsive
-      },
-      {
-        id: 4,
-        text: 'He needs to work on his time ______ skills as he missed the deadline again.',
-        options: ['scoring', 'placement', 'management', 'editing'],
-        correct: 2  // management
-      },
-      {
-        id: 5,
-        text: 'Advertisers use a lot of different ways to ______ us to buy their goods.',
-        options: ['persuade', 'reduce', 'compare', 'create'],
-        correct: 0  // persuade
-      }
+      // Part One – short answer
+      { id: 1, part: 1, text: 'When was the first pair of jeans made? (year)', type: 'short', correct: ['1873'] },
+      { id: 2, part: 1, text: 'Who wore the first pair of jeans?', type: 'short', correct: ['a farmer', "mary's husband"] },
+      { id: 3, part: 1, text: 'Why did Davis cover the pockets with copper?', type: 'short', correct: ["they wouldn't tear", "wouldn't get damaged", 'make them stronger'] },
+      { id: 4, part: 1, text: 'Where did Davis and Levi Strauss open their jeans factory? (country)', type: 'short', correct: ['usa', 'america', 'the united states', 'united states'] },
+
+      // Part Two – MCQ
+      { id: 5, part: 2, text: 'Workers prefer denim jeans because they are ______.', type: 'mcq', options: ['softer', 'practical', 'lighter'], correct: 1 },
+      { id: 6, part: 2, text: 'Jeans became popular ______ the Second World War.', type: 'mcq', options: ['before', 'during', 'after'], correct: 2 },
+      { id: 7, part: 2, text: 'The 2012 report showed that ______ percent of jeans were manufactured in Asia.', type: 'mcq', options: ['forty', 'fifty', 'seventy'], correct: 1 },
+      { id: 8, part: 2, text: 'By 2030, the global jeans market will rise to ______ billion US dollars.', type: 'mcq', options: ['78', '83', '122'], correct: 2 }
     ];
 
-    // ============================================================
-    // STATE
-    // ============================================================
-    let userAnswers = {};
+    // ===== STATE =====
+    let userAnswers = {}; // for MCQ: index; for short: string
     let isSubmitted = false;
 
-    // ============================================================
-    // RENDER
-    // ============================================================
+    // ===== RENDER =====
     function renderQuestions() {
       const container = document.getElementById('questionsContainer');
       container.innerHTML = '';
-      questions.forEach((q, index) => {
-        const card = document.createElement('div');
-        card.className = 'question-card';
-        card.id = `q-${index}`;
 
-        const letter = String.fromCharCode(65 + index);
-        card.innerHTML = `
-          <div class="q-number">${letter}. Question ${index + 1} of 5</div>
-          <div class="q-text">${q.text}</div>
-          <div class="options" id="options-${index}">
-            ${q.options.map((opt, optIndex) => `
-              <label class="option" id="opt-${index}-${optIndex}">
-                <input type="radio" name="q${index}" value="${optIndex}" onchange="selectOption(${index}, ${optIndex})">
-                <span class="option-label">${String.fromCharCode(65 + optIndex)}. ${opt}</span>
-              </label>
-            `).join('')}
-          </div>
-        `;
-        container.appendChild(card);
+      // Part One header
+      const part1Div = document.createElement('div');
+      part1Div.className = 'part-divider';
+      part1Div.textContent = '✦ PART ONE – SHORT ANSWER (max 4 words)';
+      container.appendChild(part1Div);
+
+      questions.forEach((q, idx) => {
+        if (q.part === 1) {
+          const card = document.createElement('div');
+          card.className = 'question-card';
+          card.id = `q-${idx}`;
+          const letter = String.fromCharCode(65 + idx);
+          card.innerHTML = `
+            <div class="q-number">${letter}. Question ${idx+1} of 8</div>
+            <div class="q-text">${q.text}</div>
+            <div>
+              <input class="short-answer-input" id="short-${idx}" type="text" placeholder="Type your answer..." maxlength="50" oninput="onShortInput(${idx}, this.value)">
+              <div class="short-answer-feedback" id="feedback-${idx}"></div>
+            </div>
+          `;
+          container.appendChild(card);
+        }
+      });
+
+      // Part Two header
+      const part2Div = document.createElement('div');
+      part2Div.className = 'part-divider';
+      part2Div.textContent = '✦ PART TWO – MULTIPLE CHOICE';
+      container.appendChild(part2Div);
+
+      questions.forEach((q, idx) => {
+        if (q.part === 2) {
+          const card = document.createElement('div');
+          card.className = 'question-card';
+          card.id = `q-${idx}`;
+          const letter = String.fromCharCode(65 + idx);
+          card.innerHTML = `
+            <div class="q-number">${letter}. Question ${idx+1} of 8</div>
+            <div class="q-text">${q.text}</div>
+            <div class="options" id="options-${idx}">
+              ${q.options.map((opt, oi) => `
+                <label class="option" id="opt-${idx}-${oi}">
+                  <input type="radio" name="q${idx}" value="${oi}" onchange="selectOption(${idx}, ${oi})">
+                  <span class="option-label">${String.fromCharCode(65 + oi)}. ${opt}</span>
+                </label>
+              `).join('')}
+            </div>
+          `;
+          container.appendChild(card);
+        }
       });
     }
 
-    // ============================================================
-    // INTERACTIONS
-    // ============================================================
+    // ===== SHORT ANSWER HANDLING =====
+    function onShortInput(idx, value) {
+      if (isSubmitted) return;
+      userAnswers[idx] = value.trim();
+      updateSubmitButton();
+    }
+
+    // ===== MCQ HANDLING =====
     function selectOption(qIndex, optIndex) {
       if (isSubmitted) return;
       userAnswers[qIndex] = optIndex;
@@ -918,63 +1107,94 @@
 
     function updateSubmitButton() {
       const btn = document.getElementById('submitBtn');
-      const answered = Object.keys(userAnswers).length;
+      let answered = 0;
+      questions.forEach((q, idx) => {
+        if (q.type === 'short') {
+          if (userAnswers[idx] && userAnswers[idx].length > 0) answered++;
+        } else {
+          if (userAnswers[idx] !== undefined) answered++;
+        }
+      });
       btn.disabled = answered < questions.length;
-      btn.textContent = answered < questions.length 
-        ? `✓ SUBMIT (${answered}/${questions.length})` 
-        : '✓ SUBMIT EXAM';
+      btn.textContent = answered < questions.length ? `✓ SUBMIT (${answered}/${questions.length})` : '✓ SUBMIT EXAM';
     }
 
-    // ============================================================
-    // SUBMIT
-    // ============================================================
+    // ===== NORMALIZE STRING =====
+    function normalize(str) {
+      return str.toLowerCase().replace(/\s+/g, ' ').trim();
+    }
+
+    // ===== SUBMIT =====
     function submitExam() {
       if (isSubmitted) return;
-      const answered = Object.keys(userAnswers).length;
+      let answered = 0;
+      questions.forEach((q, idx) => {
+        if (q.type === 'short') {
+          if (userAnswers[idx] && userAnswers[idx].length > 0) answered++;
+        } else {
+          if (userAnswers[idx] !== undefined) answered++;
+        }
+      });
       if (answered < questions.length) {
-        alert(`Please answer all ${questions.length} questions before submitting. (${answered}/${questions.length} answered)`);
+        alert(`Please answer all ${questions.length} questions.`);
         return;
       }
 
       isSubmitted = true;
-      const submitBtn = document.getElementById('submitBtn');
-      submitBtn.disabled = true;
-      submitBtn.textContent = '✓ SUBMITTED';
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('submitBtn').textContent = '✓ SUBMITTED';
 
-      let correctCount = 0;
-      let wrongCount = 0;
+      let correct = 0, wrong = 0;
 
-      questions.forEach((q, index) => {
-        const userAns = userAnswers[index];
-        const isCorrect = userAns === q.correct;
-        if (isCorrect) correctCount++;
-        else wrongCount++;
+      questions.forEach((q, idx) => {
+        if (q.type === 'short') {
+          const input = document.getElementById(`short-${idx}`);
+          const feedback = document.getElementById(`feedback-${idx}`);
+          const userVal = normalize(userAnswers[idx] || '');
+          const isCorrect = q.correct.some(c => normalize(c) === userVal);
+          if (isCorrect) correct++; else wrong++;
 
-        const correctOpt = document.getElementById(`opt-${index}-${q.correct}`);
-        if (correctOpt) correctOpt.classList.add('correct');
+          input.disabled = true;
+          if (isCorrect) {
+            input.classList.add('correct');
+            feedback.className = 'short-answer-feedback show correct-text';
+            feedback.textContent = '✓ Correct';
+          } else {
+            input.classList.add('wrong');
+            feedback.className = 'short-answer-feedback show wrong-text';
+            feedback.textContent = `✗ Expected: ${q.correct[0]}`;
+          }
+        } else {
+          // MCQ
+          const userAns = userAnswers[idx];
+          const isCorrect = userAns === q.correct;
+          if (isCorrect) correct++; else wrong++;
 
-        if (!isCorrect && userAns !== undefined) {
-          const wrongOpt = document.getElementById(`opt-${index}-${userAns}`);
-          if (wrongOpt) wrongOpt.classList.add('wrong');
-        }
+          const correctOpt = document.getElementById(`opt-${idx}-${q.correct}`);
+          if (correctOpt) correctOpt.classList.add('correct');
 
-        const optionsContainer = document.getElementById(`options-${index}`);
-        if (optionsContainer) {
-          optionsContainer.querySelectorAll('.option').forEach(opt => {
-            opt.classList.add('disabled');
-            const radio = opt.querySelector('input[type="radio"]');
-            if (radio) radio.disabled = true;
-          });
+          if (!isCorrect && userAns !== undefined) {
+            const wrongOpt = document.getElementById(`opt-${idx}-${userAns}`);
+            if (wrongOpt) wrongOpt.classList.add('wrong');
+          }
+
+          const opts = document.getElementById(`options-${idx}`);
+          if (opts) {
+            opts.querySelectorAll('.option').forEach(el => {
+              el.classList.add('disabled');
+              const radio = el.querySelector('input[type="radio"]');
+              if (radio) radio.disabled = true;
+            });
+          }
         }
       });
 
-      document.getElementById('scoreNum').textContent = correctCount;
-      document.getElementById('correctCount').textContent = `✓ ${correctCount}`;
-      document.getElementById('wrongCount').textContent = `✗ ${wrongCount}`;
+      document.getElementById('scoreNum').textContent = correct;
+      document.getElementById('correctCount').textContent = `✓ ${correct}`;
+      document.getElementById('wrongCount').textContent = `✗ ${wrong}`;
       document.getElementById('scoreValue').style.color = '#4ade80';
 
-      // Save score (exam1)
-      const score = correctCount;
+      // save score
       try {
         const student = localStorage.getItem('currentStudent');
         if (student) {
@@ -982,69 +1202,117 @@
           if (!students[student]) students[student] = { createdAt: new Date().toISOString(), tests: {} };
           if (!students[student].tests) students[student].tests = {};
           if (!students[student].tests['exam1']) students[student].tests['exam1'] = {};
-          students[student].tests['exam1']['vocabulary'] = score;
+          students[student].tests['exam1']['listening2'] = correct;
           localStorage.setItem('students', JSON.stringify(students));
-          console.log('Grammar score saved:', score);
         }
-      } catch (e) {
-        console.log('Score saved locally only');
-      }
+      } catch(e) {}
     }
 
-    // ============================================================
-    // RESET
-    // ============================================================
+    // ===== RESET =====
     function resetExam() {
-      if (isSubmitted) {
-        if (!confirm('This will reset all your answers. Are you sure?')) return;
-      }
+      if (isSubmitted && !confirm('Reset all answers?')) return;
       isSubmitted = false;
       userAnswers = {};
       document.getElementById('scoreNum').textContent = '0';
       document.getElementById('correctCount').textContent = '✓ 0';
       document.getElementById('wrongCount').textContent = '✗ 0';
-      document.getElementById('scoreValue').style.color = '#a78bfa';
+      document.getElementById('scoreValue').style.color = '#E76F8A';
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('submitBtn').textContent = '✓ SUBMIT (0/8)';
 
-      const submitBtn = document.getElementById('submitBtn');
-      submitBtn.disabled = true;
-      submitBtn.textContent = '✓ SUBMIT (0/5)';
-
-      questions.forEach((q, index) => {
-        const optionsContainer = document.getElementById(`options-${index}`);
-        if (optionsContainer) {
-          optionsContainer.querySelectorAll('.option').forEach(opt => {
-            opt.classList.remove('correct', 'wrong', 'disabled');
-            const radio = opt.querySelector('input[type="radio"]');
-            if (radio) {
-              radio.checked = false;
-              radio.disabled = false;
-            }
-          });
+      // Reset short inputs
+      questions.forEach((q, idx) => {
+        if (q.type === 'short') {
+          const input = document.getElementById(`short-${idx}`);
+          if (input) {
+            input.value = '';
+            input.disabled = false;
+            input.className = 'short-answer-input';
+          }
+          const fb = document.getElementById(`feedback-${idx}`);
+          if (fb) {
+            fb.className = 'short-answer-feedback';
+            fb.textContent = '';
+          }
+        } else {
+          const opts = document.getElementById(`options-${idx}`);
+          if (opts) {
+            opts.querySelectorAll('.option').forEach(el => {
+              el.classList.remove('correct', 'wrong', 'disabled');
+              const radio = el.querySelector('input[type="radio"]');
+              if (radio) { radio.checked = false; radio.disabled = false; }
+            });
+          }
         }
       });
     }
 
-    // ============================================================
-    // NAVIGATION
-    // ============================================================
+    // ===== AUDIO =====
+    const AUDIO_PATH = '../audio 02/listening2_2.mp3';
+    let audio = null;
+    let isPlaying = false;
+
+    function initAudio() {
+      if (!audio) {
+        audio = new Audio(AUDIO_PATH);
+        audio.onloadedmetadata = updateAudioUI;
+        audio.onerror = () => console.error('Audio load error');
+      }
+      updateAudioUI();
+    }
+
+    function togglePlay() {
+      if (!audio) initAudio();
+      if (isPlaying) { audio.pause(); } else { audio.play().catch(() => alert('Audio file not found.')); }
+    }
+
+    function updateAudioUI() {
+      const playBtn = document.getElementById('playBtn');
+      const progressFill = document.getElementById('progressFill');
+      const timeDisplay = document.getElementById('timeDisplay');
+      if (!audio) return;
+      const update = () => {
+        if (audio.duration && !isNaN(audio.duration)) {
+          progressFill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          timeDisplay.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration);
+        }
+      };
+      audio.addEventListener('timeupdate', update);
+      audio.addEventListener('play', () => { isPlaying = true; playBtn.textContent = '⏸'; });
+      audio.addEventListener('pause', () => { isPlaying = false; playBtn.textContent = '▶'; });
+      audio.addEventListener('ended', () => { isPlaying = false; playBtn.textContent = '▶'; progressFill.style.width = '0%'; });
+      setTimeout(update, 100);
+    }
+
+    function formatTime(sec) {
+      if (!sec || isNaN(sec)) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function seekAudio(e) {
+      if (!audio) return;
+      const bar = document.getElementById('progressBar');
+      const rect = bar.getBoundingClientRect();
+      const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      if (audio.duration && !isNaN(audio.duration)) audio.currentTime = pct * audio.duration;
+    }
+
+    // ===== NAV =====
     function goBack() {
       document.body.style.transition = 'opacity 0.3s ease';
       document.body.style.opacity = '0';
-      setTimeout(() => {
-        window.location.href = 'mercury_Dashboard.html';
-      }, 300);
+      setTimeout(() => window.location.href = 'venus_Dashboard.html', 300);
     }
 
-    // ============================================================
-    // INIT
-    // ============================================================
+    // ===== INIT =====
     renderQuestions();
     updateSubmitButton();
+    initAudio();
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && !document.getElementById('submitBtn').disabled) {
-        submitExam();
-      }
+      if (e.key === 'Enter' && !document.getElementById('submitBtn').disabled) submitExam();
     });
   </script>
 </body>

@@ -42,7 +42,7 @@
     const students = JSON.parse(localStorage.getItem('students')) || {};
     const studentData = students[student];
     if (!studentData || !studentData.tests) return {};
-    return studentData.tests['exam1'] || {};
+    return studentData.tests['exam2'] || {};
   }
 
   function saveScores(scores) {
@@ -55,7 +55,7 @@
     if (!students[student].tests) {
       students[student].tests = {};
     }
-    students[student].tests['exam1'] = scores;
+    students[student].tests['exam2'] = scores;
     localStorage.setItem('students', JSON.stringify(students));
   }
 
@@ -101,9 +101,7 @@
       const students = JSON.parse(localStorage.getItem('students')) || {};
       if (students[student]) {
         if (!students[student].tests) students[student].tests = {};
-        students[student].tests['exam1_completed'] = true;
-        students[student].tests['exam1_completedAt'] =
-          students[student].tests['exam1_completedAt'] || new Date().toISOString();
+        students[student].tests['exam2_completed'] = true;
         localStorage.setItem('students', JSON.stringify(students));
       }
     }

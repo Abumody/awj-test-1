@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vocabulary · Mercury Exam</title>
+  <title>Grammar 03 · Earth Exam</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * {
@@ -17,7 +17,7 @@
       color: #ffffff;
       min-height: 100vh;
       padding: 20px 28px 50px;
-      background: #050510;
+      background: #061A1B;
       position: relative;
       transition: all 0.4s ease;
     }
@@ -46,7 +46,7 @@
     }
 
     body.light-theme .brand .glow {
-      background: linear-gradient(135deg, #4a7cf7, #7c5cbf);
+      background: linear-gradient(135deg, #2F9C95, #176D69);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -54,7 +54,7 @@
 
     body.light-theme .brand .logo-icon {
       border-color: rgba(74, 124, 247, 0.2);
-      color: #4a7cf7;
+      color: #2F9C95;
     }
 
     body.light-theme .exam-badge {
@@ -103,12 +103,12 @@
     }
 
     body.light-theme .option input[type="radio"]:checked:not(:disabled) {
-      border-color: #4a7cf7;
+      border-color: #2F9C95;
       background: rgba(74, 124, 247, 0.08);
     }
 
     body.light-theme .option input[type="radio"]:checked:not(:disabled)::after {
-      background: #4a7cf7;
+      background: #2F9C95;
     }
 
     body.light-theme .option .option-label {
@@ -152,7 +152,7 @@
 
     body.light-theme .btn-submit {
       background: linear-gradient(135deg, rgba(74, 124, 247, 0.08), rgba(124, 92, 191, 0.08));
-      color: #4a7cf7;
+      color: #2F9C95;
       border-color: rgba(74, 124, 247, 0.1);
     }
 
@@ -172,7 +172,7 @@
     }
 
     body.light-theme .score-display .score-value {
-      color: #4a7cf7;
+      color: #2F9C95;
     }
 
     body.light-theme .score-display .score-value .denominator {
@@ -212,9 +212,9 @@
       inset: 0;
       z-index: 0;
       background: 
-        radial-gradient(ellipse at 20% 30%, #0a0a2e, transparent 60%),
-        radial-gradient(ellipse at 80% 70%, #0e0518, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, #050510, #000000 100%);
+        radial-gradient(ellipse at 20% 30%, #0B3435, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, #06302E, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, #061A1B, #020B0B 100%);
       overflow: hidden;
       transition: all 0.4s ease;
     }
@@ -230,7 +230,7 @@
     .nebula-1 {
       width: 600px;
       height: 600px;
-      background: rgba(100, 50, 200, 0.06);
+      background: rgba(39,180,165,0.075);
       top: -200px;
       right: -100px;
       animation-duration: 35s;
@@ -239,7 +239,7 @@
     .nebula-2 {
       width: 500px;
       height: 500px;
-      background: rgba(50, 100, 200, 0.05);
+      background: rgba(24,125,120,0.07);
       bottom: -150px;
       left: -100px;
       animation-duration: 40s;
@@ -302,19 +302,19 @@
     .brand .logo-icon {
       width: 40px;
       height: 40px;
-      border: 2px solid rgba(100, 200, 255, 0.15);
+      border: 2px solid rgba(62,196,181,0.20);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 18px;
-      background: rgba(100, 200, 255, 0.03);
-      color: #64c8ff;
+      background: rgba(62,196,181,0.04);
+      color: #3EC4B5;
       transition: all 0.4s ease;
     }
 
     .brand .glow {
-      background: linear-gradient(135deg, #64c8ff, #a78bfa);
+      background: linear-gradient(135deg, #3EC4B5, #16827D);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -358,8 +358,8 @@
     }
 
     .btn-back:hover {
-      background: rgba(100, 200, 255, 0.05);
-      border-color: rgba(100, 200, 255, 0.1);
+      background: rgba(62,196,181,0.05);
+      border-color: rgba(62,196,181,0.10);
       transform: scale(1.04);
     }
 
@@ -376,14 +376,14 @@
     }
 
     .btn-submit {
-      background: linear-gradient(135deg, rgba(100, 200, 255, 0.08), rgba(167, 139, 250, 0.08));
-      color: #a78bfa;
-      border-color: rgba(167, 139, 250, 0.1);
+      background: linear-gradient(135deg, rgba(62,196,181,0.08), rgba(22,130,125,0.08));
+      color: #16827D;
+      border-color: rgba(22,130,125,0.10);
     }
 
     .btn-submit:hover:not(:disabled) {
-      background: linear-gradient(135deg, rgba(100, 200, 255, 0.15), rgba(167, 139, 250, 0.15));
-      border-color: rgba(167, 139, 250, 0.2);
+      background: linear-gradient(135deg, rgba(62,196,181,0.20), rgba(22,130,125,0.15));
+      border-color: rgba(22,130,125,0.20);
       transform: scale(1.04);
     }
 
@@ -414,7 +414,7 @@
 
     .exam-header h1 {
       font-family: 'Orbitron', monospace;
-      font-size: 3.2rem;
+      font-size: 3rem;
       font-weight: 900;
       letter-spacing: 4px;
       background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.5));
@@ -460,12 +460,12 @@
     }
 
     .instructions-box .instructions-text .highlight {
-      color: #64c8ff;
+      color: #3EC4B5;
       font-weight: 800;
     }
 
     body.light-theme .instructions-box .instructions-text .highlight {
-      color: #4a7cf7;
+      color: #2F9C95;
     }
 
     .questions-container {
@@ -544,8 +544,8 @@
     }
 
     .option input[type="radio"]:checked:not(:disabled) {
-      border-color: #a78bfa;
-      background: rgba(167, 139, 250, 0.1);
+      border-color: #16827D;
+      background: rgba(22,130,125,0.10);
     }
 
     .option input[type="radio"]:checked:not(:disabled)::after {
@@ -557,7 +557,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: #a78bfa;
+      background: #16827D;
     }
 
     .option input[type="radio"]:disabled {
@@ -665,7 +665,7 @@
       font-family: 'Orbitron', monospace;
       font-size: 2.2rem;
       font-weight: 900;
-      color: #a78bfa;
+      color: #16827D;
       transition: color 0.5s ease;
     }
 
@@ -722,10 +722,10 @@
 
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #64c8ff, #a78bfa); border-radius: 12px; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #3EC4B5, #16827D); border-radius: 12px; }
 
     body.light-theme ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05); }
-    body.light-theme ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #4a7cf7, #7c5cbf); }
+    body.light-theme ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #2F9C95, #176D69); }
   </style>
 </head>
 <body>
@@ -739,7 +739,7 @@
     <!-- Top Bar -->
     <header class="top-bar">
       <div class="brand">
-        <div class="logo-icon">✦</div>
+        <div class="logo-icon">⚡</div>
         <span class="glow">AWJ</span>
       </div>
       <div class="top-actions">
@@ -750,25 +750,23 @@
 
     <!-- Exam Header -->
     <div class="exam-header">
-      <div class="exam-badge">✦ Vocabulary · MERCURY</div>
-      <h1>VOCABULARY</h1>
-      <div class="subtitle">☿ G.12 Sem I 1st Session 2023-2024</div>
+      <div class="exam-badge">✦ GRAMMAR 03 · EARTH</div>
+      <h1>GRAMMAR FOCUS</h1>
+      <div class="subtitle">🌍 G.12 Sem I 1st Session 2022-2023</div>
     </div>
 
     <!-- Instructions -->
     <div class="instructions-box">
       <div class="instructions-title">📋 INSTRUCTIONS</div>
       <div class="instructions-text">
-        For each item, choose the correct word or phrase to complete the sentence.
+        For each item, shade in the bubble next to the correct option.
         <br><br>
-        <span style="font-size:0.9rem; font-weight:400; opacity:0.5;">⏱️ 5 questions · 5 marks</span>
+        <span style="font-size:0.9rem; font-weight:400; opacity:0.5;">⏱️ Read the conversation carefully and select the best answer.</span>
       </div>
     </div>
 
     <!-- Questions -->
-    <div class="questions-container" id="questionsContainer">
-      <!-- injected by JS -->
-    </div>
+    <div class="questions-container" id="questionsContainer"></div>
 
     <!-- Bottom Actions -->
     <div class="bottom-actions">
@@ -798,7 +796,7 @@
     function createStars() {
       const container = document.getElementById('starContainer');
       if (!container) return;
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 120; i++) {
         const star = document.createElement('div');
         star.className = 'star';
         const size = Math.random() * 3 + 1;
@@ -808,13 +806,8 @@
         const minOpacity = Math.random() * 0.2 + 0.1;
         const maxOpacity = Math.random() * 0.6 + 0.4;
         star.style.cssText = `
-          width: ${size}px;
-          height: ${size}px;
-          left: ${x}%;
-          top: ${y}%;
-          --duration: ${duration}s;
-          --min-opacity: ${minOpacity};
-          --max-opacity: ${maxOpacity};
+          width: ${size}px; height: ${size}px; left: ${x}%; top: ${y}%;
+          --duration: ${duration}s; --min-opacity: ${minOpacity}; --max-opacity: ${maxOpacity};
           animation-delay: ${Math.random() * 4}s;
         `;
         container.appendChild(star);
@@ -829,47 +822,47 @@
     function toggleTheme() {
       isLightTheme = !isLightTheme;
       document.body.classList.toggle('light-theme', isLightTheme);
-      localStorage.setItem('grammar1Theme', isLightTheme ? 'light' : 'dark');
+      localStorage.setItem('grammar03Theme', isLightTheme ? 'light' : 'dark');
     }
-    const savedTheme = localStorage.getItem('grammar1Theme');
+    const savedTheme = localStorage.getItem('grammar03Theme');
     if (savedTheme === 'light') {
       isLightTheme = true;
       document.body.classList.add('light-theme');
     }
 
     // ============================================================
-    // QUESTIONS (based on the image)
+    // GRAMMAR 03 QUESTIONS (from the picture)
     // ============================================================
     const questions = [
       {
         id: 1,
-        text: 'He was unable to pay his ______ because he had borrowed so much money.',
-        options: ['degrees', 'drafts', 'directions', 'debts'],
-        correct: 3  // debts
+        text: 'Sameera: Yes, it is. I’ve just (1) ______ it.',
+        options: ['buy', 'bought'],
+        correct: 1  // bought
       },
       {
         id: 2,
-        text: 'I need to ______ more before I take my driving test next week.',
-        options: ['proofread', 'analyse', 'summarise', 'practice'],
-        correct: 3  // practice
+        text: 'Sameera: Yes, it is. It is (2) ______ by the Graco4ever company.',
+        options: ['manufacture', 'manufactured'],
+        correct: 1  // manufactured
       },
       {
         id: 3,
-        text: 'She is always purchasing new clothes. She is a ______ buyer.',
-        options: ['reasonable', 'compulsive', 'responsible', 'positive'],
-        correct: 1  // compulsive
+        text: 'Sameera: Well, this one is equipped with the latest technology. Imagine Graco designers (3) ______ baby car seats since 1983!',
+        options: ['have', 'has been developing'],
+        correct: 0  // have
       },
       {
         id: 4,
-        text: 'He needs to work on his time ______ skills as he missed the deadline again.',
-        options: ['scoring', 'placement', 'management', 'editing'],
-        correct: 2  // management
+        text: 'Mariam: WOW! What exactly does this latest technology (4) ______?',
+        options: ['do', 'did'],
+        correct: 0  // do
       },
       {
         id: 5,
-        text: 'Advertisers use a lot of different ways to ______ us to buy their goods.',
-        options: ['persuade', 'reduce', 'compare', 'create'],
-        correct: 0  // persuade
+        text: 'Sameera: Well, (5) ______ provides the latest protection for your child in case of an accident.',
+        options: ['It', 'he'],
+        correct: 0  // It
       }
     ];
 
@@ -920,9 +913,7 @@
       const btn = document.getElementById('submitBtn');
       const answered = Object.keys(userAnswers).length;
       btn.disabled = answered < questions.length;
-      btn.textContent = answered < questions.length 
-        ? `✓ SUBMIT (${answered}/${questions.length})` 
-        : '✓ SUBMIT EXAM';
+      btn.textContent = answered < questions.length ? `✓ SUBMIT (${answered}/${questions.length})` : '✓ SUBMIT EXAM';
     }
 
     // ============================================================
@@ -937,9 +928,8 @@
       }
 
       isSubmitted = true;
-      const submitBtn = document.getElementById('submitBtn');
-      submitBtn.disabled = true;
-      submitBtn.textContent = '✓ SUBMITTED';
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('submitBtn').textContent = '✓ SUBMITTED';
 
       let correctCount = 0;
       let wrongCount = 0;
@@ -973,46 +963,38 @@
       document.getElementById('wrongCount').textContent = `✗ ${wrongCount}`;
       document.getElementById('scoreValue').style.color = '#4ade80';
 
-      // Save score (exam1)
-      const score = correctCount;
+      // Save score to localStorage
       try {
         const student = localStorage.getItem('currentStudent');
         if (student) {
           const students = JSON.parse(localStorage.getItem('students')) || {};
           if (!students[student]) students[student] = { createdAt: new Date().toISOString(), tests: {} };
           if (!students[student].tests) students[student].tests = {};
-          if (!students[student].tests['exam1']) students[student].tests['exam1'] = {};
-          students[student].tests['exam1']['vocabulary'] = score;
+          if (!students[student].tests['exam3']) students[student].tests['exam3'] = {};
+          students[student].tests['exam3']['grammar'] = correctCount;
           localStorage.setItem('students', JSON.stringify(students));
-          console.log('Grammar score saved:', score);
         }
-      } catch (e) {
-        console.log('Score saved locally only');
-      }
+      } catch (e) {}
     }
 
     // ============================================================
     // RESET
     // ============================================================
     function resetExam() {
-      if (isSubmitted) {
-        if (!confirm('This will reset all your answers. Are you sure?')) return;
-      }
+      if (isSubmitted && !confirm('Reset all answers?')) return;
       isSubmitted = false;
       userAnswers = {};
       document.getElementById('scoreNum').textContent = '0';
       document.getElementById('correctCount').textContent = '✓ 0';
       document.getElementById('wrongCount').textContent = '✗ 0';
-      document.getElementById('scoreValue').style.color = '#a78bfa';
-
-      const submitBtn = document.getElementById('submitBtn');
-      submitBtn.disabled = true;
-      submitBtn.textContent = '✓ SUBMIT (0/5)';
+      document.getElementById('scoreValue').style.color = '#16827D';
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('submitBtn').textContent = '✓ SUBMIT (0/5)';
 
       questions.forEach((q, index) => {
-        const optionsContainer = document.getElementById(`options-${index}`);
-        if (optionsContainer) {
-          optionsContainer.querySelectorAll('.option').forEach(opt => {
+        const container = document.getElementById(`options-${index}`);
+        if (container) {
+          container.querySelectorAll('.option').forEach(opt => {
             opt.classList.remove('correct', 'wrong', 'disabled');
             const radio = opt.querySelector('input[type="radio"]');
             if (radio) {
@@ -1031,7 +1013,7 @@
       document.body.style.transition = 'opacity 0.3s ease';
       document.body.style.opacity = '0';
       setTimeout(() => {
-        window.location.href = 'mercury_Dashboard.html';
+        window.location.href = 'earth_Dashboard.html';
       }, 300);
     }
 

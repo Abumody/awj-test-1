@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vocabulary · Mercury Exam</title>
+  <title>Reading 3 · Venus Exam</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * {
@@ -18,7 +18,6 @@
       min-height: 100vh;
       padding: 20px 28px 50px;
       background: #050510;
-      position: relative;
       transition: all 0.4s ease;
     }
 
@@ -46,7 +45,7 @@
     }
 
     body.light-theme .brand .glow {
-      background: linear-gradient(135deg, #4a7cf7, #7c5cbf);
+      background: linear-gradient(135deg, #B97968, #D9A18F);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -54,7 +53,7 @@
 
     body.light-theme .brand .logo-icon {
       border-color: rgba(74, 124, 247, 0.2);
-      color: #4a7cf7;
+      color: #B97968;
     }
 
     body.light-theme .exam-badge {
@@ -73,6 +72,21 @@
       color: rgba(0, 0, 0, 0.25);
     }
 
+    body.light-theme .reading-panel {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(30px);
+      border-color: rgba(0, 0, 0, 0.06);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+    }
+
+    body.light-theme .reading-panel .passage-title {
+      color: rgba(0, 0, 0, 0.4);
+    }
+
+    body.light-theme .reading-panel .passage-text {
+      color: rgba(0, 0, 0, 0.75);
+    }
+
     body.light-theme .question-card {
       background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(30px);
@@ -86,6 +100,31 @@
 
     body.light-theme .question-card .q-text {
       color: rgba(0, 0, 0, 0.7);
+    }
+
+    body.light-theme .short-input {
+      background: rgba(0, 0, 0, 0.02);
+      border-color: rgba(0, 0, 0, 0.08);
+      color: #1a1a2e;
+    }
+
+    body.light-theme .short-input:focus {
+      border-color: #B97968;
+      background: rgba(74, 124, 247, 0.04);
+    }
+
+    body.light-theme .short-input.correct {
+      border-color: #4ade80;
+      background: rgba(74, 222, 128, 0.08);
+    }
+
+    body.light-theme .short-input.wrong {
+      border-color: #ff6b6b;
+      background: rgba(255, 50, 50, 0.08);
+    }
+
+    body.light-theme .short-feedback {
+      color: rgba(0, 0, 0, 0.5);
     }
 
     body.light-theme .option {
@@ -103,12 +142,12 @@
     }
 
     body.light-theme .option input[type="radio"]:checked:not(:disabled) {
-      border-color: #4a7cf7;
+      border-color: #B97968;
       background: rgba(74, 124, 247, 0.08);
     }
 
     body.light-theme .option input[type="radio"]:checked:not(:disabled)::after {
-      background: #4a7cf7;
+      background: #B97968;
     }
 
     body.light-theme .option .option-label {
@@ -152,7 +191,7 @@
 
     body.light-theme .btn-submit {
       background: linear-gradient(135deg, rgba(74, 124, 247, 0.08), rgba(124, 92, 191, 0.08));
-      color: #4a7cf7;
+      color: #B97968;
       border-color: rgba(74, 124, 247, 0.1);
     }
 
@@ -172,24 +211,11 @@
     }
 
     body.light-theme .score-display .score-value {
-      color: #4a7cf7;
+      color: #B97968;
     }
 
     body.light-theme .score-display .score-value .denominator {
       color: rgba(0, 0, 0, 0.15);
-    }
-
-    body.light-theme .instructions-box {
-      background: rgba(255, 255, 255, 0.7);
-      border-color: rgba(0, 0, 0, 0.06);
-    }
-
-    body.light-theme .instructions-box .instructions-title {
-      color: rgba(0, 0, 0, 0.4);
-    }
-
-    body.light-theme .instructions-box .instructions-text {
-      color: rgba(0, 0, 0, 0.6);
     }
 
     body.light-theme .btn-theme {
@@ -267,7 +293,7 @@
     }
 
     .container {
-      max-width: 950px;
+      max-width: 1400px;
       margin: 0 auto;
       position: relative;
       z-index: 5;
@@ -309,12 +335,12 @@
       justify-content: center;
       font-size: 18px;
       background: rgba(100, 200, 255, 0.03);
-      color: #64c8ff;
+      color: #C58B78;
       transition: all 0.4s ease;
     }
 
     .brand .glow {
-      background: linear-gradient(135deg, #64c8ff, #a78bfa);
+      background: linear-gradient(135deg, #C58B78, #E7B7A5);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -377,7 +403,7 @@
 
     .btn-submit {
       background: linear-gradient(135deg, rgba(100, 200, 255, 0.08), rgba(167, 139, 250, 0.08));
-      color: #a78bfa;
+      color: #E7B7A5;
       border-color: rgba(167, 139, 250, 0.1);
     }
 
@@ -395,7 +421,7 @@
 
     .exam-header {
       text-align: center;
-      padding: 24px 0 20px;
+      padding: 14px 0 20px;
     }
 
     .exam-badge {
@@ -433,56 +459,108 @@
       transition: all 0.4s ease;
     }
 
-    .instructions-box {
-      background: rgba(5, 5, 20, 0.3);
-      backdrop-filter: blur(20px);
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      padding: 22px 28px;
-      margin: 10px 0 24px;
-      transition: all 0.4s ease;
+    .exam-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin: 16px 0 32px;
+      align-items: start;
     }
 
-    .instructions-box .instructions-title {
+    .reading-panel {
+      background: rgba(5, 5, 20, 0.3);
+      backdrop-filter: blur(30px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 28px 30px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s ease;
+      max-height: 650px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .reading-panel .passage-title {
       font-family: 'Orbitron', monospace;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: rgba(255, 255, 255, 0.2);
       letter-spacing: 2px;
-      margin-bottom: 8px;
+      margin-bottom: 14px;
+      flex-shrink: 0;
     }
 
-    .instructions-box .instructions-text {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.6);
-      line-height: 1.8;
+    .reading-panel .passage-scroll {
+      overflow-y: auto;
+      padding-right: 8px;
+      flex: 1;
     }
 
-    .instructions-box .instructions-text .highlight {
-      color: #64c8ff;
-      font-weight: 800;
+    .reading-panel .passage-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .reading-panel .passage-scroll::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+    }
+    .reading-panel .passage-scroll::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #C58B78, #E7B7A5);
+      border-radius: 12px;
+    }
+    body.light-theme .reading-panel .passage-scroll::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.03);
+    }
+    body.light-theme .reading-panel .passage-scroll::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #B97968, #D9A18F);
     }
 
-    body.light-theme .instructions-box .instructions-text .highlight {
-      color: #4a7cf7;
+    .reading-panel .passage-text {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 400;
     }
 
-    .questions-container {
+    .reading-panel .passage-text p {
+      margin-bottom: 1.2em;
+    }
+
+    .questions-panel {
       display: flex;
       flex-direction: column;
-      gap: 24px;
-      margin: 16px 0 32px;
+      gap: 20px;
+      max-height: 650px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .questions-panel::-webkit-scrollbar {
+      width: 4px;
+    }
+    .questions-panel::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+    }
+    .questions-panel::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #C58B78, #E7B7A5);
+      border-radius: 12px;
+    }
+    body.light-theme .questions-panel::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.03);
+    }
+    body.light-theme .questions-panel::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #B97968, #D9A18F);
     }
 
     .question-card {
       background: rgba(5, 5, 20, 0.3);
       backdrop-filter: blur(30px);
       border-radius: 20px;
-      padding: 28px 32px;
+      padding: 22px 26px;
       border: 1px solid rgba(255, 255, 255, 0.04);
       box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
       transition: all 0.4s ease;
+      flex-shrink: 0;
     }
 
     .question-card:hover {
@@ -491,34 +569,84 @@
 
     .question-card .q-number {
       font-family: 'Orbitron', monospace;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       font-weight: 700;
       color: rgba(255, 255, 255, 0.15);
       letter-spacing: 2px;
-      margin-bottom: 8px;
-      transition: all 0.4s ease;
+      margin-bottom: 6px;
     }
 
     .question-card .q-text {
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 16px;
-      line-height: 1.6;
-      transition: all 0.4s ease;
+      margin-bottom: 12px;
+      line-height: 1.5;
     }
 
+    /* Short answer styles */
+    .short-input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.02);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .short-input:focus {
+      outline: none;
+      border-color: rgba(167, 139, 250, 0.4);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .short-input:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .short-input.correct {
+      border-color: #4ade80;
+      background: rgba(74, 222, 128, 0.06);
+    }
+
+    .short-input.wrong {
+      border-color: #ff6b6b;
+      background: rgba(255, 50, 50, 0.06);
+    }
+
+    .short-feedback {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .short-feedback.correct-text {
+      color: #4ade80;
+    }
+
+    .short-feedback.wrong-text {
+      color: #ff6b6b;
+    }
+
+    /* Multiple choice styles */
     .options {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
     .option {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 14px 20px;
+      padding: 10px 16px;
       background: rgba(255, 255, 255, 0.02);
       border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.04);
@@ -533,8 +661,8 @@
 
     .option input[type="radio"] {
       appearance: none;
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       border: 2px solid rgba(255, 255, 255, 0.1);
       border-radius: 50%;
       position: relative;
@@ -544,7 +672,7 @@
     }
 
     .option input[type="radio"]:checked:not(:disabled) {
-      border-color: #a78bfa;
+      border-color: #E7B7A5;
       background: rgba(167, 139, 250, 0.1);
     }
 
@@ -554,10 +682,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      background: #a78bfa;
+      background: #E7B7A5;
     }
 
     .option input[type="radio"]:disabled {
@@ -565,7 +693,7 @@
     }
 
     .option .option-label {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
       color: rgba(255, 255, 255, 0.5);
       transition: color 0.3s ease;
@@ -627,7 +755,7 @@
       display: flex;
       justify-content: center;
       gap: 20px;
-      margin: 20px 0 30px;
+      margin: 10px 0 30px;
       flex-wrap: wrap;
     }
 
@@ -665,7 +793,7 @@
       font-family: 'Orbitron', monospace;
       font-size: 2.2rem;
       font-weight: 900;
-      color: #a78bfa;
+      color: #E7B7A5;
       transition: color 0.5s ease;
     }
 
@@ -695,38 +823,172 @@
       font-weight: 700;
     }
 
+    @media (max-width: 1024px) {
+      .exam-grid {
+        grid-template-columns: 1fr;
+      }
+      .reading-panel {
+        max-height: 400px;
+      }
+      .questions-panel {
+        max-height: 500px;
+      }
+    }
+
     @media (max-width: 768px) {
       body { padding: 14px; }
       .top-bar { flex-direction: column; gap: 12px; padding: 14px 20px; border-radius: 40px; }
       .top-actions { flex-wrap: wrap; justify-content: center; }
       .exam-header h1 { font-size: 2rem; }
-      .question-card { padding: 20px 18px; }
-      .question-card .q-text { font-size: 1rem; }
+      .question-card { padding: 18px 16px; }
+      .question-card .q-text { font-size: 0.95rem; }
       .score-display { flex-direction: column; gap: 12px; text-align: center; }
       .score-display .score-detail { justify-content: center; gap: 20px; }
       .bottom-actions { flex-direction: column; align-items: center; }
       .bottom-actions .btn-back,
       .bottom-actions .btn-reset,
       .bottom-actions .btn-submit { width: 100%; max-width: 300px; }
-      .instructions-box .instructions-text { font-size: 1rem; }
-      .option .option-label { font-size: 0.95rem; }
+      .reading-panel { padding: 20px 18px; max-height: 350px; }
+      .reading-panel .passage-text { font-size: 0.95rem; line-height: 1.7; }
+      .short-input { font-size: 0.9rem; padding: 10px 14px; }
+      .questions-panel { max-height: 400px; }
     }
 
     @media (max-width: 480px) {
       .exam-header h1 { font-size: 1.6rem; letter-spacing: 2px; }
-      .option { padding: 10px 14px; }
-      .option .option-label { font-size: 0.85rem; }
-      .instructions-box .instructions-text { font-size: 0.9rem; }
+      .reading-panel .passage-text { font-size: 0.9rem; }
       .score-display .score-value { font-size: 1.8rem; }
+      .questions-panel { max-height: 350px; }
+      .question-card .q-text { font-size: 0.9rem; }
     }
 
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #64c8ff, #a78bfa); border-radius: 12px; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #C58B78, #E7B7A5); border-radius: 12px; }
 
     body.light-theme ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05); }
-    body.light-theme ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #4a7cf7, #7c5cbf); }
+    body.light-theme ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #B97968, #D9A18F); }
   </style>
+
+<style id="venus-reading2-identity">
+:root{
+  --venus:#C47F72;
+  --venus-light:#D9A092;
+  --venus-soft:rgba(196,127,114,.12);
+  --venus-border:rgba(196,127,114,.24);
+  --bg:#120b0c;
+}
+body{
+  background:#120b0c;
+  color:#fff;
+}
+.cosmic-bg{
+  background:
+    radial-gradient(ellipse at 20% 30%,#2b1718,transparent 60%),
+    radial-gradient(ellipse at 80% 70%,#1d1011,transparent 55%),
+    radial-gradient(ellipse at 50% 50%,#120b0c,#070405 100%);
+}
+.nebula-1{background:rgba(196,127,114,.09)}
+.nebula-2{background:rgba(180,100,100,.07)}
+.top-bar{
+  background:rgba(20,10,11,.65);
+  border-color:rgba(255,255,255,.06);
+}
+.logo-icon{
+  border-color:var(--venus-border);
+  background:var(--venus-soft);
+  color:var(--venus-light);
+}
+.glow{
+  background:linear-gradient(135deg,var(--venus-light),#e6b6aa);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+button:hover{
+  border-color:var(--venus-border);
+  background:var(--venus-soft);
+}
+.btn-submit{
+  background:linear-gradient(135deg,rgba(196,127,114,.13),rgba(217,160,146,.08));
+  color:#e1a397;
+  border-color:rgba(196,127,114,.20);
+}
+.btn-reset{
+  background:rgba(196,127,114,.05);
+  color:#e1a397;
+  border-color:rgba(196,127,114,.16);
+}
+.exam-badge{
+  color:rgba(255,255,255,.38);
+  border-color:rgba(231,176,169,.14);
+}
+.exam-header h1{
+  background:linear-gradient(135deg,#fff,var(--venus-light));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.passage-title,.passage-text h2,.q-number,.score-value{
+  color:var(--venus-light);
+}
+.reading-panel,.question-card,.score-display{
+  border-color:rgba(231,176,169,.12);
+}
+.option:hover:not(.disabled){
+  background:var(--venus-soft);
+  border-color:var(--venus-border);
+}
+.option input{
+  accent-color:var(--venus-light);
+}
+.short-input:focus{
+  border-color:var(--venus);
+  background:var(--venus-soft);
+}
+.passage-scroll::-webkit-scrollbar-thumb,
+.questions-panel::-webkit-scrollbar-thumb{
+  background:linear-gradient(135deg,var(--venus),var(--venus-light));
+}
+body.light-theme{
+  background:#f6efed;
+  color:#211819;
+}
+body.light-theme .cosmic-bg{
+  background:
+    radial-gradient(ellipse at 20% 30%,#f1ded9,transparent 60%),
+    radial-gradient(ellipse at 80% 70%,#ead4cf,transparent 55%),
+    #f6efed;
+}
+body.light-theme .nebula-1,
+body.light-theme .nebula-2,
+body.light-theme .star{display:none}
+body.light-theme .top-bar{
+  background:rgba(255,255,255,.72);
+  border-color:rgba(70,35,30,.08);
+}
+body.light-theme .reading-panel,
+body.light-theme .question-card,
+body.light-theme .score-display{
+  background:rgba(255,255,255,.72);
+  border-color:rgba(70,35,30,.08);
+}
+body.light-theme .passage-text{color:rgba(35,25,23,.82)}
+body.light-theme .q-text{color:rgba(35,25,23,.82)}
+body.light-theme .option{
+  background:rgba(0,0,0,.02);
+  border-color:rgba(60,30,25,.07);
+}
+body.light-theme .option-label{color:rgba(40,25,23,.58)}
+body.light-theme .btn-back,
+body.light-theme .btn-theme{
+  color:#5d4541;
+  background:rgba(0,0,0,.025);
+}
+body.light-theme .score-label{color:rgba(50,30,28,.35)}
+body.light-theme .denominator{color:rgba(50,30,28,.25)}
+</style>
+
 </head>
 <body>
   <div class="cosmic-bg">
@@ -750,24 +1012,33 @@
 
     <!-- Exam Header -->
     <div class="exam-header">
-      <div class="exam-badge">✦ Vocabulary · MERCURY</div>
-      <h1>VOCABULARY</h1>
-      <div class="subtitle">☿ G.12 Sem I 1st Session 2023-2024</div>
+      <div class="exam-badge">✦ READING 03 · VENUS</div>
+      <h1>READING COMPREHENSION</h1>
+      <div class="subtitle">☿ G.12 Sem I 2nd Session 2023-2024</div>
     </div>
 
-    <!-- Instructions -->
-    <div class="instructions-box">
-      <div class="instructions-title">📋 INSTRUCTIONS</div>
-      <div class="instructions-text">
-        For each item, choose the correct word or phrase to complete the sentence.
-        <br><br>
-        <span style="font-size:0.9rem; font-weight:400; opacity:0.5;">⏱️ 5 questions · 5 marks</span>
+    <!-- Grid: Reading + Questions -->
+    <div class="exam-grid">
+      <!-- Reading Panel (left) -->
+      <div class="reading-panel">
+        <div class="passage-title">📖 PASSAGE</div>
+        <div class="passage-scroll" id="passageScroll">
+          <div class="passage-text">
+            <h2>Andorra</h2>
+            <p>Andorra is a tiny, land-locked country, with a population of approximately 79 thousand, that lies between France and Spain. With a land area of just 468 square kilometres, it is one of Europe's smallest countries. It is approximately 2,000 metres above sea level making it a paradise for outdoor enthusiasts. It is the only country in the world to have Catalan as an official language even though French and Spanish are widely spoken.</p>
+            <p>Andorra is not only known for its stunning natural beauty but also its rich culture and traditions. It hosts many festivals throughout the year. It is one of the few countries in the world to hold an International Clown Festival just for women. It is a very popular event that is held in May. It attracts female clowns and comedians from across the world to perform, meet and share tips. The country’s top summer event, The Festa Mega Festival, is a three-day event held at the beginning of August. It includes everything from street parades and music concerts to folk dancing. It also features food stalls serving traditional dishes like “Escudella, “Cunillo” and “Crèma Andorrana”.</p>
+            <p>Andorra is considered one of the cheapest places to shop in Europe because of its tax-free status. There are over 1000 shops which are open 361 days a year. You can find many goods, such as designer clothing, watches, jewellery, and everyday items like cosmetics and perfumes at much lower prices than in any other European country. However, food and household items are very costly due to the country's mountainous terrain and lack of agricultural resources like farms.</p>
+            <p>Tourism is the main source of Andorra's economy. According to a recent survey, 10.2 million people visited it in 2023. The stunning natural landscapes of Andorra offer a wide range of outdoor activities. Spring is a great time for nature lovers. It is generally more peaceful and less crowded than other seasons. During summer time, hiking and biking trails provide breathtaking views of the valleys and mountains. Skiing and snowboarding are the main attractions in winter with several world-class ski resorts namely Grandvalira Pal-Arinsal, and Ordino-Arcalis. However, based on the latest World Top Ski Resort Report, Grandvalira is considered the best place to ski in Andorra.</p>
+            <p>Unfortunately, Andorra does not have its own airport. The nearest airports are Toulouse-Blagnac in France and Barcelona-El Prat in Spain. To actually get to Andorra from either airport, you need to take a bus, a taxi or hire a car as Andorra does not have its own railway system. For those staying a few days in Andorra, buses are the most convenient means of transport as they connect the capital to various towns and villages.</p>
+            <p>Car rental companies are also available but are expensive. During the summer, traffic can be very heavy at the border crossings with France and Spain as it is the peak tourist season. Therefore, visitors should plan their journey well in advance and be prepared for potential delays.</p>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Questions -->
-    <div class="questions-container" id="questionsContainer">
-      <!-- injected by JS -->
+      <!-- Questions Panel (right) — scrollable -->
+      <div class="questions-panel" id="questionsContainer">
+        <!-- Questions injected by JS -->
+      </div>
     </div>
 
     <!-- Bottom Actions -->
@@ -786,19 +1057,19 @@
       </div>
       <span class="score-value" id="scoreValue">
         <span id="scoreNum">0</span>
-        <span class="denominator"> / 5</span>
+        <span class="denominator"> / 10</span>
       </span>
     </div>
   </div>
 
   <script>
     // ============================================================
-    // STARS
+    // STAR GENERATION
     // ============================================================
     function createStars() {
       const container = document.getElementById('starContainer');
       if (!container) return;
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 120; i++) {
         const star = document.createElement('div');
         star.className = 'star';
         const size = Math.random() * 3 + 1;
@@ -823,64 +1094,107 @@
     createStars();
 
     // ============================================================
-    // THEME
+    // THEME TOGGLE
     // ============================================================
     let isLightTheme = false;
+
     function toggleTheme() {
       isLightTheme = !isLightTheme;
       document.body.classList.toggle('light-theme', isLightTheme);
-      localStorage.setItem('grammar1Theme', isLightTheme ? 'light' : 'dark');
+      localStorage.setItem('reading3Theme', isLightTheme ? 'light' : 'dark');
     }
-    const savedTheme = localStorage.getItem('grammar1Theme');
+
+    const savedTheme = localStorage.getItem('reading3Theme');
     if (savedTheme === 'light') {
       isLightTheme = true;
       document.body.classList.add('light-theme');
     }
 
     // ============================================================
-    // QUESTIONS (based on the image)
+    // QUESTIONS DATA (6 short answer + 4 multiple choice)
     // ============================================================
     const questions = [
       {
+        type: 'short',
         id: 1,
-        text: 'He was unable to pay his ______ because he had borrowed so much money.',
-        options: ['degrees', 'drafts', 'directions', 'debts'],
-        correct: 3  // debts
+        text: 'Where is Andorra located?',
+        correctAnswer: 'between France and Spain',
+        acceptable: ['between France and Spain', 'in Europe']
       },
       {
+        type: 'short',
         id: 2,
-        text: 'I need to ______ more before I take my driving test next week.',
-        options: ['proofread', 'analyse', 'summarise', 'practice'],
-        correct: 3  // practice
+        text: 'What is the official language of Andorra?',
+        correctAnswer: 'Catalan',
+        acceptable: ['Catalan']
       },
       {
+        type: 'short',
         id: 3,
-        text: 'She is always purchasing new clothes. She is a ______ buyer.',
-        options: ['reasonable', 'compulsive', 'responsible', 'positive'],
-        correct: 1  // compulsive
+        text: 'When is The International Clown Festival held?',
+        correctAnswer: 'In May',
+        acceptable: ['May', 'In May']
       },
       {
+        type: 'short',
         id: 4,
-        text: 'He needs to work on his time ______ skills as he missed the deadline again.',
-        options: ['scoring', 'placement', 'management', 'editing'],
-        correct: 2  // management
+        text: 'How long does The Festa Mega Festival last?',
+        correctAnswer: 'three days',
+        acceptable: ['3', 'three days', 'a three-day', 'a three-day event', 'a three-day festival']
       },
       {
+        type: 'short',
         id: 5,
-        text: 'Advertisers use a lot of different ways to ______ us to buy their goods.',
-        options: ['persuade', 'reduce', 'compare', 'create'],
-        correct: 0  // persuade
+        text: 'Why are designer goods so cheap in Andorra?',
+        correctAnswer: 'because of its tax-free status',
+        acceptable: ['because of its tax-free status', 'tax-free status', 'it is tax-free', 'No taxes']
+      },
+      {
+        type: 'short',
+        id: 6,
+        text: 'What is the main source of income in Andorra?',
+        correctAnswer: 'Tourism',
+        acceptable: ['Tourism']
+      },
+      {
+        type: 'mcq',
+        id: 7,
+        text: 'Around ______ people visited Andorra in 2023.',
+        options: ['2,000', '79,000', '10.2 million'],
+        correct: 2
+      },
+      {
+        type: 'mcq',
+        id: 8,
+        text: 'According to the text, ______ is the best ski resort in Andorra.',
+        options: ['Grandvalira', 'Pal-Arinsal', 'Ordino-Arcalis'],
+        correct: 0
+      },
+      {
+        type: 'mcq',
+        id: 9,
+        text: 'Visitors mostly use ______ to travel between Andorra’s towns and villages.',
+        options: ['buses', 'cars', 'taxis'],
+        correct: 0
+      },
+      {
+        type: 'mcq',
+        id: 10,
+        text: 'During the ______ season, tourists might get delayed at border crossings.',
+        options: ['spring', 'summer', 'winter'],
+        correct: 1
       }
     ];
 
     // ============================================================
     // STATE
     // ============================================================
-    let userAnswers = {};
+    let userAnswers = {};      // for short answers: { index: string }
+    let mcqAnswers = {};       // for mcq: { index: number }
     let isSubmitted = false;
 
     // ============================================================
-    // RENDER
+    // RENDER QUESTIONS
     // ============================================================
     function renderQuestions() {
       const container = document.getElementById('questionsContainer');
@@ -891,18 +1205,29 @@
         card.id = `q-${index}`;
 
         const letter = String.fromCharCode(65 + index);
-        card.innerHTML = `
-          <div class="q-number">${letter}. Question ${index + 1} of 5</div>
-          <div class="q-text">${q.text}</div>
-          <div class="options" id="options-${index}">
-            ${q.options.map((opt, optIndex) => `
+        let html = `<div class="q-number">${letter}. Question ${index + 1} of ${questions.length}</div>`;
+        html += `<div class="q-text">${q.text}</div>`;
+
+        if (q.type === 'short') {
+          html += `
+            <input type="text" class="short-input" id="input-${index}" placeholder="Type your answer..." oninput="onShortInput(${index}, this.value)">
+            <div class="short-feedback" id="feedback-${index}"></div>
+          `;
+        } else {
+          // MCQ
+          html += `<div class="options" id="options-${index}">`;
+          q.options.forEach((opt, optIndex) => {
+            html += `
               <label class="option" id="opt-${index}-${optIndex}">
-                <input type="radio" name="q${index}" value="${optIndex}" onchange="selectOption(${index}, ${optIndex})">
+                <input type="radio" name="q${index}" value="${optIndex}" onchange="onMcqSelect(${index}, ${optIndex})">
                 <span class="option-label">${String.fromCharCode(65 + optIndex)}. ${opt}</span>
               </label>
-            `).join('')}
-          </div>
-        `;
+            `;
+          });
+          html += `</div>`;
+        }
+
+        card.innerHTML = html;
         container.appendChild(card);
       });
     }
@@ -910,19 +1235,51 @@
     // ============================================================
     // INTERACTIONS
     // ============================================================
-    function selectOption(qIndex, optIndex) {
+    function onShortInput(index, value) {
       if (isSubmitted) return;
-      userAnswers[qIndex] = optIndex;
+      const trimmed = value.trim();
+      if (trimmed === '') {
+        delete userAnswers[index];
+      } else {
+        userAnswers[index] = trimmed;
+      }
+      updateSubmitButton();
+    }
+
+    function onMcqSelect(index, optIndex) {
+      if (isSubmitted) return;
+      mcqAnswers[index] = optIndex;
       updateSubmitButton();
     }
 
     function updateSubmitButton() {
       const btn = document.getElementById('submitBtn');
-      const answered = Object.keys(userAnswers).length;
-      btn.disabled = answered < questions.length;
-      btn.textContent = answered < questions.length 
-        ? `✓ SUBMIT (${answered}/${questions.length})` 
-        : '✓ SUBMIT EXAM';
+      const shortAnswered = Object.keys(userAnswers).length;
+      const mcqAnswered = Object.keys(mcqAnswers).length;
+      const totalAnswered = shortAnswered + mcqAnswered;
+      const total = questions.length;
+      btn.disabled = totalAnswered < total;
+      if (totalAnswered < total) {
+        btn.textContent = `✓ SUBMIT (${totalAnswered}/${total})`;
+      } else {
+        btn.textContent = '✓ SUBMIT EXAM';
+      }
+    }
+
+    // ============================================================
+    // NORMALIZE FOR COMPARISON
+    // ============================================================
+    function normalize(str) {
+      return str.toLowerCase().trim().replace(/\s+/g, ' ');
+    }
+
+    function isShortAnswerCorrect(input, q) {
+      const norm = normalize(input);
+      if (norm === normalize(q.correctAnswer)) return true;
+      for (let acc of q.acceptable) {
+        if (norm === normalize(acc)) return true;
+      }
+      return false;
     }
 
     // ============================================================
@@ -930,9 +1287,11 @@
     // ============================================================
     function submitExam() {
       if (isSubmitted) return;
-      const answered = Object.keys(userAnswers).length;
-      if (answered < questions.length) {
-        alert(`Please answer all ${questions.length} questions before submitting. (${answered}/${questions.length} answered)`);
+      const total = questions.length;
+      const shortAnswered = Object.keys(userAnswers).length;
+      const mcqAnswered = Object.keys(mcqAnswers).length;
+      if (shortAnswered + mcqAnswered < total) {
+        alert(`Please answer all ${total} questions before submitting. (${shortAnswered + mcqAnswered}/${total} answered)`);
         return;
       }
 
@@ -945,26 +1304,50 @@
       let wrongCount = 0;
 
       questions.forEach((q, index) => {
-        const userAns = userAnswers[index];
-        const isCorrect = userAns === q.correct;
-        if (isCorrect) correctCount++;
-        else wrongCount++;
+        if (q.type === 'short') {
+          const input = document.getElementById(`input-${index}`);
+          const feedback = document.getElementById(`feedback-${index}`);
+          const userAns = userAnswers[index] || '';
 
-        const correctOpt = document.getElementById(`opt-${index}-${q.correct}`);
-        if (correctOpt) correctOpt.classList.add('correct');
+          const correct = isShortAnswerCorrect(userAns, q);
+          if (correct) {
+            correctCount++;
+            input.classList.add('correct');
+            feedback.textContent = '✓ Correct!';
+            feedback.className = 'short-feedback correct-text';
+          } else {
+            wrongCount++;
+            input.classList.add('wrong');
+            feedback.textContent = `✗ Expected: "${q.correctAnswer}"`;
+            feedback.className = 'short-feedback wrong-text';
+          }
+          input.disabled = true;
+        } else {
+          // MCQ
+          const userAns = mcqAnswers[index];
+          const isCorrect = userAns === q.correct;
+          if (isCorrect) {
+            correctCount++;
+          } else {
+            wrongCount++;
+          }
 
-        if (!isCorrect && userAns !== undefined) {
-          const wrongOpt = document.getElementById(`opt-${index}-${userAns}`);
-          if (wrongOpt) wrongOpt.classList.add('wrong');
-        }
+          const correctOpt = document.getElementById(`opt-${index}-${q.correct}`);
+          if (correctOpt) correctOpt.classList.add('correct');
 
-        const optionsContainer = document.getElementById(`options-${index}`);
-        if (optionsContainer) {
-          optionsContainer.querySelectorAll('.option').forEach(opt => {
-            opt.classList.add('disabled');
-            const radio = opt.querySelector('input[type="radio"]');
-            if (radio) radio.disabled = true;
-          });
+          if (!isCorrect && userAns !== undefined) {
+            const wrongOpt = document.getElementById(`opt-${index}-${userAns}`);
+            if (wrongOpt) wrongOpt.classList.add('wrong');
+          }
+
+          const optionsContainer = document.getElementById(`options-${index}`);
+          if (optionsContainer) {
+            optionsContainer.querySelectorAll('.option').forEach(opt => {
+              opt.classList.add('disabled');
+              const radio = opt.querySelector('input[type="radio"]');
+              if (radio) radio.disabled = true;
+            });
+          }
         }
       });
 
@@ -973,7 +1356,7 @@
       document.getElementById('wrongCount').textContent = `✗ ${wrongCount}`;
       document.getElementById('scoreValue').style.color = '#4ade80';
 
-      // Save score (exam1)
+      // Save score
       const score = correctCount;
       try {
         const student = localStorage.getItem('currentStudent');
@@ -982,9 +1365,9 @@
           if (!students[student]) students[student] = { createdAt: new Date().toISOString(), tests: {} };
           if (!students[student].tests) students[student].tests = {};
           if (!students[student].tests['exam1']) students[student].tests['exam1'] = {};
-          students[student].tests['exam1']['vocabulary'] = score;
+          students[student].tests['exam2']['reading3'] = score;
           localStorage.setItem('students', JSON.stringify(students));
-          console.log('Grammar score saved:', score);
+          console.log('Score saved:', score);
         }
       } catch (e) {
         console.log('Score saved locally only');
@@ -1000,26 +1383,41 @@
       }
       isSubmitted = false;
       userAnswers = {};
+      mcqAnswers = {};
       document.getElementById('scoreNum').textContent = '0';
       document.getElementById('correctCount').textContent = '✓ 0';
       document.getElementById('wrongCount').textContent = '✗ 0';
-      document.getElementById('scoreValue').style.color = '#a78bfa';
+      document.getElementById('scoreValue').style.color = '#E7B7A5';
 
       const submitBtn = document.getElementById('submitBtn');
       submitBtn.disabled = true;
-      submitBtn.textContent = '✓ SUBMIT (0/5)';
+      submitBtn.textContent = `✓ SUBMIT (0/${questions.length})`;
 
       questions.forEach((q, index) => {
-        const optionsContainer = document.getElementById(`options-${index}`);
-        if (optionsContainer) {
-          optionsContainer.querySelectorAll('.option').forEach(opt => {
-            opt.classList.remove('correct', 'wrong', 'disabled');
-            const radio = opt.querySelector('input[type="radio"]');
-            if (radio) {
-              radio.checked = false;
-              radio.disabled = false;
-            }
-          });
+        if (q.type === 'short') {
+          const input = document.getElementById(`input-${index}`);
+          const feedback = document.getElementById(`feedback-${index}`);
+          if (input) {
+            input.value = '';
+            input.classList.remove('correct', 'wrong');
+            input.disabled = false;
+          }
+          if (feedback) {
+            feedback.textContent = '';
+            feedback.className = 'short-feedback';
+          }
+        } else {
+          const optionsContainer = document.getElementById(`options-${index}`);
+          if (optionsContainer) {
+            optionsContainer.querySelectorAll('.option').forEach(opt => {
+              opt.classList.remove('correct', 'wrong', 'disabled');
+              const radio = opt.querySelector('input[type="radio"]');
+              if (radio) {
+                radio.checked = false;
+                radio.disabled = false;
+              }
+            });
+          }
         }
       });
     }
@@ -1031,7 +1429,7 @@
       document.body.style.transition = 'opacity 0.3s ease';
       document.body.style.opacity = '0';
       setTimeout(() => {
-        window.location.href = 'mercury_Dashboard.html';
+        window.location.href = 'venus_Dashboard.html';
       }, 300);
     }
 
