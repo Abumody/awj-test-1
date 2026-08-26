@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar / Vocabulary 07 · Uranus Exam</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --uranus:#62D9E8;
+  --uranus2:#8BEAF2;
+  --uranus-dark:#163F49;
+  --bg:#061116;
+}
+body{
+  min-height:100vh;color:#fff;font-family:Inter,Segoe UI,sans-serif;
+  background:
+    radial-gradient(circle at 18% 20%,rgba(98,217,232,.18),transparent 34%),
+    radial-gradient(circle at 82% 72%,rgba(47,127,145,.17),transparent 38%),
+    radial-gradient(circle at 50% 50%,#08171d 0%,#040b0f 72%);
+  padding:20px 28px 48px;
+}
+.cosmos{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.glow{position:absolute;border-radius:50%;filter:blur(100px);opacity:.16}
+.g1{width:520px;height:520px;background:#62D9E8;top:-230px;right:-100px}
+.g2{width:440px;height:440px;background:#2d8fa1;bottom:-190px;left:-120px}
+.container{max-width:950px;margin:auto;position:relative;z-index:2}
+.top{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 30px;margin-bottom:28px;border-radius:50px;
+  background:rgba(5,16,21,.72);border:1px solid rgba(98,217,232,.16);
+  backdrop-filter:blur(25px);box-shadow:0 10px 35px rgba(0,0,0,.35)
+}
+.brand{font-size:24px;font-weight:900;letter-spacing:2px}
+.brand span{color:var(--uranus2);text-shadow:0 0 18px rgba(98,217,232,.35)}
+.actions{display:flex;gap:10px}
+button{
+  font-family:inherit;font-weight:800;cursor:pointer;border-radius:10px;
+  padding:10px 18px;color:#fff;background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.1);transition:.2s
+}
+button:hover{transform:translateY(-1px);border-color:rgba(98,217,232,.45)}
+.theme{padding:10px 12px;color:var(--uranus2)}
+.back{color:rgba(255,255,255,.7)}
+
+.header{text-align:center;padding:6px 0 20px}
+.badge{
+  display:inline-block;padding:8px 20px;border-radius:30px;
+  border:1px solid rgba(98,217,232,.28);color:var(--uranus2);
+  font-size:.78rem;font-weight:800;letter-spacing:2px;margin-bottom:12px
+}
+h1{
+  font-size:3rem;letter-spacing:3px;font-weight:900;
+  background:linear-gradient(135deg,#fff,var(--uranus2));
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.sub{color:rgba(255,255,255,.38);margin-top:7px;letter-spacing:1.4px}
+
+.instructions,.passage,.score{
+  background:rgba(255,255,255,.035);border:1px solid rgba(98,217,232,.12);
+  border-radius:16px;backdrop-filter:blur(22px);box-shadow:0 8px 35px rgba(0,0,0,.22)
+}
+.instructions{padding:19px 25px;margin-bottom:20px}
+.ititle{font-size:.76rem;font-weight:900;letter-spacing:2px;color:var(--uranus2);margin-bottom:8px}
+.instructions p{color:rgba(255,255,255,.63);line-height:1.7}
+.instructions strong{color:var(--uranus2)}
+.passage{padding:27px 29px}
+.ptitle{font-size:.7rem;letter-spacing:2px;color:rgba(139,234,242,.7);margin-bottom:15px;text-transform:uppercase}
+.text{
+  color:rgba(255,255,255,.8);font-size:1.1rem;line-height:2.38
+}
+.select-wrap{display:inline-block;vertical-align:middle;margin:0 3px}
+select{
+  appearance:none;min-width:112px;padding:5px 31px 5px 10px;
+  border-radius:8px;border:1px solid rgba(98,217,232,.25);
+  color:var(--uranus2);font:700 1rem Inter,Segoe UI,sans-serif;
+  background-color:rgba(98,217,232,.035);
+  background-image:linear-gradient(45deg,transparent 50%,#8BEAF2 50%),linear-gradient(135deg,#8BEAF2 50%,transparent 50%);
+  background-position:calc(100% - 14px) 50%,calc(100% - 9px) 50%;
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat;
+  cursor:pointer;outline:none
+}
+select:focus{border-color:var(--uranus2);box-shadow:0 0 0 3px rgba(98,217,232,.12)}
+select option{background:#0b1b20;color:#fff}
+select.correct{color:#4ade80;border-color:#4ade80;background-color:rgba(74,222,128,.08)}
+select.wrong{color:#ff6b6b;border-color:#ff6b6b;background-color:rgba(255,50,50,.08)}
+
+.actions-bottom{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:22px 0}
+.reset{color:var(--uranus2);border-color:rgba(98,217,232,.2)}
+.submit{color:var(--uranus2);border-color:rgba(98,217,232,.3);background:rgba(98,217,232,.07)}
+.submit:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.score{
+  padding:19px 24px;display:flex;align-items:center;justify-content:space-between
+}
+.score-label{font-size:.74rem;font-weight:900;letter-spacing:1.5px;color:rgba(255,255,255,.38)}
+.counts{display:flex;gap:24px;font-weight:900}
+.ok{color:#4ade80}.bad{color:#ff6b6b}
+.value{font-size:2rem;font-weight:900;color:var(--uranus2)}
+.value small{font-size:1rem;color:rgba(255,255,255,.25)}
+
+@media(max-width:700px){
+ body{padding:14px}.top{flex-direction:column;gap:12px;border-radius:35px}
+ h1{font-size:2rem}.passage{padding:20px 17px}.text{font-size:1rem;line-height:2.2}
+ .score{flex-direction:column;gap:12px;text-align:center}
+}
+@media(max-width:480px){
+ h1{font-size:1.65rem}.text{font-size:.9rem}
+ select{min-width:82px;font-size:.84rem;padding:4px 27px 4px 7px}
+}
+</style>
+</head>
+<body>
+<div class="cosmos"><div class="glow g1"></div><div class="glow g2"></div></div>
+<div class="container">
+
+<div class="top">
+  <div class="brand"><span>AWJ</span></div>
+  <div class="actions">
+    <button class="theme" onclick="toggleTheme()">🌓</button>
+    <button class="back" onclick="goBack()">◀ BACK</button>
+  </div>
+</div>
+
+<div class="header">
+  <div class="badge">♅ GRAMMAR / VOCABULARY 07 · URANUS</div>
+  <h1>GRAMMAR / VOCABULARY</h1>
+  <div class="sub">Sem I 1st Session 2020-2021</div>
+</div>
+
+<div class="instructions">
+  <div class="ititle">📋 INSTRUCTIONS</div>
+  <p>For each item, select the correct option from the <strong>dropdown menu</strong> in the passage.</p>
+</div>
+
+<div class="passage">
+  <div class="ptitle">✦ Grammar / Vocabulary 07 · Items 1 - 5</div>
+  <div class="text">
+    The latest research on consumer shopping habits finds that shoppers now
+    <span class="select-wrap"><select id="s1" onchange="choose(0,this)">
+      <option value="">— choose —</option><option value="are">are</option><option value="is">is</option><option value="was">was</option><option value="were">were</option>
+    </select></span>
+    becoming more careful about what they spend compared with the past. The most significant
+    <span class="select-wrap"><select id="s2" onchange="choose(1,this)">
+      <option value="">— choose —</option><option value="change">change</option><option value="danger">danger</option><option value="fund">fund</option><option value="obstacle">obstacle</option>
+    </select></span>
+    is that many shoppers think of what they will buy before going shopping. According to the most recent findings, shoppers tend to avoid
+    <span class="select-wrap"><select id="s3" onchange="choose(2,this)">
+      <option value="">— choose —</option><option value="make">make</option><option value="making">making</option><option value="makes">makes</option><option value="to make">to make</option>
+    </select></span>
+    random purchases as they do not want to buy unnecessary items. In the past, they would happily buy things that they actually
+    <span class="select-wrap"><select id="s4" onchange="choose(3,this)">
+      <option value="">— choose —</option><option value="did">did</option><option value="had">had</option><option value="do">do</option><option value="have">have</option>
+    </select></span>
+    not planned to get. Also, the findings indicate that people
+    <span class="select-wrap"><select id="s5" onchange="choose(4,this)">
+      <option value="">— choose —</option><option value="export">export</option><option value="help">help</option><option value="prefer">prefer</option><option value="receive">receive</option>
+    </select></span>
+    to buy well-known brand names. They are also attracted to local products which are cheaper.
+  </div>
+</div>
+
+<div class="actions-bottom">
+  <button class="back" onclick="goBack()">◀ BACK TO DASHBOARD</button>
+  <button class="reset" onclick="resetExam()">⟳ RESET ALL</button>
+  <button class="submit" id="submit" onclick="submitExam()" disabled>✓ SUBMIT (0/5)</button>
+</div>
+
+<div class="score">
+  <span class="score-label">✦ SCORE</span>
+  <div class="counts"><span class="ok" id="ok">✓ 0</span><span class="bad" id="bad">✗ 0</span></div>
+  <span class="value"><span id="score">0</span><small> / 5</small></span>
+</div>
+</div>
+
+<script>
+const TEST_ID='exam7';
+const SECTION='grammarVocab';
+const answers=['are','change','making','had','prefer'];
+let selected={},submitted=false;
+
+function choose(i,el){
+ if(submitted)return;
+ if(!el.value){delete selected[i]}else{selected[i]=el.value}
+ updateButton();
+}
+function updateButton(){
+ const n=Object.keys(selected).length,b=document.getElementById('submit');
+ b.disabled=n<5;
+ b.textContent=n<5?`✓ SUBMIT (${n}/5)`:'✓ SUBMIT EXAM';
+}
+function submitExam(){
+ if(Object.keys(selected).length<5)return;
+ submitted=true;let c=0,w=0;
+ answers.forEach((a,i)=>{
+   const el=document.getElementById('s'+(i+1));
+   if(selected[i]===a){c++;el.className='correct'}else{w++;el.className='wrong'}
+   el.disabled=true;
+ });
+ document.getElementById('ok').textContent='✓ '+c;
+ document.getElementById('bad').textContent='✗ '+w;
+ document.getElementById('score').textContent=c;
+ document.getElementById('submit').textContent='✓ SUBMITTED';
+ saveResult(c);
+}
+function saveResult(score){
+ try{
+  const student=localStorage.getItem('currentStudent');
+  if(!student)return;
+  const students=JSON.parse(localStorage.getItem('students'))||{};
+  if(!students[student])students[student]={createdAt:new Date().toISOString(),tests:{}};
+  if(!students[student].tests)students[student].tests={};
+  if(!students[student].tests[TEST_ID])students[student].tests[TEST_ID]={};
+  students[student].tests[TEST_ID][SECTION]=score;
+  localStorage.setItem('students',JSON.stringify(students));
+ }catch(e){}
+}
+function resetExam(){
+ submitted=false;selected={};
+ for(let i=1;i<=5;i++){const el=document.getElementById('s'+i);el.value='';el.disabled=false;el.className='';}
+ document.getElementById('ok').textContent='✓ 0';
+ document.getElementById('bad').textContent='✗ 0';
+ document.getElementById('score').textContent='0';
+ updateButton();
+}
+function toggleTheme(){document.body.classList.toggle('light')}
+function goBack(){window.location.href='uranus_Dashboard.html'}
+updateButton();
+</script>
+</body>
+</html>

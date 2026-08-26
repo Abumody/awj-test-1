@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar / Vocabulary 06 · Saturn Exam</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --saturn:#C08A4B;
+  --saturn-soft:#D7A66A;
+  --saturn-dark:#6F4727;
+  --bg:#090807;
+  --panel:rgba(255,255,255,.035);
+}
+body{font-family:'Inter','Segoe UI',sans-serif;color:#fff;min-height:100vh;padding:20px 28px 50px;background:var(--bg);position:relative}
+body.light-theme{background:#f1eee9;color:#211a14}
+.cosmic-bg{
+  position:fixed;inset:0;z-index:0;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 20% 25%,rgba(192,138,75,.18) 0%,transparent 55%),
+    radial-gradient(ellipse at 82% 70%,rgba(111,71,39,.20) 0%,transparent 52%),
+    radial-gradient(ellipse at 50% 50%,#030303 0%,#090807 100%);
+}
+.nebula{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;animation:nebulaFloat 30s ease-in-out infinite alternate}
+.nebula-1{width:650px;height:650px;background:rgba(192,138,75,.08);top:-230px;right:-120px}
+.nebula-2{width:520px;height:520px;background:rgba(111,71,39,.08);bottom:-170px;left:-120px;animation-duration:40s}
+@keyframes nebulaFloat{0%{transform:translate(0,0) scale(1)}50%{transform:translate(45px,-35px) scale(1.08)}100%{transform:translate(-30px,45px) scale(.94)}}
+.star{position:absolute;border-radius:50%;background:#fff;pointer-events:none;animation:twinkle var(--duration) ease-in-out infinite alternate}
+@keyframes twinkle{0%,100%{opacity:var(--min-opacity)}50%{opacity:var(--max-opacity);transform:scale(1.25)}}
+
+.container{max-width:950px;margin:0 auto;position:relative;z-index:5}
+.top-bar{
+ display:flex;justify-content:space-between;align-items:center;padding:14px 32px;
+ background:rgba(8,7,6,.68);backdrop-filter:blur(30px);border-radius:60px;
+ border:1px solid rgba(192,138,75,.16);box-shadow:0 8px 40px rgba(0,0,0,.5);margin-bottom:30px
+}
+.brand{font-size:24px;font-weight:900;letter-spacing:2px;display:flex;align-items:center;gap:12px}
+.logo-icon{width:40px;height:40px;border:1px solid rgba(192,138,75,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--saturn-soft);background:rgba(192,138,75,.06)}
+.brand .glow{color:var(--saturn-soft);text-shadow:0 0 18px rgba(192,138,75,.28)}
+.top-actions{display:flex;align-items:center;gap:12px}
+.btn-theme,.btn-back,.btn-reset,.btn-submit{
+ border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:11px 22px;
+ font-weight:800;cursor:pointer;transition:.3s;font-family:'Inter',sans-serif
+}
+.btn-theme{background:rgba(192,138,75,.06);color:rgba(255,255,255,.7);padding:10px 13px}
+.btn-back{background:rgba(255,255,255,.04);color:rgba(255,255,255,.68)}
+.btn-reset{background:rgba(192,138,75,.05);color:var(--saturn-soft)}
+.btn-submit{background:linear-gradient(135deg,rgba(192,138,75,.13),rgba(215,166,106,.08));color:var(--saturn-soft);border-color:rgba(192,138,75,.3)}
+.btn-submit:disabled{opacity:.45;cursor:not-allowed}
+.btn-theme:hover,.btn-back:hover,.btn-reset:hover,.btn-submit:hover:not(:disabled){transform:translateY(-1px);border-color:rgba(192,138,75,.45)}
+
+.exam-header{text-align:center;padding:8px 0 20px}
+.exam-badge{
+ display:inline-block;padding:8px 22px;border:1px solid rgba(192,138,75,.28);border-radius:40px;
+ font-family:'Orbitron',monospace;font-size:.78rem;font-weight:700;letter-spacing:2px;color:var(--saturn-soft);margin-bottom:12px
+}
+.exam-header h1{
+ font-family:'Orbitron',monospace;font-size:3rem;font-weight:900;letter-spacing:3px;
+ background:linear-gradient(135deg,#fff,var(--saturn-soft));-webkit-background-clip:text;background-clip:text;color:transparent
+}
+.exam-header .subtitle{margin-top:7px;color:rgba(255,255,255,.35);font-size:.95rem;letter-spacing:1.5px}
+
+.instructions-box,.passage-box{
+ background:rgba(255,255,255,.035);backdrop-filter:blur(25px);
+ border:1px solid rgba(192,138,75,.12);border-radius:16px;padding:20px 26px;margin:4px 0 20px;
+ box-shadow:0 8px 40px rgba(0,0,0,.2)
+}
+.instructions-title{font-family:'Orbitron',monospace;font-size:.78rem;font-weight:800;letter-spacing:2px;color:var(--saturn-soft);margin-bottom:8px}
+.instructions-text{color:rgba(255,255,255,.62);font-size:1rem;line-height:1.7}
+.instructions-text .highlight{color:var(--saturn-soft);font-weight:800}
+.passage-box{padding:28px 30px}
+.passage-title{font-family:'Orbitron',monospace;font-size:.7rem;color:rgba(215,166,106,.72);letter-spacing:2px;margin-bottom:16px;text-transform:uppercase}
+.passage-text{color:rgba(255,255,255,.78);font-size:1.12rem;line-height:2.35;font-weight:400}
+
+.dropdown-wrapper{display:inline-block;position:relative;vertical-align:middle;margin:0 3px}
+.dropdown-select{
+ appearance:none;-webkit-appearance:none;min-width:115px;padding:5px 31px 5px 11px;
+ border-radius:8px;border:1px solid rgba(192,138,75,.25);background-color:rgba(192,138,75,.035);
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23D7A66A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+ background-repeat:no-repeat;background-position:right 10px center;background-size:12px;
+ color:var(--saturn-soft);font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:.25s
+}
+.dropdown-select:hover:not(:disabled){border-color:rgba(192,138,75,.55);background-color:rgba(192,138,75,.08)}
+.dropdown-select:focus{outline:none;border-color:var(--saturn-soft);box-shadow:0 0 0 3px rgba(192,138,75,.12)}
+.dropdown-select option{background:#17110c;color:#fff}
+.dropdown-select.default{color:rgba(215,166,106,.72)}
+.dropdown-select.correct{color:#4ade80!important;border-color:#4ade80!important;background-color:rgba(74,222,128,.08)}
+.dropdown-select.wrong{color:#ff6b6b!important;border-color:#ff6b6b!important;background-color:rgba(255,50,50,.08)}
+
+.bottom-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:22px 0}
+.score-display{
+ background:rgba(255,255,255,.035);border:1px solid rgba(192,138,75,.12);border-radius:16px;
+ padding:20px 24px;display:flex;justify-content:space-between;align-items:center
+}
+.score-label{font:800 .75rem Orbitron,sans-serif;letter-spacing:1.5px;color:rgba(255,255,255,.38)}
+.score-detail{display:flex;gap:24px;font-weight:800}
+.correct-count{color:#4ade80;font-family:'Orbitron',monospace}
+.wrong-count{color:#ff6b6b;font-family:'Orbitron',monospace}
+.score-value{font:900 2rem Orbitron,sans-serif;color:var(--saturn-soft)}
+.denominator{font-size:1rem;color:rgba(255,255,255,.2)}
+
+body.light-theme .cosmic-bg{background:radial-gradient(ellipse at 20% 25%,#f1dfc9 0%,transparent 58%),radial-gradient(ellipse at 80% 70%,#ded0c0 0%,transparent 55%),#f1eee9}
+body.light-theme .nebula{display:none}
+body.light-theme .top-bar,body.light-theme .instructions-box,body.light-theme .passage-box,body.light-theme .score-display{background:rgba(255,255,255,.7);border-color:rgba(111,71,39,.12)}
+body.light-theme .exam-header h1{background:linear-gradient(135deg,#211a14,#8b633a);-webkit-background-clip:text;background-clip:text}
+body.light-theme .exam-header .subtitle,body.light-theme .instructions-text,body.light-theme .passage-text{color:rgba(33,26,20,.62)}
+body.light-theme .dropdown-select{background-color:rgba(111,71,39,.035);color:#8b633a}
+body.light-theme .dropdown-select option{background:#fff;color:#211a14}
+body.light-theme .btn-back,body.light-theme .btn-theme{color:#4d4035}
+
+@media(max-width:768px){
+ body{padding:14px}.top-bar{flex-direction:column;gap:12px;padding:14px 20px;border-radius:40px}
+ .exam-header h1{font-size:2rem}.passage-box{padding:20px 18px}.passage-text{font-size:1rem;line-height:2.2}
+ .score-display{flex-direction:column;gap:12px;text-align:center}.bottom-actions{flex-direction:column;align-items:center}.bottom-actions button{width:100%;max-width:300px}
+}
+@media(max-width:480px){
+ .exam-header h1{font-size:1.6rem}.passage-text{font-size:.9rem;line-height:2}
+ .dropdown-select{font-size:.85rem;min-width:82px;padding:4px 27px 4px 8px;background-size:10px;background-position:right 7px center}
+}
+</style>
+</head>
+<body>
+<div class="cosmic-bg"><div class="nebula nebula-1"></div><div class="nebula nebula-2"></div><div id="starContainer"></div></div>
+
+<div class="container">
+<header class="top-bar">
+  <div class="brand"><div class="logo-icon">♄</div><span class="glow">AWJ</span></div>
+  <div class="top-actions">
+    <button class="btn-theme" onclick="toggleTheme()" title="Toggle theme">🌓</button>
+    <button class="btn-back" onclick="goBack()">◀ BACK</button>
+  </div>
+</header>
+
+<div class="exam-header">
+  <div class="exam-badge">♄ GRAMMAR / VOCABULARY 06 · SATURN</div>
+  <h1>GRAMMAR / VOCABULARY</h1>
+  <div class="subtitle">Sem I 2nd Session 2021-2022</div>
+</div>
+
+<div class="instructions-box">
+  <div class="instructions-title">📋 INSTRUCTIONS</div>
+  <div class="instructions-text">For each item, select the correct option from the <span class="highlight">dropdown menu</span> in the passage.</div>
+</div>
+
+<div class="passage-box">
+  <div class="passage-title">✦ Grammar / Vocabulary 06 · Items 1 - 5</div>
+  <div class="passage-text">
+    The huge frozen continent at the bottom of our
+    <span class="dropdown-wrapper"><select class="dropdown-select default" id="select1" onchange="handleSelect(0,this)">
+      <option value="">— choose —</option><option value="country">country</option><option value="world">world</option><option value="ocean">ocean</option><option value="area">area</option>
+    </select></span>,
+    known as Antarctica is essential for our survival. The Antarctic ice plays an important role because it stops the Earth's
+    <span class="dropdown-wrapper"><select class="dropdown-select default" id="select2" onchange="handleSelect(1,this)">
+      <option value="">— choose —</option><option value="cycle">cycle</option><option value="location">location</option><option value="temperature">temperature</option><option value="pollution">pollution</option>
+    </select></span>
+    from becoming too hot. The Antarctic is considered one of the world's most important natural areas
+    <span class="dropdown-wrapper"><select class="dropdown-select default" id="select3" onchange="handleSelect(2,this)">
+      <option value="">— choose —</option><option value="because">because</option><option value="which">which</option><option value="however">however</option><option value="many">many</option>
+    </select></span>
+    the ice there contains evidence about the world's weather for millions of years. Many scientists work there to
+    <span class="dropdown-wrapper"><select class="dropdown-select default" id="select4" onchange="handleSelect(3,this)">
+      <option value="">— choose —</option><option value="produce">produce</option><option value="attract">attract</option><option value="research">research</option><option value="request">request</option>
+    </select></span>
+    and better understand climate change. Because of its scientific importance, Antarctica is a
+    <span class="dropdown-wrapper"><select class="dropdown-select default" id="select5" onchange="handleSelect(4,this)">
+      <option value="">— choose —</option><option value="protect">protect</option><option value="protects">protects</option><option value="protecting">protecting</option><option value="protected">protected</option>
+    </select></span>
+    geographical area and no country can own or populate any part of it.
+  </div>
+</div>
+
+<div class="bottom-actions">
+  <button class="btn-back" onclick="goBack()">◀ BACK TO DASHBOARD</button>
+  <button class="btn-reset" onclick="resetExam()">⟳ RESET ALL</button>
+  <button class="btn-submit" id="submitBtn" onclick="submitExam()" disabled>✓ SUBMIT (0/5)</button>
+</div>
+
+<div class="score-display">
+  <span class="score-label">✦ SCORE</span>
+  <div class="score-detail"><span class="correct-count" id="correctCount">✓ 0</span><span class="wrong-count" id="wrongCount">✗ 0</span></div>
+  <span class="score-value" id="scoreValue"><span id="scoreNum">0</span><span class="denominator"> / 5</span></span>
+</div>
+</div>
+
+<script>
+const TEST_ID='exam6';
+const SECTION='grammarVocab';
+const questions=[
+ {selectId:'select1',correct:'world'},
+ {selectId:'select2',correct:'temperature'},
+ {selectId:'select3',correct:'because'},
+ {selectId:'select4',correct:'research'},
+ {selectId:'select5',correct:'protected'}
+];
+let userAnswers={},isSubmitted=false;
+
+(function(){
+ const c=document.getElementById('starContainer');
+ for(let i=0;i<120;i++){
+  const s=document.createElement('div');s.className='star';const size=Math.random()*3+1;
+  s.style.cssText=`width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--duration:${Math.random()*4+2}s;--min-opacity:${Math.random()*.2+.1};--max-opacity:${Math.random()*.6+.4};animation-delay:${Math.random()*4}s`;
+  c.appendChild(s);
+ }
+})();
+
+function handleSelect(index,el){
+ if(isSubmitted)return;
+ if(el.value===''){delete userAnswers[index];el.className='dropdown-select default'}
+ else{userAnswers[index]=el.value;el.className='dropdown-select'}
+ updateSubmitButton();
+}
+function updateSubmitButton(){
+ const n=Object.keys(userAnswers).length,b=document.getElementById('submitBtn');
+ b.disabled=n<5;b.textContent=n<5?`✓ SUBMIT (${n}/5)`:'✓ SUBMIT EXAM';
+}
+function submitExam(){
+ if(isSubmitted)return;
+ if(Object.keys(userAnswers).length<5){alert('Please answer all 5 questions.');return}
+ isSubmitted=true;let correct=0,wrong=0;
+ questions.forEach((q,i)=>{
+  const el=document.getElementById(q.selectId);
+  if(userAnswers[i]===q.correct){correct++;el.className='dropdown-select correct'}
+  else{wrong++;el.className='dropdown-select wrong'}
+  el.disabled=true;
+ });
+ document.getElementById('scoreNum').textContent=correct;
+ document.getElementById('correctCount').textContent=`✓ ${correct}`;
+ document.getElementById('wrongCount').textContent=`✗ ${wrong}`;
+ document.getElementById('scoreValue').style.color='#4ade80';
+ document.getElementById('submitBtn').textContent='✓ SUBMITTED';
+ saveResult(correct);
+}
+function saveResult(score){
+ try{
+  const student=localStorage.getItem('currentStudent');if(!student)return;
+  const students=JSON.parse(localStorage.getItem('students'))||{};
+  if(!students[student])students[student]={createdAt:new Date().toISOString(),tests:{}};
+  if(!students[student].tests)students[student].tests={};
+  if(!students[student].tests[TEST_ID])students[student].tests[TEST_ID]={};
+  students[student].tests[TEST_ID][SECTION]=score;
+  localStorage.setItem('students',JSON.stringify(students));
+ }catch(e){}
+}
+function resetExam(){
+ if(isSubmitted&&!confirm('This will reset all your answers. Are you sure?'))return;
+ isSubmitted=false;userAnswers={};
+ questions.forEach(q=>{const el=document.getElementById(q.selectId);el.value='';el.disabled=false;el.className='dropdown-select default'});
+ document.getElementById('scoreNum').textContent='0';
+ document.getElementById('correctCount').textContent='✓ 0';
+ document.getElementById('wrongCount').textContent='✗ 0';
+ document.getElementById('scoreValue').style.color='var(--saturn-soft)';
+ updateSubmitButton();
+}
+function toggleTheme(){document.body.classList.toggle('light-theme')}
+function goBack(){document.body.style.transition='opacity .3s ease';document.body.style.opacity='0';setTimeout(()=>{window.location.href='saturn_Dashboard.html'},300)}
+updateSubmitButton();
+</script>
+</body>
+</html>

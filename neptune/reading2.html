@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading 2 · Venus Exam</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --venus:#C47F72;
+  --venus-light:#D9A092;
+  --venus-soft:rgba(196,127,114,.12);
+  --venus-border:rgba(196,127,114,.24);
+  --green:#4ade80;
+  --red:#ff6b6b;
+}
+body{
+  font-family:'Inter','Segoe UI',sans-serif;
+  color:#fff;min-height:100vh;padding:20px 28px 50px;
+  background:#120b0c;transition:all .4s ease;
+}
+body.light-theme{background:#f6efed;color:#211819}
+.cosmic-bg{
+  position:fixed;inset:0;z-index:0;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 20% 30%,#2b1718,transparent 60%),
+    radial-gradient(ellipse at 80% 70%,#1d1011,transparent 55%),
+    radial-gradient(ellipse at 50% 50%,#120b0c,#070405 100%);
+}
+.nebula{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;animation:nebulaFloat 30s ease-in-out infinite alternate}
+.nebula-1{width:600px;height:600px;background:rgba(196,127,114,.08);top:-220px;right:-120px;animation-duration:35s}
+.nebula-2{width:500px;height:500px;background:rgba(180,105,90,.07);bottom:-180px;left:-120px;animation-duration:40s;animation-delay:5s}
+@keyframes nebulaFloat{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(30px,20px,0) scale(1.08)}}
+.star{position:absolute;border-radius:50%;background:#fff;animation:twinkle var(--duration) ease-in-out infinite alternate;opacity:var(--min-opacity)}
+@keyframes twinkle{to{opacity:var(--max-opacity)}}
+.container{max-width:1400px;margin:auto;position:relative;z-index:2}
+.top-bar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 32px;background:rgba(15,8,7,.68);backdrop-filter:blur(28px);
+  border:1px solid rgba(255,255,255,.06);border-radius:60px;
+  margin-bottom:28px;box-shadow:0 8px 40px rgba(0,0,0,.45)
+}
+.brand{display:flex;align-items:center;gap:12px;font-size:24px;font-weight:900;letter-spacing:2px}
+.logo-icon{
+  width:40px;height:40px;border:2px solid var(--venus-border);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;color:var(--venus-light);
+  background:var(--venus-soft)
+}
+.glow{
+  background:linear-gradient(135deg,var(--venus-light),#e6b6aa);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.top-actions{display:flex;gap:10px}
+button{
+  border:1px solid rgba(255,255,255,.08);border-radius:40px;
+  padding:10px 20px;background:rgba(255,255,255,.025);color:#ddd;
+  cursor:pointer;font-weight:800;letter-spacing:.7px;transition:.25s
+}
+button:hover{transform:translateY(-1px);border-color:var(--venus-border);background:var(--venus-soft)}
+.btn-theme{color:#ddd}
+.btn-submit{
+  color:#e1a397;border-color:rgba(196,127,114,.20);
+  background:linear-gradient(135deg,rgba(196,127,114,.13),rgba(217,160,146,.08))
+}
+.btn-submit:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.btn-reset{background:rgba(196,127,114,.05);color:#e1a397;border-color:rgba(196,127,114,.16)}
+.exam-header{text-align:center;padding:10px 0 20px}
+.exam-badge{
+  display:inline-block;padding:8px 25px;border:1px solid rgba(231,176,169,.14);
+  border-radius:40px;color:rgba(255,255,255,.38);font-size:.78rem;font-weight:800;
+  letter-spacing:3px;margin-bottom:10px
+}
+.exam-header h1{
+  font-size:3rem;letter-spacing:3px;font-weight:900;
+  background:linear-gradient(135deg,#fff,var(--venus-light));
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.subtitle{margin-top:5px;color:rgba(255,255,255,.48);letter-spacing:1.5px}
+.exam-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start;margin:14px 0 28px}
+.reading-panel,.question-card,.score-display{
+  background:rgba(15,8,7,.48);backdrop-filter:blur(25px);
+  border:1px solid rgba(231,176,169,.12);box-shadow:0 8px 35px rgba(0,0,0,.25);border-radius:20px
+}
+.reading-panel{padding:26px 28px;height:680px;display:flex;flex-direction:column}
+.passage-title{color:var(--venus-light);font-size:.9rem;font-weight:900;letter-spacing:2px;margin-bottom:14px}
+.passage-scroll{overflow-y:auto;padding-right:10px}
+.passage-scroll::-webkit-scrollbar,.questions-panel::-webkit-scrollbar{width:5px}
+.passage-scroll::-webkit-scrollbar-thumb,.questions-panel::-webkit-scrollbar-thumb{background:linear-gradient(135deg,var(--venus),var(--venus-light));border-radius:10px}
+.passage-text{font-family:Georgia,'Times New Roman',serif;font-size:1.05rem;line-height:1.9;color:rgba(255,255,255,.78)}
+.passage-text p{margin-bottom:1.2em}
+.questions-panel{display:flex;flex-direction:column;gap:20px;height:680px;overflow-y:auto;padding-right:6px}
+.question-card{padding:22px 26px;flex-shrink:0}
+.q-number{color:var(--venus-light);font-size:.72rem;font-weight:900;letter-spacing:2px;margin-bottom:8px}
+.q-text{font-family:Georgia,'Times New Roman',serif;font-size:1.12rem;line-height:1.55;color:rgba(255,255,255,.84);margin-bottom:15px}
+.options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.option{
+  display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:12px;
+  border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.025);
+  cursor:pointer;transition:.2s
+}
+.option:hover:not(.disabled){border-color:var(--venus-border);background:var(--venus-soft)}
+.option input[type="radio"]{
+  appearance:none;width:20px;height:20px;min-width:20px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.22);position:relative;cursor:pointer
+}
+.option input[type="radio"]:checked:not(:disabled){border-color:var(--venus-light);background:var(--venus-soft)}
+.option input[type="radio"]:checked:not(:disabled)::after{
+  content:'';position:absolute;width:8px;height:8px;border-radius:50%;
+  top:50%;left:50%;transform:translate(-50%,-50%);background:var(--venus-light)
+}
+.option-label{font-weight:600;color:rgba(255,255,255,.72);font-size:.95rem}
+.option input[type="radio"]:checked:not(:disabled) ~ .option-label{color:#fff}
+.option.correct{border-color:rgba(74,222,128,.35);background:rgba(74,222,128,.09)}
+.option.correct .option-label{color:var(--green)!important;font-weight:800}
+.option.correct input[type="radio"]{border-color:var(--green)!important}
+.option.wrong{border-color:rgba(255,107,107,.35);background:rgba(255,107,107,.09)}
+.option.wrong .option-label{color:var(--red)!important;font-weight:800}
+.option.wrong input[type="radio"]{border-color:var(--red)!important}
+.option.disabled{cursor:default;opacity:.72}
+.bottom-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:8px 0 24px}
+.bottom-actions button{padding:13px 30px}
+.score-display{padding:22px 30px;display:flex;justify-content:space-between;align-items:center}
+.score-label{color:rgba(255,255,255,.42);font-weight:900;letter-spacing:2px}
+.score-detail{display:flex;gap:28px;font-weight:900}
+.correct-count{color:var(--green)}.wrong-count{color:var(--red)}
+.score-value{font-size:2rem;font-weight:900;color:var(--venus-light)}
+.denominator{font-size:1.1rem;color:rgba(255,255,255,.35)}
+
+body.light-theme .cosmic-bg{background:radial-gradient(ellipse at 20% 30%,#f1ded9,transparent 60%),radial-gradient(ellipse at 80% 70%,#ead4cf,transparent 55%),#f6efed}
+body.light-theme .nebula-1,body.light-theme .nebula-2,body.light-theme .star{display:none}
+body.light-theme .top-bar{background:rgba(255,255,255,.72);border-color:rgba(70,35,30,.08)}
+body.light-theme .reading-panel,body.light-theme .question-card,body.light-theme .score-display{background:rgba(255,255,255,.72);border-color:rgba(70,35,30,.08)}
+body.light-theme .passage-text,body.light-theme .q-text{color:rgba(35,25,23,.82)}
+body.light-theme .option{background:rgba(0,0,0,.02);border-color:rgba(60,30,25,.07)}
+body.light-theme .option-label{color:rgba(40,25,23,.58)}
+body.light-theme .btn-back,body.light-theme .btn-theme{color:#5d4541;background:rgba(0,0,0,.025)}
+body.light-theme .score-label{color:rgba(50,30,28,.35)}
+body.light-theme .denominator{color:rgba(50,30,28,.25)}
+body.light-theme .exam-header h1{background:linear-gradient(135deg,#211819,var(--venus))}
+body.light-theme .glow{background:linear-gradient(135deg,#B86F61,#8F5148);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+@media(max-width:1024px){
+ .exam-grid{grid-template-columns:1fr}.reading-panel{height:auto;max-height:420px}.questions-panel{height:auto;max-height:520px}
+}
+@media(max-width:768px){
+ body{padding:14px}.top-bar{flex-direction:column;gap:12px;padding:14px 20px;border-radius:40px}.top-actions{flex-wrap:wrap;justify-content:center}
+ .exam-header h1{font-size:2rem}.question-card{padding:18px 16px}.q-text{font-size:.95rem}
+ .score-display{flex-direction:column;gap:12px;text-align:center}.score-detail{justify-content:center}
+ .bottom-actions{flex-direction:column;align-items:center}.bottom-actions button{width:100%;max-width:300px}
+ .reading-panel{padding:20px 18px;max-height:350px}.passage-text{font-size:.95rem;line-height:1.7}
+ .option-label{font-size:.9rem}.questions-panel{max-height:420px}
+}
+@media(max-width:650px){.options{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){
+ .exam-header h1{font-size:1.6rem;letter-spacing:2px}.option{padding:8px 12px}.option-label{font-size:.85rem}
+ .passage-text{font-size:.9rem}.score-value{font-size:1.8rem}.questions-panel{max-height:350px}.options{grid-template-columns:1fr}
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:rgba(0,0,0,.3)}
+::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#C47A6D,#D49A8D);border-radius:12px}
+body.light-theme ::-webkit-scrollbar-track{background:rgba(0,0,0,.05)}
+body.light-theme ::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#B96D60,#9F5A50)}
+</style>
+</head>
+<body>
+<div class="cosmic-bg"><div class="nebula nebula-1"></div><div class="nebula nebula-2"></div><div id="starContainer"></div></div>
+
+<div class="container">
+<header class="top-bar">
+  <div class="brand"><div class="logo-icon">♀</div><span class="glow">AWJ</span></div>
+  <div class="top-actions">
+    <button class="btn-theme" onclick="toggleTheme()" title="Toggle theme">🌓</button>
+    <button class="btn-back" onclick="goBack()">◀ BACK</button>
+  </div>
+</header>
+
+<div class="exam-header">
+  <div class="exam-badge">♀ READING 02 · VENUS · EXAM 8</div>
+  <h1>READING COMPREHENSION</h1>
+  <div class="subtitle">♀ G. 12 Sem 1 2nd Session 2019-2020 · 8 MARKS</div>
+</div>
+
+<div class="exam-grid">
+  <div class="reading-panel">
+    <div class="passage-title">📖 PASSAGE</div>
+    <div class="passage-scroll">
+      <div class="passage-text">
+        <p>Dear Mr. Anwar,</p>
+        <p>I am writing this email to share with you some information about Sulawesi island, Indonesia, where I am spending the mid-term holiday with my father. He owns a furniture factory and often gets wood from here. As you mentioned, we will be learning about islands in Geography, so while I'm staying here I have decided to do a little research about this island and present it to my classmates. My presentation will focus on tourism and how it has affected Sulawesi.</p>
+        <p>By researching, and discussing the topic with my father and local people, I have discovered that tourism used to be very limited on Sulawesi. Only a few international divers visited the island because of its beautiful coral reefs, while mountain climbers wanted to experience its unique mountains and learn about its mysterious caves. Generally, they stayed in local people's homes, or in small family-run hotels. Even though these hotels were not very luxurious, they provided visitors with a cultural experience.</p>
+        <p>In 1986, a British documentary film was made about Sulawesi's beautiful landmark beaches, mountains and volcanoes. It was televised in several European countries. After that, there was rapid growth in tourism – mostly tourists from France and Germany. Soon, the number of package holiday makers increased. There was a big demand for better accommodation, so the Indonesian government constructed many large hotels along the coastline which in my opinion destroyed Sulawesi beautiful nature. Currently, most of these hotels offer all-inclusive package deals that include accommodation, meals, transportation and spas, but trips are excluded. Imagine, my father had to buy our airline tickets a year ago because Sulawesi has become so popular.</p>
+        <p>In my opinion, these large hotels have affected the locals' hotels and many have closed down. However, these new hotels have reduced unemployment, increase the island's income and raised living standards. Although, Sulawesi island was always famous for its traditional industries such as fishing, agriculture, boat building and net weaving. Locals have opened many tourism related businesses such as boutiques and restaurants.</p>
+        <p>Last night, I attended a local festival with my father. Unfortunately, the show did not present the people's authentic culture and traditions, and this was disappointing. However, I took some interesting photos which I will include in my presentation. Looking forward to seeing you.<br>Yours,<br>Faisal</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="questions-panel" id="questionsContainer"></div>
+</div>
+
+<div class="bottom-actions">
+  <button class="btn-back" onclick="goBack()">◀ BACK TO DASHBOARD</button>
+  <button class="btn-reset" onclick="resetExam()">⟳ RESET ALL</button>
+  <button class="btn-submit" id="submitBtn" onclick="submitExam()">✓ SUBMIT EXAM</button>
+</div>
+
+<div class="score-display">
+  <span class="score-label">✦ SCORE</span>
+  <div class="score-detail">
+    <span class="correct-count" id="correctCount">✓ 0</span>
+    <span class="wrong-count" id="wrongCount">✗ 0</span>
+  </div>
+  <span class="score-value" id="scoreValue"><span id="scoreNum">0</span><span class="denominator"> / 8</span></span>
+</div>
+</div>
+
+<script>
+const TEST_ID='exam8';
+const RESULT_KEY='reading2';
+const MAX_SCORE=8;
+
+const questions=[
+ {id:1,text:'This email is sent to a ______.',options:['teacher','classmate','father'],correct:0},
+ {id:2,text:'Faisal will present about ______ in Sulawesi.',options:['tourism','wood','factories'],correct:0},
+ {id:3,text:'Before 1986, the visitors to the island stayed in ______.',options:['luxurious hotels','locals’ houses','mysterious caves'],correct:1},
+ {id:4,text:'A documentary about Sulawesi island was produced by ______ film-makers.',options:['British','French','German'],correct:0},
+ {id:5,text:'Holidays packages to Sulawesi include ______.',options:['airline tickets','accommodation and meals','trips around the island'],correct:1},
+ {id:6,text:'According to Faisal, constructing big hotels had ______.',options:['create jobs','lower income','reduce the standard of living'],correct:0},
+ {id:7,text:'Historically, Sulawesi was known for its ______ industry.',options:['fishing and farming','tourism','building materials'],correct:0},
+ {id:8,text:'During the festival, Faisal and his father felt ______.',options:['amazed','disappointed','exhausted'],correct:1}
+];
+
+let userAnswers={};
+let isSubmitted=false;
+
+function createStars(){
+ const c=document.getElementById('starContainer'); if(!c)return;
+ for(let i=0;i<110;i++){
+  const s=document.createElement('div'); s.className='star';
+  const size=Math.random()*3+1;
+  s.style.cssText=`width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--duration:${Math.random()*4+2}s;--min-opacity:${Math.random()*.2+.1};--max-opacity:${Math.random()*.6+.4};animation-delay:${Math.random()*4}s`;
+  c.appendChild(s);
+ }
+}
+createStars();
+
+let isLightTheme=false;
+function toggleTheme(){
+ isLightTheme=!isLightTheme;
+ document.body.classList.toggle('light-theme',isLightTheme);
+ localStorage.setItem('reading2_exam8_venus_theme',isLightTheme?'light':'dark');
+}
+if(localStorage.getItem('reading2_exam8_venus_theme')==='light'){
+ isLightTheme=true;document.body.classList.add('light-theme');
+}
+
+function renderQuestions(){
+ const c=document.getElementById('questionsContainer'); c.innerHTML='';
+ questions.forEach((q,index)=>{
+  const card=document.createElement('div');
+  card.className='question-card'; card.id=`q-${index}`;
+  card.innerHTML=`
+   <div class="q-number">QUESTION ${index+1} OF ${questions.length} · 1 MARK</div>
+   <div class="q-text">${q.text}</div>
+   <div class="options" id="options-${index}">
+    ${q.options.map((opt,optIndex)=>`
+     <label class="option" id="opt-${index}-${optIndex}">
+      <input type="radio" name="q${index}" value="${optIndex}" onchange="selectOption(${index},${optIndex})">
+      <span class="option-label">${String.fromCharCode(65+optIndex)}. ${opt}</span>
+     </label>`).join('')}
+   </div>`;
+  c.appendChild(card);
+ });
+}
+
+function selectOption(qIndex,optIndex){
+ if(isSubmitted)return;
+ userAnswers[qIndex]=optIndex;
+ updateSubmitButton();
+}
+
+function updateSubmitButton(){
+ const btn=document.getElementById('submitBtn');
+ const answered=Object.keys(userAnswers).length;
+ btn.disabled=answered<questions.length;
+ btn.textContent=answered<questions.length?`✓ SUBMIT (${answered}/${questions.length})`:'✓ SUBMIT EXAM';
+}
+
+function submitExam(){
+ if(isSubmitted)return;
+ if(Object.keys(userAnswers).length<questions.length){
+  alert(`Please answer all ${questions.length} questions before submitting. (${Object.keys(userAnswers).length}/${questions.length} answered)`);
+  return;
+ }
+ isSubmitted=true;
+ const btn=document.getElementById('submitBtn');
+ btn.disabled=true;btn.textContent='✓ SUBMITTED';
+ let correctCount=0,wrongCount=0;
+
+ questions.forEach((q,index)=>{
+  const userAns=userAnswers[index];
+  const ok=userAns===q.correct;
+  if(ok)correctCount++;else wrongCount++;
+  document.getElementById(`opt-${index}-${q.correct}`).classList.add('correct');
+  if(!ok)document.getElementById(`opt-${index}-${userAns}`).classList.add('wrong');
+  document.querySelectorAll(`#options-${index} .option`).forEach(opt=>{
+   opt.classList.add('disabled');
+   const radio=opt.querySelector('input[type="radio"]');
+   if(radio)radio.disabled=true;
+  });
+ });
+
+ document.getElementById('scoreNum').textContent=correctCount;
+ document.getElementById('correctCount').textContent=`✓ ${correctCount}`;
+ document.getElementById('wrongCount').textContent=`✗ ${wrongCount}`;
+ document.getElementById('scoreValue').style.color='#4ade80';
+
+ saveResult(correctCount);
+}
+
+function saveResult(score){
+ try{
+  const student=localStorage.getItem('currentStudent');
+  if(!student)return;
+  const students=JSON.parse(localStorage.getItem('students'))||{};
+  if(!students[student])students[student]={createdAt:new Date().toISOString(),tests:{}};
+  if(!students[student].tests)students[student].tests={};
+  if(!students[student].tests[TEST_ID])students[student].tests[TEST_ID]={};
+  students[student].tests[TEST_ID][RESULT_KEY]=score;
+  localStorage.setItem('students',JSON.stringify(students));
+ }catch(e){}
+}
+
+function resetExam(){
+ if(isSubmitted && !confirm('This will reset all your answers. Are you sure?'))return;
+ isSubmitted=false;userAnswers={};
+ document.getElementById('scoreNum').textContent='0';
+ document.getElementById('correctCount').textContent='✓ 0';
+ document.getElementById('wrongCount').textContent='✗ 0';
+ document.getElementById('scoreValue').style.color='var(--venus-light)';
+ document.querySelectorAll('.option').forEach(opt=>{
+  opt.classList.remove('correct','wrong','disabled');
+  const radio=opt.querySelector('input[type="radio"]');
+  if(radio){radio.checked=false;radio.disabled=false;}
+ });
+ updateSubmitButton();
+}
+
+function goBack(){
+ document.body.style.transition='opacity .3s ease';
+ document.body.style.opacity='0';
+ setTimeout(()=>{window.location.href='venus_Dashboard.html';},300);
+}
+
+renderQuestions();
+updateSubmitButton();
+document.addEventListener('keydown',e=>{
+ if(e.key==='Enter'&&!document.getElementById('submitBtn').disabled)submitExam();
+});
+</script>
+</body>
+</html>

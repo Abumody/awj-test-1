@@ -1,0 +1,16 @@
+/* ============================================
+   🔵 NEPTUNE — VISUAL IDENTITY
+   AWJ Exam Patrol
+   Change BACKGROUND ONLY
+   ============================================ */
+
+body {
+  background: #09051C;
+}
+
+.cosmic-bg {
+  background:
+    radial-gradient(ellipse at 20% 30%, #20206B, transparent 60%),
+    radial-gradient(ellipse at 80% 70%, #321A72, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, #09051C, #020108 100%);
+}

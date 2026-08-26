@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listening 02 · Kepler-442 Exam</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter','Segoe UI',sans-serif;color:#fff;min-height:100vh;padding:20px 28px 50px;background:#170b05;position:relative;transition:all .4s ease}
+body.light-theme{background:#f0f2f5;color:#1a1a2e}
+.cosmic-bg{position:fixed;inset:0;z-index:0;overflow:hidden;background:
+radial-gradient(ellipse at 20% 30%,#3a1709,transparent 60%),
+radial-gradient(ellipse at 80% 70%,#2b1006,transparent 50%),
+radial-gradient(ellipse at 50% 50%,#170b05,#080301 100%)}
+body.light-theme .cosmic-bg{background:
+radial-gradient(ellipse at 20% 30%,#e8ecf1,transparent 60%),
+radial-gradient(ellipse at 80% 70%,#d5dce6,transparent 50%),
+radial-gradient(ellipse at 50% 50%,#f0f2f5,#e4e8ed 100%)}
+.nebula{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none}
+.nebula-1{width:420px;height:420px;left:5%;top:10%;background:rgba(224,122,63,.10)}
+.nebula-2{width:380px;height:380px;right:5%;bottom:10%;background:rgba(184,79,34,.08)}
+body.light-theme .nebula{display:none}
+#starContainer{position:absolute;inset:0}
+.star{position:absolute;border-radius:50%;background:#e07a3f;animation:twinkle var(--duration) ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:var(--min-opacity)}to{opacity:var(--max-opacity)}}
+.container{position:relative;z-index:1;max-width:1100px;margin:auto}
+.top-bar,.instructions-box,.audio-player,.question-card,.score-display{background:rgba(15,7,3,.48);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.05);border-radius:20px}
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:14px 20px}
+.brand{display:flex;align-items:center;gap:10px}
+.logo-icon{width:36px;height:36px;border:1px solid rgba(224,122,63,.25);border-radius:12px;display:grid;place-items:center;color:#e07a3f}
+.brand .glow{font-family:'Orbitron',monospace;font-size:1.4rem;font-weight:900;background:linear-gradient(135deg,#e07a3f,#b84f22);-webkit-background-clip:text;background-clip:text;color:transparent}
+.top-actions{display:flex;gap:10px}
+.btn-theme,.btn-back,.btn-reset,.btn-submit{font-family:'Inter',sans-serif;font-weight:700;border-radius:10px;padding:10px 16px;cursor:pointer;transition:.3s}
+.btn-theme,.btn-back{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.7)}
+.btn-theme:hover,.btn-back:hover{border-color:rgba(224,122,63,.35);color:#e07a3f}
+.exam-header{text-align:center;padding:34px 15px 20px}
+.exam-badge{display:inline-block;font:700 .78rem Orbitron,monospace;letter-spacing:1.5px;color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.06);border-radius:30px;padding:8px 14px}
+.exam-header h1{margin:16px 0 8px;font:900 clamp(1.8rem,4vw,3rem) Orbitron,monospace;letter-spacing:2px;background:linear-gradient(135deg,#fff,rgba(255,255,255,.55));-webkit-background-clip:text;background-clip:text;color:transparent}
+.subtitle{color:rgba(255,255,255,.3);font-weight:600}
+.instructions-box{padding:22px 28px;margin:10px 0 24px}
+.instructions-title,.part-divider{font:700 .8rem Orbitron,monospace;letter-spacing:2px;color:rgba(255,255,255,.28)}
+.instructions-title{margin-bottom:8px}
+.instructions-text{font-size:1.08rem;font-weight:600;color:rgba(255,255,255,.62);line-height:1.8}
+.highlight{color:#e07a3f;font-weight:800}
+.audio-player{padding:18px 30px;margin:20px 0 32px;display:flex;align-items:center;gap:20px}
+.play-btn{width:56px;height:56px;border-radius:50%;border:1px solid rgba(224,122,63,.2);background:rgba(224,122,63,.08);color:#e07a3f;font-size:1.6rem;cursor:pointer;flex-shrink:0}
+.play-btn:hover{transform:scale(1.06);background:rgba(224,122,63,.14)}
+.progress-container{flex:1;display:flex;align-items:center;gap:14px}
+.progress-bar{flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:6px;cursor:pointer}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#e07a3f,#b84f22);border-radius:6px}
+.time-display{font:600 .8rem Orbitron,monospace;color:rgba(255,255,255,.35);white-space:nowrap}
+.part-divider{margin:28px 0 14px;padding:0 4px;color:#e07a3f}
+.question-card{padding:24px;margin-bottom:16px}
+.q-number{font:700 .72rem Orbitron,monospace;color:rgba(255,255,255,.28);letter-spacing:1.4px;margin-bottom:10px}
+.q-text{font-size:1.15rem;font-weight:650;line-height:1.6;color:rgba(255,255,255,.82);margin-bottom:18px}
+.short-answer-input{width:100%;padding:13px 15px;border-radius:10px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);color:#fff;font:600 1rem Inter,sans-serif;outline:none}
+.short-answer-input:focus{border-color:rgba(224,122,63,.45);box-shadow:0 0 0 3px rgba(224,122,63,.08)}
+.short-answer-input.correct{border-color:#4ade80;background:rgba(74,222,128,.07)}
+.short-answer-input.wrong{border-color:#ff6b6b;background:rgba(255,50,50,.07)}
+.short-answer-feedback{min-height:22px;margin-top:8px;font-size:.85rem;font-weight:700}
+.correct-text{color:#4ade80}.wrong-text{color:#ff6b6b}
+.options{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.option{display:flex;align-items:center;gap:10px;padding:14px 15px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.02);border-radius:12px;cursor:pointer;transition:.25s}
+.option:hover{border-color:rgba(224,122,63,.28);background:rgba(224,122,63,.04)}
+.option input{appearance:none;width:20px;height:20px;border:2px solid rgba(255,255,255,.28);border-radius:50%;position:relative;flex-shrink:0}
+.option input:checked{border-color:#e07a3f}
+.option input:checked:after{content:'';position:absolute;width:9px;height:9px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:#e07a3f}
+.option-label{font-weight:650;color:rgba(255,255,255,.58);line-height:1.35}
+.option input:checked~.option-label{color:#fff}
+.option.correct{border-color:rgba(74,222,128,.25);background:rgba(74,222,128,.08)}
+.option.correct .option-label{color:#4ade80;font-weight:800}
+.option.wrong{border-color:rgba(255,50,50,.25);background:rgba(255,50,50,.08)}
+.option.wrong .option-label{color:#ff6b6b;font-weight:800}
+.option.disabled{opacity:.6;cursor:default}
+.bottom-actions{display:flex;justify-content:center;gap:14px;margin:24px 0 30px;flex-wrap:wrap}
+.btn-reset{background:rgba(255,255,255,.04);border:1px solid rgba(224,122,63,.16);color:#e07a3f}
+.btn-submit{background:linear-gradient(135deg,rgba(224,122,63,.18),rgba(184,79,34,.12));border:1px solid rgba(224,122,63,.2);color:#e07a3f}
+.btn-submit:disabled{opacity:.4;cursor:not-allowed}
+.score-display{padding:20px 24px;display:flex;justify-content:space-between;align-items:center}
+.score-label{font:800 .75rem Orbitron,monospace;letter-spacing:1.5px;color:rgba(255,255,255,.35)}
+.score-detail{display:flex;gap:24px;font-weight:800}
+.correct-count{color:#4ade80}.wrong-count{color:#ff6b6b}
+.score-value{font:900 2rem Orbitron,monospace;color:#e07a3f}.denominator{font-size:1rem;color:rgba(255,255,255,.18)}
+body.light-theme .top-bar,body.light-theme .instructions-box,body.light-theme .audio-player,body.light-theme .question-card,body.light-theme .score-display{background:rgba(255,255,255,.7);border-color:rgba(0,0,0,.06)}
+body.light-theme .brand .glow{background:linear-gradient(135deg,#e07a3f,#b84f22);-webkit-background-clip:text;background-clip:text;color:transparent}
+body.light-theme .logo-icon{border-color:rgba(224,122,63,.2);color:#e07a3f}
+body.light-theme .btn-theme,body.light-theme .btn-back{color:rgba(0,0,0,.6);background:rgba(0,0,0,.02)}
+body.light-theme .instructions-text,body.light-theme .q-text{color:rgba(0,0,0,.7)}
+body.light-theme .option{background:rgba(0,0,0,.02);border-color:rgba(0,0,0,.04)}
+body.light-theme .option-label{color:rgba(0,0,0,.55)}
+body.light-theme .short-answer-input{color:#1a1a2e;background:rgba(0,0,0,.02)}
+@media(max-width:768px){body{padding:14px}.top-bar{flex-direction:column;gap:12px}.audio-player{flex-wrap:wrap}.progress-container{width:100%}.question-card{padding:20px 18px}.options{grid-template-columns:1fr}.score-display{flex-direction:column;gap:12px;text-align:center}.bottom-actions{flex-direction:column;align-items:center}.bottom-actions button{width:100%;max-width:300px}}
+@media(max-width:480px){.exam-header h1{font-size:1.55rem}.q-text{font-size:1rem}.option-label{font-size:.95rem}}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:rgba(0,0,0,.3)}::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#e07a3f,#b84f22);border-radius:12px}
+</style>
+</head>
+<body>
+<div class="cosmic-bg"><div class="nebula nebula-1"></div><div class="nebula nebula-2"></div><div id="starContainer"></div></div>
+<div class="container">
+<header class="top-bar">
+<div class="brand"><div class="logo-icon">✦</div><span class="glow">AWJ</span></div>
+<div class="top-actions"><button class="btn-theme" onclick="toggleTheme()">🌓</button><button class="btn-back" onclick="goBack()">◀ BACK</button></div>
+</header>
+
+<div class="exam-header">
+<div class="exam-badge">✦ LISTENING 02 · KEPLER-442</div>
+<h1>THE FIRST SELFRIDGES DEPARTMENT STORE</h1>
+<div class="subtitle">✦ G.12 Sem I 1st Session 2016-2017</div>
+</div>
+
+<div class="instructions-box">
+<div class="instructions-title">📋 INSTRUCTIONS</div>
+<div class="instructions-text">
+You are going to hear a <span class="highlight">presentation</span> about <span class="highlight">the first Selfridges Department Store</span>.
+<br><br><span style="font-size:.9rem;font-weight:400;opacity:.5">⏱️ You can listen to the audio as many times as you need.</span>
+<br><span style="font-size:.9rem;font-weight:400;opacity:.5">✏️ Part One: write your answer (max 4 words). Part Two: choose the correct option.</span>
+</div>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button>
+<div class="progress-container">
+<div class="progress-bar" id="progressBar" onclick="seekAudio(event)"><div class="progress-fill" id="progressFill"></div></div>
+<span class="time-display" id="timeDisplay">0:00 / 0:00</span>
+</div>
+</div>
+
+<div class="questions-container" id="questionsContainer"></div>
+
+<div class="bottom-actions">
+<button class="btn-back" onclick="goBack()">◀ BACK TO DASHBOARD</button>
+<button class="btn-reset" onclick="resetExam()">⟳ RESET ALL</button>
+<button class="btn-submit" id="submitBtn" onclick="submitExam()" disabled>✓ SUBMIT (0/8)</button>
+</div>
+
+<div class="score-display">
+<span class="score-label">✦ SCORE</span>
+<div class="score-detail"><span class="correct-count" id="correctCount">✓ 0</span><span class="wrong-count" id="wrongCount">✗ 0</span></div>
+<span class="score-value" id="scoreValue"><span id="scoreNum">0</span><span class="denominator"> / 8</span></span>
+</div>
+</div>
+
+<script>
+(function(){
+  const container=document.getElementById('starContainer');
+  for(let i=0;i<120;i++){
+    const s=document.createElement('div');s.className='star';
+    const size=Math.random()*3+1;
+    s.style.cssText=`width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--duration:${Math.random()*4+2}s;--min-opacity:${Math.random()*.2+.1};--max-opacity:${Math.random()*.6+.4};animation-delay:${Math.random()*4}s`;
+    container.appendChild(s);
+  }
+})();
+
+let isLightTheme=false;
+function toggleTheme(){
+  isLightTheme=!isLightTheme;
+  document.body.classList.toggle('light-theme',isLightTheme);
+  localStorage.setItem('kepler442Listening2Theme',isLightTheme?'light':'dark');
+}
+if(localStorage.getItem('kepler442Listening2Theme')==='light'){
+  isLightTheme=true;document.body.classList.add('light-theme');
+}
+
+const questions=[
+{id:1,part:1,text:'When was the first Selfridges Store opened?',type:'short',
+correct:['1909','15th March 1909','15 March 1909','nineteen hundred and nine']},
+{id:2,part:1,text:'What was unusual about Selfridges when it first opened?',type:'short',
+correct:['library','a library','place to read','a place to read','place to sit, eat and read','sit, eat and read']},
+{id:3,part:1,text:'Besides London, how many British cities have Selfridges stores?',type:'short',
+correct:['two','2','Manchester and Birmingham']},
+{id:4,part:1,text:'What product was not sold in the first Selfridges stores?',type:'short',
+correct:['perfume for men','men perfume','male perfume','men perfumes','perfumes for men']},
+{id:5,part:2,text:'Selfridge’s father ______ in a war.',type:'mcq',options:['died','disappeared','got injured'],correct:0},
+{id:6,part:2,text:'He started working in a shop at the age of ______.',type:'mcq',options:['14','16','18'],correct:2},
+{id:7,part:2,text:'He moved to Britain because of his ______ advice.',type:'mcq',options:['friend’s','mother’s','wife’s'],correct:2},
+{id:8,part:2,text:'After his death, his life was documented in a ______.',type:'mcq',options:['film','television series','novel'],correct:1}
+];
+
+let userAnswers={},isSubmitted=false;
+
+function renderQuestions(){
+  const c=document.getElementById('questionsContainer');c.innerHTML='';
+  const p1=document.createElement('div');p1.className='part-divider';p1.textContent='✦ PART ONE – SHORT ANSWER (max 4 words)';c.appendChild(p1);
+  questions.filter(q=>q.part===1).forEach(q=>{
+    const card=document.createElement('div');card.className='question-card';
+    card.innerHTML=`<div class="q-number">QUESTION ${q.id} OF 8</div>
+    <div class="q-text">${q.text}</div>
+    <input class="short-answer-input" id="short-${q.id}" type="text" maxlength="50" placeholder="Type your answer..." oninput="onShortInput(${q.id},this.value)">
+    <div class="short-answer-feedback" id="feedback-${q.id}"></div>`;
+    c.appendChild(card);
+  });
+  const p2=document.createElement('div');p2.className='part-divider';p2.textContent='✦ PART TWO – MULTIPLE CHOICE';c.appendChild(p2);
+  questions.filter(q=>q.part===2).forEach(q=>{
+    const card=document.createElement('div');card.className='question-card';
+    card.innerHTML=`<div class="q-number">QUESTION ${q.id} OF 8</div>
+    <div class="q-text">${q.text}</div>
+    <div class="options" id="options-${q.id}">
+    ${q.options.map((opt,oi)=>`<label class="option" id="opt-${q.id}-${oi}">
+    <input type="radio" name="q${q.id}" value="${oi}" onchange="selectOption(${q.id},${oi})">
+    <span class="option-label">${String.fromCharCode(65+oi)}. ${opt}</span></label>`).join('')}
+    </div>`;
+    c.appendChild(card);
+  });
+}
+
+function onShortInput(id,value){if(isSubmitted)return;userAnswers[id]=value.trim();updateSubmitButton()}
+function selectOption(id,opt){if(isSubmitted)return;userAnswers[id]=opt;updateSubmitButton()}
+function updateSubmitButton(){
+  const b=document.getElementById('submitBtn');let answered=0;
+  questions.forEach(q=>{if(q.type==='short'){if(userAnswers[q.id])answered++}else if(userAnswers[q.id]!==undefined)answered++});
+  b.disabled=answered<questions.length;
+  b.textContent=answered<questions.length?`✓ SUBMIT (${answered}/${questions.length})`:'✓ SUBMIT EXAM';
+}
+function normalize(s){return s.toLowerCase().replace(/\s+/g,' ').trim()}
+function submitExam(){
+  if(isSubmitted)return;
+  let answered=0;questions.forEach(q=>{if(q.type==='short'){if(userAnswers[q.id])answered++}else if(userAnswers[q.id]!==undefined)answered++});
+  if(answered<questions.length){alert(`Please answer all ${questions.length} questions.`);return}
+  isSubmitted=true;document.getElementById('submitBtn').disabled=true;document.getElementById('submitBtn').textContent='✓ SUBMITTED';
+  let correct=0,wrong=0;
+  questions.forEach(q=>{
+    if(q.type==='short'){
+      const input=document.getElementById(`short-${q.id}`),fb=document.getElementById(`feedback-${q.id}`);
+      const ok=q.correct.some(a=>normalize(a)===normalize(userAnswers[q.id]||''));
+      if(ok)correct++;else wrong++;input.disabled=true;
+      if(ok){input.classList.add('correct');fb.className='short-answer-feedback correct-text';fb.textContent='✓ Correct'}
+      else{input.classList.add('wrong');fb.className='short-answer-feedback wrong-text';fb.textContent=`✗ Expected: ${q.correct[0]}`}
+    }else{
+      const ok=userAnswers[q.id]===q.correct;if(ok)correct++;else wrong++;
+      const co=document.getElementById(`opt-${q.id}-${q.correct}`);if(co)co.classList.add('correct');
+      if(!ok&&userAnswers[q.id]!==undefined){const wo=document.getElementById(`opt-${q.id}-${userAnswers[q.id]}`);if(wo)wo.classList.add('wrong')}
+      document.querySelectorAll(`#options-${q.id} .option`).forEach(el=>{el.classList.add('disabled');el.querySelector('input').disabled=true});
+    }
+  });
+  document.getElementById('scoreNum').textContent=correct;
+  document.getElementById('correctCount').textContent=`✓ ${correct}`;
+  document.getElementById('wrongCount').textContent=`✗ ${wrong}`;
+  document.getElementById('scoreValue').style.color='#4ade80';
+  try{
+    const student=localStorage.getItem('currentStudent');
+    if(student){
+      const students=JSON.parse(localStorage.getItem('students'))||{};
+      if(!students[student])students[student]={createdAt:new Date().toISOString(),tests:{}};
+      if(!students[student].tests)students[student].tests={};
+      if(!students[student].tests['exam15'])students[student].tests['exam15']={};
+      students[student].tests['exam15']['listening2']=correct;
+      localStorage.setItem('students',JSON.stringify(students));
+    }
+  }catch(e){console.error('Score save error',e)}
+}
+function resetExam(){
+  if(isSubmitted&&!confirm('Reset all answers?'))return;
+  isSubmitted=false;userAnswers={};
+  document.getElementById('scoreNum').textContent='0';
+  document.getElementById('correctCount').textContent='✓ 0';
+  document.getElementById('wrongCount').textContent='✗ 0';
+  document.getElementById('scoreValue').style.color='#e07a3f';
+  document.getElementById('submitBtn').disabled=true;
+  document.getElementById('submitBtn').textContent='✓ SUBMIT (0/8)';
+  questions.forEach(q=>{
+    if(q.type==='short'){
+      const i=document.getElementById(`short-${q.id}`),f=document.getElementById(`feedback-${q.id}`);
+      i.value='';i.disabled=false;i.className='short-answer-input';f.className='short-answer-feedback';f.textContent='';
+    }else document.querySelectorAll(`#options-${q.id} .option`).forEach(o=>{o.classList.remove('correct','wrong','disabled');o.querySelector('input').checked=false;o.querySelector('input').disabled=false});
+  });
+}
+
+const AUDIO_PATH='../audio 02/listening2_15.mp3';
+let audio=null,isPlaying=false;
+function initAudio(){
+  if(!audio){
+    audio=new Audio(AUDIO_PATH);
+    audio.onloadedmetadata=updateAudioUI;
+    audio.onerror=()=>console.error('Audio file failed to load. Path:',AUDIO_PATH);
+    audio.addEventListener('timeupdate',updateAudioUI);
+    audio.addEventListener('play',()=>{isPlaying=true;document.getElementById('playBtn').textContent='⏸'});
+    audio.addEventListener('pause',()=>{isPlaying=false;document.getElementById('playBtn').textContent='▶'});
+    audio.addEventListener('ended',()=>{isPlaying=false;document.getElementById('playBtn').textContent='▶';document.getElementById('progressFill').style.width='0%'});
+  }
+  updateAudioUI();
+}
+function togglePlay(){if(!audio)initAudio();if(isPlaying)audio.pause();else audio.play().catch(()=>alert('Could not play audio. Please check if the audio file exists.'))}
+function updateAudioUI(){
+  if(!audio)return;
+  const fill=document.getElementById('progressFill'),time=document.getElementById('timeDisplay');
+  if(audio.duration&&!isNaN(audio.duration)){fill.style.width=(audio.currentTime/audio.duration*100)+'%';time.textContent=formatTime(audio.currentTime)+' / '+formatTime(audio.duration)}
+}
+function formatTime(s){if(!s||isNaN(s))return'0:00';const m=Math.floor(s/60),sec=Math.floor(s%60);return m+':'+(sec<10?'0':'')+sec}
+function seekAudio(e){
+  if(!audio)return;
+  const r=document.getElementById('progressBar').getBoundingClientRect(),p=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
+  if(audio.duration&&!isNaN(audio.duration))audio.currentTime=p*audio.duration;
+}
+function goBack(){
+  document.body.style.transition='opacity .3s ease';document.body.style.opacity='0';
+  setTimeout(()=>window.location.href='kepler442_Dashboard.html',300);
+}
+
+renderQuestions();updateSubmitButton();initAudio();
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&!document.getElementById('submitBtn').disabled)submitExam()});
+</script>
+</body>
+</html>

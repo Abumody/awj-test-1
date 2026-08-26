@@ -1,0 +1,18 @@
+/* ============================================
+   🪐 SATURN — VISUAL IDENTITY
+   AWJ Exam Patrol
+   Change BACKGROUND ONLY
+   ============================================ */
+
+/* Base background */
+body {
+  background: #0B1117;
+}
+
+/* Saturn background */
+.cosmic-bg {
+  background:
+    radial-gradient(ellipse at 20% 30%, #263B46, transparent 60%),
+    radial-gradient(ellipse at 80% 70%, #352C42, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, #0B1117, #020406 100%);
+}

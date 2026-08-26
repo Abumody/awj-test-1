@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading 03 · Exam 06</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter','Segoe UI',sans-serif;color:#fff;min-height:100vh;padding:20px 28px 50px;background:#0f0a05;position:relative;transition:all .4s ease}
+    body.light-theme{background:#f0f2f5;color:#1a1a2e}
+    body.light-theme .cosmic-bg{background:radial-gradient(ellipse at 20% 30%,#e8ecf1,transparent 60%),radial-gradient(ellipse at 80% 70%,#d5dce6,transparent 50%),radial-gradient(ellipse at 50% 50%,#f0f2f5,#e4e8ed 100%)}
+    body.light-theme .nebula-1,body.light-theme .nebula-2,body.light-theme .star{display:none}
+    body.light-theme .top-bar{background:rgba(255,255,255,.7);backdrop-filter:blur(30px);border-color:rgba(0,0,0,.06)}
+    body.light-theme .brand .glow{background:linear-gradient(135deg,#d4a373,#b5835a);-webkit-background-clip:text;background-clip:text;color:transparent}
+    body.light-theme .brand .logo-icon{border-color:rgba(212,163,115,.2);color:#d4a373}
+    body.light-theme .exam-badge{color:rgba(0,0,0,.3);border-color:rgba(0,0,0,.06)}
+    body.light-theme .exam-header h1{background:linear-gradient(135deg,#1a1a2e,rgba(26,26,46,.5));-webkit-background-clip:text;background-clip:text;color:transparent}
+    body.light-theme .exam-header .subtitle{color:rgba(0,0,0,.25)}
+    body.light-theme .instructions-box,body.light-theme .question-card,body.light-theme .score-display{background:rgba(255,255,255,.7);border-color:rgba(0,0,0,.06)}
+    body.light-theme .instructions-box .instructions-title,body.light-theme .question-card .q-number,body.light-theme .score-display .score-label{color:rgba(0,0,0,.4)}
+    body.light-theme .instructions-box .instructions-text,body.light-theme .question-card .q-text{color:rgba(0,0,0,.7)}
+    body.light-theme .passage-text{color:rgba(0,0,0,.72)}
+    body.light-theme .option{background:rgba(0,0,0,.02);border-color:rgba(0,0,0,.06)}
+    body.light-theme .option .option-label{color:rgba(0,0,0,.72)}
+    body.light-theme .btn-theme,body.light-theme .btn-back{background:rgba(0,0,0,.02);color:rgba(0,0,0,.5);border-color:rgba(0,0,0,.06)}
+    body.light-theme .score-display .score-value{color:#d4a373}
+
+    .cosmic-bg{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse at 20% 30%,#1a120a,transparent 60%),radial-gradient(ellipse at 80% 70%,#0f0a0a,transparent 50%),radial-gradient(ellipse at 50% 50%,#0f0a05,#050500 100%);overflow:hidden;transition:all .4s ease}
+    .nebula{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;animation:nebulaFloat 30s ease-in-out infinite alternate}
+    .nebula-1{width:600px;height:600px;background:rgba(180,130,70,.06);top:-200px;right:-100px;animation-duration:35s}
+    .nebula-2{width:500px;height:500px;background:rgba(200,150,80,.05);bottom:-150px;left:-100px;animation-duration:40s;animation-delay:5s}
+    @keyframes nebulaFloat{0%{transform:translate(0,0) scale(1)}33%{transform:translate(60px,-40px) scale(1.1)}66%{transform:translate(-40px,60px) scale(.9)}100%{transform:translate(40px,-30px) scale(1.05)}}
+    .star{position:absolute;border-radius:50%;pointer-events:none;background:#fff;animation:twinkle var(--duration) ease-in-out infinite alternate}
+    @keyframes twinkle{0%,100%{opacity:var(--min-opacity);transform:scale(1)}50%{opacity:var(--max-opacity);transform:scale(1.3)}}
+    .container{max-width:950px;margin:0 auto;position:relative;z-index:5}
+
+    .top-bar{background:rgba(15,10,5,.5);backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.04);border-radius:60px;padding:12px 18px 12px 24px;display:flex;justify-content:space-between;align-items:center;transition:all .4s ease}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo-icon{width:38px;height:38px;border-radius:50%;border:1px solid rgba(212,163,115,.2);display:flex;align-items:center;justify-content:center;color:#d4a373;font-size:1.1rem;transition:all .4s ease}
+    .brand .glow{font-family:'Orbitron',monospace;font-size:1.4rem;font-weight:900;letter-spacing:3px;background:linear-gradient(135deg,#d4a373,#b5835a);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .top-actions{display:flex;align-items:center;gap:10px}
+    button{font-family:'Inter',sans-serif}
+    .btn-theme,.btn-back,.btn-reset,.btn-submit{border:1px solid rgba(255,255,255,.05);border-radius:30px;padding:10px 20px;background:rgba(255,255,255,.02);color:rgba(255,255,255,.6);cursor:pointer;transition:all .3s ease}
+    .btn-theme{width:42px;height:42px;padding:0;font-size:1rem}
+    .btn-theme:hover,.btn-back:hover{background:rgba(212,163,115,.05);border-color:rgba(212,163,115,.1);transform:scale(1.04)}
+    .btn-reset{background:rgba(255,200,50,.03);color:#ffcc44;border-color:rgba(255,200,50,.08)}
+    .btn-reset:hover{background:rgba(255,200,50,.06);border-color:rgba(255,200,50,.15);transform:scale(1.04)}
+    .btn-submit{background:linear-gradient(135deg,rgba(212,163,115,.08),rgba(181,131,90,.08));color:#d4a373;border-color:rgba(212,163,115,.1)}
+    .btn-submit:hover:not(:disabled){background:linear-gradient(135deg,rgba(212,163,115,.15),rgba(181,131,90,.15));border-color:rgba(181,131,90,.2);transform:scale(1.04)}
+    .btn-submit:disabled{opacity:.3;cursor:not-allowed;transform:none!important}
+
+    .exam-header{text-align:center;padding:24px 0 20px}
+    .exam-badge{font-family:'Orbitron',monospace;font-size:.8rem;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.25);padding:8px 28px;border:1px solid rgba(255,255,255,.04);border-radius:40px;display:inline-block;margin-bottom:10px}
+    .exam-header h1{font-family:'Orbitron',monospace;font-size:3.2rem;font-weight:900;letter-spacing:4px;background:linear-gradient(135deg,#fff,rgba(255,255,255,.5));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .exam-header .subtitle{color:rgba(255,255,255,.2);font-size:1.1rem;letter-spacing:2px;font-weight:300;margin-top:4px}
+
+    .instructions-box{background:rgba(15,10,5,.3);backdrop-filter:blur(20px);border-radius:16px;border:1px solid rgba(255,255,255,.04);padding:22px 28px;margin:10px 0 24px}
+    .instructions-title{font-family:'Orbitron',monospace;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.2);letter-spacing:2px;margin-bottom:8px}
+    .instructions-text{font-size:1.2rem;font-weight:600;color:rgba(255,255,255,.6);line-height:1.8}
+    .highlight{color:#d4a373;font-weight:800}
+
+    .passage-box{background:rgba(15,10,5,.3);backdrop-filter:blur(30px);border-radius:20px;padding:28px 32px;border:1px solid rgba(255,255,255,.04);box-shadow:0 8px 40px rgba(0,0,0,.2);margin:16px 0 24px}
+    .passage-title{font-family:'Orbitron',monospace;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.15);letter-spacing:2px;margin-bottom:16px}
+    .passage-scroll{max-height:560px;overflow-y:auto;padding-right:10px}
+    .passage-text{font-size:1.12rem;font-weight:400;color:rgba(255,255,255,.75);line-height:1.95}
+    .passage-text p{margin-bottom:18px}
+    .passage-text p:last-child{margin-bottom:0}
+
+    .questions-container{display:flex;flex-direction:column;gap:24px;margin:16px 0 32px}
+    .question-card{background:rgba(15,10,5,.3);backdrop-filter:blur(30px);border-radius:20px;padding:28px 32px;border:1px solid rgba(255,255,255,.04);box-shadow:0 8px 40px rgba(0,0,0,.2);transition:all .4s ease}
+    .question-card:hover{border-color:rgba(255,255,255,.06)}
+    .q-number{font-family:'Orbitron',monospace;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.15);letter-spacing:2px;margin-bottom:8px}
+    .q-text{font-size:1.2rem;font-weight:700;color:rgba(255,255,255,.8);margin-bottom:16px;line-height:1.6}
+    .short-input{width:100%;padding:14px 18px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:12px;color:#fff;font-family:'Inter',sans-serif;font-size:1.05rem;outline:none;transition:all .3s ease}
+    .short-input:focus{border-color:rgba(212,163,115,.35);box-shadow:0 0 0 3px rgba(212,163,115,.08)}
+    .short-input.correct{border-color:rgba(74,222,128,.35);background:rgba(74,222,128,.08)}
+    .short-input.wrong{border-color:rgba(255,107,107,.35);background:rgba(255,107,107,.08)}
+    .short-feedback{font-size:.9rem;font-weight:700;margin-top:8px;min-height:18px}
+    .correct-text{color:#4ade80}.wrong-text{color:#ff6b6b}
+    .options{display:flex;flex-direction:column;gap:10px}
+    .option{display:flex;align-items:center;gap:14px;padding:14px 20px;background:rgba(255,255,255,.02);border-radius:12px;border:1px solid rgba(255,255,255,.04);cursor:pointer;transition:all .3s ease}
+    .option:hover{background:rgba(212,163,115,.04);border-color:rgba(212,163,115,.1);transform:translateX(4px)}
+    .option input{appearance:none;width:20px;height:20px;border:2px solid rgba(255,255,255,.2);border-radius:50%;position:relative;flex-shrink:0}
+    .option input:checked{border-color:#d4a373}
+    .option input:checked::after{content:'';position:absolute;width:8px;height:8px;border-radius:50%;background:#d4a373;left:4px;top:4px}
+    .option-label{font-size:1.05rem;font-weight:500;color:rgba(255,255,255,.7)}
+    .option.correct{background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.25)}
+    .option.correct input{border-color:#4ade80}
+    .option.correct input::after{content:'';position:absolute;width:8px;height:8px;border-radius:50%;background:#4ade80;left:4px;top:4px}
+    .option.wrong{background:rgba(255,107,107,.08);border-color:rgba(255,107,107,.25)}
+    .option.wrong input{border-color:#ff6b6b}
+    .option.wrong input::after{content:'';position:absolute;width:8px;height:8px;border-radius:50%;background:#ff6b6b;left:4px;top:4px}
+    .option.disabled{opacity:.6;cursor:default}
+    .option.disabled:hover{background:rgba(255,255,255,.02);border-color:rgba(255,255,255,.04);transform:none}
+
+    .bottom-actions{display:flex;justify-content:center;gap:20px;margin:20px 0 30px;flex-wrap:wrap}
+    .bottom-actions .btn-back,.bottom-actions .btn-reset,.bottom-actions .btn-submit{padding:14px 36px;font-size:.9rem;font-weight:700}
+    .score-display{background:rgba(15,10,5,.4);backdrop-filter:blur(20px);border-radius:20px;border:1px solid rgba(255,255,255,.04);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+    .score-label{font-family:'Orbitron',monospace;font-size:.9rem;font-weight:700;color:rgba(255,255,255,.15);letter-spacing:2px}
+    .score-value{font-family:'Orbitron',monospace;font-size:2.2rem;font-weight:900;color:#d4a373}
+    .denominator{font-size:1.2rem;color:rgba(255,255,255,.15);font-weight:400}
+    .score-detail{display:flex;align-items:center;gap:30px}
+    .correct-count{color:#4ade80;font-family:'Orbitron',monospace;font-size:1rem;font-weight:700}
+    .wrong-count{color:#ff6b6b;font-family:'Orbitron',monospace;font-size:1rem;font-weight:700}
+
+    ::-webkit-scrollbar{width:4px}
+    ::-webkit-scrollbar-track{background:rgba(0,0,0,.3)}
+    ::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#d4a373,#b5835a);border-radius:12px}
+    body.light-theme ::-webkit-scrollbar-track{background:rgba(0,0,0,.05)}
+    body.light-theme ::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#d4a373,#b5835a)}
+
+    @media(max-width:768px){
+      body{padding:14px}
+      .top-bar{flex-direction:column;gap:12px;padding:14px 20px}
+      .top-actions{flex-wrap:wrap;justify-content:center}
+      .exam-header h1{font-size:2rem}
+      .question-card{padding:20px 18px}
+      .question-card .q-text{font-size:1rem}
+      .score-display{flex-direction:column;gap:12px;text-align:center}
+      .score-detail{justify-content:center;gap:20px}
+      .bottom-actions{flex-direction:column;align-items:center}
+      .bottom-actions .btn-back,.bottom-actions .btn-reset,.bottom-actions .btn-submit{width:100%;max-width:300px}
+      .instructions-text{font-size:1rem}
+      .option-label{font-size:.95rem}
+      .passage-box{padding:20px 18px}
+      .passage-text{font-size:1rem}
+    }
+    @media(max-width:480px){
+      .exam-header h1{font-size:1.6rem;letter-spacing:2px}
+      .option{padding:10px 14px}
+      .option-label{font-size:.85rem}
+      .instructions-text{font-size:.9rem}
+      .score-value{font-size:1.8rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="cosmic-bg">
+    <div class="nebula nebula-1"></div>
+    <div class="nebula nebula-2"></div>
+    <div id="starContainer"></div>
+  </div>
+
+  <div class="container">
+    <header class="top-bar">
+      <div class="brand"><div class="logo-icon">✦</div><span class="glow">AWJ</span></div>
+      <div class="top-actions">
+        <button class="btn-theme" onclick="toggleTheme()" title="Toggle theme">🌓</button>
+        <button class="btn-back" onclick="goBack()">◀ BACK</button>
+      </div>
+    </header>
+
+    <div class="exam-header">
+      <div class="exam-badge">✦ READING 03 · EXAM 06</div>
+      <h1>READING COMPREHENSION</h1>
+      <div class="subtitle">G.12 Sem I 2nd Session 2021-2022</div>
+    </div>
+
+    <div class="instructions-box">
+      <div class="instructions-title">📋 INSTRUCTIONS</div>
+      <div class="instructions-text">
+        Read the passage below and answer all questions.
+        <span class="highlight">Select the correct answer</span> for questions 7 to 10.
+      </div>
+    </div>
+
+    <div class="passage-box">
+      <div class="passage-title">📖 PASSAGE · LAKES AROUND THE WORLD</div>
+      <div class="passage-scroll">
+        <div class="passage-text">
+          <p>Water covers around 70% of the Earth's surface. The oceans contain most of the water. However, there are many lakes throughout the world. A lake is a large body of water surrounded by land. There are about 370 million natural lakes covering about 3% of the Earth's surface. Moreover, there are around 53 million man-made lakes in the world.</p>
+          <p>Most lakes contain freshwater and have at least one source, like a river or a stream. However, some lakes do not have a continuous source of water, and when the water evaporates, it becomes saltier. Fresh water lakes, such as Lake Victoria in Africa, contain less than 1 gramme of salt per litre of water. Whereas salt water lakes, such as the Great Salt Lake in the USA, may contain more than 250 grammes of salt per litre of water. Lake Assal, located in Djibouti, Africa is the second saltiest lake in the world after the Lake Don Juan Pond in Antarctica. Lake Assal is considered a "national treasure", and is used to produce salt and other minerals.</p>
+          <p>Natural lakes vary in terms of size, shape, depth, water chemistry and other features. For example, ‘Boiling Lake’ in the Dominica Republic, Central America, is considered the second largest hot-water lake in the world. The water temperature along its edges, is about 180°F to 197°F. It is impossible to measure the temperature at the centre of the lake, because it is too hot. Despite this, it has become very popular with tourists because it is covered in clouds, and its greyish water is always bubbling. Laguna Colorado lake in Bolivia, South America, is unusual because the colour of the water is red. It got its colour from a red plant that grows in the lake. It is a shallow lake with an average depth of only 0.35 metres. It attracts hundreds of migrant birds, especially flamingoes. 'Jellyfish Lake', located in Palau, The Philippines, is also popular with tourists who are interested in wildlife. It got its name because it contains millions of golden jellyfish. They are not harmful to humans, so it is a very popular site for snorkellers.</p>
+          <p>Man-made lakes are created by building dams to collect rainwater. These lakes are used for farming and for generating power. Lake Nasser, in Egypt, is one of the world’s largest man-made lakes. The lake is approximately 341 miles long and 22 miles wide. Most of the lake lies in Egypt, with a smaller part found in the Sudan. The Sudanese refer to this body of water as Lake Nubia. Similarly, Lake Kariba, located between Zambia and Zimbabwe, is the world’s largest man-made lake by volume. However, studies have shown that the pressure of such a large quantity of water has caused several earthquakes. To conclude, lakes provide an important source of water and income to countries and people all over the world and we must do everything to protect these valuable resources.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="questions-container" id="questionsContainer"></div>
+
+    <div class="bottom-actions">
+      <button class="btn-back" onclick="goBack()">◀ BACK TO DASHBOARD</button>
+      <button class="btn-reset" onclick="resetExam()">⟳ RESET ALL</button>
+      <button class="btn-submit" id="submitBtn" onclick="submitExam()" disabled>✓ SUBMIT EXAM</button>
+    </div>
+
+    <div class="score-display">
+      <span class="score-label">✦ SCORE</span>
+      <div class="score-detail">
+        <span class="correct-count" id="correctCount">✓ 0</span>
+        <span class="wrong-count" id="wrongCount">✗ 0</span>
+      </div>
+      <span class="score-value" id="scoreValue"><span id="scoreNum">0</span><span class="denominator"> / 10</span></span>
+    </div>
+  </div>
+
+<script>
+const TEST_ID='exam6';
+const SECTION='reading3';
+const MAX_SCORE=10;
+
+const questions=[
+  {type:'short',id:1,text:'How many man-made lakes are there in the world?',correctAnswer:'53 million',acceptable:['53 million','fifty three million']},
+  {type:'short',id:2,text:'How much salt, per litre of water, does Lake Victoria contain?',correctAnswer:'less than 1 gramme',acceptable:['less than 1 gramme','less than 1 gram','one gramme','one gram']},
+  {type:'short',id:3,text:'Where is the saltiest lake in the world?',correctAnswer:'Antarctica',acceptable:['antarctica']},
+  {type:'short',id:4,text:'Which lake is considered a national treasure?',correctAnswer:'Lake Assal',acceptable:['lake assal']},
+  {type:'short',id:5,text:'What is the second largest hot-water lake in the world?',correctAnswer:'Boiling Lake',acceptable:['boiling lake']},
+  {type:'short',id:6,text:'Why does Laguna Colorado Lake attract tourists?',correctAnswer:"because the colour is red",acceptable:['because the colour is red',"it's red",'it is red','because the water is red','the colour is red']},
+  {type:'mcq',id:7,text:'According to the text, flamingoes are attracted to ______.',options:['Jellyfish Lake','Lake Victoria','Laguna Colorado lake'],correct:2},
+  {type:'mcq',id:8,text:'Golden jellyfish are ______ to swimmers and snorkellers.',options:['harmless','hurtful','dangerous'],correct:0},
+  {type:'mcq',id:9,text:'The length of Lake Nasser is ______ miles.',options:['twenty-two','two-hundred and fifty','three-hundred and forty-one'],correct:2},
+  {type:'mcq',id:10,text:'The ______ Lake Kariba has caused a lot of earthquakes.',options:['location of','pressure of water in','source of water coming into'],correct:1}
+];
+
+let userAnswers={},mcqAnswers={},isSubmitted=false;
+
+function createStars(){
+  const c=document.getElementById('starContainer'); if(!c)return;
+  for(let i=0;i<120;i++){
+    const s=document.createElement('div');s.className='star';
+    const size=Math.random()*3+1;
+    s.style.cssText=`width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--duration:${Math.random()*4+2}s;--min-opacity:${Math.random()*.2+.1};--max-opacity:${Math.random()*.6+.4};animation-delay:${Math.random()*4}s;`;
+    c.appendChild(s);
+  }
+}
+createStars();
+
+let isLightTheme=false;
+function toggleTheme(){isLightTheme=!isLightTheme;document.body.classList.toggle('light-theme',isLightTheme);localStorage.setItem('reading3_exam6_theme',isLightTheme?'light':'dark')}
+if(localStorage.getItem('reading3_exam6_theme')==='light'){isLightTheme=true;document.body.classList.add('light-theme')}
+
+function renderQuestions(){
+  const c=document.getElementById('questionsContainer');c.innerHTML='';
+  questions.forEach((q,index)=>{
+    const card=document.createElement('div');card.className='question-card';card.id=`q-${index}`;
+    const letter=String.fromCharCode(65+index);
+    let html=`<div class="q-number">${letter}. Question ${index+1} of ${questions.length}</div><div class="q-text">${q.text}</div>`;
+    if(q.type==='short'){
+      html+=`<input type="text" class="short-input" id="input-${index}" placeholder="Type your answer..." oninput="onShortInput(${index},this.value)"><div class="short-feedback" id="feedback-${index}"></div>`;
+    }else{
+      html+=`<div class="options" id="options-${index}">${q.options.map((o,oi)=>`<label class="option" id="opt-${index}-${oi}"><input type="radio" name="q${index}" value="${oi}" onchange="onMcqSelect(${index},${oi})"><span class="option-label">${String.fromCharCode(65+oi)}. ${o}</span></label>`).join('')}</div>`;
+    }
+    card.innerHTML=html;c.appendChild(card);
+  });
+}
+function onShortInput(i,v){if(isSubmitted)return;v=v.trim();if(v)userAnswers[i]=v;else delete userAnswers[i];updateSubmitButton()}
+function onMcqSelect(i,v){if(isSubmitted)return;mcqAnswers[i]=v;updateSubmitButton()}
+function updateSubmitButton(){
+  const answered=Object.keys(userAnswers).length+Object.keys(mcqAnswers).length;
+  const b=document.getElementById('submitBtn');b.disabled=answered<questions.length;
+  b.textContent=answered<questions.length?`✓ SUBMIT (${answered}/${questions.length})`:'✓ SUBMIT EXAM';
+}
+function normalize(s){return s.toLowerCase().trim().replace(/\s+/g,' ')}
+function shortCorrect(ans,q){const n=normalize(ans);return [q.correctAnswer,...q.acceptable].some(a=>n===normalize(a))}
+function submitExam(){
+  if(isSubmitted)return;
+  const answered=Object.keys(userAnswers).length+Object.keys(mcqAnswers).length;
+  if(answered<questions.length){alert(`Please answer all ${questions.length} questions before submitting. (${answered}/${questions.length} answered)`);return}
+  isSubmitted=true;document.getElementById('submitBtn').disabled=true;document.getElementById('submitBtn').textContent='✓ SUBMITTED';
+  let correct=0,wrong=0;
+  questions.forEach((q,i)=>{
+    if(q.type==='short'){
+      const input=document.getElementById(`input-${i}`),fb=document.getElementById(`feedback-${i}`);
+      if(shortCorrect(userAnswers[i]||'',q)){correct++;input.classList.add('correct');fb.textContent='✓ Correct!';fb.className='short-feedback correct-text'}
+      else{wrong++;input.classList.add('wrong');fb.textContent=`✗ Expected: "${q.correctAnswer}"`;fb.className='short-feedback wrong-text'}
+      input.disabled=true;
+    }else{
+      const ok=mcqAnswers[i]===q.correct;if(ok)correct++;else wrong++;
+      const co=document.getElementById(`opt-${i}-${q.correct}`);if(co)co.classList.add('correct');
+      if(!ok&&mcqAnswers[i]!==undefined){const wo=document.getElementById(`opt-${i}-${mcqAnswers[i]}`);if(wo)wo.classList.add('wrong')}
+      document.querySelectorAll(`#options-${i} .option`).forEach(o=>{o.classList.add('disabled');const r=o.querySelector('input');if(r)r.disabled=true})
+    }
+  });
+  document.getElementById('scoreNum').textContent=correct;
+  document.getElementById('correctCount').textContent=`✓ ${correct}`;
+  document.getElementById('wrongCount').textContent=`✗ ${wrong}`;
+  document.getElementById('scoreValue').style.color='#4ade80';
+  saveResult(correct);
+}
+function saveResult(score){
+  try{
+    const student=localStorage.getItem('currentStudent');if(!student)return;
+    const students=JSON.parse(localStorage.getItem('students'))||{};
+    if(!students[student])students[student]={createdAt:new Date().toISOString(),tests:{}};
+    if(!students[student].tests)students[student].tests={};
+    if(!students[student].tests[TEST_ID])students[student].tests[TEST_ID]={};
+    students[student].tests[TEST_ID][SECTION]=score;
+    localStorage.setItem('students',JSON.stringify(students));
+  }catch(e){console.log('Score saved locally only')}
+}
+function resetExam(){
+  if(isSubmitted&&!confirm('This will reset all your answers. Are you sure?'))return;
+  isSubmitted=false;userAnswers={};mcqAnswers={};
+  document.getElementById('scoreNum').textContent='0';document.getElementById('correctCount').textContent='✓ 0';document.getElementById('wrongCount').textContent='✗ 0';document.getElementById('scoreValue').style.color='#d4a373';
+  questions.forEach((q,i)=>{
+    if(q.type==='short'){const input=document.getElementById(`input-${i}`),fb=document.getElementById(`feedback-${i}`);input.value='';input.disabled=false;input.classList.remove('correct','wrong');fb.textContent='';fb.className='short-feedback'}
+    else document.querySelectorAll(`#options-${i} .option`).forEach(o=>{o.classList.remove('correct','wrong','disabled');const r=o.querySelector('input');if(r){r.checked=false;r.disabled=false}})
+  });
+  updateSubmitButton();
+}
+function goBack(){document.body.style.transition='opacity .3s ease';document.body.style.opacity='0';setTimeout(()=>{window.location.href='jupiter_Dashboard.html'},300)}
+renderQuestions();updateSubmitButton();
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&!document.getElementById('submitBtn').disabled)submitExam()});
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+/* ============================================
+   ⚫ PLUTO — VISUAL IDENTITY
+   AWJ Exam Patrol
+   Change BACKGROUND ONLY
+   ============================================ */
+
+body {
+  background: #111315;
+}
+
+.cosmic-bg {
+  background:
+    radial-gradient(ellipse at 20% 30%, #34312A, transparent 60%),
+    radial-gradient(ellipse at 80% 70%, #252A2B, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, #111315, #030405 100%);
+}

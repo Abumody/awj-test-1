@@ -1,0 +1,16 @@
+/* ============================================
+   🩵 URANUS — VISUAL IDENTITY
+   AWJ Exam Patrol
+   Change BACKGROUND ONLY
+   ============================================ */
+
+body {
+  background: #071A20;
+}
+
+.cosmic-bg {
+  background:
+    radial-gradient(ellipse at 20% 30%, #0D5260, transparent 60%),
+    radial-gradient(ellipse at 80% 70%, #164C58, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, #071A20, #020709 100%);
+}
