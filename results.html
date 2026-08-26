@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AWJ · Results</title>
+<link rel="stylesheet" href="css/home-light.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+.results-page{max-width:1100px;margin:0 auto;padding:28px 20px 70px}
+.results-hero{text-align:center;margin:25px 0 35px}
+.results-hero h1{font-family:Orbitron,sans-serif;letter-spacing:3px;margin:0 0 10px}
+.results-hero p{opacity:.75;margin:0}
+.results-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.result-card{position:relative;padding:28px 22px;text-align:center;border-radius:22px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 35px rgba(0,0,0,.18);backdrop-filter:blur(10px);overflow:hidden}
+.planet-orb{width:92px;height:92px;margin:0 auto 18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:48px;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.95),rgba(255,255,255,.18) 22%,rgba(255,255,255,.05) 55%,rgba(0,0,0,.35) 100%);box-shadow:0 0 28px rgba(255,255,255,.16),inset -12px -10px 20px rgba(0,0,0,.28)}
+.result-card h2{font-family:Orbitron,sans-serif;font-size:1.15rem;margin:0 0 18px}
+.final-label{font-size:.75rem;text-transform:uppercase;letter-spacing:2px;opacity:.65}
+.final-score{font-family:Orbitron,sans-serif;font-size:2rem;font-weight:900;margin:7px 0 14px}
+.result-date{font-size:.85rem;opacity:.7}
+.result-date span{opacity:.55;margin-right:5px}
+.empty-results{text-align:center;padding:55px 20px;border-radius:22px;background:rgba(255,255,255,.08);opacity:.75}
+.back-results{display:block;margin:30px auto 0}
+</style>
+</head>
+<body>
+<div class="cosmic-bg" id="cosmicBg"></div>
+<header class="top-bar">
+  <div class="brand"><div class="logo-icon">✦</div><span class="glow">AWJ</span></div>
+  <div class="student-area">
+    <span class="student-greeting">◆ <span class="highlight" id="studentName">Student</span></span>
+    <button class="logout-btn" onclick="logout()">⌘ EXIT</button>
+  </div>
+</header>
+
+<main class="results-page">
+  <div class="results-hero">
+    <h1>EXAM RESULTS</h1>
+    <p>Your completed planetary exams</p>
+  </div>
+  <div class="results-cards" id="resultsContainer"></div>
+  <button class="results-btn back-results" onclick="goHome()">◀ BACK TO HOME</button>
+</main>
+<script src="js/results.js"></script>
+</body>
+</html>
