@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Listening 01 · Neptune Exam</title>
+  <title>Reading 1 · Venus Exam</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * {
@@ -17,12 +17,11 @@
       color: #ffffff;
       min-height: 100vh;
       padding: 20px 28px 50px;
-      background: #0f0a05;
+      background: #050510;
       position: relative;
       transition: all 0.4s ease;
     }
 
-    /* Light Theme */
     body.light-theme {
       background: #f0f2f5;
       color: #1a1a2e;
@@ -47,15 +46,15 @@
     }
 
     body.light-theme .brand .glow {
-      background: linear-gradient(135deg, #d4a373, #b5835a);
+      background: linear-gradient(135deg, #4a7cf7, #7c5cbf);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     body.light-theme .brand .logo-icon {
-      border-color: rgba(212, 163, 115, 0.2);
-      color: #d4a373;
+      border-color: rgba(74, 124, 247, 0.2);
+      color: #4a7cf7;
     }
 
     body.light-theme .exam-badge {
@@ -74,33 +73,6 @@
       color: rgba(0, 0, 0, 0.25);
     }
 
-    body.light-theme .audio-player {
-      background: rgba(255, 255, 255, 0.7);
-      border-color: rgba(0, 0, 0, 0.06);
-    }
-
-    body.light-theme .audio-player .play-btn {
-      background: rgba(212, 163, 115, 0.08);
-      border-color: rgba(212, 163, 115, 0.15);
-      color: #d4a373;
-    }
-
-    body.light-theme .audio-player .play-btn:hover {
-      background: rgba(212, 163, 115, 0.15);
-    }
-
-    body.light-theme .audio-player .progress-bar {
-      background: rgba(0, 0, 0, 0.06);
-    }
-
-    body.light-theme .audio-player .progress-bar .progress-fill {
-      background: linear-gradient(90deg, #d4a373, #b5835a);
-    }
-
-    body.light-theme .audio-player .time-display {
-      color: rgba(0, 0, 0, 0.3);
-    }
-
     body.light-theme .question-card {
       background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(30px);
@@ -114,6 +86,12 @@
 
     body.light-theme .question-card .q-text {
       color: rgba(0, 0, 0, 0.7);
+    }
+
+    body.light-theme .question-card .q-context {
+      color: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.02);
+      border-left-color: rgba(74, 124, 247, 0.2);
     }
 
     body.light-theme .option {
@@ -131,12 +109,12 @@
     }
 
     body.light-theme .option input[type="radio"]:checked:not(:disabled) {
-      border-color: #d4a373;
-      background: rgba(212, 163, 115, 0.08);
+      border-color: #4a7cf7;
+      background: rgba(74, 124, 247, 0.08);
     }
 
     body.light-theme .option input[type="radio"]:checked:not(:disabled)::after {
-      background: #d4a373;
+      background: #4a7cf7;
     }
 
     body.light-theme .option .option-label {
@@ -152,9 +130,17 @@
       border-color: rgba(74, 222, 128, 0.25);
     }
 
+    body.light-theme .option.correct .option-label {
+      color: #0b7e3a !important;
+    }
+
     body.light-theme .option.wrong {
       background: rgba(255, 50, 50, 0.12);
       border-color: rgba(255, 50, 50, 0.25);
+    }
+
+    body.light-theme .option.wrong .option-label {
+      color: #b91c1c !important;
     }
 
     body.light-theme .btn-back {
@@ -163,8 +149,8 @@
     }
 
     body.light-theme .btn-back:hover {
-      background: rgba(212, 163, 115, 0.05);
-      border-color: rgba(212, 163, 115, 0.1);
+      background: rgba(74, 124, 247, 0.05);
+      border-color: rgba(74, 124, 247, 0.1);
     }
 
     body.light-theme .btn-reset {
@@ -179,14 +165,14 @@
     }
 
     body.light-theme .btn-submit {
-      background: linear-gradient(135deg, rgba(212, 163, 115, 0.08), rgba(181, 131, 90, 0.08));
-      color: #d4a373;
-      border-color: rgba(212, 163, 115, 0.1);
+      background: linear-gradient(135deg, rgba(74, 124, 247, 0.08), rgba(124, 92, 191, 0.08));
+      color: #4a7cf7;
+      border-color: rgba(74, 124, 247, 0.1);
     }
 
     body.light-theme .btn-submit:hover:not(:disabled) {
-      background: linear-gradient(135deg, rgba(212, 163, 115, 0.15), rgba(181, 131, 90, 0.15));
-      border-color: rgba(212, 163, 115, 0.2);
+      background: linear-gradient(135deg, rgba(74, 124, 247, 0.15), rgba(124, 92, 191, 0.15));
+      border-color: rgba(74, 124, 247, 0.2);
     }
 
     body.light-theme .score-display {
@@ -200,7 +186,7 @@
     }
 
     body.light-theme .score-display .score-value {
-      color: #d4a373;
+      color: #4a7cf7;
     }
 
     body.light-theme .score-display .score-value .denominator {
@@ -240,9 +226,9 @@
       inset: 0;
       z-index: 0;
       background: 
-        radial-gradient(ellipse at 20% 30%, #1a120a, transparent 60%),
-        radial-gradient(ellipse at 80% 70%, #0f0a0a, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, #0f0a05, #050500 100%);
+        radial-gradient(ellipse at 20% 30%, #0a0a2e, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, #0e0518, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, #050510, #000000 100%);
       overflow: hidden;
       transition: all 0.4s ease;
     }
@@ -258,7 +244,7 @@
     .nebula-1 {
       width: 600px;
       height: 600px;
-      background: rgba(180, 130, 70, 0.06);
+      background: rgba(100, 50, 200, 0.06);
       top: -200px;
       right: -100px;
       animation-duration: 35s;
@@ -267,7 +253,7 @@
     .nebula-2 {
       width: 500px;
       height: 500px;
-      background: rgba(200, 150, 80, 0.05);
+      background: rgba(50, 100, 200, 0.05);
       bottom: -150px;
       left: -100px;
       animation-duration: 40s;
@@ -301,13 +287,12 @@
       z-index: 5;
     }
 
-    /* Top Bar */
     .top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 14px 32px;
-      background: rgba(15, 10, 5, 0.6);
+      background: rgba(5, 5, 20, 0.6);
       backdrop-filter: blur(30px);
       border-radius: 60px;
       border: 1px solid rgba(255, 255, 255, 0.04);
@@ -331,19 +316,19 @@
     .brand .logo-icon {
       width: 40px;
       height: 40px;
-      border: 2px solid rgba(212, 163, 115, 0.15);
+      border: 2px solid rgba(100, 200, 255, 0.15);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 18px;
-      background: rgba(212, 163, 115, 0.03);
-      color: #d4a373;
+      background: rgba(100, 200, 255, 0.03);
+      color: #64c8ff;
       transition: all 0.4s ease;
     }
 
     .brand .glow {
-      background: linear-gradient(135deg, #d4a373, #b5835a);
+      background: linear-gradient(135deg, #64c8ff, #a78bfa);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -387,8 +372,8 @@
     }
 
     .btn-back:hover {
-      background: rgba(212, 163, 115, 0.05);
-      border-color: rgba(212, 163, 115, 0.1);
+      background: rgba(100, 200, 255, 0.05);
+      border-color: rgba(100, 200, 255, 0.1);
       transform: scale(1.04);
     }
 
@@ -405,25 +390,23 @@
     }
 
     .btn-submit {
-      background: linear-gradient(135deg, rgba(212, 163, 115, 0.08), rgba(181, 131, 90, 0.08));
-      color: #d4a373;
-      border-color: rgba(181, 131, 90, 0.1);
+      background: linear-gradient(135deg, rgba(100, 200, 255, 0.08), rgba(167, 139, 250, 0.08));
+      color: #a78bfa;
+      border-color: rgba(167, 139, 250, 0.1);
     }
 
     .btn-submit:hover:not(:disabled) {
-      background: linear-gradient(135deg, rgba(212, 163, 115, 0.15), rgba(181, 131, 90, 0.15));
-      border-color: rgba(181, 131, 90, 0.2);
+      background: linear-gradient(135deg, rgba(100, 200, 255, 0.15), rgba(167, 139, 250, 0.15));
+      border-color: rgba(167, 139, 250, 0.2);
       transform: scale(1.04);
     }
 
     .btn-submit:disabled {
       opacity: 0.3;
       cursor: not-allowed;
-      cursor: not-allowed;
       transform: none !important;
     }
 
-    /* Exam Header */
     .exam-header {
       text-align: center;
       padding: 24px 0 20px;
@@ -464,9 +447,8 @@
       transition: all 0.4s ease;
     }
 
-    /* Instructions */
     .instructions-box {
-      background: rgba(15, 10, 5, 0.3);
+      background: rgba(5, 5, 20, 0.3);
       backdrop-filter: blur(20px);
       border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.04);
@@ -492,95 +474,23 @@
     }
 
     .instructions-box .instructions-text .highlight {
-      color: #d4a373;
+      color: #64c8ff;
       font-weight: 800;
     }
 
     body.light-theme .instructions-box .instructions-text .highlight {
-      color: #d4a373;
+      color: #4a7cf7;
     }
 
-    /* Audio Player */
-    .audio-player {
-      background: rgba(15, 10, 5, 0.4);
-      backdrop-filter: blur(20px);
-      border-radius: 60px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      padding: 18px 30px;
-      margin: 20px 0 32px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      transition: all 0.4s ease;
-    }
-
-    .audio-player .play-btn {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      border: none;
-      background: linear-gradient(135deg, rgba(212, 163, 115, 0.1), rgba(181, 131, 90, 0.1));
-      border: 1px solid rgba(181, 131, 90, 0.15);
-      color: #d4a373;
-      font-size: 1.6rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .audio-player .play-btn:hover {
-      transform: scale(1.08);
-      background: linear-gradient(135deg, rgba(212, 163, 115, 0.15), rgba(181, 131, 90, 0.15));
-    }
-
-    .audio-player .progress-container {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .audio-player .progress-bar {
-      flex: 1;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.06);
-      border-radius: 6px;
-      cursor: pointer;
-      position: relative;
-      transition: all 0.4s ease;
-    }
-
-    .audio-player .progress-bar .progress-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #d4a373, #b5835a);
-      border-radius: 6px;
-      transition: width 0.1s linear;
-    }
-
-    .audio-player .time-display {
-      font-family: 'Orbitron', monospace;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.2);
-      min-width: 90px;
-      text-align: center;
-      transition: all 0.4s ease;
-    }
-
-    /* Questions */
     .questions-container {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 28px;
       margin: 16px 0 32px;
     }
 
     .question-card {
-      background: rgba(15, 10, 5, 0.3);
+      background: rgba(5, 5, 20, 0.3);
       backdrop-filter: blur(30px);
       border-radius: 20px;
       padding: 28px 32px;
@@ -603,10 +513,23 @@
       transition: all 0.4s ease;
     }
 
+    .question-card .q-context {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 14px 18px;
+      border-radius: 12px;
+      border-left: 3px solid rgba(100, 200, 255, 0.15);
+      margin-bottom: 14px;
+      line-height: 1.7;
+      transition: all 0.4s ease;
+    }
+
     .question-card .q-text {
       font-size: 1.2rem;
       font-weight: 700;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.85);
       margin-bottom: 16px;
       line-height: 1.6;
       transition: all 0.4s ease;
@@ -648,8 +571,8 @@
     }
 
     .option input[type="radio"]:checked:not(:disabled) {
-      border-color: #d4a373;
-      background: rgba(212, 163, 115, 0.1);
+      border-color: #a78bfa;
+      background: rgba(167, 139, 250, 0.1);
     }
 
     .option input[type="radio"]:checked:not(:disabled)::after {
@@ -661,7 +584,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: #d4a373;
+      background: #a78bfa;
     }
 
     .option input[type="radio"]:disabled {
@@ -679,7 +602,6 @@
       color: #ffffff;
     }
 
-    /* States */
     .option.correct {
       background: rgba(74, 222, 128, 0.08);
       border-color: rgba(74, 222, 128, 0.2);
@@ -728,7 +650,6 @@
       border-color: rgba(255, 255, 255, 0.04);
     }
 
-    /* Bottom Actions */
     .bottom-actions {
       display: flex;
       justify-content: center;
@@ -745,9 +666,8 @@
       font-weight: 700;
     }
 
-    /* Score Display */
     .score-display {
-      background: rgba(15, 10, 5, 0.4);
+      background: rgba(5, 5, 20, 0.4);
       backdrop-filter: blur(20px);
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.04);
@@ -772,7 +692,7 @@
       font-family: 'Orbitron', monospace;
       font-size: 2.2rem;
       font-weight: 900;
-      color: #d4a373;
+      color: #a78bfa;
       transition: color 0.5s ease;
     }
 
@@ -802,16 +722,14 @@
       font-weight: 700;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       body { padding: 14px; }
       .top-bar { flex-direction: column; gap: 12px; padding: 14px 20px; border-radius: 40px; }
       .top-actions { flex-wrap: wrap; justify-content: center; }
       .exam-header h1 { font-size: 2rem; }
-      .audio-player { flex-wrap: wrap; padding: 16px 20px; border-radius: 40px; }
-      .audio-player .progress-container { width: 100%; }
       .question-card { padding: 20px 18px; }
       .question-card .q-text { font-size: 1rem; }
+      .question-card .q-context { font-size: 0.85rem; padding: 10px 14px; }
       .score-display { flex-direction: column; gap: 12px; text-align: center; }
       .score-display .score-detail { justify-content: center; gap: 20px; }
       .bottom-actions { flex-direction: column; align-items: center; }
@@ -832,11 +750,162 @@
 
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #d4a373, #b5835a); border-radius: 12px; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #64c8ff, #a78bfa); border-radius: 12px; }
 
     body.light-theme ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05); }
-    body.light-theme ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #d4a373, #b5835a); }
+    body.light-theme ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #4a7cf7, #7c5cbf); }
   </style>
+
+<style id="venus-identity">
+/* ============================================================
+   VENUS IDENTITY — VENUS ROSE GOLD / SOFT COPPER
+   Planet 2 · Fixed visual identity
+   ============================================================ */
+:root{
+  --venus-rose-gold:#C98272;
+  --venus-soft-copper:#D9A094;
+  --venus-light:#E6B6AA;
+  --venus-deep:#8F5148;
+  --venus-bg:#140B0C;
+}
+body{
+  background:#140B0C;
+}
+.cosmic-bg{
+  background:
+    radial-gradient(ellipse at 20% 30%, #2A1518, transparent 60%),
+    radial-gradient(ellipse at 80% 70%, #241011, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, #140B0C, #080405 100%);
+}
+.nebula-1{
+  background:rgba(201,130,114,.10);
+}
+.nebula-2{
+  background:rgba(143,81,72,.09);
+}
+.brand .logo-icon{
+  border-color:rgba(217,160,148,.38);
+  background:rgba(201,130,114,.09);
+  color:var(--venus-soft-copper);
+}
+.brand .glow{
+  background:linear-gradient(135deg,var(--venus-soft-copper),var(--venus-rose-gold));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.btn-back:hover{
+  background:rgba(201,130,114,.08);
+  border-color:rgba(217,160,148,.30);
+}
+.btn-reset{
+  color:#E6B6AA;
+  border-color:rgba(201,130,114,.24);
+  background:rgba(201,130,114,.07);
+}
+.btn-reset:hover{
+  background:rgba(201,130,114,.13);
+  border-color:rgba(217,160,148,.38);
+}
+.btn-submit{
+  color:#E6B6AA;
+  border-color:rgba(201,130,114,.28);
+  background:linear-gradient(135deg,rgba(201,130,114,.16),rgba(217,160,148,.10));
+}
+.btn-submit:hover:not(:disabled){
+  background:linear-gradient(135deg,rgba(201,130,114,.24),rgba(217,160,148,.16));
+  border-color:rgba(230,182,170,.42);
+}
+.exam-badge{
+  color:var(--venus-soft-copper);
+  border-color:rgba(201,130,114,.25);
+}
+.exam-header h1{
+  background:linear-gradient(135deg,#FFF8F5,var(--venus-soft-copper));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.instructions-box{
+  border-color:rgba(201,130,114,.18);
+}
+.instructions-box .instructions-text .highlight{
+  color:var(--venus-soft-copper);
+}
+.question-card{
+  border-color:rgba(201,130,114,.18);
+}
+.question-card:hover{
+  border-color:rgba(217,160,148,.30);
+}
+.question-card .q-context{
+  border-left-color:rgba(201,130,114,.55);
+}
+.option input[type="radio"]:checked:not(:disabled){
+  border-color:var(--venus-soft-copper);
+  background:rgba(201,130,114,.13);
+}
+.option input[type="radio"]:checked:not(:disabled)::after{
+  background:var(--venus-rose-gold);
+}
+.score-display{
+  border-color:rgba(201,130,114,.18);
+}
+.score-display .score-value{
+  color:var(--venus-soft-copper);
+}
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(135deg,var(--venus-rose-gold),var(--venus-soft-copper));
+}
+body.light-theme{
+  background:#F5ECE9;
+  color:#2A1A18;
+}
+body.light-theme .cosmic-bg{
+  background:
+    radial-gradient(ellipse at 20% 30%,#F0DCD6,transparent 60%),
+    radial-gradient(ellipse at 80% 70%,#E9CCC5,transparent 50%),
+    radial-gradient(ellipse at 50% 50%,#F5ECE9,#EBDDD8 100%);
+}
+body.light-theme .brand .glow{
+  background:linear-gradient(135deg,#B86F61,#8F5148);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+body.light-theme .brand .logo-icon{
+  border-color:rgba(184,111,97,.28);
+  color:#B86F61;
+}
+body.light-theme .btn-submit{
+  color:#A65F53;
+  border-color:rgba(184,111,97,.22);
+  background:linear-gradient(135deg,rgba(184,111,97,.10),rgba(217,160,148,.10));
+}
+body.light-theme .btn-reset{
+  color:#9A554A;
+  border-color:rgba(184,111,97,.18);
+  background:rgba(184,111,97,.06);
+}
+body.light-theme .option input[type="radio"]:checked:not(:disabled){
+  border-color:#B86F61;
+  background:rgba(184,111,97,.10);
+}
+body.light-theme .option input[type="radio"]:checked:not(:disabled)::after{
+  background:#B86F61;
+}
+body.light-theme .instructions-box .instructions-text .highlight{
+  color:#B86F61;
+}
+body.light-theme .score-display .score-value{
+  color:#B86F61;
+}
+body.light-theme ::-webkit-scrollbar-thumb{
+  background:linear-gradient(135deg,#B86F61,#D9A094);
+}
+</style>
+
+<!-- VENUS ROSE GOLD / SOFT COPPER · PLANET 2 · EXAM2 -->
 </head>
 <body>
   <div class="cosmic-bg">
@@ -846,10 +915,9 @@
   </div>
 
   <div class="container">
-    <!-- Top Bar -->
     <header class="top-bar">
       <div class="brand">
-        <div class="logo-icon">✦</div>
+        <div class="logo-icon">♀</div>
         <span class="glow">AWJ</span>
       </div>
       <div class="top-actions">
@@ -858,49 +926,29 @@
       </div>
     </header>
 
-    <!-- Exam Header -->
     <div class="exam-header">
-      <div class="exam-badge">✦ LISTENING 01 · NEPTUNE</div>
-      <h1>LISTENING COMPREHENSION</h1>
-      <div class="subtitle">♆ G.12 Sem II 2nd Session 2020-2021</div>
+      <div class="exam-badge">♀ READING 01 · VENUS</div>
+      <h1>READING COMPREHENSION</h1>
+      <div class="subtitle">♀ G.12 Sem I 2nd Session 2023-2024</div>
     </div>
 
-    <!-- Instructions -->
     <div class="instructions-box">
       <div class="instructions-title">📋 INSTRUCTIONS</div>
       <div class="instructions-text">
-        You are going to hear a conversation between Msr.Sally 
-        <span class="highlight">and her previous student</span>, Mark.
-        Listen and select the correct answers for questions 1 to 7.
+        Read the texts. Are the statements which follow each text <span class="highlight">True</span> or <span class="highlight">False</span>?
         <br><br>
-        <span style="font-size:0.9rem; font-weight:400; opacity:0.5;">⏱️ You can listen to the audio as many times as you need.</span>
+        <span style="font-size:0.9rem; font-weight:400; opacity:0.5;">⏱️ For each item, select the correct option.</span>
       </div>
     </div>
 
-    <!-- Audio Player -->
-    <div class="audio-player">
-      <button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button>
-      <div class="progress-container">
-        <div class="progress-bar" id="progressBar" onclick="seekAudio(event)">
-          <div class="progress-fill" id="progressFill"></div>
-        </div>
-        <span class="time-display" id="timeDisplay">0:00 / 0:00</span>
-      </div>
-    </div>
+    <div class="questions-container" id="questionsContainer"></div>
 
-    <!-- Questions -->
-    <div class="questions-container" id="questionsContainer">
-      <!-- Questions will be injected by JS -->
-    </div>
-
-    <!-- Bottom Actions -->
     <div class="bottom-actions">
       <button class="btn-back" onclick="goBack()">◀ BACK TO DASHBOARD</button>
       <button class="btn-reset" onclick="resetExam()">⟳ RESET ALL</button>
-      <button class="btn-submit" id="submitBtn" onclick="submitExam()" disabled>✓ SUBMIT (0/7)</button>
+      <button class="btn-submit" id="submitBtn" onclick="submitExam()">✓ SUBMIT EXAM</button>
     </div>
 
-    <!-- Score Display -->
     <div class="score-display">
       <span class="score-label">✦ SCORE</span>
       <div class="score-detail">
@@ -916,9 +964,9 @@
 
   <script>
     // ============================================================
-    // STAR GENERATION
+    // STARS
     // ============================================================
-    function createStars() {
+    (function createStars() {
       const container = document.getElementById('starContainer');
       if (!container) return;
       for (let i = 0; i < 120; i++) {
@@ -942,72 +990,61 @@
         `;
         container.appendChild(star);
       }
-    }
-    createStars();
+    })();
 
     // ============================================================
-    // THEME TOGGLE
+    // THEME
     // ============================================================
     let isLightTheme = false;
-
     function toggleTheme() {
       isLightTheme = !isLightTheme;
       document.body.classList.toggle('light-theme', isLightTheme);
-      localStorage.setItem('listening1Theme', isLightTheme ? 'light' : 'dark');
+      localStorage.setItem('reading1Theme', isLightTheme ? 'light' : 'dark');
     }
-
-    // Load saved theme
-    const savedTheme = localStorage.getItem('listening1Theme');
+    const savedTheme = localStorage.getItem('reading1Theme');
     if (savedTheme === 'light') {
       isLightTheme = true;
       document.body.classList.add('light-theme');
     }
 
     // ============================================================
-    // QUESTIONS DATA — based on Key Answers (Listening 05)
+    // QUESTIONS DATA with context + statement
     // ============================================================
     const questions = [
-      {
-        id: 1,
-        text: 'Mrs. Sally was Mark’s ______ teacher.',
-        options: ['Math', 'English', 'Science'],
+      { 
+        context: "Anne always remembers the time when her jeep ran out of petrol driving from Duqm to Salalah along the coast road. There were no petrol stations open at that time! Luckily, a very nice Omani family stopped and gave her petrol so she could continue her journey.",
+        statement: "Anne bought fuel for her car at the petrol station.",
         correct: 1
       },
-      {
-        id: 2,
-        text: 'Mrs. Sally listened to Mark’s report about ______.',
-        options: ['health', 'shopping', 'travel'],
+      { 
+        context: "In the past, companies used to pay newspapers a lot of money to advertise their goods. However, nowadays companies are using social media platforms, like Instagram, to promote their products.",
+        statement: "Companies have changed the way they promote their goods.",
         correct: 0
       },
-      {
-        id: 3,
-        text: 'Mark’s programme focuses on ______.',
-        options: ['adults', 'children', 'teenagers'],
-        correct: 2
-      },
-      {
-        id: 4,
-        text: 'Mrs. Sally knew Mark to be a ______ student.',
-        options: ['sociable', 'shy', 'worried'],
+      { 
+        context: "Hi Fahad, I’m so sorry but I won’t be able to play football with you tonight. My father and uncle have asked me to go with them to visit my grandfather in Al Hamra. See you tomorrow, Talal",
+        statement: "Talal will visit his relative tomorrow.",
         correct: 1
       },
-      {
-        id: 5,
-        text: 'According to Mark, ______ students are working at the local radio station.',
-        options: ['three', 'four', 'six'],
+      { 
+        context: "Two weeks ago, when I was going to the airport with my wife, we got stuck in a traffic jam. When we arrived at the airport, the check-in desk was closed and we had to buy new tickets because we had missed our flight. I’ll never forget that journey.",
+        statement: "The writer reached the airport on time.",
+        correct: 1
+      },
+      { 
+        context: "Jumbo Electronics is looking for a talented, dynamic sales manager. Interested candidates should email their CV and application letter, to the manager@jumboelectrics.com. Please note that all candidates should: * have at least 5 years’ sales experience. * be fluent in Arabic and English. * have a driving licence.",
+        statement: "No experience is required for the job.",
+        correct: 1
+      },
+      { 
+        context: "The Ministry of Tourism in Italy has introduced strict guidelines for tourists who wish to visit historical places. Tourists must obtain an official letter or permit and be accompanied by a tour guide at all times.",
+        statement: "Visiting historical sites in Italy requires special permission.",
         correct: 0
       },
-      {
-        id: 6,
-        text: 'Mark says it was difficult for him to ______ while broadcasting.',
-        options: ['be natural', 'deal with equipment', 'read a script'],
+      { 
+        context: "When I first started working, I did not value team work. I thought I could do everything by myself. However, I have changed my opinion because I have learned how important team work is, if one wants to succeed in life.",
+        statement: "The writer did not believe in team work when he began his career.",
         correct: 0
-      },
-      {
-        id: 7,
-        text: 'In the future, Mark wants to be a ______.',
-        options: ['producer', 'journalist', 'computer engineer'],
-        correct: 2
       }
     ];
 
@@ -1018,7 +1055,7 @@
     let isSubmitted = false;
 
     // ============================================================
-    // RENDER QUESTIONS
+    // RENDER
     // ============================================================
     function renderQuestions() {
       const container = document.getElementById('questionsContainer');
@@ -1027,13 +1064,13 @@
         const card = document.createElement('div');
         card.className = 'question-card';
         card.id = `q-${index}`;
-
         const letter = String.fromCharCode(65 + index);
         card.innerHTML = `
           <div class="q-number">${letter}. Question ${index + 1} of 7</div>
-          <div class="q-text">${q.text}</div>
+          <div class="q-context">${q.context}</div>
+          <div class="q-text">${q.statement}</div>
           <div class="options" id="options-${index}">
-            ${q.options.map((opt, optIndex) => `
+            ${['True', 'False'].map((opt, optIndex) => `
               <label class="option" id="opt-${index}-${optIndex}">
                 <input type="radio" name="q${index}" value="${optIndex}" onchange="selectOption(${index}, ${optIndex})">
                 <span class="option-label">${String.fromCharCode(65 + optIndex)}. ${opt}</span>
@@ -1058,11 +1095,7 @@
       const btn = document.getElementById('submitBtn');
       const answered = Object.keys(userAnswers).length;
       btn.disabled = answered < questions.length;
-      if (answered < questions.length) {
-        btn.textContent = `✓ SUBMIT (${answered}/${questions.length})`;
-      } else {
-        btn.textContent = '✓ SUBMIT EXAM';
-      }
+      btn.textContent = answered < questions.length ? `✓ SUBMIT (${answered}/${questions.length})` : '✓ SUBMIT EXAM';
     }
 
     // ============================================================
@@ -1081,30 +1114,21 @@
       submitBtn.disabled = true;
       submitBtn.textContent = '✓ SUBMITTED';
 
-      let correctCount = 0;
-      let wrongCount = 0;
-
+      let correctCount = 0, wrongCount = 0;
       questions.forEach((q, index) => {
         const userAns = userAnswers[index];
         const isCorrect = userAns === q.correct;
         if (isCorrect) correctCount++;
         else wrongCount++;
 
-        // Mark correct option
         const correctOpt = document.getElementById(`opt-${index}-${q.correct}`);
-        if (correctOpt) {
-          correctOpt.classList.add('correct');
-        }
+        if (correctOpt) correctOpt.classList.add('correct');
 
-        // Mark user's wrong choice (if any)
         if (!isCorrect && userAns !== undefined) {
           const wrongOpt = document.getElementById(`opt-${index}-${userAns}`);
-          if (wrongOpt) {
-            wrongOpt.classList.add('wrong');
-          }
+          if (wrongOpt) wrongOpt.classList.add('wrong');
         }
 
-        // Disable all options
         const optionsContainer = document.getElementById(`options-${index}`);
         if (optionsContainer) {
           optionsContainer.querySelectorAll('.option').forEach(opt => {
@@ -1115,50 +1139,41 @@
         }
       });
 
-      // Update score display
       document.getElementById('scoreNum').textContent = correctCount;
       document.getElementById('correctCount').textContent = `✓ ${correctCount}`;
       document.getElementById('wrongCount').textContent = `✗ ${wrongCount}`;
       document.getElementById('scoreValue').style.color = '#4ade80';
 
-      // Save score to localStorage (listening1)
-      const score = correctCount;
       try {
         const student = localStorage.getItem('currentStudent');
         if (student) {
           const students = JSON.parse(localStorage.getItem('students')) || {};
           if (!students[student]) students[student] = { createdAt: new Date().toISOString(), tests: {} };
           if (!students[student].tests) students[student].tests = {};
-          if (!students[student].tests['exam8']) students[student].tests['exam8'] = {};
-          students[student].tests['exam8']['listening1'] = score;
+          if (!students[student].tests['exam1']) students[student].tests['exam1'] = {};
+          students[student].tests['exam2']['reading1'] = correctCount;
           localStorage.setItem('students', JSON.stringify(students));
-          console.log('Score saved:', score);
         }
-      } catch (e) {
-        console.log('Score saved locally only');
-      }
+      } catch (e) {}
     }
 
     // ============================================================
     // RESET
     // ============================================================
     function resetExam() {
-      if (isSubmitted) {
-        if (!confirm('This will reset all your answers. Are you sure?')) return;
-      }
+      if (isSubmitted && !confirm('This will reset all your answers. Are you sure?')) return;
       isSubmitted = false;
       userAnswers = {};
       document.getElementById('scoreNum').textContent = '0';
       document.getElementById('correctCount').textContent = '✓ 0';
       document.getElementById('wrongCount').textContent = '✗ 0';
-      document.getElementById('scoreValue').style.color = '#d4a373';
+      document.getElementById('scoreValue').style.color = '#a78bfa';
 
       const submitBtn = document.getElementById('submitBtn');
       submitBtn.disabled = true;
       submitBtn.textContent = '✓ SUBMIT (0/7)';
 
-      // Reset all options
-      questions.forEach((q, index) => {
+      questions.forEach((_, index) => {
         const optionsContainer = document.getElementById(`options-${index}`);
         if (optionsContainer) {
           optionsContainer.querySelectorAll('.option').forEach(opt => {
@@ -1174,121 +1189,12 @@
     }
 
     // ============================================================
-    // AUDIO PLAYER
-    // ============================================================
-    const AUDIO_PATH = '../audio/listening08.mp3';
-
-    let audio = null;
-    let isPlaying = false;
-
-    function initAudio() {
-      if (!audio) {
-        audio = new Audio();
-        audio.src = AUDIO_PATH;
-
-        audio.onerror = function() {
-          console.error('Audio file failed to load. Path:', AUDIO_PATH);
-        };
-
-        audio.addEventListener('loadedmetadata', updateAudioUI);
-        audio.addEventListener('timeupdate', updateAudioUI);
-
-        audio.addEventListener('play', () => {
-          isPlaying = true;
-          document.getElementById('playBtn').textContent = '⏸';
-        });
-
-        audio.addEventListener('pause', () => {
-          isPlaying = false;
-          document.getElementById('playBtn').textContent = '▶';
-        });
-
-        audio.addEventListener('ended', () => {
-          isPlaying = false;
-          document.getElementById('playBtn').textContent = '▶';
-          document.getElementById('progressFill').style.width = '0%';
-          if (audio.duration) {
-            document.getElementById('timeDisplay').textContent =
-              '0:00 / ' + formatTime(audio.duration);
-          }
-        });
-      }
-      updateAudioUI();
-    }
-
-    function togglePlay() {
-      if (!audio) initAudio();
-      if (isPlaying) {
-        audio.pause();
-      } else {
-        audio.play().catch(e => {
-          console.error('Playback failed:', e);
-          alert('Could not play audio. Please check if the audio file exists.');
-        });
-      }
-    }
-
-    function updateAudioUI() {
-      const playBtn = document.getElementById('playBtn');
-      const progressFill = document.getElementById('progressFill');
-      const timeDisplay = document.getElementById('timeDisplay');
-
-      if (audio) {
-        const update = () => {
-          if (audio.duration && !isNaN(audio.duration)) {
-            const percent = (audio.currentTime / audio.duration) * 100;
-            progressFill.style.width = percent + '%';
-            timeDisplay.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration);
-          }
-        };
-        
-        audio.addEventListener('timeupdate', update);
-        audio.addEventListener('play', () => {
-          isPlaying = true;
-          playBtn.textContent = '⏸';
-        });
-        audio.addEventListener('pause', () => {
-          isPlaying = false;
-          playBtn.textContent = '▶';
-        });
-        audio.addEventListener('ended', () => {
-          isPlaying = false;
-          playBtn.textContent = '▶';
-          progressFill.style.width = '0%';
-          if (audio.duration) {
-            timeDisplay.textContent = '0:00 / ' + formatTime(audio.duration);
-          }
-        });
-        setTimeout(update, 100);
-      }
-    }
-
-    function formatTime(seconds) {
-      if (!seconds || isNaN(seconds)) return '0:00';
-      const mins = Math.floor(seconds / 60);
-      const secs = Math.floor(seconds % 60);
-      return mins + ':' + (secs < 10 ? '0' : '') + secs;
-    }
-
-    function seekAudio(e) {
-      if (!audio) return;
-      const bar = document.getElementById('progressBar');
-      const rect = bar.getBoundingClientRect();
-      const percent = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-      if (audio.duration && !isNaN(audio.duration)) {
-        audio.currentTime = percent * audio.duration;
-      }
-    }
-
-    // ============================================================
-    // NAVIGATION — now goes to neptune_Dashboard.html
+    // NAVIGATION
     // ============================================================
     function goBack() {
       document.body.style.transition = 'opacity 0.3s ease';
       document.body.style.opacity = '0';
-      setTimeout(() => {
-        window.location.href = 'neptune_Dashboard.html';
-      }, 300);
+      setTimeout(() => { window.location.href = 'venus_Dashboard.html'; }, 300);
     }
 
     // ============================================================
@@ -1296,9 +1202,7 @@
     // ============================================================
     renderQuestions();
     updateSubmitButton();
-    initAudio();
 
-    // Keyboard shortcut: Enter to submit
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && !document.getElementById('submitBtn').disabled) {
         submitExam();
